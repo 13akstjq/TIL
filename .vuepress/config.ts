@@ -2,9 +2,8 @@ import { defaultTheme, DefaultThemeOptions, defineUserConfig, Theme, viteBundler
 import { pwaPlugin } from "@vuepress/plugin-pwa";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { feed } from "vuepress-plugin-feed2";
-// import { sitemap } from "vuepress-plugin-sitemap";
-import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { searchPlugin } from "@vuepress/plugin-search";
+import {sitemapPlugin} from 'vuepress-plugin-sitemap2';
 import MarkdownItPlantuml from "markdown-it-plantuml";
 import MarkdownItUnderline from "markdown-it-underline";
 import MarkdownItTaskLists from "markdown-it-task-lists";
