@@ -98,6 +98,8 @@ em {
 
   img {
     border: 1px solid var(--c-border-dark);
+    display: block;
+    margin: 0 auto;
 
     &[alt="uml diagram"],
     &[alt*="bn"] {
