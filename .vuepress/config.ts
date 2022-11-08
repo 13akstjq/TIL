@@ -67,6 +67,7 @@ export default defineUserConfig({
     ["meta", { name: "msapplication-TileColor", content: "#3a0839" }],
     ["meta", { name: "msapplication-config", content: "/TIL/browserconfig.xml" }],
     ["meta", { name: "theme-color", content: "#ffffff" }],
+    ["script", { async: true, "data-ad-client" :'ca-pub-4877378276818686', src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" }],
   ],
   extendsMarkdown: (md) => {
     md.use(MarkdownItPlantuml);
