@@ -3,7 +3,7 @@ import { pwaPlugin } from "@vuepress/plugin-pwa";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { feed } from "vuepress-plugin-feed2";
 import { searchPlugin } from "@vuepress/plugin-search";
-import {sitemapPlugin} from 'vuepress-plugin-sitemap2';
+const { sitemapPlugin } = require("vuepress-plugin-sitemap2");
 import MarkdownItPlantuml from "markdown-it-plantuml";
 import MarkdownItUnderline from "markdown-it-underline";
 import MarkdownItTaskLists from "markdown-it-task-lists";
@@ -67,7 +67,7 @@ export default defineUserConfig({
     ["meta", { name: "msapplication-TileColor", content: "#3a0839" }],
     ["meta", { name: "msapplication-config", content: "/TIL/browserconfig.xml" }],
     ["meta", { name: "theme-color", content: "#ffffff" }],
-    ["script", { async: true, "data-ad-client" :'ca-pub-4877378276818686', src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" }],
+    ["script", { async: true, "data-ad-client": "ca-pub-4877378276818686", src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" }],
   ],
   extendsMarkdown: (md) => {
     md.use(MarkdownItPlantuml);
