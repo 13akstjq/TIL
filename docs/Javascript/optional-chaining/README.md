@@ -18,6 +18,15 @@ optional chaining(`?.`), nullish coalescing(`??`)를 이용해 변수에 따른 
 
 :::
 
+
+<!-- vuepress 수평 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4877378276818686"
+     data-ad-slot="7889645103"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
 ## 1. optional chaining(`?.`)
 
 React와 Typescript로 UI개발을 하다 보면 컴포넌트의 props의 타입이 `?: number`와 같이 nullable 한 경우가 많이 있습니다. 
