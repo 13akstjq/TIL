@@ -17,6 +17,10 @@ thumbnail: https://user-images.githubusercontent.com/46010705/199180122-3b69bb91
 <img src="https://user-images.githubusercontent.com/46010705/199180122-3b69bb91-75b2-4b7e-9f62-ac80bde4a81b.gif" width="700">
 
 
+
+
+
+<component is="script" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686" async></component>
 <!-- vuepress 수평 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -24,6 +28,9 @@ thumbnail: https://user-images.githubusercontent.com/46010705/199180122-3b69bb91
      data-ad-slot="7889645103"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+     <component is="script">
+      (adsbygoogle = window.adsbygoogle || []).push({});
+     </component>
 
 ---
 
