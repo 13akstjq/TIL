@@ -82,7 +82,7 @@ export default defineUserConfig({
       json: true,
     }),
     googleAnalyticsPlugin({
-      id: "UA-113171398-2",
+      id: "G-1J5RF08RZE",
     }),
     sitemap({ hostname: "https://13akstjq.github.io/TIL" }),
     searchPlugin({}),
