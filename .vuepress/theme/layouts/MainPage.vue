@@ -67,6 +67,7 @@ onMounted(async () => {
             #{{ tag.toUpperCase() }} <strong v-html="count"/>
           </a>
         </div>
+        <component is="script" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686" async></component>
 <!-- 수평 디스플레이 광고 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -74,6 +75,9 @@ onMounted(async () => {
      data-ad-slot="4963641784"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+     <component is="script">
+      (adsbygoogle = window.adsbygoogle || []).push({});
+     </component>
 
         <Posts :items="currentItems" @select-tag="selectTag"/>
 
