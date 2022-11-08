@@ -2,7 +2,7 @@ import { defaultTheme, DefaultThemeOptions, defineUserConfig, Theme, viteBundler
 import { pwaPlugin } from "@vuepress/plugin-pwa";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { feed } from "vuepress-plugin-feed2";
-import { sitemap } from "vuepress-plugin-sitemap2";
+import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { searchPlugin } from "@vuepress/plugin-search";
 import MarkdownItPlantuml from "markdown-it-plantuml";
 import MarkdownItUnderline from "markdown-it-underline";
@@ -84,7 +84,7 @@ export default defineUserConfig({
     googleAnalyticsPlugin({
       id: "G-1J5RF08RZE",
     }),
-    sitemap({ hostname: "https://13akstjq.github.io/TIL" }),
+    sitemapPlugin({ hostname: "https://13akstjq.github.io/TIL" }),
     searchPlugin({}),
     // demoBlock({}),
   ],
