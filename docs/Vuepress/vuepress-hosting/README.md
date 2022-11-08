@@ -16,6 +16,18 @@ tag: vuepress
 
 <img width="1709" alt="image" src="https://user-images.githubusercontent.com/46010705/198867686-c2f60f4a-2326-4a3e-8f55-74e87e52effa.png">
 
+<component is="script" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686" async></component>
+<!-- vuepress 수평 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4877378276818686"
+     data-ad-slot="7889645103"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+     <component is="script">
+      (adsbygoogle = window.adsbygoogle || []).push({});
+     </component>
+
 vuepress와 github pages 를 이용하면 위와 같은 블로그를 만들 수 있다. 
 
 디자인도 굉장히 깔끔하고 IT 정보성 블로그로는 군더더기가 없는 것이라 생각해서 이 스타일을 채택하게 되었다. 
@@ -130,6 +142,7 @@ vuepress 설치는 끝났다. 이제 로컬에서 vuepress가 정상적으로 �
 <img width="1717" alt="image" src="https://user-images.githubusercontent.com/46010705/198868117-9b10b886-be78-4656-a1ce-99934df8d955.png">
 
 
+<component is="script" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686" async></component>
 <!-- vuepress 수평 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -137,6 +150,9 @@ vuepress 설치는 끝났다. 이제 로컬에서 vuepress가 정상적으로 �
      data-ad-slot="7889645103"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+     <component is="script">
+      (adsbygoogle = window.adsbygoogle || []).push({});
+     </component>
 
 Localhost:8000 으로 접근하면 위와 같은 화면이 뜨는 것을 볼 수 있다. 
 

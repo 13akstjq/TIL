@@ -19,6 +19,7 @@ optional chaining(`?.`), nullish coalescing(`??`)를 이용해 변수에 따른 
 :::
 
 
+<component is="script" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686" async></component>
 <!-- vuepress 수평 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -26,6 +27,9 @@ optional chaining(`?.`), nullish coalescing(`??`)를 이용해 변수에 따른 
      data-ad-slot="7889645103"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+     <component is="script">
+      (adsbygoogle = window.adsbygoogle || []).push({});
+     </component>
 
 ## 1. optional chaining(`?.`)
 
@@ -107,7 +111,19 @@ export const ImageListView = ({imageList} :  ImageListViewProps)  => {
 
 optional chaining은 `?.` 좌측 값이 null, undefined인 경우 undefined를 리턴합니다. 
 
-위와 같은 방식으로 각 image에도 optional chaining을 적용해 보도록 하겠습니다. 
+위와 같은 방식으로 각 image에도 optional chaining을 적용해 보도록 하겠습니다.
+
+<component is="script" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686" async></component>
+<!-- vuepress 수평 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4877378276818686"
+     data-ad-slot="7889645103"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+     <component is="script">
+      (adsbygoogle = window.adsbygoogle || []).push({});
+     </component>
 
 ```jsx
 {...중략}
