@@ -3,7 +3,7 @@ import { pwaPlugin } from "@vuepress/plugin-pwa";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { feed } from "vuepress-plugin-feed2";
 import { searchPlugin } from "@vuepress/plugin-search";
-// const { sitemapPlugin } = require("vuepress-plugin-sitemap2");
+const { sitemapPlugin } = require("vuepress-plugin-sitemap2");
 import MarkdownItPlantuml from "markdown-it-plantuml";
 import MarkdownItUnderline from "markdown-it-underline";
 import MarkdownItTaskLists from "markdown-it-task-lists";
