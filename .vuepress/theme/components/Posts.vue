@@ -19,6 +19,19 @@ function selectTag(tag: string) {
     <li v-for="(item, key) in items" :key="key">
       <PostItem :item="item" @select-tag="selectTag" />
     </li>
+    <li>
+<component is="script" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686" async></component>
+<!-- 수평 디스플레이 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="+3m+oy-47-5p+1aj"
+     data-ad-client="ca-pub-4877378276818686"
+     data-ad-slot="2638932829"></ins>
+     <component is="script">
+      (adsbygoogle = window.adsbygoogle || []).push({});
+     </component>
+    </li>
   </ul>
 </template>
 
