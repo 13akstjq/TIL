@@ -67,6 +67,13 @@ onMounted(async () => {
             #{{ tag.toUpperCase() }} <strong v-html="count"/>
           </a>
         </div>
+<!-- 수평 디스플레이 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4877378276818686"
+     data-ad-slot="4963641784"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 
         <Posts :items="currentItems" @select-tag="selectTag"/>
 
