@@ -1,17 +1,15 @@
 ---
-
 title: Today I Learned
 date: 2020-01-01 13:00:00
 sidebar: false
 next: false
-hitUrl: https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://junilhwang.github.io/TIL/
+hitUrl: https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://13akstjq.github.io/TIL/
 disabledPost: true
-
 ---
 
 # About
 
-![junilhwang's github stats bn](https://github-readme-stats.vercel.app/api?username=junilhwang)
+![13akstjq's github stats bn](https://github-readme-stats.vercel.app/api?username=13akstjq)
 
 ### 이력
 
@@ -22,4 +20,3 @@ disabledPost: true
 - :trolleybus: [단국대학교 개발자 스터디](https://github.com/DKU-STUDY) (2020. 04 ~ 현재)
 - :school: 삼일공업고등학교 (2013. 02)
 - :school: 단국대학교 소프트웨어학과 졸업 (2020. 02)
-

@@ -1,9 +1,9 @@
 {
-  "name": "junilhwang-today-i-learned",
+  "name": "ui-developer",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/JunilHwang/TIL",
-  "author": "junil-hwang <junil.h@kakao.com>",
+  "repository": "https://github.com/13akstjq/TIL",
+  "author": "mansub han <13akstjq@gmail.com>",
   "scripts": {
     "docs:dev": "vuepress-vite dev",
     "docs:build": "vuepress-vite build"

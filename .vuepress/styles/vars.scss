@@ -2,8 +2,9 @@
   scroll-behavior: smooth;
 
   // brand colors
-  --c-brand: #09F;
-  --c-brand-light: #06F;
+  --c-brand: #3eaf7c;
+  // --c-brand: #09F;
+  --c-brand-light: #3eaf7c;
 
   // background colors
   --c-bg: #ffffff;
@@ -132,8 +133,10 @@
 
 html.dark {
   // brand colors
-  --c-brand: #09F;
-  --c-brand-light: #06F;
+  // --c-brand: #09F;
+  // --c-brand-light: #06F;
+  --c-brand: #3eaf7c;
+  --c-brand-light: #3eaf7c;
 
   // background colors
   --c-bg: #22272e;
