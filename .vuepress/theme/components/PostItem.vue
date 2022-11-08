@@ -84,7 +84,7 @@ function fromNow(timestamp: number) {
 
       <router-link :to="item.path" class="info">
 
-        <h4 v-html="item.title" />
+        <h4 class="post_title" v-html="item.title" />
 
         <p v-html="item.description" />
 
@@ -181,17 +181,19 @@ article {
     display: block;
     margin-bottom: 10px;
     letter-spacing: -0.5px;
-    height: 120px;
+    height: 140px;
 
     &:hover {
       text-decoration: none;
     }
   }
 
-  h4 {
+  .post_title { 
     color: var(--c-text);
+    line-height: 1.4;
     margin: 0;
   }
+  
 
   p {
     margin: 10px 0 0;

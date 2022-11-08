@@ -34,6 +34,7 @@ ul, li {
 ul {
   display: flex;
   flex-flow: wrap;
+  margin: 0 -10px -10px -10px;
 }
 
 li {
