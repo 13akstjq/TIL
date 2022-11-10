@@ -139,7 +139,7 @@ article {
     display: block;
     margin: 0;
     position: relative;
-    padding-top: 80%;
+    padding-top: 60%;
     overflow: hidden;
     border-radius: 3px 3px 0 0;
 
