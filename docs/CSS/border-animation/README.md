@@ -5,6 +5,7 @@ date: 2022-11-10
 sidebarDepth: 2
 tag: CSS, HTML
 thumbnail: https://user-images.githubusercontent.com/46010705/201071658-57ebb339-2b8a-45ba-95a6-fcf6dc3575b4.png
+hitUrl : https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F13akstjq.github.io%2FTIL%2Fdocs%2FCSS%2Fborder-animation%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false
 ---
 
 # linear-gradient를 활용한 여러가지 border 애니메이션 5가지
