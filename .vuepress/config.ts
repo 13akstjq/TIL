@@ -37,7 +37,7 @@ const posts = glob
       description: getProperty(data, "description"),
       thumbnail: getProperty(data, "thumbnail"),
       createdAt: new Date(getProperty(data, "date") || fs.statSync(path).birthtime).getTime(),
-      sitemapLoc: `https://13akstjq.github.io/TIL/${path.replace("README.md", "")}`,
+      sitemapLoc: `http://13akstjq.github.io/TIL/${path.replace("README.md", "")}`,
     };
   })
   .filter((v) => Boolean(v?.title))
