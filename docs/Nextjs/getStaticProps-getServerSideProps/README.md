@@ -1,5 +1,5 @@
 ---
-title: [Nextjs 13.0] getStaticProps, getServersideProps, getStaticPaths의 적절한 사용 방법
+title: getStaticProps, getServersideProps 적절한 사용 방법 
 description: Nextjs의 client-side props와 server-side props를 어떤 상황에 사용해야하는지 정리합니다. 
 date: 2022-11-13
 sidebarDepth: 2
