@@ -6,7 +6,6 @@ import { searchPlugin } from "@vuepress/plugin-search";
 import MarkdownItPlantuml from "markdown-it-plantuml";
 import MarkdownItUnderline from "markdown-it-underline";
 import MarkdownItTaskLists from "markdown-it-task-lists";
-import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 // import  from "vuepress-plugin-sitemap";
 import * as path from "path";
 import * as glob from "glob";
@@ -38,10 +37,28 @@ const posts = glob
       description: getProperty(data, "description"),
       thumbnail: getProperty(data, "thumbnail"),
       createdAt: new Date(getProperty(data, "date") || fs.statSync(path).birthtime).getTime(),
+      sitemapLoc: `https://13akstjq.github.io/TIL/${path.replace("README.md", "")}`,
     };
   })
   .filter((v) => Boolean(v?.title))
   .sort((a, b) => b.createdAt - a.createdAt);
+
+const generateSitemap = (posts) => {
+  let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+  for (let i in posts) {
+    const post = posts[i];
+    sitemap += "<url>\n";
+    sitemap += `\t<loc>${post.sitemapLoc}</loc>\n`;
+    sitemap += "</url>\n";
+  }
+  sitemap += "</urlset>";
+  return sitemap;
+};
+
+console.log(generateSitemap(posts));
+fs.writeFileSync(path.join(__dirname, "/public/sitemap.xml"), generateSitemap(posts));
 
 fs.writeFileSync(path.join(__dirname, "/public/posts.json"), JSON.stringify(posts));
 
@@ -77,9 +94,12 @@ export default defineUserConfig({
     md.use(MarkdownItTaskLists);
   },
   plugins: [
-    ["sitemap1", { 
-      'hostname' : 'https://13akstjq.github.io/TIL'
-    }],
+    [
+      "sitemap1",
+      {
+        hostname: "https://13akstjq.github.io/TIL",
+      },
+    ],
     feed({
       hostname: "https://13akstjq.github.io/TIL/",
       rss: true,
@@ -90,9 +110,9 @@ export default defineUserConfig({
       id: "G-1J5RF08RZE",
     }),
     // ['sitemap',{hostname: "https://13akstjq.github.io/TIL" }],
-    sitemapPlugin({ hostname: "https://13akstjq.github.io/TIL" }),
+    // sitemapPlugin({ hostname: "https://13akstjq.github.io/TIL" }),
     searchPlugin({}),
-   
+
     // demoBlock({}),
   ],
 });
