@@ -6,6 +6,7 @@ import { searchPlugin } from "@vuepress/plugin-search";
 import MarkdownItPlantuml from "markdown-it-plantuml";
 import MarkdownItUnderline from "markdown-it-underline";
 import MarkdownItTaskLists from "markdown-it-task-lists";
+import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 // import  from "vuepress-plugin-sitemap";
 import * as path from "path";
 import * as glob from "glob";
@@ -89,7 +90,7 @@ export default defineUserConfig({
       id: "G-1J5RF08RZE",
     }),
     // ['sitemap',{hostname: "https://13akstjq.github.io/TIL" }],
-    // sitemapPlugin({ hostname: "https://13akstjq.github.io/TIL" }),
+    sitemapPlugin({ hostname: "https://13akstjq.github.io/TIL" }),
     searchPlugin({}),
    
     // demoBlock({}),
