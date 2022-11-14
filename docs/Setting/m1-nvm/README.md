@@ -87,3 +87,13 @@ nvm ls
 ```bash
 nvm use 16.17.0
 ```
+
+## default Node 버전 설정
+
+이렇게 해두면 원하지 않는 Node 버전이 기본적으로 설정되어있을 수 있습니니다.
+
+```bash
+nvm alias default 16.17.0
+```
+
+위와 같이 작성해주면 기본 Node 버전을 지정해서 사용할 수 있습니다.
