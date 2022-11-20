@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import {defineProps, defineEmits} from "vue";
-import {IPostItem} from "../../type";
+import { defineProps, defineEmits } from "vue";
+import { IPostItem } from "../../type";
 import PostItem from "./PostItem.vue";
 
 const props = defineProps<{
-  items: IPostItem[]
+  items: IPostItem[];
 }>();
 
-const emit = defineEmits(['select-tag']);
+const emit = defineEmits(["select-tag"]);
 
 function selectTag(tag: string) {
-  emit('select-tag', tag);
+  emit("select-tag", tag);
 }
 </script>
 
@@ -25,7 +25,8 @@ function selectTag(tag: string) {
 <style lang="scss" scoped>
 @import "../../styles/mixins";
 
-ul, li {
+ul,
+li {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -38,13 +39,14 @@ ul {
 }
 
 li {
-  @include only-pc {
-    width: calc(100% / 3);
-  }
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+
+  @include only-pc {
+    // width: calc(100% / 3);
+  }
 }
 </style>

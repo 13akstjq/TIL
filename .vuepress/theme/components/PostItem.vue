@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import {defineProps, computed} from "vue";
-import {IPostItem} from "../../type";
-import {withBase} from "@vuepress/client";
-import {TimeIcon} from "./icons";
+import { defineProps, computed } from "vue";
+import { IPostItem } from "../../type";
+import { withBase } from "@vuepress/client";
+import { TimeIcon } from "./icons";
 
 const props = defineProps<{
-  item: IPostItem
+  item: IPostItem;
 }>();
 
-const emit = defineEmits(['select-tag']);
+const emit = defineEmits(["select-tag"]);
 
 const thumbnailUri = computed(() => {
   const { thumbnail } = props.item;
@@ -18,16 +18,13 @@ const thumbnailUri = computed(() => {
   }
 
   if (thumbnail.startsWith("~")) {
-    return new URL(
-      thumbnail.replace("~", "."),
-      import.meta.url.replace(".vuepress/theme/components/PostItem.vue", "")
-    ).href;
+    return new URL(thumbnail.replace("~", "."), import.meta.url.replace(".vuepress/theme/components/PostItem.vue", "")).href;
   }
   return thumbnail;
 });
 
 const tags = computed(() => {
-  return props.item.tag?.split(",").map(v => v.trim());
+  return props.item.tag?.split(",").map((v) => v.trim());
 });
 
 function fromNow(timestamp: number) {
@@ -39,19 +36,19 @@ function fromNow(timestamp: number) {
   const 주 = 일 * 7;
 
   if (ms < 분) {
-    return Math.ceil(ms / 초) + '초 전';
+    return Math.ceil(ms / 초) + "초 전";
   }
 
   if (ms < 시) {
-    return Math.ceil(ms / 분) + '분 전';
+    return Math.ceil(ms / 분) + "분 전";
   }
 
   if (ms < 일) {
-    return Math.ceil(ms / 시) + '시간 전';
+    return Math.ceil(ms / 시) + "시간 전";
   }
 
   if (ms < 주) {
-    return Math.ceil(ms / 일) + '일 전';
+    return Math.ceil(ms / 일) + "일 전";
   }
 
   const date = new Date(timestamp);
@@ -70,24 +67,15 @@ function fromNow(timestamp: number) {
       <img :src="thumbnailUri" alt="no-image" />
     </router-link>
 
-    <div>
+    <div class="text_area">
       <p class="tags" v-if="tags">
-        <a
-          v-for="(tag, key) in tags"
-          :key="key"
-          href="#"
-          @click.prevent="emit('select-tag', tag)"
-        >
-          #{{tag}}
-        </a>
+        <a v-for="(tag, key) in tags" :key="key" href="#" @click.prevent="emit('select-tag', tag)"> #{{ tag }} </a>
       </p>
 
       <router-link :to="item.path" class="info">
-
         <h4 class="post_title" v-html="item.title" />
 
         <p v-html="item.description" />
-
       </router-link>
 
       <time>
@@ -123,16 +111,17 @@ article {
   }
 
   @include only-pc {
+    display: flex;
     $size: 7px;
-    &:hover {
-      border-color: #000;
-      transform: translateY(-$size) translateX($size);
+    // &:hover {
+    //   border-color: #000;
+    //   transform: translateY(-$size) translateX($size);
 
-      &::before {
-        opacity: 1;
-        transform: translateY($size) translateX(-$size);
-      }
-    }
+    //   &::before {
+    //     opacity: 1;
+    //     transform: translateY($size) translateX(-$size);
+    //   }
+    // }
   }
 
   .figure {
@@ -152,6 +141,16 @@ article {
       object-fit: cover;
       border: none;
     }
+
+    @include only-pc {
+      padding-top: 0%;
+      flex-shrink: 0;
+      width: 300px;
+    }
+  }
+
+  .text_area {
+    flex-grow: 1;
   }
 
   > div {
@@ -181,19 +180,21 @@ article {
     display: block;
     margin-bottom: 10px;
     letter-spacing: -0.5px;
-    height: 140px;
 
     &:hover {
       text-decoration: none;
     }
+
+    @include only-pc {
+      height: 120px;
+    }
   }
 
-  .post_title { 
+  .post_title {
     color: var(--c-text);
     line-height: 1.4;
     margin: 0;
   }
-  
 
   p {
     margin: 10px 0 0;

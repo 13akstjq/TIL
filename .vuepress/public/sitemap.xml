@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+	<loc>http://13akstjq.github.io/TIL/docs/Nextjs/zustand-react-hydration-error/index.html</loc>
+</url>
+<url>
 	<loc>http://13akstjq.github.io/TIL/docs/Nextjs/getStaticProps-getServerSideProps/index.html</loc>
 </url>
 <url>
