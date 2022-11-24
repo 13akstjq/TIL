@@ -5,6 +5,7 @@ date: 2022-11-13
 sidebarDepth: 2
 tag: Nextjs
 thumbnail: https://user-images.githubusercontent.com/46010705/201511010-39dffa66-7acd-4fae-857a-5ed214f88ee8.png
+disabledPost: true
 ---
 
 # getStaticProps, getServerSideProps, getStaticPaths
