@@ -1,27 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-	<loc>http://13akstjq.github.io/TIL/docs/Nextjs/zustand-react-hydration-error/index.html</loc>
-</url>
-<url>
-	<loc>http://13akstjq.github.io/TIL/docs/Nextjs/getStaticProps-getServerSideProps/index.html</loc>
-</url>
-<url>
-	<loc>http://13akstjq.github.io/TIL/docs/Setting/m1-nvm/index.html</loc>
-</url>
-<url>
-	<loc>http://13akstjq.github.io/TIL/docs/CSS/border-animation/index.html</loc>
-</url>
-<url>
-	<loc>http://13akstjq.github.io/TIL/docs/Vuepress/hits/index.html</loc>
-</url>
-<url>
-	<loc>http://13akstjq.github.io/TIL/docs/CSS/imageset/index.html</loc>
-</url>
-<url>
-	<loc>http://13akstjq.github.io/TIL/docs/Javascript/optional-chaining/index.html</loc>
-</url>
-<url>
-	<loc>http://13akstjq.github.io/TIL/docs/Vuepress/vuepress-hosting/index.html</loc>
-</url>
 </urlset>
