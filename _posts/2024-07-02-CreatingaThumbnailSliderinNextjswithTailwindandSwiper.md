@@ -1,15 +1,14 @@
 ---
 title: "Nextjs에서 Tailwind와 Swiper로 썸네일 슬라이더 만드는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-02-CreatingaThumbnailSliderinNextjswithTailwindandSwiper_0.png"
+coverImage: "/TIL/assets/img/2024-07-02-CreatingaThumbnailSliderinNextjswithTailwindandSwiper_0.png"
 date: 2024-07-02 21:47
-ogImage: 
-  url: /assets/img/2024-07-02-CreatingaThumbnailSliderinNextjswithTailwindandSwiper_0.png
+ogImage:
+  url: /TIL/assets/img/2024-07-02-CreatingaThumbnailSliderinNextjswithTailwindandSwiper_0.png
 tag: Tech
 originalTitle: "Creating a Thumbnail Slider in Next.js with Tailwind and Swiper"
 link: "https://medium.com/@dadateniola/creating-a-thumbnail-slider-in-next-js-with-tailwind-and-swiper-88cd3fd67709"
 ---
-
 
 ## Next.js, Tailwind CSS, 및 Swiper를 사용하여 썸네일 슬라이더 만들기 단계별 가이드
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@dadateniola/creating-a-thumbnail-slider-in-next-js-wi
 위 내용을 기반으로, Next.js, Tailwind CSS, 및 Swiper를 사용하여 자체 썸네일 슬라이더를 만드는 것을 시작해보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,12 +42,14 @@ npx create-next-app@latest
 그런 다음에 뒤이어 나오는 프롬프트에 답변하세요. 내 개인적인 답변은 각 줄의 괄호 안에 있습니다. "Tailwind CSS"에 대해 "Yes"로 선택하는 것을 잊지 마세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -76,12 +79,14 @@ npm install swiper
 # 썸네일 슬라이더 구축하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -96,12 +101,14 @@ npm install swiper
 swiper에 필요한 가져오기를 추가하는 것부터 시작해 봅시다. 아래 코드를 그대로 복사하세요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -136,14 +143,15 @@ import { Thumbs } from "swiper/modules";
 
 ## 개별 컴포넌트 생성하기
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -200,13 +208,7 @@ const Thumbnail = ({ images }: { images: string[] }) => {
           >
             <div className="relative w-full h-full">
               {/* 썸네일 이미지 컴포넌트 */}
-              <Image
-                src={image}
-                alt="thumbnail"
-                fill
-                className="object-cover"
-                sizes="100px"
-              />
+              <Image src={image} alt="thumbnail" fill className="object-cover" sizes="100px" />
             </div>
           </SwiperSlide>
         ))}
@@ -223,12 +225,14 @@ export default ThumbnailSlider;
 여기까지 오면 썸네일 슬라이더는 거의 완성되었어요. 유일한 문제는 현재 각각 따로 움직인다는 것이죠. 하지만 우리가 원하는 것은 이들이 연결된 것처럼 함께 움직이도록 하는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -236,7 +240,7 @@ export default ThumbnailSlider;
 이를 달성하기 위해 ThumbnailSlider 컴포넌트에 다음을 추가할 것입니다:
 
 ```js
-const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
+const [thumbsSwiper, setThumbsSwiper] = (useState < SwiperType) | (null > null);
 ```
 
 그런 다음 이를 Slider 및 Thumbnail 컴포넌트로 props로 전달하세요.
@@ -247,12 +251,14 @@ const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -265,8 +271,8 @@ Typescript를 사용 중이라면, 다음과 같이 타입 안전성을 위한 �
 interface SliderProps {
   images: string[];
   thumbs: {
-    thumbsSwiper: SwiperType | null;
-    setThumbsSwiper: React.Dispatch<React.SetStateAction<SwiperType | null>>;
+    thumbsSwiper: SwiperType | null,
+    setThumbsSwiper: React.Dispatch<React.SetStateAction<SwiperType | null>>,
   };
 }
 ```
@@ -274,12 +280,14 @@ interface SliderProps {
 이제 정의한 상태를 사용하도록 Slider 및 Thumbnail 컴포넌트를 편집해 보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -320,12 +328,11 @@ const Thumbnail = ({ images, thumbs }: SliderProps) => {
         loop
         slidesPerView={4} // 한 뷰 당 썸네일 수
         spaceBetween={8} // 썸네일 간 간격
-
         onSwiper={setThumbsSwiper} // 컴포넌트가 마운트될 때 썸네일 스와이퍼 설정
         freeMode // 스냅 포인트 없이 자유롭게 슬라이딩 허용
         watchSlidesProgress // 썸네일의 슬라이드 진행 상황을 감시
       >
-       // 이전 코드를 여기에 추가하세요...
+        // 이전 코드를 여기에 추가하세요...
       </Swiper>
     </div>
   );
@@ -333,12 +340,14 @@ const Thumbnail = ({ images, thumbs }: SliderProps) => {
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -356,12 +365,14 @@ const Thumbnail = ({ images, thumbs }: SliderProps) => {
 ## 썸네일 슬라이더 컴포넌트 사용하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -404,12 +415,14 @@ export default function Home() {
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

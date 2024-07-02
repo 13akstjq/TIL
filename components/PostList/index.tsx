@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import style from "./PostList.module.scss";
 import Image from "next/image";
 import moment from "moment";
-import { AUTHOR } from "@/lib/constants";
+import { AUTHOR, SITE_NAME } from "@/lib/constants";
 // import Fire from "./assets/fire.svg";
 
 const cx = classNames.bind(style);
@@ -70,7 +70,7 @@ export const PostList = ({ postList }: PostListProps) => {
                 <div className={cx("profile_area")}>
                   <div className={cx("profile_image_wrap")}>
                     <Image
-                      src={"/favicons/apple-icon-114x114.png"}
+                      src={`/${SITE_NAME}/favicons/apple-icon-114x114.png`}
                       className={cx("profile")}
                       alt={post.title}
                       width={20}

@@ -54,7 +54,7 @@ export default function Post({ post, content }: Props) {
                 <div className={cx("profile_wrap")}>
                   <div className={cx("profile_image_wrap")}>
                     <Image
-                      src={"/favicons/apple-icon-114x114.png"}
+                      src={`/${SITE_NAME}/favicons/apple-icon-114x114.png`}
                       className={cx("profile")}
                       alt={post.title}
                       width={44}

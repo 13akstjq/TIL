@@ -1,33 +1,32 @@
 ---
 title: "Nextjs 사용이 점점 더 어려워지는 이유"
 description: ""
-coverImage: "/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_0.png"
+coverImage: "/TIL/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_0.png"
 date: 2024-07-02 21:52
-ogImage: 
-  url: /assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_0.png
+ogImage:
+  url: /TIL/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_0.png
 tag: Tech
 originalTitle: "It’s not just you, Next.js is getting harder to use"
 link: "https://medium.com/@PropelAuth/its-not-just-you-next-js-is-getting-harder-to-use-5ab30a24282a"
 ---
 
-
-
-![image 1](/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_0.png)
+![image 1](/TIL/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_0.png)
 
 이전에 언급한 것처럼, Next.js 미들웨어를 사용하면 서버 컴포넌트가 부과한 일부 제한을 해결하는 데 유용할 수 있다는 블로그 글을 썼어요. 이에 대한 토론으로 인해 Next.js 개발 경험이 좋지 않다는 의견이 나왔어요.
 
-![image 2](/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_1.png)
+![image 2](/TIL/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_1.png)
 
 저의 관점에서, Next.js 의 앱 라우터에는 채택하기 어렵게 만드는 두 가지 주요 문제가 있어요:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -42,12 +41,14 @@ link: "https://medium.com/@PropelAuth/its-not-just-you-next-js-is-getting-harder
 Next.js에 대해 처음 알게 되었을 때, 주요 "경쟁자"는 Create React App (CRA)였습니다. 나는 모든 프로젝트에 CRA를 사용했지만 두 가지 이유로 Next.js로 전환했습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -62,12 +63,14 @@ Next.js에 대해 처음 알게 되었을 때, 주요 "경쟁자"는 Create Reac
 그리고 그게 내가 정말 원했던 것이었어요. 후에 Next.js가 갖고 있는 다른 기능을 발견했을 때에는 꽤 놀랐어요. API 라우트는 추가 인프라를 설정할 필요 없이 서버리스 함수를 제공해주어서 "Contact Us" 양식 같은 것을 만드는 것에 아주 유용했어요. getServerSideProps를 사용하면 페이지가 로드되기 전에 서버에서 기본 함수를 실행할 수 있었어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -81,12 +84,14 @@ API route는 다른 라우트 핸들러와 매우 비슷하게 보였고 동작�
 Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능들이 추가됐어요. 서버 컴포넌트를 사용하면 React 컴포넌트를 서버에서 렌더링하고 클라이언트에 전달해야하는 데이터 양을 줄일 수 있어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -100,12 +105,14 @@ Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능
 # 프레임워크가 생각했던대로 동작하지 않을 때
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -119,12 +126,14 @@ Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능
 앱 라우터는 안타깝게도 이러한 섬세한 점들로 가득합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -138,18 +147,19 @@ Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능
 이 글은 나의 느낌을 요약한 것 같아요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![image](/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_2.png)
+![image](/TIL/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_2.png)
 
 그것이 반드시 잘못된 것은 아니라는 점을 유의하십시오.
 
@@ -157,14 +167,15 @@ Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능
 
 서버에서 거의 모든 것을 할 수 있었던 "옛" 방식과 비교하면, 복잡성이 증가했다고 말할 수 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -178,12 +189,14 @@ Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능
 # 모두에게 맞는 제품을 만드는 것은 매우 어려운 일입니다
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -197,12 +210,14 @@ Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능
 제 개인적인 경험과 App Router에 대한 답답함은 다른 사람의 것과 다를 수 있어요. 제품, 사용 사례, 그리고 리소스가 모두 다르기 때문이에요. B2B SaaS 애플리케이션을 많이 작성하고 다른 사람들이 그것을 작성할 때 도와주는 사람으로서 말씀드리면, App Router DX는 Pages Router보다 한 단계 아래 수준이에요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -216,12 +231,14 @@ Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능
 이러한 상황을 피하는 것은 어려울 수 있지만, 일부 사람들이 필요로 하는 복잡성을 모두의 문제로 만들지 않는 방법 중 하나입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -230,17 +247,19 @@ Next 13 릴리스에서는 앱 라우터를 도입했고 많은 새로운 기능
 
 앱 라우터를 사용함에 있어서 제가 겪은 가장 큰 문제 중 하나는 딱 이거였어요:
 
-![이미지](/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_3.png)
+![이미지](/TIL/assets/img/2024-07-02-ItsnotjustyouNextjsisgettinghardertouse_3.png)
 
 Next.js는 제품으로 충분히 준비되기 전부터 공식적으로 앱 라우터를 사용할 것을 권장해 왔어요. Next.js는 TypeScript, ESLint, Tailwind가 프로젝트에 적합한지 여부에 대한 권장사항을 갖고 있지 않아요 (TS/ESLint에는 기본 값으로 Yes, Tailwind에는 No를 제공하지만, Tailwind 팬들에게는 죄송합니다). 그러나, Next.js는 분명히 당신이 앱 라우터를 사용해야 한다고 믿고 있어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

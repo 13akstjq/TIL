@@ -1,15 +1,14 @@
 ---
 title: "Pydantic Settings로 Python 설정 완벽하게 하기 위한 방법"
 description: ""
-coverImage: "/assets/img/2024-07-02-GetYourPythonConfigurationsRightEveryTimewithPydanticSettings_0.png"
+coverImage: "/TIL/assets/img/2024-07-02-GetYourPythonConfigurationsRightEveryTimewithPydanticSettings_0.png"
 date: 2024-07-02 21:43
-ogImage: 
-  url: /assets/img/2024-07-02-GetYourPythonConfigurationsRightEveryTimewithPydanticSettings_0.png
+ogImage:
+  url: /TIL/assets/img/2024-07-02-GetYourPythonConfigurationsRightEveryTimewithPydanticSettings_0.png
 tag: Tech
 originalTitle: "Get Your Python Configurations Right Every Time with Pydantic Settings"
 link: "https://medium.com/@vik-y/get-your-python-configurations-right-every-time-with-pydantic-settings-441d8a46c832"
 ---
-
 
 # 소개
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@vik-y/get-your-python-configurations-right-every-time
 Pydantic Settings를 소개합니다 — Python 애플리케이션에서 구성 관리를 간편화하는 훌륭한 도구입니다. Pydantic Settings를 사용하면 Pydantic의 데이터 유효성 확인 기능을 활용하여 환경 변수를 읽고 검증할 수 있습니다. 이를 통해 애플리케이션이 항상 올바른 구성을 얻게 되어 실행 중 오류의 위험을 줄이고 개발자로서의 생활을 훨씬 쉽게 만들어 줍니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ Pydantic Settings를 소개합니다 — Python 애플리케이션에서 구성 
 ## 예시 — .env와 함께
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -60,12 +63,14 @@ pip install pydantic_settings
 다음으로 프로젝트 디렉토리에 다음 내용을 가진 .env 파일을 만들어주세요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -95,12 +100,14 @@ settings = Settings()
 Settings 클래스를 통해 database_url, api_key, debug와 같은 예상 구성 변수를 정의합니다. Settings 내부에 중첩된 Config 클래스는 이러한 변수가 .env 파일에서 로드되어야 함을 지정합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -120,12 +127,14 @@ Settings 클래스를 통해 database_url, api_key, debug와 같은 예상 구�
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -144,12 +153,14 @@ debug
 중첩된 예제
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -171,21 +182,21 @@ from pydantic import BaseModel
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-class DeepSubModel(BaseModel):  
+class DeepSubModel(BaseModel):
     v4: str
 
 
-class SubModel(BaseModel):  
+class SubModel(BaseModel):
     v1: str
     v2: bytes
     v3: int
-    deep: DeepSubModel # .env will have __DEEP__ to pass configs to DeepSubModel 
+    deep: DeepSubModel # .env will have __DEEP__ to pass configs to DeepSubModel
 
 
 class Settings(BaseSettings):
     v0: str
     sub_model: SubModel
-    
+
     class Config(SettingsConfigDict):
         env_nested_delimiter = "__"
 
@@ -202,12 +213,14 @@ print(Settings().model_dump())
 중첩 접근 방식을 사용하면 애플리케이션 구성 및 유효성 검사 논리를 보다 쉽게 분리할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -85,7 +85,7 @@ export const CustomHead = ({ type, post, project }: SectoinTitleProps) => {
         <meta property="og:site_name" content={SITE_NAME} data-gatsby-head="true" />
         <meta property="og:title" content={SITE_NAME} data-gatsby-head="true" />
         <meta property="og:description" content={SITE_DESCRIPTION[lang]} data-gatsby-head="true" />
-        <meta property="og:image" content={"/favicons/ms-icon-310x310.png"} data-gatsby-head="true" />
+        <meta property="og:image" content={`/${SITE_NAME}/favicons/ms-icon-310x310.png`} data-gatsby-head="true" />
         <meta property="og:locale" content={LANG_LOCALE[lang]} data-gatsby-head="true" />
 
         {/* twitter og Tags */}
@@ -94,7 +94,7 @@ export const CustomHead = ({ type, post, project }: SectoinTitleProps) => {
         <meta property="twitter:url" content={`${SITE_URL}/${router.asPath}`} data-gatsby-head="true" />
         <meta name="twitter:title" content={SITE_NAME} data-gatsby-head="true" />
         <meta name="twitter:description" content={SITE_DESCRIPTION[lang]} data-gatsby-head="true" />
-        <meta name="twitter:image" content={"/favicons/ms-icon-310x310.png"} data-gatsby-head="true" />
+        <meta name="twitter:image" content={`/${SITE_NAME}/favicons/ms-icon-310x310.png`} data-gatsby-head="true" />
         <meta name="twitter:data1" content={`Dev | ${SITE_NAME}`} data-gatsby-head="true" />
       </Head>
     );
