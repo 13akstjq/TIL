@@ -1,15 +1,14 @@
 ---
 title: "Python을 사용해 PDF에서 이미지 및 이미지 정보 추출하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-ExtractImagesandImageInformationfromPDFwithPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-ExtractImagesandImageInformationfromPDFwithPython_0.png"
 date: 2024-07-09 14:38
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-ExtractImagesandImageInformationfromPDFwithPython_0.png
 tag: Tech
 originalTitle: "Extract Images and Image Information from PDF with Python"
 link: "https://medium.com/@alice.yang_10652/extract-images-and-image-information-from-pdf-with-python-10719a3bda81"
 ---
-
 
 PDF (Portable Document Format) 파일은 다양한 형식과 일관된 포맷팅을 가지고 있어 문서 공유와 보존에 널리 사용됩니다. 텍스트 콘텐츠 외에도 PDF 파일에는 종종 가치 있는 이미지가 포함되어 있습니다. 이러한 이미지를 추출하고 위치 (x와 y 좌표), 너비, 높이와 같은 관련 정보를 검색함으로써 이미지 분석, 조작, 그리고 다양한 프로젝트에 통합하는 많은 가능성을 발견할 수 있습니다. 이 블로그 포스트에서는 Python을 사용하여 PDF 파일에서 이미지와 이미지 정보를 추출하는 방법을 알아보겠습니다.
 
@@ -21,12 +20,14 @@ PDF (Portable Document Format) 파일은 다양한 형식과 일관된 포맷팅
 Python에서 PDF 파일로부터 이미지와 이미지 정보를 추출하기 위해 Spire.PDF for Python을 사용할 것입니다. 이 라이브러리는 Python 애플리케이션 내에서 PDF 파일을 생성, 읽기, 편집, 변환할 수 있도록 설계된 기능이 풍부하고 사용자 친화적인 라이브러리입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -44,12 +45,14 @@ pip install --upgrade Spire.Pdf
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -63,12 +66,14 @@ Spire.PDF for Python의 PdfImageHelper 클래스를 사용하면 PDF 파일 내 
 PDF 파일에서 이미지를 가져오려면 PdfImageHelper.GetImagesInfo(page: PdfPageBase) 함수를 사용할 수 있어요. 이 함수는 PDF 페이지의 이미지를 나타내는 PdfImageInfo 객체 목록을 반환할 거예요. PdfImageInfo 객체를 얻으면 PdfImageInfo.Image.Save() 함수를 사용하여 각 이미지를 파일로 저장할 수 있어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -82,7 +87,7 @@ from spire.pdf import *
 def extract_images_from_pdf(pdf_path, output_dir):
     """
     PDF 파일에서 모든 이미지를 추출하여 지정된 출력 디렉토리에 저장합니다.
-    
+
     Args:
         pdf_path (str): PDF 파일 경로
         output_dir (str): 추출된 이미지가 저장될 디렉토리
@@ -117,17 +122,19 @@ def extract_images_from_pdf(pdf_path, output_dir):
 extract_images_from_pdf("Sample.pdf", "C:/Users/Administrator/Desktop/Images")
 ```
 
-<img src="/assets/img/2024-07-09-ExtractImagesandImageInformationfromPDFwithPython_0.png" />
+<img src="/TIL/assets/img/2024-07-09-ExtractImagesandImageInformationfromPDFwithPython_0.png" />
 
 # Python을 사용하여 PDF에서 이미지 정보 추출하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -143,7 +150,7 @@ from spire.pdf import *
 def print_pdf_image_info(pdf_path):
     """
     PDF 파일에서 이미지에 대한 정보를 출력합니다.
-    
+
     Args:
         pdf_path (str): PDF 파일의 경로.
     """
@@ -175,12 +182,14 @@ print_pdf_image_info("Sample.pdf")
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

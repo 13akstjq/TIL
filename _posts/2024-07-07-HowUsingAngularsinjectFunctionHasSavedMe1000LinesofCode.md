@@ -1,31 +1,32 @@
 ---
 title: "Angular의 inject 함수 사용으로 1000줄의 코드를 절약한 방법"
 description: ""
-coverImage: "/assets/img/2024-07-07-HowUsingAngularsinjectFunctionHasSavedMe1000LinesofCode_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-HowUsingAngularsinjectFunctionHasSavedMe1000LinesofCode_0.png"
 date: 2024-07-07 21:51
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-HowUsingAngularsinjectFunctionHasSavedMe1000LinesofCode_0.png
 tag: Tech
 originalTitle: "How Using Angular’s inject() Function Has Saved Me 1000 Lines of Code"
 link: "https://medium.com/javascript-in-plain-english/how-using-the-angulars-inject-function-has-saved-me-1000-lines-of-code-82b699183da8"
 ---
 
-
 # inject() 함수란 무엇인가요?
 
 Angular 14에서 소개된 inject() 함수는 서비스, 컴포넌트, 디렉티브 등에 종속성을 주입하는 데 사용됩니다. 클래스 생성자를 사용하여 종속성을 주입하는 대신 inject() 함수를 사용할 수 있습니다.
 
-![이미지](/assets/img/2024-07-07-HowUsingAngularsinjectFunctionHasSavedMe1000LinesofCode_0.png)
+![이미지](/TIL/assets/img/2024-07-07-HowUsingAngularsinjectFunctionHasSavedMe1000LinesofCode_0.png)
 
 ## 생성자를 사용하여 종속성을 주입하는 예전 방식:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -59,12 +60,14 @@ export class MyComponent {
 # inject() 사용의 장점 vs 생성자 사용하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -80,12 +83,14 @@ export class MyComponent {
 저는 상속과 관련된 경우 inject() 함수가 특히 유용하다고 생각합니다. 코드를 재사용하고 여러 자식 클래스에 의해 확장될 부모 서비스 추상 클래스가 있는 시나리오를 고려해 보세요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -120,14 +125,15 @@ export class ChildService extends ParentService {
 
 보시다시피 많은 반복이 있습니다: 모든 자식 클래스들은 HttpClient와 HelperService를 가져와야 하는데 이는 ParentService의 생성자가 필요하기 때문입니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -156,12 +162,14 @@ export class ChildService extends ParentService {
 의존성이 많고 많은 자식이 기본 클래스를 확장하는 시나리오를 상상해보세요, inject()를 사용하면 많은 코드 라인을 절약할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -175,12 +183,14 @@ export class ChildService extends ParentService {
 # 결론
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

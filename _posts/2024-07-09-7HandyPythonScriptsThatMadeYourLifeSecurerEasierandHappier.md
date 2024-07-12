@@ -1,31 +1,32 @@
 ---
 title: "당신의 삶을 안전하고, 쉬우며, 행복하게 만들어주는 7가지 유용한 Python 스크립트"
 description: ""
-coverImage: "/assets/img/2024-07-09-7HandyPythonScriptsThatMadeYourLifeSecurerEasierandHappier_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-7HandyPythonScriptsThatMadeYourLifeSecurerEasierandHappier_0.png"
 date: 2024-07-09 09:04
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-7HandyPythonScriptsThatMadeYourLifeSecurerEasierandHappier_0.png
 tag: Tech
 originalTitle: "7 Handy Python Scripts That Made Your Life Securer, Easier, and Happier"
 link: "https://medium.com/techtofreedom/7-handy-python-scripts-that-made-your-life-securer-easier-and-happier-6ab1cd1e4c86"
 ---
 
-
 ## 파이썬
 
-![Python](/assets/img/2024-07-09-7HandyPythonScriptsThatMadeYourLifeSecurerEasierandHappier_0.png)
+![Python](/TIL/assets/img/2024-07-09-7HandyPythonScriptsThatMadeYourLifeSecurerEasierandHappier_0.png)
 
 파이썬 프로그래밍 기술은 적절히 활용할 수 있다면 취업뿐만 아니라 삶을 더욱 효율적으로 자동화하고 간소화할 수 있습니다.
 
 우리 일상 생활과 업무에는 지루하고 반복적인 작업이 많습니다. 디지털 형태로 표현될 수 있는 작업이라면 파이썬으로 최적화할 수 있습니다. (아마도 파이썬은 현재로서는 정원 가꾸는 데는 크게 도움을 줄 수 없을 것입니다.)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/techtofreedom/7-handy-python-scripts-that-made-your-li
 디지털 보안을 향상시키는 때입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -62,3 +65,4 @@ import string
 
 def generate_strong_password(length=8):
     alphabet = string.ascii_letters +…
+```

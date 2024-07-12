@@ -1,31 +1,32 @@
 ---
 title: "초보 때 알았더라면 좋았을 Python 코딩 꿀팁 10가지"
 description: ""
-coverImage: "/assets/img/2024-07-09-PythonCodingTipsLessonsIWishIKnewWhenIStartedCoding_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-PythonCodingTipsLessonsIWishIKnewWhenIStartedCoding_0.png"
 date: 2024-07-09 15:05
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-PythonCodingTipsLessonsIWishIKnewWhenIStartedCoding_0.png
 tag: Tech
 originalTitle: "Python Coding Tips: Lessons I Wish I Knew When I Started Coding"
 link: "https://medium.com/@yaduvanshineelam09/python-coding-tips-lessons-i-wish-i-knew-when-i-started-coding-4e9d9cd0aefb"
 ---
 
-
-![Python Coding Tips](/assets/img/2024-07-09-PythonCodingTipsLessonsIWishIKnewWhenIStartedCoding_0.png)
+![Python Coding Tips](/TIL/assets/img/2024-07-09-PythonCodingTipsLessonsIWishIKnewWhenIStartedCoding_0.png)
 
 코딩 여정을 시작할 때 파이썬 세계에 뛰어 들어가면서 약간의 어려움을 겪었어요. 코딩의 기본은 이해했지만, 내 코드를 효율적으로 만드는 방법을 알아내는 것은 퍼즐을 푸는 것처럼 어려웠죠. 예전에는 종종 파이썬의 신이 이끌어 준다는 말을 기억해요 — 정말 좋은 조언이긴 하지만, 내 생각에는 너무 추상적이었어요. 더 구체적인 예시가 필요했고, 그래서 이 가이드를 만들게 되었답니다.
 
 재미있게도, ChatGPT 시대 이후에 코딩을 배우기 시작한 사람들이 어떻게 코딩을 접근하는지에 변화를 주목했어요. ChatGPT 시대에 배운 사람들은 오류 수정과 디버깅에 뛰어나는 것 같아요. 그 반면, GPT 이전에 코딩한 사람들은 답을 분석하고 Stack Overflow나 문서와 같은 자료를 활용하는 데 능숙해요 — 아마도 조금의 복사-붙여넣기 기술도 있겠죠! ;)
 
-![Python Coding Tips](/assets/img/2024-07-09-PythonCodingTipsLessonsIWishIKnewWhenIStartedCoding_1.png)
+![Python Coding Tips](/TIL/assets/img/2024-07-09-PythonCodingTipsLessonsIWishIKnewWhenIStartedCoding_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/@yaduvanshineelam09/python-coding-tips-lessons-i-wish-
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -53,18 +56,21 @@ link: "https://medium.com/@yaduvanshineelam09/python-coding-tips-lessons-i-wish-
 - 문자열 내부에 쉽게 표현식을 넣을 수 있습니다.
 
 단점:
+
 - Python 3.6 이상에서만 사용 가능합니다.
 - 보안 취약점에 주의해야 합니다; SQL Injection
 
 예시:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -83,12 +89,14 @@ message = f"My name is {name}, and I am {age} years old."
 - 코드 재사용성을 향상시킵니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -115,12 +123,14 @@ def example_function():
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -135,12 +145,14 @@ def example_function():
 단점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -166,12 +178,14 @@ help(calculate_square)
 # 4. List Comprehensions: 간결한 리스트 생성
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -186,12 +200,14 @@ help(calculate_square)
 - 특히 복잡한 로직에서는 가독성을 높이기 위해 중첩된 리스트 컴프리헨션을 피해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -208,12 +224,14 @@ squares = [x**2 for x in range(10) if x % 2 == 0]
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -228,12 +246,14 @@ squares = [x**2 for x in range(10) if x % 2 == 0]
 예시:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -256,12 +276,14 @@ for n in range(2, 10):
 - 형식적인 함수 정의가 필요하지 않습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -277,15 +299,17 @@ for n in range(2, 10):
 # 람다 함수를 사용하여 두 숫자 더하기
 add_numbers = lambda x, y: x + y
 result = add_numbers(3, 5)
-```  
+```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -300,12 +324,14 @@ result = add_numbers(3, 5)
 - zip(): 여러 리스트에 대해 병렬 반복을 용이하게 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -329,17 +355,19 @@ for name, age in zip(names, ages):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-# 8. *args 와 **kwargs: 유연한 함수 인수
+# 8. \*args 와 \*\*kwargs: 유연한 함수 인수
 
 장점:
 
@@ -349,12 +377,14 @@ for name, age in zip(names, ages):
 단점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -375,12 +405,14 @@ def multiply(*args):
 # 9. try 및 except를 사용한 안정적인 오류 처리
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -397,12 +429,14 @@ def multiply(*args):
 - 잠재적인 실수: 오류를 잘못 잡거나 억제하는 경우 근본적인 문제를 숨길 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -432,12 +466,14 @@ divide_numbers("a", 2) # 예상치 못한 오류 (TypeError)
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -452,12 +488,14 @@ divide_numbers("a", 2) # 예상치 못한 오류 (TypeError)
 예시:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -476,12 +514,14 @@ sublist = original_list[2:6]
 - 아이템을 실시간으로 생성하여 메모리를 절약합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -502,12 +542,14 @@ def fibonacci(n):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -522,12 +564,14 @@ def fibonacci(n):
 단점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -545,12 +589,14 @@ assert num > 0, "숫자는 양수여야 합니다."
 # 13. 깊은 복사 vs 얕은 복사: 현명하게 복제하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -565,12 +611,14 @@ assert num > 0, "숫자는 양수여야 합니다."
 - deepcopy가 필요한데 얕은 복사를 사용하면 원본 데이터의 의도치 않은 수정이 발생할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -590,12 +638,14 @@ deep = copy.deepcopy(original)
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -610,12 +660,14 @@ deep = copy.deepcopy(original)
 예시:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -634,12 +686,14 @@ random_number = random.randint(1, 10)
 - 명시적인 키 존재 여부 검사를 없애줍니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -659,12 +713,14 @@ for letter in word:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -679,12 +735,14 @@ for letter in word:
 단점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -703,12 +761,14 @@ with open('file.txt', 'r') as f:
 # 17. 타입 힌팅: 코드 가독성 향상하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -723,12 +783,14 @@ with open('file.txt', 'r') as f:
 - Python은 여전히 동적으로 유형이 할당되는 언어이며, 유형 힌트는 옵션이며 강제되지 않습니다 — 인간 눈을 위한 것이죠 ;) .
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -746,12 +808,14 @@ def greet(name: str) -> str:
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -767,18 +831,20 @@ def greet(name: str) -> str:
 예시:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```python
-# 사람을 위한 namedtuple 만들기 
+# 사람을 위한 namedtuple 만들기
 from collections import namedtuple
 Person = namedtuple('Person', ['name', 'age'])
 alice = Person(name="Alice", age=30)
@@ -792,12 +858,14 @@ alice = Person(name="Alice", age=30)
 - 서로 다른 리스트에서 항목을 함께 처리해야 하는 작업에 편리합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -817,12 +885,14 @@ for name, score in zip(names, scores):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -837,12 +907,14 @@ for name, score in zip(names, scores):
 단점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -852,20 +924,22 @@ for name, score in zip(names, scores):
 예시:
 
 ```js
-data = {"name": "Alice"}
-age = data.get("age", 30)
-data.setdefault("country", "USA")
+data = { name: "Alice" };
+age = data.get("age", 30);
+data.setdefault("country", "USA");
 ```
 
-# 21. __main__ 가드: 스크립트 실행을 제어하기
+# 21. **main** 가드: 스크립트 실행을 제어하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -880,12 +954,14 @@ data.setdefault("country", "USA")
 - 이 가드를 사용하는 것을 잊으면 모듈이 가져올 때 예기치 않은 동작을 초래할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -902,12 +978,14 @@ if __name__ == "__main__":
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -922,12 +1000,14 @@ Cons:
 Example:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -938,7 +1018,7 @@ python -m venv my_project_env
 source my_project_env/bin/activate
 ```
 
-# 23. 별표 (*) 연산자: 다재다능하고 강력함
+# 23. 별표 (\*) 연산자: 다재다능하고 강력함
 
 장점:
 
@@ -946,12 +1026,14 @@ source my_project_env/bin/activate
 - 함수 내에서 동적인 인수 처리를 용이하게 한다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -969,12 +1051,14 @@ def func(a, b, c):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -992,12 +1076,14 @@ print(func(*values))
 - 코드 가독성을 향상시키고 리소스 누수 가능성을 줄입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1015,17 +1101,19 @@ with open('file.txt', 'r') as f:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-# 25. 파이썬의 언더스코어(_) 사용법: 명명과 루프에서의 다재다능함
+# 25. 파이썬의 언더스코어(\_) 사용법: 명명과 루프에서의 다재다능함
 
 장점:
 
@@ -1036,12 +1124,14 @@ with open('file.txt', 'r') as f:
 단점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1059,12 +1149,14 @@ for _ in range(5):
 # 26. 맵, 필터 및 리듀스: 파이썬에서의 함수형 프로그래밍
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1080,12 +1172,14 @@ for _ in range(5):
 - Python 3.x에서 map()과 filter()는 반복자를 반환하므로 필요하다면 리스트로 변환하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1103,12 +1197,14 @@ upper_names = list(map(str.upper, names))
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1123,22 +1219,23 @@ upper_names = list(map(str.upper, names))
 예시:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 # 딕셔너리를 update() 메서드를 사용하여 병합하기
+
 dict1 = {'a': 1, 'b': 2}
 dict2 = {'b': 3, 'c': 4}
 dict1.update(dict2)
-
 
 # 축하해요! 마침내 완료했어요!
 

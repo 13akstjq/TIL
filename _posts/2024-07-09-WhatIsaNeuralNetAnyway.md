@@ -1,18 +1,16 @@
 ---
 title: "신경망이란 무엇인가요"
 description: ""
-coverImage: "/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_0.png"
 date: 2024-07-09 19:51
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-WhatIsaNeuralNetAnyway_0.png
 tag: Tech
 originalTitle: "What Is a Neural Net, Anyway?"
 link: "https://medium.com/ai-advances/what-is-a-neural-net-anyway-4fc8692f2d28"
 ---
 
-
-
-![Image](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_0.png)
+![Image](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_0.png)
 
 인공지능과 기계학습의 세계를 두르고 있는 다양한 용어 중에서, 신경망과 같은 용어는 '멋진 요소'를 지니는 것 같아요.
 
@@ -21,14 +19,15 @@ link: "https://medium.com/ai-advances/what-is-a-neural-net-anyway-4fc8692f2d28"
 존 코너:
 프로그램되어 있지 않은 내용을 배우는 것이 가능한가요? 그러면... 더 인간적이고, 항상 꼴좋지가 않다고요?
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -42,15 +41,17 @@ Sarah Connor:
 터미네이터:
 그래.
 
-![이미지](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_1.png)
+![이미지](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -64,17 +65,19 @@ Sarah Connor:
 1943년에는 두 번째 세계대전의 치열한 시기였으며 소련이 스탈린그라드 전투에서 나치 독일을 이겼던 해였는데, 신경생리학자 워렌 S. 맥컬럭과 인지 심리학자 월터 H. 피트가 함께 논문을 작성하여 두뇌의 작동을 추상적인 수학적 용어로 설명하려고 노력했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![신경망이란 무엇인가요](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_2.png)
+![신경망이란 무엇인가요](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_2.png)
 
 제목은 "신경 활동에 내재된 아이디어의 논리적 논리" (아니요, 목이 나가는 제목으로는 점수를 주지 않습니다)였고, 논문의 통찰 중 하나는 뇌 속 신경세포를 더 간단한 논리 문으로 취급하여 입력에 따라 발화하거나 발화하지 않는 간단한 논리 게이트로 제안한 것이었습니다.
 
@@ -83,12 +86,14 @@ Sarah Connor:
 신경망의 개념과 1950년대 Frank Rosenblatt의 패턴 인식 퍼셉트론, 1970년대 백프로파게이션 도입부터 2010년대 GPU 기반 딥 러닝의 출현에 이르기까지 수년간의 혁신은 우리를 인공 신경망(ANN)과 기계 학습에서의 역할이 단순히 퍼지는 세상으로 이끌었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -100,12 +105,14 @@ Sarah Connor:
 하지만 이 신경망이 정확히 무엇이며, 인공 뉴런은 무엇인가요? 이런 기계 학습 사용 사례를 해결하기 위해 신경망이 어떻게 작동하는 걸까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -119,31 +126,35 @@ Sarah Connor:
 # 기본적인 내용
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 인공 신경망의 핵심은 뉴런 개념에 있으므로 우리 여행을 시작하는 가장 좋은 곳처럼 보입니다. 아래에는 유기 뉴런의 구조를 왼쪽에, 인공 뉴런을 오른쪽에 보여주는 멋진 이미지가 있습니다:
 
-![What is a Neural Net Anyway](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_4.png)
+![What is a Neural Net Anyway](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_4.png)
 
 생물학적 뉴런의 경우, 세포체 주변의 작은 줄기 모양의 가지(dendrites)는 '입력'으로 생각할 수 있으며, 축삭(axon)은 '출력'으로 생각할 수 있습니다.
 
 하지만 우리는 인공 뉴런을 탐구하고 싶으므로 오른쪽 이미지에 주목해봅시다. 약간 위압감을 주는 것 같지 않나요? 처음에는 확실히 그랬어요. 아마 숫자를 나타내는 글자 아래에 있는 작은 숫자들, 게다가 그리스 문자도 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -154,15 +165,17 @@ Sarah Connor:
 
 아래는 매우 간단한 뉴럴 네트워크에 대한 시각화입니다. 이것은 딱 한 개의 '뉴런'으로 구성되어 있습니다. 뉴럴 네트워크의 가장 간단한 표현이며, 깊은 학습의 아버지인 Frank Rosenblatt가 만든 용어 '퍼셉트론'으로 잘 알려져 있습니다.
 
-<img src="/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_5.png" />
+<img src="/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_5.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -176,12 +189,14 @@ Sarah Connor:
 지금은 입력이 무엇인지가 중요한 게 아니라, 그 입력이 2가지 특징을 가지고 있다는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -190,17 +205,19 @@ Sarah Connor:
 
 저희의 입력 변수(x1과 x2) 각각에는 해당하는 w 값(w1과 w2)이 있습니다. 이것들은 가중치를 나타냅니다.
 
-![image](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_6.png)
+![image](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_6.png)
 
 가중치는 우리의 뉴런에서 매우 중요한 부분이며, 입력으로 들어오는 각 특성에 얼마나 중요성을 부여할지 결정합니다. 그래서 각 특성당 하나의 가중치가 있습니다. 예를 들어 주택 가격 예측 예제에서 침실 수가 위치보다 가격을 더 잘 예측하는 경우, 해당 특성의 가중치는 귀하의 신경망을 교육하고 결과적으로 높아질 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -210,55 +227,61 @@ Sarah Connor:
 - 균일 분포: 숫자는 작은 범위 사이에서 균일하게 분포될 것이며, 예를 들어, -0.05부터 0.05 사이일 수 있습니다.
 - 정규 분포: 값은 평균이 0이고 표준 편차가 작은 (예를 들어 0.01) 정규 분포에서 추출된 작은 숫자일 수 있습니다.
 
-일단은 훈련하기 전에 w1과 w2에는 특별히 유용하지 않은 숫자가 있다고 가정해 봅시다. 
+일단은 훈련하기 전에 w1과 w2에는 특별히 유용하지 않은 숫자가 있다고 가정해 봅시다.
 
 그런데 빠르게 사이드 노트를 하자면 — ‘훈련’이라고 말할 때 어떤 의미일까요? 실제로 무슨 일이 일어나고 있을까요? 일반적으로 기계 학습 모델을 훈련하는 것은 여러 epoch를 사용하여 수행됩니다. 여기서 말하는 epoch는 ‘제공한 모든 훈련 데이터를 한 번 통과하는 것’을 의미하는 용어로, 우리의 경우 데이터를 신경 세포에 뭉쳐주고 다른 쪽으로 내보내는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 이러한 epoch의 끝에서 매개변수가 업데이트되므로 이상적으로는 다음 번 훈련에서 예측이 좋아지도록 손실(잘못된 예측)이 줄어든다. 계속해서 좋은 예측 능력을 갖게 될 때까지!
 
-![이미지](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_7.png)
+![이미지](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_7.png)
 
 간단한 다이어그램을 돌아보면 우리의 입력과 함께 'b'로 표시된 것을 알 수 있습니다. b는 편향(bias)을 나타내며, 또 하나의 중요한 기계 학습 개념입니다. 저희의 가중치와 마찬가지로, 신경망 훈련 과정 중에 변경되는 '매개변수'입니다.
 
 저희의 간단한 예제에서, 그리고 많은 실제 사례에서, 편향은 훈련을 시작하기 전에 0에서 시작하지만 각 epoch을 처리할 때마다 편향이 잠재적으로 업데이트될 것입니다. 하지만 무엇을 위해? 그리고 왜 그렇게 되는 걸까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-그래도 일반적인 편향 설명을 찾아보면 "편향 항은 활성화 함수가 왼쪽이나 오른쪽으로 이동할 수 있게 합니다." 정도의 내용이 나올 거에요. 하지만 좀 더 쉽게 이해할 수 있게 설명해볼게요.  
+그래도 일반적인 편향 설명을 찾아보면 "편향 항은 활성화 함수가 왼쪽이나 오른쪽으로 이동할 수 있게 합니다." 정도의 내용이 나올 거에요. 하지만 좀 더 쉽게 이해할 수 있게 설명해볼게요.
 
-트레이닝 과정에서 각 반복마다 오차가 발생하는데, 이것이 기계 학습의 본질이자 같은 데이터 조각들을 반복해서 훈련하고 학습해야 하는 이유입니다. 목표는 시간이 지남에 따라 이러한 오차를 줄이는 것입니다.  
+트레이닝 과정에서 각 반복마다 오차가 발생하는데, 이것이 기계 학습의 본질이자 같은 데이터 조각들을 반복해서 훈련하고 학습해야 하는 이유입니다. 목표는 시간이 지남에 따라 이러한 오차를 줄이는 것입니다.
 
-편향(가중치와 마찬가지로)는 각 훈련 단계마다 조정될 수 있는데, 이 조정된 값은 다음 반복을 '중립적이지 않은' 위치에서 시작하게 만들어줍니다. 기본적으로 다음 훈련 단계에 약간의 편향(따라서 이름이 붙여진 것)을 도입하여, 예측을 처음에 한 방향으로 이동시키고 다른 방향으로 이동시키는 데 도움이 되도록 하는 것이 목표입니다. 예를 들어 모델이 바나나를 예측할 때(0으로 표현) 실제 값이 사과(1로 표현)인데 너무 많은 오류를 발생시키고 있다면, 편향이 조금씩 0에서 1 방향으로 조정되어 다음 에포크를 돕는 역할을 할 수 있습니다.  
+편향(가중치와 마찬가지로)는 각 훈련 단계마다 조정될 수 있는데, 이 조정된 값은 다음 반복을 '중립적이지 않은' 위치에서 시작하게 만들어줍니다. 기본적으로 다음 훈련 단계에 약간의 편향(따라서 이름이 붙여진 것)을 도입하여, 예측을 처음에 한 방향으로 이동시키고 다른 방향으로 이동시키는 데 도움이 되도록 하는 것이 목표입니다. 예를 들어 모델이 바나나를 예측할 때(0으로 표현) 실제 값이 사과(1로 표현)인데 너무 많은 오류를 발생시키고 있다면, 편향이 조금씩 0에서 1 방향으로 조정되어 다음 에포크를 돕는 역할을 할 수 있습니다.
 
 # 어이쿠, Σ 주소 변경할 시간이에요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -269,34 +292,38 @@ Sarah Connor:
 
 다행히도 이건 꽤 쉬운 부분이에요. 그리스 글자 'Σ'는 시그마(Sigma)라고 불리며, 수학 용어로는 합계를 나타냅니다. 기본적으로 더해주는 개념이죠. 그래서 우리 뉴런의 이 부분에서:
 
-<img src="/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_8.png" />
+<img src="/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_8.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 우리는 가중치 입력을 합산하고 편향을 더하는 중입니다.
 
-이는 Σ(Wi * xi) + b로 계산됩니다. 여기서 Wi와 xi는 가중치와 입력을 가리키며, b는 편향을 의미합니다. 간단히 말하면 우리는 각 입력을 해당하는 가중치로 곱한 뒤 더하고, 마지막으로 편향을 더하는 것입니다.
+이는 Σ(Wi \* xi) + b로 계산됩니다. 여기서 Wi와 xi는 가중치와 입력을 가리키며, b는 편향을 의미합니다. 간단히 말하면 우리는 각 입력을 해당하는 가중치로 곱한 뒤 더하고, 마지막으로 편향을 더하는 것입니다.
 
 이후에는 '시그모이드 활성화'로 넘어갑니다. 시그모이드 활성화 또는 시그모이드 함수는 '압축' 함수로도 불립니다. 모든 합산과 더하기를 끝낸 후, 매우 큰 음수 또는 양수 값이 나올 수 있으며 해석하기 어렵을 수 있습니다.
 
 시그모이드 함수는 이 숫자를 0과 1 사이의 값으로 '압축'하여 의미 있는 숫자로 변환합니다. 이는 이론적으로 사과인지 바나나인지 등을 판별하는 기계 학습 문제와 같은 분야에서 특히 유용합니다. 이는 이진 분류 문제입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -307,15 +334,17 @@ Sarah Connor:
 
 뉴런은 레이어에 더 많이 추가할 때 더 복잡한 문제에 대한 예측 능력이 더 커져요:
 
-![neural net image](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_9.png)
+![neural net image](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_9.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -326,30 +355,34 @@ Sarah Connor:
 
 # 뉴런 만들기
 
-![image](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_10.png)
+![image](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_10.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-제목| Korean Translation
----|---
-문제| 표 태그를 Markdown 형식으로 변경하세요.
+| 제목 | Korean Translation                      |
+| ---- | --------------------------------------- |
+| 문제 | 표 태그를 Markdown 형식으로 변경하세요. |
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -358,17 +391,19 @@ Sarah Connor:
 
 우리의 실험에서는 Kaggle에서 가져온 합성 데이터셋을 사용할 것입니다. 이 데이터셋에는 다음이 포함되어 있습니다:
 
-![그림](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_11.png)
+![그림](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_11.png)
 
 이 데이터의 아이디어는 각 행이 학생의 시험 1과 시험 2의 결과라는 것입니다. 패스(pass) 열은 해당 학생이 3번째 시험에 통과했는지 여부를 나타냅니다. 우리가 신경망을 사용해 예측하고자 하는 것은 바로 이 열입니다. 실제로는 학생이 처음 두 시험에서의 결과를 기반으로 3번째 시험을 통과할지 예측하려고 하는 것이죠.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -385,12 +420,14 @@ Sarah Connor:
 keras-visualizerya를 사용하면 우리의 신경망의 기본 이미지를 볼 수 있어요. 단일 뉴런이라 그다지 화려하지는 않겠지만, 아예 없는 것보다는 낫죠!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -402,12 +439,14 @@ keras-visualizerya를 사용하면 우리의 신경망의 기본 이미지를 �
 원한다면 순수 파이썬을 사용하여 신경망을 만들 수도 있습니다. 그러나 이 문서는 초심자에게 친숙하게 설계되었으므로, 텐서플로위에 위치한 고수준 라이브러리인 케라스를 선택한 것입니다. 케라스는 텐서플로우 위의 머신러닝 라이브러리이며, 이는 파이썬 위에 있는 라이브러리입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -425,33 +464,35 @@ model = Sequential([
 입력 모양은 신경망에 데이터가 어떤 모양인지 알려줍니다. 이 경우 input_shape(2,)은 Keras에게 각 데이터 레코드가 2개의 피쳐를 가질 것이라고 알려주는 것입니다. 마지막으로 활성화 함수를 'sigmoid'로 정의하고 있는데, 이는 0과 1 사이의 출력을 제공하기 위한 '압축' 함수입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 마침내, 모델을 컴파일합니다. 'Adam' (적응 적 모멘트 추정) 옵티마이저를 사용 중이며 다른 여러 옵티마이저도 있습니다. 옵티마이저는 서로 다른 메커니즘을 사용하여 가중치를 업데이트하거나 '손실' 개념을 측정함으로써 학습 프로세스를 돕는 알고리즘 또는 방법입니다. 옵티마이저는 또한 학습 속도를 제어합니다 (우리 예제에서는 0.01로 설정되어 있음).
 
-
-![이미지](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_12.png)
-
+![이미지](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_12.png)
 
 학습률은 다른 개념과 깊게 연결되어 있는데, 여기서 많이 다루지는 않았지만 손실 기욘(gradient)입니다. 간단히 말해서, 손실 기욘은 학습 에포크의 끝에 우리가 얼마나 성공적인 예측에 가까이 갔는지를 측정하는 것입니다. 앞에서 알 수 있듯이, 신경망은 다음 반복 전에 가중치를 조정할 수 있습니다.
 
 학습률은 가중치가 손실 그래디언트에 대해 얼마나 큰 변화를 겪을지를 제어합니다. 높은 학습률은 빠르게 학습하고 좋은 '적합(fit)'에 빨리 도달할 수 있는 기회를 제공하지만, 최소 손실을 지나치게 초과하여 학습 프로세스의 불안정이나 기능을 예측하는 합리적 능력에 수렴하지 못하는 상황을 일으킬 수도 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -462,17 +503,17 @@ model = Sequential([
 
 보너스로, 노트북의 다음 셀에는 우리의 신경망을 시각적으로 표시하는 멋진 방법이 포함되어 있어요. 불행히도 우리의 단일 뉴런에 대해 매우 매료적인 이미지는 아니에요;
 
-
-<img src="/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_13.png" />
-
+<img src="/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_13.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -488,12 +529,14 @@ Test Loss: 0.22098664939403534, Test Accuracy: 0.8833333253860474
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -514,31 +557,35 @@ new_samples = np.array([
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 여기 있습니다! 여러분은 전체 모험을 무사히 마치고 미쳐 날뛰는 그리스 문자나 방정식에게 습격당하거나 끌려가지 않고 이것을 해내셨습니다.
 
-![Neural Net](/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_14.png)
+![Neural Net](/TIL/assets/img/2024-07-09-WhatIsaNeuralNetAnyway_14.png)
 
 잘 했어요! 여러분은 신경망의 역사에 대한 간략한 개요를 보고 오늘날까지 어떻게 이르렀는지 살펴보고, 뉴런을 구성하는 추상적인 내용을 탐험하며, 심지어 자신만의 (간단한) 신경망을 만들고 훈련하고 검토하셨습니다!
 
 여정을 즐기셨기를 바라며, 항상 읽는 것을 즐겼다면 박수를 보내고 댓글을 남기거나 소프트웨어 엔지니어링, 클라우드 및 AI/ML 콘텐츠를 더 보기 위해 팔로우해 주시기 바랍니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

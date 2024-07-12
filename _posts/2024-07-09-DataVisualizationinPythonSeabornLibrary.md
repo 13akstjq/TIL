@@ -1,31 +1,32 @@
 ---
 title: "파이썬 데이터 시각화 Seaborn 라이브러리 사용법"
 description: ""
-coverImage: "/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_0.png"
 date: 2024-07-09 20:10
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_0.png
 tag: Tech
 originalTitle: "Data Visualization in Python: Seaborn Library"
 link: "https://medium.com/@pythonfundamentals/data-visualization-in-python-seaborn-library-be9febe601bc"
 ---
 
-
 시각화는 데이터에서 통찰을 전달하는 강력한 방법입니다. 파이썬의 Seaborn 라이브러리는 Matplotlib을 기반으로 한, 시각적으로 매력적이고 정보를 제공하는 높은 수준의 인터페이스를 제공합니다. 이 기사에서는 Seaborn 라이브러리를 자세히 살펴보며 그 기능을 탐구하고 다양성을 보여주는 실용적인 코드 예제를 제시할 것입니다.
 
-![image](/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_0.png)
+![image](/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_0.png)
 
 ## Seaborn이란
 
 Seaborn은 복잡하고 아름다운 시각화를 만드는 과정을 단순화하는 데이터 시각화 라이브러리입니다. 시각적 경험을 향상하기 위해 내장된 테마와 색 팔레트를 제공합니다. Seaborn은 통계적 시각화를 생성하는 데 특히 적합하며 변수 간의 관계를 시각화하는 데 자주 사용됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ Seaborn의 주요 기능과 기능을 몇 가지 코드 예제와 함께 살펴�
 - a) 기본 산점도
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -69,15 +72,17 @@ plt.title('Seaborn을 사용한 기본 산점도')
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_1.png" />
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_1.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -106,17 +111,19 @@ plt.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_2.png" />
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_2.png" />
 
 ## 2. 상자 그림
 
@@ -128,12 +135,14 @@ import matplotlib.pyplot as plt
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -152,17 +161,19 @@ plt.title('Seaborn을 사용한 기본 상자 그림')
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_3.png" />
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_3.png" />
 
 - b) 색상 팔레트를 사용한 가로 상자 그림
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -186,16 +197,17 @@ plt.title('색상 팔레트를 이용한 수평 상자 그림')
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_4.png" />
-
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_4.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -223,17 +235,19 @@ plt.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_5.png" />
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_5.png" />
 
 - d) Notched Box Plot
 
@@ -248,12 +262,14 @@ data = sns.load_dataset('diamonds')
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -267,7 +283,7 @@ plt.title('Notched Box Plot')
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_6.png" />
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_6.png" />
 
 - e) 사용자 정의 상자 그림
 
@@ -277,12 +293,14 @@ import matplotlib.pyplot as plt
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -302,18 +320,19 @@ plt.legend(title='Cylinders')
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_7.png" />
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_7.png" />
 
 ## 3. Pair Plot
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -338,18 +357,19 @@ plt.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![image](/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_8.png)
+![image](/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_8.png)
 
 - b) Pair Plot with Custom Color Palette
 
@@ -363,14 +383,15 @@ import matplotlib.pyplot as plt
 data = sns.load_dataset('tips')
 ```
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -382,7 +403,7 @@ plt.title('사용자 정의 색상 팔레트로 Pair Plot 만들기')
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_9.png" />
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_9.png" />
 
 - c) 다른 플롯 유형을 사용한 Pair Plot
 
@@ -392,12 +413,14 @@ import matplotlib.pyplot as plt
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -417,18 +440,19 @@ plt.title('다른 플롯 유형을 사용한 페어 플롯')
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_10.png" />
+<img src="/TIL/assets/img/2024-07-09-DataVisualizationinPythonSeabornLibrary_10.png" />
 
 # 결론
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

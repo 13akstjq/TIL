@@ -1,31 +1,32 @@
 ---
 title: "API 데이터를 데이터베이스에 통합하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-IntegrateAPIDatatoaDatabase_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-IntegrateAPIDatatoaDatabase_0.png"
 date: 2024-07-09 09:12
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-IntegrateAPIDatatoaDatabase_0.png
 tag: Tech
 originalTitle: "Integrate API Data to a Database"
 link: "https://medium.com/python-in-plain-english/integrate-api-data-to-a-database-48150d1c0093"
 ---
 
-
 DLT, Postgres 및 Python을 사용합니다.
 
-![이미지](/assets/img/2024-07-09-IntegrateAPIDatatoaDatabase_0.png)
+![이미지](/TIL/assets/img/2024-07-09-IntegrateAPIDatatoaDatabase_0.png)
 
 오늘의 블로그 포스트에서는 데이터 원본으로서 API(Application Programming Interface)를 사용하는 방법을 살펴보겠습니다. 우리의 데이터 중심 세계에서는 다양한 소스에서 데이터를 통합하는 것이 정보 기반 의사결정에 중요합니다. 이 중요한 데이터 소스 중 하나는 환율 정보 API인데, 이는 금융 분석과 보고서 작성에 중요합니다. ExchangeRate-API.com에서 환율 데이터를 가져와 PostgreSQL 데이터베이스에 통합하는 방법을 설명하겠습니다.
 
 이 튜토리얼을 통해 다음을 완료할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -42,12 +43,14 @@ ExchangeRate-API.com을 사용합니다. 이 사이트는 JSON 형식으로 환�
 # 필수사항
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -62,12 +65,14 @@ ExchangeRate-API.com을 사용합니다. 이 사이트는 JSON 형식으로 환�
 먼저, 선호하는 코드 편집기(예: VS Code)에서 새로운 Python 파일을 열고 필요한 라이브러리를 가져오세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -97,12 +102,14 @@ data = response.json()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -114,17 +121,19 @@ data = response.json()
 - 변환율 추출:
 
 ```js
-df = pd.json_normalize(data['conversion_rates'])
-df = df.melt().reset_index()
+df = pd.json_normalize(data["conversion_rates"]);
+df = df.melt().reset_index();
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -132,9 +141,9 @@ df = df.melt().reset_index()
 2. 로드 날짜 열을 추가해주세요:
 
 ```js
-df["index"] += 1 
-df['date'] = date.today()
-df = df.rename(columns={ 'index':'id','variable': 'currencycode', 'value': 'fxrate'})
+df["index"] += 1;
+df["date"] = date.today();
+df = df.rename((columns = { index: "id", variable: "currencycode", value: "fxrate" }));
 ```
 
 3. DLT를 위한 데이터프레임을 준비해주세요:
@@ -145,12 +154,14 @@ records = df.to_dict(orient="records")
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -163,19 +174,21 @@ DLT를 사용하여 데이터셋을 처리하고 PostgreSQL 데이터베이스�
 
 ```js
 pipeline = dlt.pipeline(
-    pipeline_name="fxrate_pipeline",
-    destination="postgres",
-    dataset_name="incremental"
-)
+  (pipeline_name = "fxrate_pipeline"),
+  (destination = "postgres"),
+  (dataset_name = "incremental")
+);
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -185,7 +198,7 @@ pipeline = dlt.pipeline(
 ```js
 # 파이프라인 실행
 load_info = pipeline.run(
-        records, 
+        records,
         write_disposition="merge",
         primary_key=("currencycode", "date"),
         table_name="fxrates")
@@ -196,12 +209,14 @@ load_info = pipeline.run(
 스크립트를 저장하고 실행하세요. 모든 설정이 올바르게 완료되었다면, 파이프라인이 성공적으로 실행되고 환율 데이터가 PostgreSQL 데이터베이스에 로드될 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -217,12 +232,14 @@ SELECT * FROM fxrates;
 # 결론
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -236,17 +253,19 @@ SELECT * FROM fxrates;
 In Plain English 커뮤니티의 일원으로 함께 해 주셔서 감사합니다! 떠나시기 전에:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-- 작가를 박수로 격려하고 팔로우 해주세요! 👏️️  
-- 저희를 팔로우해주세요: X | LinkedIn | YouTube | Discord | 뉴스레터  
-- 다른 플랫폼 방문하기: CoFeed | Differ  
+- 작가를 박수로 격려하고 팔로우 해주세요! 👏️️
+- 저희를 팔로우해주세요: X | LinkedIn | YouTube | Discord | 뉴스레터
+- 다른 플랫폼 방문하기: CoFeed | Differ
 - 더 많은 콘텐츠: PlainEnglish.io

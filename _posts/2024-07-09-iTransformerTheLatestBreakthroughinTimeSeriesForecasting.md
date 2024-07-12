@@ -1,18 +1,16 @@
 ---
 title: "iTransformer 최신 시계열 예측 기법 대공개"
 description: ""
-coverImage: "/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_0.png"
 date: 2024-07-09 19:21
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_0.png
 tag: Tech
 originalTitle: "iTransformer: The Latest Breakthrough in Time Series Forecasting"
 link: "https://medium.com/towards-data-science/itransformer-the-latest-breakthrough-in-time-series-forecasting-d538ddc6c5d1"
 ---
 
-
-
-![2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting](/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_0.png)
+![2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting](/TIL/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_0.png)
 
 예측 분야에서는 Lag-LLaMA, Time-LLM, Chronos, Moirai와 같은 모델들이 2024년 초부터 제안되어 기초 모델 분야에서 많은 활동을 보이고 있습니다.
 
@@ -20,14 +18,15 @@ link: "https://medium.com/towards-data-science/itransformer-the-latest-breakthro
 
 이에 따라 Transformer 아키텍처가 다양한 형태로 시계열 예측에 적용되어왔으며, PatchTST는 장기 예측에서 최고 수준의 성능을 달성하였습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,12 +40,14 @@ link: "https://medium.com/towards-data-science/itransformer-the-latest-breakthro
 시작해봅시다!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -60,33 +61,35 @@ iTransformer의 아이디어는 바닐라 Transformer 모델이 시간 토큰을
 그 문제에 대한 해결책은 PatchTST 모델과 함께 제안된 패칭이에요. 패칭을 사용하면 토큰화하고 임베딩하기 전에 시간 지점을 단순히 그룹화할 수 있어요. 아래에서 보여준 것처럼요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![iTransformer image 1](/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_1.png)
+![iTransformer image 1](/TIL/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_1.png)
 
 In iTransformer, we push patching to the extreme by simply applying the model on the inverted dimensions.
 
-![iTransformer image 2](/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_2.png)
+![iTransformer image 2](/TIL/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_2.png)
 
 In the figure above, we can see how the iTransformer differs from the vanilla Transformer. Instead of looking at all features at one time step, it looks at one feature across many time steps. This is done simply by inverting the shape of the input.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -100,12 +103,14 @@ iTransformer의 일반 아이디어를 이해했으니, 이제 더 자세히 살
 iTransformer는 2017년에 Attention Is All You Need에서 처음으로 제안된 임베딩, 프로젝션 및 트랜스포머 블록을 사용한 바닐라 인코더-디코더 아키텍처를 채택합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -117,12 +122,14 @@ iTransformer는 2017년에 Attention Is All You Need에서 처음으로 제안�
 먼저, 입력 시리즈는 독립적으로 토큰으로 임베딩됩니다. 다시 말해서, 이는 입력의 서브시퀀스를 토큰화하는 대신, 모델이 전체 입력 시퀀스를 토큰화하는 극단적인 경우와 같습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -136,12 +143,14 @@ iTransformer는 2017년에 Attention Is All You Need에서 처음으로 제안�
 층 정규화
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -155,12 +164,14 @@ iTransformer는 2017년에 Attention Is All You Need에서 처음으로 제안�
 피드포워드 네트워크
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -174,12 +185,14 @@ iTransformer는 2017년에 Attention Is All You Need에서 처음으로 제안�
 여기서 간단히 많은 블록을 쌓는 것으로 이루어진 단계입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -196,12 +209,14 @@ iTransformer는 2017년에 Attention Is All You Need에서 처음으로 제안�
 이제 iTransformer 모델에 대한 깊은 이해를 갖고 작은 예측 실험에서 적용해 보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -215,12 +230,14 @@ iTransformer는 2017년에 Attention Is All You Need에서 처음으로 제안�
 iTransformer는 근본적으로 다변량 모델이지만, 우리는 96개의 시간 단계에 걸친 일변량 예측 능력을 테스트합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -234,12 +251,14 @@ iTransformer는 근본적으로 다변량 모델이지만, 우리는 96개의 �
 이 실험에서는 neuralforecast라는 라이브러리를 사용하는데, 이 라이브러리가 딥러닝 방법의 가장 빠르고 직관적인 사용 가능한 구현을 제공한다고 믿습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -264,12 +283,14 @@ pip install git+https://github.com/Nixtla/neuralforecast.git
 이제 ETT 데이터셋을로드하고, 검증 크기, 테스트 크기, 그리고 주기를 포함하는 함수를 작성해봅시다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -313,12 +334,14 @@ Please note that the validation and test sizes align with standards in the scien
 We are all set to start training the models.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -334,12 +357,14 @@ iTransformer 모델을 훈련시키기 위해서는 단순히 다음을 지정�
 iTransformer가 본질적으로 다변량 모델이기 때문에 모델을 적합할 때 시리즈 수를 지정해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -347,11 +372,13 @@ iTransformer가 본질적으로 다변량 모델이기 때문에 모델을 적�
 단변량 시나리오이므로 n_series=1입니다.
 
 ```js
-iTransformer(h=horizon, 
-             input_size=3*horizon, 
-             n_series=1, 
-             max_steps=1000, 
-             early_stop_patience_steps=3)
+iTransformer(
+  (h = horizon),
+  (input_size = 3 * horizon),
+  (n_series = 1),
+  (max_steps = 1000),
+  (early_stop_patience_steps = 3)
+);
 ```
 
 위의 코드 블록에서는 최대 학습 단계 수를 지정하고, 과적합을 방지하기 위해 조기 중지를 3번 반복으로 설정합니다.
@@ -359,43 +386,59 @@ iTransformer(h=horizon,
 나머지 모델들에 대해 같은 작업을 수행한 후, 리스트에 넣어줍니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-horizon = 96
+horizon = 96;
 
 models = [
-    iTransformer(h=horizon, input_size=3*horizon, n_series=1, max_steps=1000, early_stop_patience_steps=3),
-    TSMixer(h=horizon, input_size=3*horizon, n_series=1, max_steps=1000, early_stop_patience_steps=3),
-    NHITS(h=horizon, input_size=3*horizon, max_steps=1000, early_stop_patience_steps=3),
-    PatchTST(h=horizon, input_size=3*horizon, max_steps=1000, early_stop_patience_steps=3)
-]
+  iTransformer(
+    (h = horizon),
+    (input_size = 3 * horizon),
+    (n_series = 1),
+    (max_steps = 1000),
+    (early_stop_patience_steps = 3)
+  ),
+  TSMixer(
+    (h = horizon),
+    (input_size = 3 * horizon),
+    (n_series = 1),
+    (max_steps = 1000),
+    (early_stop_patience_steps = 3)
+  ),
+  NHITS((h = horizon), (input_size = 3 * horizon), (max_steps = 1000), (early_stop_patience_steps = 3)),
+  PatchTST((h = horizon), (input_size = 3 * horizon), (max_steps = 1000), (early_stop_patience_steps = 3)),
+];
 ```
 
 좋아요! 이제 우리는 단순히 NeuralForecast 객체를 초기화하면 되는데, 이 객체는 학습, 교차 검증 및 예측을 위한 메서드에 액세스할 수 있게 해줍니다.
 
 ```js
-nf = NeuralForecast(models=models, freq=freq)
-nf_preds = nf.cross_validation(df=Y_df, val_size=val_size, test_size=test_size, n_windows=None)
+nf = NeuralForecast((models = models), (freq = freq));
+nf_preds = nf.cross_validation((df = Y_df), (val_size = val_size), (test_size = test_size), (n_windows = None));
 ```
 
 마지막으로, 우리는 각 모델의 성능을 utilsforecast 라이브러리를 사용하여 평가합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -419,20 +462,20 @@ datasets = ['ettm1', 'ettm2', 'etth1', 'etth2']
 for dataset in datasets:
 
     Y_df, val_size, test_size, freq = load_data(dataset)
-    
+
     horizon = 96
-    
+
     models = [
         iTransformer(h=horizon, input_size=3*horizon, n_series=1, max_steps=1000, early_stop_patience_steps=3),
         TSMixer(h=horizon, input_size=3*horizon, n_series=1, max_steps=1000, early_stop_patience_steps=3),
         NHITS(h=horizon, input_size=3*horizon, max_steps=1000, early_stop_patience_steps=3),
         PatchTST(h=horizon, input_size=3*horizon, max_steps=1000, early_stop_patience_steps=3)
     ]
-    
+
     nf = NeuralForecast(models=models, freq=freq)
     nf_preds = nf.cross_validation(df=Y_df, val_size=val_size, test_size=test_size, n_windows=None)
     nf_preds = nf_preds.reset_index()
-    
+
     evaluation = evaluate(df=nf_preds, metrics=[mae, mse], models=['iTransformer', 'TSMixer', 'NHITS', 'PatchTST'])
     evaluation.to_csv(f'{dataset}_results.csv', index=False, header=True)
 ```
@@ -440,12 +483,14 @@ for dataset in datasets:
 이 작업을 완료하면 모든 데이터셋에 대해 모든 모델의 예측이 있게 됩니다. 그런 다음 평가로 넘어갈 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -468,17 +513,19 @@ for file, dataset in zip(files, datasets):
 
 full_df = pd.concat(dataframes, ignore_index=True)
 full_df = full_df.drop(['unique_id'], axis=1)
-``` 
+```
 
 이후, 지표를 그래프로 그리려면:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -490,8 +537,8 @@ import numpy as np
 dataset_names = full_df['dataset'].unique()
 model_names = ['iTransformer', 'TSMixer', 'NHITS', 'PatchTST']
 
-fig, axs = plt.subplots(2, 2, figsize=(15, 15)) 
-bar_width = 0.35  
+fig, axs = plt.subplots(2, 2, figsize=(15, 15))
+bar_width = 0.35
 
 axs = axs.flatten()
 
@@ -500,21 +547,21 @@ for i, dataset_name in enumerate(dataset_names):
     mae_vals = df_subset[model_names].values.flatten()
     df_subset = full_df[(full_df['dataset'] == dataset_name) & (full_df['metric'] == 'mse')]
     mse_vals = df_subset[model_names].values.flatten()
-    
+
     indices = np.arange(len(model_names))
-    
+
     bars_mae = axs[i].bar(indices - bar_width / 2, mae_vals, bar_width, color='skyblue', label='MAE')
     bars_mse = axs[i].bar(indices + bar_width / 2, mse_vals, bar_width, color='orange', label='MSE')
-    
+
     for bars in [bars_mae, bars_mse]:
         for bar in bars:
             height = bar.get_height()
-            axs[i].annotate(f'{height:.2f}', 
+            axs[i].annotate(f'{height:.2f}',
                             xy=(bar.get_x() + bar.get_width() / 2, height),
                             xytext=(0, 3),
                             textcoords="offset points",
                             ha='center', va='bottom')
-    
+
     axs[i].set_xticks(indices)
     axs[i].set_xticklabels(model_names, rotation=45)
     axs[i].set_title(dataset_name)
@@ -523,19 +570,21 @@ for i, dataset_name in enumerate(dataset_names):
 plt.tight_layout()
 ```
 
-![Image](/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_4.png)
+![Image](/TIL/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_4.png)
 
 From the figure above, we can see that the iTransformer performs fairly well on all datasets, but TSMixer is overall slightly better than iTransformer, and PatchTST is the overall champion model in this experiment.
 
 Of course, keep in mind that we did not leverage the multivariate capabilities of iTransformer, and we only tested on a single forecast horizon. Therefore, it is not a complete assessment of the iTransformer’s performance.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -549,12 +598,14 @@ iTransformer는 베이닐라 Transformer 아키텍처를 적용한 뒤 입력 �
 이렇게 하면 전체 시리즈가 토큰화되고 PatchTST에서 제안한 것과 같이 극단적인 케이스를 모방합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -568,12 +619,14 @@ iTransformer는 많은 벤치마크 데이터셋에서 장기 예측에 대한 �
 읽어 주셔서 감사합니다! 즐겁게 읽으셨기를 바라며 새로운 지식을 얻으셨기를 기대합니다!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -584,15 +637,17 @@ iTransformer는 많은 벤치마크 데이터셋에서 장기 예측에 대한 �
 
 제 작업을 즐기고 계신가요? Buy me a coffee로 제게 지원을 표현해주세요. 여러분의 응원을 받으면 저는 커피 한 잔을 즐길 수 있어요! 만약 그렇게 느끼신다면, 아래 버튼을 클릭해주세요 👇
 
-![Image](/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_5.png)
+![Image](/TIL/assets/img/2024-07-09-iTransformerTheLatestBreakthroughinTimeSeriesForecasting_5.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

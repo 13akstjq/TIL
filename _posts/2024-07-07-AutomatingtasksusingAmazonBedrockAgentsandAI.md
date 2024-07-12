@@ -1,17 +1,16 @@
 ---
 title: "Amazon Bedrock Agents 및 AI로 작업 자동화하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_0.png"
 date: 2024-07-07 13:00
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_0.png
 tag: Tech
 originalTitle: "Automating tasks using Amazon Bedrock Agents and AI"
 link: "https://medium.com/@leejamesgilmore/automating-tasks-using-amazon-bedrock-agents-and-ai-4b6fb8856589"
 ---
 
-
-<img src="/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_0.png" />
+<img src="/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_0.png" />
 
 ## 서문
 
@@ -23,12 +22,14 @@ link: "https://medium.com/@leejamesgilmore/automating-tasks-using-amazon-bedrock
 # 소개 👋🏽
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -37,39 +38,40 @@ Amazon Bedrock Agents은 당신이 회사 내에서 스스로 작업을 수행�
 
 이들은 기본 모델, 데이터 소스, 지식베이스, 소프트웨어 응용 프로그램 및 사용자 대화 간의 상호작용을 관리하는 조정자 역할을 합니다. 추가로, 이들은 API 호출을 자동화하여 조치를 수행하고 이러한 조치와 관련된 정보를 풍부하게 하는 지식 베이스에 접근합니다.
 
-![Automating tasks using Amazon Bedrock Agents and AI](/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_1.png)
+![Automating tasks using Amazon Bedrock Agents and AI](/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_1.png)
 
 본 문서에서는 가상의 호텔 및 스파 회사인 LJ Resorts를 다루어 AWS 구조와 코드를 살펴보겠습니다. 우리의 고객은 당사 애플리케이션을 사용하여 호텔 숙박, 골프 세션 및 스파 치료를 한꺼번에 예약하거나 이용 가능한 치료 및 할인, 영업 시간과 같은 회사 정보를 요청할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Image 1](/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_2.png)
+![Image 1](/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_2.png)
 
 The full code repository can be found here:
 
 👇 Before we go any further — please connect with me on LinkedIn for future blog posts and Serverless news [Lee James Gilmore](https://www.linkedin.com/in/lee-james-gilmore/)
 
-
-![Image 2](/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_3.png)
-
+![Image 2](/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_3.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -83,12 +85,14 @@ The full code repository can be found here:
 시작하기 전에 약어 몇 가지와 그 의미에 대해 알아봅시다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -102,17 +106,19 @@ The full code repository can be found here:
 🤖 "고객이 호텔 객실, 스파 세션, 그리고 골프 예약을 도와주시고, 해당하는 날짜와 예약 유형에 따라 특별 혜택을 제공해 주세요. 예약을 완료하기 전에 오프닝 타임이나 가격에 대해 고객에게 안내하고, 호텔 정책을 고려해 주세요."
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![Automating tasks using Amazon Bedrock Agents and AI](/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_4.png)
+![Automating tasks using Amazon Bedrock Agents and AI](/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_4.png)
 
 ## Amazon Bedrock 에이전트는 어떻게 작동하나요? 🤖
 
@@ -121,17 +127,19 @@ The full code repository can be found here:
 다음으로 Orchestration prompt는 응답을 구문 분석하고 우리의 OpenAPI 사양 문서에 정의된 작업에 따라 액션 그룹 람다를 호출하며 Bedrock Knowledge Base에서 필요한 추가 정보를 가져옵니다. Orchestration이 완료되면 결과가 고객에게 반환됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![이미지](/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_5.png)
+![이미지](/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_5.png)
 
 다음 섹션에서는 본문에서 무엇을 구축 중인지 살펴보겠습니다. 그러면 코드를 살펴보고 응용 프로그램을 배포하고 테스트할 수 있습니다.
 
@@ -140,17 +148,19 @@ The full code repository can be found here:
 그래, 이제 Amazon Bedrock와 함께 에이전트에 대해 깊이 파고들었으며 이론적으로 작동 방식을 이해했으니, 이제 이 글에서 무엇을 만들고 있는지 살펴봅시다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_6.png" />
+<img src="/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_6.png" />
 
 저희는 이전 글에서 Amazon Bedrock Knowledge Bases에 대해 다뤘었는데, 해당 글은 여기에서 찾아볼 수 있어요:
 
@@ -161,12 +171,14 @@ The full code repository can be found here:
 - 에이전트는 특정 회사 데이터를 사용한 배포된 Knowledge Base와 S3 버킷에 있는 OpenAPI 사억을 기반으로 한 Lambda 함수를 사용하여 고객의 작업을 완료하기 위해 다른 내부 시스템에 경로를 지정합니다 (여러 호출을 우리를 대신하여 조정할 것입니다).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -180,12 +192,14 @@ The full code repository can be found here:
 Customer: “Hi, what special deals do you have on at the moment for hotels?”
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -199,12 +213,14 @@ Customer: “Hi, what special deals do you have on at the moment for hotels?”
 고객: "2024년 02월 25일에 디럭스 객실을 $160에 예약할 수 있나요?"
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -218,12 +234,14 @@ Customer: “Hi, what special deals do you have on at the moment for hotels?”
 고객: "핫 스톤 마사지를 예약할 수 있나요?"
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -237,12 +255,14 @@ Agent: "LJ 리조트의 골프 영업 시간은 다음과 같아요: 월요일�
 Customer: "해당 날에도 아침에는 골프 세션도 있나요?"
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -256,12 +276,14 @@ Customer: "해당 날에도 아침에는 골프 세션도 있나요?"
 고객: "제 예약의 총 비용이 얼마인가요?"
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -275,12 +297,14 @@ Customer: "해당 날에도 아침에는 골프 세션도 있나요?"
 # 주요 코드 설명하기 👨‍💻
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -294,36 +318,34 @@ Customer: "해당 날에도 아침에는 골프 세션도 있나요?"
 ```js
 // create the lambda for the agent - this is the lambda that determines
 // what the prompt looks like with regards to mapping to the schema
-const actionGroupAgentLambda: nodeLambda.NodejsFunction =
-  new nodeLambda.NodejsFunction(this, 'AgentLambda', {
-    functionName: 'action-group-executor',
-    runtime: lambda.Runtime.NODEJS_20_X,
-    entry: path.join(
-      __dirname,
-      './src/adapters/primary/action-group-executor/action-group-executor.adapter.ts'
-    ),
-    memorySize: 1024,
-    handler: 'handler',
-    timeout: cdk.Duration.minutes(5),
-    description: 'action group lambda function',
-    architecture: lambda.Architecture.ARM_64,
-    tracing: lambda.Tracing.ACTIVE,
-    bundling: {
-      minify: true,
-    },
-    environment: {
-      ...lambdaConfig,
-    },
-  });
+const actionGroupAgentLambda: nodeLambda.NodejsFunction = new nodeLambda.NodejsFunction(this, "AgentLambda", {
+  functionName: "action-group-executor",
+  runtime: lambda.Runtime.NODEJS_20_X,
+  entry: path.join(__dirname, "./src/adapters/primary/action-group-executor/action-group-executor.adapter.ts"),
+  memorySize: 1024,
+  handler: "handler",
+  timeout: cdk.Duration.minutes(5),
+  description: "action group lambda function",
+  architecture: lambda.Architecture.ARM_64,
+  tracing: lambda.Tracing.ACTIVE,
+  bundling: {
+    minify: true,
+  },
+  environment: {
+    ...lambdaConfig,
+  },
+});
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -332,16 +354,16 @@ const actionGroupAgentLambda: nodeLambda.NodejsFunction =
 
 ```js
 // bedrock 에이전트 생성
-const agent = new bedrock.Agent(this, 'BedrockAgent', {
-  name: '에이전트',
-  description: '호텔, 스파 및 골프 예약을 위한 에이전트입니다.',
+const agent = new bedrock.Agent(this, "BedrockAgent", {
+  name: "에이전트",
+  description: "호텔, 스파 및 골프 예약을 위한 에이전트입니다.",
   foundationModel: bedrock.BedrockFoundationModel.ANTHROPIC_CLAUDE_V2,
   instruction:
-    '고객이 호텔 객실, 스파 세션 및 골프 예약을 도와주셔서 감사하겠습니다. 그들에게 요일 및 예약 유형에 따라 특별 제공상품에 대해 알려주시고, 예약을 완료하기 전에 오픈 시간이나 가격을 안내해주시고, 또한 호텔 정책을 고려해주시기 바랍니다.',
+    "고객이 호텔 객실, 스파 세션 및 골프 예약을 도와주셔서 감사하겠습니다. 그들에게 요일 및 예약 유형에 따라 특별 제공상품에 대해 알려주시고, 예약을 완료하기 전에 오픈 시간이나 가격을 안내해주시고, 또한 호텔 정책을 고려해주시기 바랍니다.",
   idleSessionTTL: cdk.Duration.minutes(10),
   knowledgeBases: [kb],
   shouldPrepareAgent: true,
-  aliasName: '에이전트',
+  aliasName: "에이전트",
 });
 ```
 
@@ -350,26 +372,26 @@ const agent = new bedrock.Agent(this, 'BedrockAgent', {
 다음으로, 아래와 같이 Action 그룹을 생성합니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
 // 예약을 위한 동작 그룹을 추가합니다.
-new bedrock.AgentActionGroup(this, 'AgentActionGroup', {
-  actionGroupName: 'agent-action-group',
-  description: '예약을 위한 동작 그룹',
+new bedrock.AgentActionGroup(this, "AgentActionGroup", {
+  actionGroupName: "agent-action-group",
+  description: "예약을 위한 동작 그룹",
   agent: agent,
-  apiSchema: bedrock.S3ApiSchema.fromAsset(
-    path.join(__dirname, './schema/api-schema.json')
-  ),
-  actionGroupState: 'ENABLED',
+  apiSchema: bedrock.S3ApiSchema.fromAsset(path.join(__dirname, "./schema/api-schema.json")),
+  actionGroupState: "ENABLED",
   actionGroupExecutor: actionGroupAgentLambda,
   shouldPrepareAgent: true,
 });
@@ -473,14 +495,15 @@ new bedrock.AgentActionGroup(this, 'AgentActionGroup', {
 
 모델이 수행해야 할 작업을 결정하는 중요한 부분은 설명, 경로, 메서드 및 작업 ID입니다. 예를 들어, 모든 호텔 객실을 나열하기 위해 사용하는 것은 다음과 같습니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -493,17 +516,13 @@ new bedrock.AgentActionGroup(this, 'AgentActionGroup', {
 우리의 람다 함수가 호출되면 해당 세부 정보를 활용하여 호출해야 하는 다른 시스템을 결정합니다:
 
 ```js
-import {
-  MetricUnits,
-  Metrics,
-  logMetrics,
-} from '@aws-lambda-powertools/metrics';
-import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
-import { golfSessions, rooms, spaTreatments } from 'stateful/src/data';
+import { MetricUnits, Metrics, logMetrics } from "@aws-lambda-powertools/metrics";
+import { Tracer, captureLambdaHandler } from "@aws-lambda-powertools/tracer";
+import { golfSessions, rooms, spaTreatments } from "stateful/src/data";
 
-import { injectLambdaContext } from '@aws-lambda-powertools/logger';
-import middy from '@middy/core';
-import { logger } from '@shared/index';
+import { injectLambdaContext } from "@aws-lambda-powertools/logger";
+import middy from "@middy/core";
+import { logger } from "@shared/index";
 
 const tracer = new Tracer();
 const metrics = new Metrics();
@@ -522,47 +541,42 @@ export const adapter = async ({
   let httpStatusCode = 200;
 
   try {
-    logger.info(
-      `inputText: ${inputText}, apiPath: ${apiPath}, httpMethod: ${httpMethod}`
-    );
+    logger.info(`inputText: ${inputText}, apiPath: ${apiPath}, httpMethod: ${httpMethod}`);
 
     // 참고: 실제로는 람다 FURLS 또는 다른 DB 또는 API/서비스를 호출할 것이지만,
     // 작동 방식을 보여주기 위해 기사용 가짜 스텁 데이터를 사용합니다.
     switch (apiPath) {
-      case '/rooms':
-        if (httpMethod === 'GET') {
+      case "/rooms":
+        if (httpMethod === "GET") {
           body = rooms;
-        } else if (httpMethod === 'POST') {
-          body = rooms.find((room) => room.roomId === '109');
+        } else if (httpMethod === "POST") {
+          body = rooms.find((room) => room.roomId === "109");
         }
         break;
 
-      case '/spa-sessions':
-        if (httpMethod === 'GET') {
+      case "/spa-sessions":
+        if (httpMethod === "GET") {
           body = spaTreatments;
-        } else if (httpMethod === 'POST') {
-          body = spaTreatments.find(
-            (treatment) => treatment.treatmentId === '3'
-          );
+        } else if (httpMethod === "POST") {
+          body = spaTreatments.find((treatment) => treatment.treatmentId === "3");
         }
         break;
 
-      case '/golf-sessions':
-        if (httpMethod === 'GET') {
+      case "/golf-sessions":
+        if (httpMethod === "GET") {
           body = golfSessions;
-        } else if (httpMethod === 'POST') {
-          body = golfSessions.find((session) => session.sessionId === '1');
+        } else if (httpMethod === "POST") {
+          body = golfSessions.find((session) => session.sessionId === "1");
         }
         break;
 
       default:
         httpStatusCode = 500;
-        body =
-          'Sorry, I am unable to help you with that. Please try asking the question in a different way perhaps.';
+        body = "Sorry, I am unable to help you with that. Please try asking the question in a different way perhaps.";
         break;
     }
 
-    metrics.addMetric('SuccessfulActionGroupQuery', MetricUnits.Count, 1);
+    metrics.addMetric("SuccessfulActionGroupQuery", MetricUnits.Count, 1);
 
     return {
       messageVersion,
@@ -574,18 +588,18 @@ export const adapter = async ({
         sessionAttributes,
         promptSessionAttributes,
         responseBody: {
-          'application-json': {
+          "application-json": {
             body: JSON.stringify(body),
           },
         },
       },
     };
   } catch (error) {
-    let errorMessage = 'Unknown error';
+    let errorMessage = "Unknown error";
     if (error instanceof Error) errorMessage = error.message;
     logger.error(errorMessage);
 
-    metrics.addMetric('ActionGroupQueryError', MetricUnits.Count, 1);
+    metrics.addMetric("ActionGroupQueryError", MetricUnits.Count, 1);
 
     throw error;
   }
@@ -600,18 +614,19 @@ export const handler = middy(adapter)
 위의 예제에서는 다른 시스템을 호출하는 대신 반환된 데이터를 간단히 하드코딩했음을 볼 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![스테이트리스 스택](/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_7.png)
+![스테이트리스 스택](/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_7.png)
 
 이제 우리 에이전트를 쿼리하는 스테이트리스 스택을 살펴보겠습니다.
 
@@ -619,50 +634,47 @@ export const handler = middy(adapter)
 
 먼저 스트리밍이 설정된 쿼리 람다 함수를 생성합니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
 // 에이전트 쿼리를 위한 람다 함수를 생성합니다.
-const queryModelLambda: nodeLambda.NodejsFunction =
-  new nodeLambda.NodejsFunction(this, 'QueryModelLambda', {
-    functionName: 'query-model-lambda',
-    runtime: lambda.Runtime.NODEJS_20_X,
-    entry: path.join(
-      __dirname,
-      './src/adapters/primary/query-model/query-model.adapter.ts'
-    ),
-    memorySize: 1024,
-    handler: 'handler',
-    timeout: cdk.Duration.minutes(3),
-    description: '쿼리 모델 람다 함수',
-    architecture: lambda.Architecture.ARM_64,
-    tracing: lambda.Tracing.ACTIVE,
-    bundling: {
-      minify: true,
-    },
-    environment: {
-      AGENT_ID: agentId,
-      AGENT_ALIAS_ID: agentAliasId,
-      ...lambdaConfig,
-    },
-  });
+const queryModelLambda: nodeLambda.NodejsFunction = new nodeLambda.NodejsFunction(this, "QueryModelLambda", {
+  functionName: "query-model-lambda",
+  runtime: lambda.Runtime.NODEJS_20_X,
+  entry: path.join(__dirname, "./src/adapters/primary/query-model/query-model.adapter.ts"),
+  memorySize: 1024,
+  handler: "handler",
+  timeout: cdk.Duration.minutes(3),
+  description: "쿼리 모델 람다 함수",
+  architecture: lambda.Architecture.ARM_64,
+  tracing: lambda.Tracing.ACTIVE,
+  bundling: {
+    minify: true,
+  },
+  environment: {
+    AGENT_ID: agentId,
+    AGENT_ALIAS_ID: agentAliasId,
+    ...lambdaConfig,
+  },
+});
 
 // 쿼리 람다에 대한 함수 URL을 스트림 응답으로 추가합니다.
 const queryModelLambdaUrl = queryModelLambda.addFunctionUrl({
   authType: lambda.FunctionUrlAuthType.NONE,
   invokeMode: lambda.InvokeMode.RESPONSE_STREAM,
   cors: {
-    allowedOrigins: ['*'],
+    allowedOrigins: ["*"],
   },
 });
 ```
@@ -673,13 +685,8 @@ const queryModelLambdaUrl = queryModelLambda.addFunctionUrl({
 // 쿼리 람다 함수가 모델/KB/에이전트를 쿼리할 수 있도록 허용합니다.
 queryModelLambda.addToRolePolicy(
   new iam.PolicyStatement({
-    actions: [
-      'bedrock:RetrieveAndGenerate',
-      'bedrock:Retrieve',
-      'bedrock:InvokeModel',
-      'bedrock:InvokeAgent',
-    ],
-    resources: ['*'],
+    actions: ["bedrock:RetrieveAndGenerate", "bedrock:Retrieve", "bedrock:InvokeModel", "bedrock:InvokeAgent"],
+    resources: ["*"],
   })
 );
 ```
@@ -687,39 +694,41 @@ queryModelLambda.addToRolePolicy(
 이제 사용자가 함수 URL을 통해 프롬프트를 제공하고 에이전트를 호출하는 Query Lambda 함수를 살펴보겠습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-import { MetricUnits, Metrics } from '@aws-lambda-powertools/metrics';
+import { MetricUnits, Metrics } from "@aws-lambda-powertools/metrics";
 import {
   BedrockAgentRuntimeClient,
   InvokeAgentCommand,
   InvokeAgentRequest,
   InvokeAgentResponse,
-} from '@aws-sdk/client-bedrock-agent-runtime';
-import { ResponseStream, streamifyResponse } from 'lambda-stream';
+} from "@aws-sdk/client-bedrock-agent-runtime";
+import { ResponseStream, streamifyResponse } from "lambda-stream";
 
-import { config } from '@config';
-import { ValidationError } from '@errors/validation-error';
-import { logger } from '@shared/index';
-import { APIGatewayProxyEventV2 } from 'aws-lambda';
+import { config } from "@config";
+import { ValidationError } from "@errors/validation-error";
+import { logger } from "@shared/index";
+import { APIGatewayProxyEventV2 } from "aws-lambda";
 
 const metrics = new Metrics();
 const client = new BedrockAgentRuntimeClient();
 
-const agentId = config.get('agentId');
-const agentAliasId = config.get('agentAliasId');
+const agentId = config.get("agentId");
+const agentAliasId = config.get("agentAliasId");
 
 function parseBase64(message: Uint8Array): string {
-  return Buffer.from(message).toString('utf-8');
+  return Buffer.from(message).toString("utf-8");
 }
 
 export const queryModelAdapter = async (
@@ -727,13 +736,12 @@ export const queryModelAdapter = async (
   responseStream: ResponseStream
 ): Promise<void> => {
   try {
-    responseStream.setContentType('application/json');
+    responseStream.setContentType("application/json");
 
-    if (!body) throw new ValidationError('no payload body');
+    if (!body) throw new ValidationError("no payload body");
     const request = JSON.parse(body);
 
-    const { sessionAttributes, promptSessionAttributes, sessionId, prompt } =
-      request;
+    const { sessionAttributes, promptSessionAttributes, sessionId, prompt } = request;
 
     const input: InvokeAgentRequest = {
       sessionState: {
@@ -763,21 +771,21 @@ export const queryModelAdapter = async (
     const returnMessage = {
       sessionId: response.sessionId,
       contentType: response.contentType,
-      message: chunks.join(' '),
+      message: chunks.join(" "),
     };
 
-    metrics.addMetric('SuccessfulQueryModel', MetricUnits.Count, 1);
+    metrics.addMetric("SuccessfulQueryModel", MetricUnits.Count, 1);
 
     // Note: In the example we are not streaming, we are using the FURL request timeout feature
     // but we could easily write the stream during the for loop if we wanted to
     responseStream.write(returnMessage);
     responseStream.end();
   } catch (error) {
-    let errorMessage = 'Unknown error';
+    let errorMessage = "Unknown error";
     if (error instanceof Error) errorMessage = error.message;
     logger.error(errorMessage);
 
-    metrics.addMetric('QueryModelError', MetricUnits.Count, 1);
+    metrics.addMetric("QueryModelError", MetricUnits.Count, 1);
 
     responseStream.end();
     throw error;
@@ -794,14 +802,15 @@ export const handler = streamifyResponse(queryModelAdapter);
 
 ## Postman을 통한 테스트하기
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -822,12 +831,14 @@ export const handler = streamifyResponse(queryModelAdapter);
 그리고 우리의 에이전트가 다음과 같이 응답하는 것을 확인할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -841,17 +852,19 @@ export const handler = streamifyResponse(queryModelAdapter);
 여기서 대화형 AI의 힘과 자율 에이전트의 역할을 볼 수 있습니다. 고객을 지원하기 위해 여러 가지 작업을 조합했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![이미지](/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_8.png)
+![이미지](/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_8.png)
 
 지금은 다른 시나리오에서도 이를 테스트할 수 있어요. 예를 들면 거래 확인, 스파 세션 예약 등등! 댓글에서 솔루션을 어떻게 찾았는지 알려주세요!
 
@@ -860,19 +873,21 @@ export const handler = streamifyResponse(queryModelAdapter);
 이 글을 즐겨 읽어주셨기를 바랍니다. 만약 즐겁게 읽었다면 공유하고 피드백 주세요!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 비슷한 콘텐츠를 위해 내 YouTube 채널을 구독해주세요!
 
-![Automating tasks using Amazon Bedrock Agents and AI](/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_9.png)
+![Automating tasks using Amazon Bedrock Agents and AI](/TIL/assets/img/2024-07-07-AutomatingtasksusingAmazonBedrockAgentsandAI_9.png)
 
 아래의 링크를 통해 연락하고 싶어요:
 
@@ -880,12 +895,14 @@ export const handler = streamifyResponse(queryModelAdapter);
 [Twitter - Lee James Gilmore](https://twitter.com/LeeJamesGilmore)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -899,17 +916,19 @@ export const handler = streamifyResponse(queryModelAdapter);
 "안녕하세요, 저는 영국을 기반으로 하는 AWS 커뮤니티 빌더, 블로거, AWS 인증 클라우드 아키텍트이자 기술 및 아키텍처 부문 글로벌 팀장 Lee입니다. 현재는 City Electrical Factors(UK) & City Electric Supply(US)에서 근무 중이며, 지난 6년 동안 주로 AWS 상에서 full-stack JavaScript로 작업해 왔습니다."
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-저는 AWS를 사랑하는 서버리스 선구자라고 생각해요. 혁신, 소프트웨어 아키텍처, 그리고 기술에 대한 모든 것을 좋아해요. 
+저는 AWS를 사랑하는 서버리스 선구자라고 생각해요. 혁신, 소프트웨어 아키텍처, 그리고 기술에 대한 모든 것을 좋아해요.
 
 ** 제공된 정보는 제 개인적인 견해이며, 해당 정보 사용에 대한 책임을 지지 않습니다. **
 

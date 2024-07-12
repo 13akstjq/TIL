@@ -1,15 +1,14 @@
 ---
 title: "제로 투 마스터리 아카데미 2024 세일 정보"
 description: ""
-coverImage: "/assets/img/2024-07-06-ZerotoMasteryAcademySALE2024_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-ZerotoMasteryAcademySALE2024_0.png"
 date: 2024-07-06 02:30
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-ZerotoMasteryAcademySALE2024_0.png
 tag: Tech
 originalTitle: "Zero to Mastery Academy SALE 2024"
 link: "https://medium.com/javarevisited/zero-to-mastery-academy-sale-2024-bbc70aaf7578"
 ---
-
 
 /assets/img/2024-07-06-ZerotoMasteryAcademySALE2024_0.png
 
@@ -20,12 +19,14 @@ link: "https://medium.com/javarevisited/zero-to-mastery-academy-sale-2024-bbc70a
 Zero to Mastery(ZTM) Academy가 무엇인지 모르시는 분들을 위해 간단히 소개하자면, 전 세계적으로 유명한 강사 Andrei Neagoie가 설립한 ZTM Academy는 혁신적인 기술 교육을 제공하는 종합 교육 플랫폼이에요. 절대 초보자부터 취업 준비가 완료된 전문가까지 이끌어주는 콘텐츠로 구성되어 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -43,12 +44,14 @@ ZTM Academy는 웹 개발, 데이터 과학, 기계 학습 등에서 포괄적�
 - 채용 지원: 취업 및 경력 발전을 위한 리소스에 액세스하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -62,12 +65,14 @@ ZTM Academy는 웹 개발, 데이터 과학, 기계 학습 등에서 포괄적�
 ## 2. 주니어에서 시니어 웹 개발자로의 완전한 로드맵
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -81,12 +86,14 @@ DS&A에 대한 포괄적인 코스로 기술 인터뷰에서 뛰어나게 성공
 ## 4. JavaScript: 고급 개념
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -100,12 +107,14 @@ React 및 그 생태계를 마스터하여 현대적인 웹 애플리케이션�
 ### 6. 2024년 완벽한 Python 개발자되는 방법: 제로 투 마스터리
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -119,12 +128,14 @@ React 및 그 생태계를 마스터하여 현대적인 웹 애플리케이션�
 그 외 주목할 만한 코스들:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,15 +1,14 @@
 ---
 title: "Snowflake 네이티브 앱 2024년 데이터 공유의 혁명"
 description: ""
-coverImage: "/assets/img/2024-07-06-SnowflakeNativeAppsTheNewFormofDataSharing_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-SnowflakeNativeAppsTheNewFormofDataSharing_0.png"
 date: 2024-07-06 10:33
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-SnowflakeNativeAppsTheNewFormofDataSharing_0.png
 tag: Tech
 originalTitle: "Snowflake Native Apps: The New Form of “Data Sharing”"
 link: "https://medium.com/snowflake/snowflake-native-apps-the-new-form-of-data-sharing-c1033650a620"
 ---
-
 
 /assets/img/2024-07-06-SnowflakeNativeAppsTheNewFormofDataSharing_0.png
 
@@ -20,12 +19,14 @@ link: "https://medium.com/snowflake/snowflake-native-apps-the-new-form-of-data-s
 # 데이터 공유의 과제
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ Snowflake는 이 데이터 공유 도전에 도전했습니다. "모든 데이�
 Direct Share는 데이터베이스를 한 계정에서 다른 특정 계정으로 공유할 수 있는 기능입니다. 이 기능은 Share 객체라는 객체를 활용하여 데이터를 덤프하거나 복사하지 않고 제3자 계정과 안전하게 데이터를 공유할 수 있도록 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -60,12 +63,14 @@ CREATE SHARE TEST_SHARE
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -73,8 +78,8 @@ CREATE SHARE TEST_SHARE
 2. 데이터베이스/테이블에 대한 읽기 권한을 공유 개체 (패키징)에 부여하세요.
 
 ```js
-GRANT USAGE ON DATABASE DB TO SHARE TEST_SHARE; 
-GRANT USAGE ON SCHEMA DB.SCHEMA TO SHARE TEST_SHARE; 
+GRANT USAGE ON DATABASE DB TO SHARE TEST_SHARE;
+GRANT USAGE ON SCHEMA DB.SCHEMA TO SHARE TEST_SHARE;
 GRANT SELECT ON TABLE DB.SHARE.TABLE TO SHARE TEST_SHARE;ｓｑ
 ```
 
@@ -85,12 +90,14 @@ ALTER SHARE TEST_SHARE ADD ACCOUNTS=TEST_ORG.TEST_ACCOUNT;
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -106,12 +113,14 @@ CREATE DATABASE TEST_SHARE FROM SHARE TEST_ORG.TEST_ACCOUNT.TEST_SHARE
 그러나 직접 공유에는 중요한 도전 과제가 있었습니다: 다른 클라우드 공급업체나 지역 간에 공유할 수 없었습니다. 예를 들어, AWS 일본 지역 계정 간에는 공유가 가능했지만, AWS 일본 지역 계정과 AWS 미국 지역 계정 또는 AWS 일본 지역 계정과 Azure 일본 지역 계정 간에는 공유할 수 없었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -125,12 +134,14 @@ CREATE DATABASE TEST_SHARE FROM SHARE TEST_ORG.TEST_ACCOUNT.TEST_SHARE
 /assets/img/2024-07-06-SnowflakeNativeAppsTheNewFormofDataSharing_1.png
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -144,12 +155,14 @@ CREATE DATABASE TEST_SHARE FROM SHARE TEST_ORG.TEST_ACCOUNT.TEST_SHARE
 그러나 공유 객체는 "데이터 처리 프로세스"를 저장할 수 없는 단점이 있었습니다. 예를 들어, Python 저장 프로시저를 사용하여 GA4에서 데이터를 가져오는 프로세스와 같은 프로세스는 기업간에 공통되어야하지만 이러한 데이터 처리 프로세스를 공유할 수있는 방법이 없었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -163,12 +176,14 @@ CREATE DATABASE TEST_SHARE FROM SHARE TEST_ORG.TEST_ACCOUNT.TEST_SHARE
 ## Secure Data Share와 Snowflake 네이티브 앱의 비교
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -187,12 +202,14 @@ Secure Data Share 및 Snowflake Native Apps은 명령어만 다르고 거의 동
 애플리케이션 패키지 객체를 설치하면 애플리케이션 객체가 언패킹됩니다. Share 객체에 의해 언패킹되는 데이터베이스 객체와 애플리케이션 객체 사이의 주요 차이점은 다음과 같습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -209,12 +226,14 @@ Secure Data Share 및 Snowflake Native Apps은 명령어만 다르고 거의 동
 # Snowflake Native Apps 확장하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -228,12 +247,14 @@ Snowflake Native Apps가 Snowpark 컨테이너 서비스와 통합되었습니�
 /assets/img/2024-07-06-SnowflakeNativeAppsTheNewFormofDataSharing_2.png
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

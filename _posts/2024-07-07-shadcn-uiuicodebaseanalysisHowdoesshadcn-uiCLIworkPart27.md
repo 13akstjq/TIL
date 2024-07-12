@@ -1,15 +1,14 @@
 ---
 title: "shadcn-ui UI 코드베이스 분석 shadcn-ui CLI는 어떻게 작동하나요  27부"
 description: ""
-coverImage: "/assets/img/2024-07-07-shadcn-uiuicodebaseanalysisHowdoesshadcn-uiCLIworkPart27_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-shadcn-uiuicodebaseanalysisHowdoesshadcn-uiCLIworkPart27_0.png"
 date: 2024-07-07 22:00
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-shadcn-uiuicodebaseanalysisHowdoesshadcn-uiCLIworkPart27_0.png
 tag: Tech
 originalTitle: "shadcn-ui ui codebase analysis: How does shadcn-ui CLI work? — Part 2.7"
 link: "https://medium.com/@ramu.narasinga_61050/shadcn-ui-ui-codebase-analysis-how-does-shadcn-ui-cli-work-part-2-7-534165164380"
 ---
-
 
 shadcn-ui CLI가 어떻게 작동하는지 알아보고 싶었어요. 이 글에서는 shadcn-ui/ui CLI를 구축하는 데 사용된 코드에 대해 이야기하고 있어요.
 
@@ -17,15 +16,17 @@ shadcn-ui CLI가 어떻게 작동하는지 알아보고 싶었어요. 이 글에
 
 이제 다음 코드 라인으로 넘어가 봅시다.
 
-![이미지](/assets/img/2024-07-07-shadcn-uiuicodebaseanalysisHowdoesshadcn-uiCLIworkPart27_0.png)
+![이미지](/TIL/assets/img/2024-07-07-shadcn-uiuicodebaseanalysisHowdoesshadcn-uiCLIworkPart27_0.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -35,18 +36,20 @@ L84에서는 projectType 또는 tailwindCssFile 또는 tsConfigAliasPrefix 중 �
 isTypescriptProject(cwd)에 대해 더 알아보겠습니다.
 
 ```js
-const isTsx = await isTypeScriptProject(cwd)
+const isTsx = await isTypeScriptProject(cwd);
 ```
 
 isTypescriptProject는 ui/packages/cli/src/utils/get-project-info.ts로부터 가져온 함수이며, 이 함수는 현재 작업 디렉토리(cwd)에 tsconfig.json 파일이 있는지 확인합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -54,7 +57,7 @@ isTypescriptProject는 ui/packages/cli/src/utils/get-project-info.ts로부터 �
 ```js
 export async function isTypeScriptProject(cwd: string) {
   // cwd에 tsconfig.json 파일이 있는지 확인합니다.
-  return pathExists(path.resolve(cwd, "tsconfig.json"))
+  return pathExists(path.resolve(cwd, "tsconfig.json"));
 }
 ```
 
@@ -63,16 +66,18 @@ export async function isTypeScriptProject(cwd: string) {
 pathExists는 fs-extra에서 가져온 함수입니다.
 
 ```js
-import fs, { pathExists } from "fs-extra"
+import fs, { pathExists } from "fs-extra";
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -86,12 +91,14 @@ import fs, { pathExists } from "fs-extra"
 웹사이트: [https://ramunarasinga.com/](https://ramunarasinga.com/)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -105,12 +112,14 @@ Github: [깃허브](https://github.com/Ramu-Narasinga)
 shadcn-ui/ui를 처음부터 만들기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

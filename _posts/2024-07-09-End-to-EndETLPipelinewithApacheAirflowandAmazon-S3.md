@@ -1,15 +1,14 @@
 ---
 title: "Apache Airflow와 Amazon-S3를 사용한 End-to-End ETL 파이프라인 구축 하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-End-to-EndETLPipelinewithApacheAirflowandAmazon-S3_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-End-to-EndETLPipelinewithApacheAirflowandAmazon-S3_0.png"
 date: 2024-07-09 09:06
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-End-to-EndETLPipelinewithApacheAirflowandAmazon-S3_0.png
 tag: Tech
 originalTitle: "End-to-End ETL Pipeline with Apache Airflow and Amazon-S3"
 link: "https://medium.com/@namrathac23/etl-pipeline-with-apache-airflow-and-amazon-s3-b54b190d3a28"
 ---
-
 
 # 프로젝트 개요
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@namrathac23/etl-pipeline-with-apache-airflow-and-amaz
 # 프로젝트 구조
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -46,12 +47,14 @@ link: "https://medium.com/@namrathac23/etl-pipeline-with-apache-airflow-and-amaz
 # 구현
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -59,7 +62,7 @@ link: "https://medium.com/@namrathac23/etl-pipeline-with-apache-airflow-and-amaz
 - API와 연결하여 데이터를 가져오는 DAG 스크립트를 작성하세요. 데이터는 데이터프레임에 저장됩니다. DAG 코드는 이 페이지의 맨 아래에서 찾을 수 있습니다.
 - EC2 인스턴스를 생성하고 인스턴스를 시작하여 콘솔에 연결하세요. 저는 무료티어 AWS를 사용하여 이 인스턴스를 생성했습니다. 사양은 t2.micro 및 우분투 22 버전입니다.
 
-![이미지](/assets/img/2024-07-09-End-to-EndETLPipelinewithApacheAirflowandAmazon-S3_0.png)
+![이미지](/TIL/assets/img/2024-07-09-End-to-EndETLPipelinewithApacheAirflowandAmazon-S3_0.png)
 
 인스턴스가 실행되면 콘솔에 연결하여 다음을 설치하세요.
 
@@ -70,12 +73,14 @@ sudo pip install requests pandas boto3 s3fs pyarrow apache-airflow
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -92,12 +97,14 @@ airflow standalone
 5. Airflow 서버와 스케줄러를 시작하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -113,12 +120,14 @@ airflow standalone
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -137,36 +146,38 @@ DAGs 폴더에서 파일 이름을 조정하세요. 수정된 버퍼를 저장�
 10. 파일을 저장한 후 airflow 명령을 다시 실행하고 로그인하세요. 그러면 airflow 내에서 Dag 파일을 볼 수 있어요. 보이는 형태는 이렇습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 아래는 Markdown 형식으로 변경된 테이블입니다.
 
-
 11. 파일을 열어서 수동으로 실행할 수 있어야 합니다. Airflow의 내장 그래프 기능을 사용하여 DAG 파일의 상태를 모니터링할 수 있습니다. 초록 테두리는 성공적인 실행을 나타냅니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 12. 실행이 성공하면 데이터가 S3 버킷에 표시됩니다.
 
-![Airflow-S3](/assets/img/2024-07-09-End-to-EndETLPipelinewithApacheAirflowandAmazon-S3_4.png)
+![Airflow-S3](/TIL/assets/img/2024-07-09-End-to-EndETLPipelinewithApacheAirflowandAmazon-S3_4.png)
 
 DAG 파일과 설명:
 
@@ -267,12 +278,14 @@ fetch_task >> transform_task >> load_task  # 작업 실행 순서 설정: 가져
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -290,14 +303,15 @@ fetch_task >> transform_task >> load_task  # 작업 실행 순서 설정: 가져
 
 5. 작업 생성: PythonOperator를 사용하여 정의된 함수를 호출하는 작업을 생성합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

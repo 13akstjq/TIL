@@ -1,16 +1,14 @@
 ---
 title: "1921680024 이해하기 - 30초만에 설명"
 description: ""
-coverImage: "/assets/img/2024-07-06-The24in1921680024Explainedin30Seconds_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-The24in1921680024Explainedin30Seconds_0.png"
 date: 2024-07-06 02:32
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-The24in1921680024Explainedin30Seconds_0.png
 tag: Tech
 originalTitle: "The “ 24” in “192.168.0.0 24” Explained in 30 Seconds"
 link: "https://medium.com/gitconnected/the-24-in-192-168-0-0-24-explained-in-30-seconds-b0ed6cb635c7"
 ---
-
-
 
 /assets/img/2024-07-06-The24in1921680024Explainedin30Seconds_0.png
 
@@ -20,14 +18,15 @@ link: "https://medium.com/gitconnected/the-24-in-192-168-0-0-24-explained-in-30-
 
 # 192.168.0.0
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -46,12 +45,14 @@ link: "https://medium.com/gitconnected/the-24-in-192-168-0-0-24-explained-in-30-
 / 뒤에 붙이는 숫자는 0부터 32까지입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

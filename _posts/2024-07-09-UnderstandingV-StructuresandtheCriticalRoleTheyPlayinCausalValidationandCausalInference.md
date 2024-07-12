@@ -1,17 +1,16 @@
 ---
 title: "인과 검증과 인과 추론에서 V-구조의 중요성과 그 역할 이해하기"
 description: ""
-coverImage: "/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_0.png"
 date: 2024-07-09 20:40
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_0.png
 tag: Tech
 originalTitle: "Understanding V-Structures and the Critical Role They Play in Causal Validation and Causal Inference"
 link: "https://medium.com/towards-data-science/understanding-v-structures-and-the-role-they-play-in-causal-validation-and-causal-infrence-7e7910200f9f"
 ---
 
-
-<img src="/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_0.png" />
+<img src="/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_0.png" />
 
 # 소개
 
@@ -20,12 +19,14 @@ link: "https://medium.com/towards-data-science/understanding-v-structures-and-th
 인과 추론 문제를 해결하려면 “Directed Acyclic Graph” 또는 DAG에 인과 요소들을 시각화하는 것이 필요하며, 일반적으로 체계나 프로세스의 인과 관계에 대한 정보를 갖춘 도메인 전문가가 개발합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/towards-data-science/understanding-v-structures-and-th
 ## 문제점
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -57,14 +60,15 @@ link: "https://medium.com/towards-data-science/understanding-v-structures-and-th
 
 ## 계획
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -78,18 +82,19 @@ DAG(Directed Acyclic Graph) 내에서 특정 종류의 결합인 v-structure은 
 먼저 기사 전체에서 사용될 완전히 가상의 DAG(Directed Acyclic Graph)를 선택하는 것으로 시작해 보겠습니다. 저는 이 DAG가 테스트에 사용하기 충분히 간단하지만 보다 복잡한 예제에서 발견되는 모든 변형을 포함할 만큼 복잡하다는 이유로 이 DAG가 제일 좋아하는 DAG 중 하나입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Understanding V-Structures and the Critical Role They Play in Causal Validation and Causal Inference](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_1.png)
+![Understanding V-Structures and the Critical Role They Play in Causal Validation and Causal Inference](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_1.png)
 
 X는 "치료" 또는 원인이고 Y는 "결과" 또는 효과이며 인과 추론의 목표는 다른 변수들의 효과와 독립적으로 치료가 결과에 미치는 진정하고 고립된 효과를 확인하는 것입니다.
 
@@ -97,14 +102,15 @@ X는 "치료" 또는 원인이고 Y는 "결과" 또는 효과이며 인과 추�
 
 ## 테스트 데이터 생성
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -115,34 +121,38 @@ X는 "치료" 또는 원인이고 Y는 "결과" 또는 효과이며 인과 추�
 
 다음은 데이터를 생성하기 위해 선택된 가중치입니다 -
 
-![Data Weightings](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_2.png) 
+![Data Weightings](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_2.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 다음은 각 노드에 대한 하나의 방정식이 생성되는 구조 방정식 집합을 얻게 됩니다 -
 
-![structural equations](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_3.png)
+![structural equations](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_3.png)
 
 설명을 완성하기 위해서는 외생 노드/변수와 내생 변수/노드 사이의 구분을 이해하는 것만으로 충분합니다. 외생 노드는 수용하는 인과 화살표가 없습니다. 따라서 위 예제 DAG에서 외생 변수는 Z1과 Z2이며 내생 변수는 X, W, Y, 그리고 Z3입니다. 외생 변수는 값이 무작위로 할당되어야 하며, 일반적으로 분포 규칙을 따라 할당됩니다.
 
 따라서 DAG의 각 노드에 대한 6개의 구조 방정식은 다음과 같이 완전히 설명되고 이해될 수 있습니다..
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -156,17 +166,19 @@ X는 "치료" 또는 원인이고 Y는 "결과" 또는 효과이며 인과 추�
 
 이것은 합성으로 생성된 데이터의 미리보기입니다…
 
-![이미지](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_4.png)
+![이미지](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_4.png)
 
 # 인과성의 방향을 감지하는 것의 겉으로는 불가능함
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -175,17 +187,19 @@ X는 "치료" 또는 원인이고 Y는 "결과" 또는 효과이며 인과 추�
 
 그 토론에서는 "포크" 접점의 탐구와 시작 노드에서 끝 노드까지 메시지가 전달되는 방법에 대해 다루었습니다. 아래 DAG에서 X에서 Y로 Z3를 통해 하이라이트된 접점을 고려해보세요...
 
-![DAG 이미지](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_5.png)
+![DAG 이미지](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_5.png)
 
 분명히 "메시지"가 Z3에서 Y로 흐를 수 있습니다(Z3의 변화가 Y의 변화를 일으킵니다) 왜냐하면 Y = 3 x Z3입니다. 하지만 접점에 대한 기사에서 설명한대로 X에서도 Z3로 메시지가 흐를 수 있다는 것을 알아두세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -199,12 +213,14 @@ X는 "치료" 또는 원인이고 Y는 "결과" 또는 효과이며 인과 추�
 V-구조를 사용한 문헌에서 해결책의 깜박거림이 있지만, 그것들은 복잡하고 항상 불완전합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -215,15 +231,17 @@ V-구조를 사용한 문헌에서 해결책의 깜박거림이 있지만, 그�
 
 교차로에 관한 글에서는 시작 노드와 끝 노드가 중간 노드를 가리키는 교차로들을 설명했으며 예시 DAG의 모든 교차로들을 식별하는 것은 쉽다고 합니다...
 
-![이미지](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_6.png)
+![이미지](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_6.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -232,17 +250,19 @@ V-구조를 사용한 문헌에서 해결책의 깜박거림이 있지만, 그�
 
 이 아이디어는 통계식으로 표현할 수 있습니다…
 
-![링크](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_7.png)
+![링크](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_7.png)
 
 이 표현은 위의 최종 콜라이더를 살펴보고 다음을 진술하고 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -260,17 +280,19 @@ V-구조를 사용한 문헌에서 해결책의 깜박거림이 있지만, 그�
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-이 소식 정말 좋네요! 우리의 DAG는 Z1 -` Z3 `- Z2에서 콜라이더 접점이 있어야한다는 것을 나타내고, 간단한 Python 코드 스니펫이 DataFrame 확장 메서드를 사용하여 이것이 사실임을 증명했습니다!
+이 소식 정말 좋네요! 우리의 DAG는 Z1 -`Z3`- Z2에서 콜라이더 접점이 있어야한다는 것을 나타내고, 간단한 Python 코드 스니펫이 DataFrame 확장 메서드를 사용하여 이것이 사실임을 증명했습니다!
 
 그러나 데이터에서 콜라이더를 감지하는 여정은 여기서 끝나는 것이 아니라 시작입니다.
 
@@ -279,17 +301,19 @@ V-구조를 사용한 문헌에서 해결책의 깜박거림이 있지만, 그�
 시작과 끝 노드가 추가 연결을 가지고 있는 콜라이더가 포함된 다음 간단한 DAG를 고려해보세요...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_8.png" />
+<img src="/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_8.png" />
 
 Y가 X와 독립적일 수 없는 것은 직관적으로 명백합니다. 그들 사이에 콜라이더가 있더라도 "메시지"가 X에서 Y로 직접 흘러갈 수 있기 때문이며, 이 직관적인 결론은 위의 코드를 다시 실행하여 증명할 수 있습니다...
 
@@ -301,12 +325,14 @@ Y가 X와 독립적일 수 없는 것은 직관적으로 명백합니다. 그들
 콜라이더의 시작 노드와 끝 노드가 양 방향으로 연결된 상황에서는 데이터에 대한 종속성 테스트로 콜라이더의 존재를 증명하거나 반박할 수 없으며, 이로 인해 인접성과 V 구조의 개념이 생기게 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -315,36 +341,38 @@ Y가 X와 독립적일 수 없는 것은 직관적으로 명백합니다. 그들
 
 우리의 예제 DAG를 검토해 보면, 5개의 콜라이더 중 2개가 "인접"하며 데이터에서 신뢰할 수 없이 감지할 수 없습니다...
 
-<img src="/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_9.png" />
+<img src="/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_9.png" />
 
 이로써 이제 근접성을 나타내지 않는 3개의 콜라이더가 남아 있습니다(이를 이제 v-구조체로 알고 있습니다) 이론상 이러한 콜라이더를 데이터에서 의존성 테스트를 사용하여 감지할 수 있습니다...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+![Here is the output table for the test harness](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_11.png)
 
-![Here is the output table for the test harness](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_11.png)
-
-
-위의 Python 코드에서 이미 데이터에서 1번째 v-구조 Z1 -` Z3 `- Z2가 식별될 수 있다는 것이 보여졌습니다. 그렇다면 나머지 두 개에 대해서는 어떨까요?
+위의 Python 코드에서 이미 데이터에서 1번째 v-구조 Z1 -`Z3`- Z2가 식별될 수 있다는 것이 보여졌습니다. 그렇다면 나머지 두 개에 대해서는 어떨까요?
 
 아래 표는 예제 DAG의 모든 접점에 대해 대칭적 종속성 테스트를 적용하는 테스트 해네스의 출력입니다...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -355,34 +383,38 @@ Y가 X와 독립적일 수 없는 것은 직관적으로 명백합니다. 그들
 
 W - Y - Z3에서의 콜라이더를 살펴보고, 시작 노드 W와 끝 노드 Z3 사이의 백도어 경로를 검토해 봅시다...
 
-![이미지](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_12.png)
+![이미지](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_12.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-W -` Y `- Z3는 충돌체이며 또한 v-구조체입니다. 이는 인접하지 않지만 시작 노드와 끝 노드 사이에 2 개의 백도어 경로가 존재하기 때문입니다. 따라서 이러한 노드 간에 "메시지"가 유출되어 데이터에서 이 v-구조체를 감지하기가 불가능하게 만듭니다 (또는 적어도 일관성이 없고 신뢰할 수 없게 만듭니다).
+W -`Y`- Z3는 충돌체이며 또한 v-구조체입니다. 이는 인접하지 않지만 시작 노드와 끝 노드 사이에 2 개의 백도어 경로가 존재하기 때문입니다. 따라서 이러한 노드 간에 "메시지"가 유출되어 데이터에서 이 v-구조체를 감지하기가 불가능하게 만듭니다 (또는 적어도 일관성이 없고 신뢰할 수 없게 만듭니다).
 
-W -` Y `- Z2는 W `- X `- Z3 -` Z2로부터 백도어 경로로 인해 정확히 동일한 문제가 발생합니다.
+W -`Y`- Z2는 W `- X `- Z3 -` Z2로부터 백도어 경로로 인해 정확히 동일한 문제가 발생합니다.
 
 현재 충돌체, v-구조체 및 인과 유효성 검사 여정에서 거의 포기할 뻔했지만, 데이터에서 v-구조체를 감지할 수 없다면 신뢰할만한 유효성 검사를 구축할 수 없습니다.
 
 그러나 이 문제에 대한 해결책이 있습니다. 이것은 사용 가능하고 유용한 정확성 및 신뢰성을 갖춘 알고리즘을 생성하는 궁리의 방법입니다…
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -399,12 +431,14 @@ W -` Y `- Z2는 W `- X `- Z3 -` Z2로부터 백도어 경로로 인해 정확히
 - v-구조가 생성되었고 해당 v-구조가 데이터에 존재하면 현재 DAG가 잘못되었고 엣지를 뒤집어야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -413,41 +447,45 @@ W -` Y `- Z2는 W `- X `- Z3 -` Z2로부터 백도어 경로로 인해 정확히
 
 알고리즘의 첫 단계는 DAG(Directed Acyclic Graph; 방향성이 있는 비순환 그래프)의 모든 간선을 반복할 것입니다. 이는 다음과 같이 시각화될 수 있습니다...
 
-![DAG](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_13.png)
+![DAG](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_13.png)
 
 ## 단계 2: 현재 간선을 뒤집어 새 DAG 만들기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 가정하에 여러분이 첫 번째 반복 단계에 있다고 가정합니다 (Z2 -` Z3의 엣지를 뒤집는 경우). 이 엣지를 역전시킨 결과, 원본 및 뒤집기로 인해 생성된 변형 2개의 DAGs가 생깁니다...
 
-<img src="/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_14.png" />
+<img src="/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_14.png" />
 
 ## 단계 3: V-구조가 파괴된 경우...
 
 Z2 -` Z3를 뒤집는 것은 원래 DAG에 존재하는 V-구조를 파괴(또는 제거)했다는 것을 의미합니다. 왜냐하면 V-구조인 Z1 -` Z3 `- Z2가 Z1 -` Z3 -` Z2 체인에 의해 대체되었기 때문입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-파괴된 v-구조 Z1 -` Z3 `- Z2은 데이터에서 종속성 테스트를 사용하여 지금 테스트 될 수 있습니다.
+파괴된 v-구조 Z1 -`Z3`- Z2은 데이터에서 종속성 테스트를 사용하여 지금 테스트 될 수 있습니다.
 
 - 데이터에서 해당 v-구조를 발견하면 Z2 -` Z3의 방향성이 DAG에서 올바르다.
 - 데이터에서 해당 v-구조를 찾을 수 없으면 Z2 -` Z3의 방향성이 DAG에서 잘못되었으며 뒤집어져야 합니다.
@@ -459,53 +497,59 @@ v-structure found in data: True
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-데이터에서 충돌체인 Z1 -` Z3 `-Z2가 확인되었습니다. 따라서 Z2 -`Z3의 역전 제안은 잘못되었습니다. 알고리즘은 이제 다음 단계로 진행됩니다...
+데이터에서 충돌체인 Z1 -`Z3`-Z2가 확인되었습니다. 따라서 Z2 -`Z3의 역전 제안은 잘못되었습니다. 알고리즘은 이제 다음 단계로 진행됩니다...
 
 ## 단계 4: V-구조가 생성된 경우...
 
 첫 번째 반복 즉, 엣지 Z2 -` Z3의 반전은 새로운 v-구조를 만들지 않기 때문에, 이제 X -` W 엣지를 반전하는 두 번째 반복으로 빨리 진행하겠습니다...
 
-![이미지](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_15.png)
+![이미지](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_15.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되었습니다...
 
-- Z1 -` Z -` W 체인은 Z1 -` X `- W v-structure로 대체되었습니다.
-- Z3 -` X -` W 체인은 Z3 -` X `- W v-structure로 대체되었습니다.
+- Z1 -` Z -` W 체인은 Z1 -`X`- W v-structure로 대체되었습니다.
+- Z3 -` X -` W 체인은 Z3 -`X`- W v-structure로 대체되었습니다.
 
-이러한 새로운 v-structure들을 테스트해보고 데이터에서 식별된다면, DAG의 기존 엣지 X -` W가 잘못된 방향으로 되어있으며 변경하여 X `- W로 수정되어야 합니다.
+이러한 새로운 v-structure들을 테스트해보고 데이터에서 식별된다면, DAG의 기존 엣지 X -`W가 잘못된 방향으로 되어있으며 변경하여 X`- W로 수정되어야 합니다.
 
 ```js
 데이터에서 발견된 v-structure: False
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -520,14 +564,15 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 
 우리는 데이터가 DAG와 일치함을 알고 있습니다. 이 데이터는 합성되어 DAG와 일치하도록 생성되었기 때문에 각 edge reversal 테스트가 DAG가 올바른지 확인해야 합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -541,31 +586,35 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 안타깝게도 알고리즘이 모든 에지를 돌 때 예상대로 작동하지 않습니다. 에지 W - Y에 도달하면 방향성이 잘못되었다고 오해하고 뒤집어야 한다 판단합니다...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 첫 번째 단계, 즉 생성된 v-structures를 고려하는 단계가 예상대로 작동합니다...
 
-![image](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_16.png)
+![image](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_16.png)
 
 이 새로운 v-structure는 데이터에서 감지되지 않기 때문에 알고리즘의 이 단계는 데이터가 현재 DAG와 일치한다고 정확히 예측합니다.
 
 알고리즘의 다음 단계는 W -` Y를 역전시키면 W -` Y `- Z2와 W -` Y `- Z3 두 개의 v-structure가 파괴된다는 사실을 확인합니다...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -585,12 +634,14 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -604,12 +655,14 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 테스트 실패의 근본적인 이유는 이미 위 섹션에서 탐구되고 설명되었으며, 시작 및 종단 노드 사이에 backdoor 경로가 존재하여 메시지가 누출되어 독립성 테스트에 실패한다는 것이었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -623,12 +676,14 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 결국 저는 사용 가능한 문헌들에서 인과 발견에 관해 읽고 기반을 두기로 결심했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -642,12 +697,14 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 예를 들어, 환자의 회복이 혈압의 변화를 유발할 수 있습니까? (가능성은 낮지만 불가능하지는 않음) 혈압이 환자가 약을 복용하도록 유도할 수 있습니까? (매우 낮음)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -661,12 +718,14 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 따라서 데이터에서 backdoor 경로를 갖는 v-구조를 식별할 수 없는 능력의 문제는 알고리즘에게 몇 가지 엣지의 확실성에 대해 지시하여 올바르다고 가정되는 엣지들 중 일부에 대해 테스트되지 않을 것이기 때문에 최소화될 수 있다는 결론입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -680,12 +739,14 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 따라서 동일한 예제 DAG에 대해 수행된 테스트는, 알고리즘이 지나치게 높거나 낮은 성능을 발휘하는 원인이 되는 몇 가지 특이한 특징이 포함되어 있을 수 있을 것입니다. 여기에는 테스트 결과를 확대하는 알고리즘의 정의가 있습니다...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -699,55 +760,61 @@ X -` W를 반전한 결과 새로운 DAG에 두 개의 v-structure가 생성되�
 
 기본 DAG
 
-![기본 DAG 이미지](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_18.png)
+![기본 DAG 이미지](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_18.png)
 
 저는 "삼각형 DAG", "사다리꼴 DAG", "E-모양 DAG"라고 하는 추가 테스트 DAG들이 모두 추가 힌트 없이 100%의 테스트 케이스에서 추가 테스트를 통과했다고 말할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 복잡한 DAG
 
-![Complex DAG](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_19.png)
+![Complex DAG](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_19.png)
 
 이 더 복잡한 DAG는 테스트 케이스의 90%를 통과하지만 약 10%에서 Z - W 및 Uw - W 엣지가 잘못된 방향으로 식별된다.
 
 그러나 이 두 엣지를 힌트로 설정하면 테스트 통과율이 100%로 돌아갑니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 DAG 복잡도 증가하기
 
-![DAG 복잡도 증가하기](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_20.png)
+![DAG 복잡도 증가하기](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_20.png)
 
 추가 노드/변수 (Ut 및 T) 및 추가 경로를 추가하여 복잡성을 증가하면 테스트 결과가 저하될 수 있습니다.
 
 알고리즘은 테스트 케이스의 30%에서 유효성을 올바르게 판단하며 Z -` W, Uw -` W, T -` Y 및 Uy -` Y의 간선이 다양한 테스트에서 잘못 식별되어 뒤집어져야 한다고 나타났습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -756,17 +823,19 @@ DAG 복잡도 증가하기
 
 최대 DAG 복잡성
 
-![image](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_21.png)
+![image](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_21.png)
 
 마지막 테스트는 9개의 노드/변수, 16개의 엣지, 모든 유형의 접점 및 관측되지 않은 혼입 변수 (노드 C)를 포함한 가장 복잡한 예제 DAG입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -780,12 +849,14 @@ DAG 복잡도 증가하기
 테스트에는 패턴이 분명히 있습니다. 간단한 DAG는 100% 신뢰성으로 실행되며, DAG가 더 복잡해지면 역전이 필요한 잘못된 엣지를 식별하기 시작하고 알고리즘에 힌트를 제공하여 더 많은 도움이 필요합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -799,36 +870,40 @@ DAG 복잡도 증가하기
 # 데이터를 정확하게 반영하지 않는 DAG의 오류 감지
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-이 사용 사례를 설명하기 위해 원래의 예제 DAG를 검토해 보겠습니다. 도메인 전문가들이 W - Y 엣지에 대해 충분한 확신을 제공했지만 Z1-Z3 엣지를 잘못 식별했다고 가정하겠습니다. 
+이 사용 사례를 설명하기 위해 원래의 예제 DAG를 검토해 보겠습니다. 도메인 전문가들이 W - Y 엣지에 대해 충분한 확신을 제공했지만 Z1-Z3 엣지를 잘못 식별했다고 가정하겠습니다.
 
 다음은 알고리즘의 테스트 결과입니다...
 
-![Test Results](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_22.png)
+![Test Results](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_22.png)
 
 이는 매우 유망한 시작입니다. 알고리즘은 데이터와 일치하지 않는 DAG를 올바르게 식별했으며 어떤 엣지가 잘못되었는지도 정확히 식별했습니다!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-알고리즘이 이 반전을 올바르게 식별한 것은 놀라운 일이 아닙니다. 왜냐하면 DAG(Directed Acyclic Graph)에서 유일한 백도어 경로가 없는 단일 v-structure인 Z1 -` Z3 `- Z2를 찾을 수 있기 때문입니다. 따라서 "작성된 v-structure" 테스트는 이 데이터를 올바르게 작동하도록 바운드(제한)되어 있습니다.
+알고리즘이 이 반전을 올바르게 식별한 것은 놀라운 일이 아닙니다. 왜냐하면 DAG(Directed Acyclic Graph)에서 유일한 백도어 경로가 없는 단일 v-structure인 Z1 -`Z3`- Z2를 찾을 수 있기 때문입니다. 따라서 "작성된 v-structure" 테스트는 이 데이터를 올바르게 작동하도록 바운드(제한)되어 있습니다.
 
 다음 단계는 DAG의 모든 엣지를 반전하여 알고리즘의 성능을 관찰하는 것입니다.
 
@@ -837,12 +912,14 @@ Z1 -` X, Z2 -` Y, Z3 -` Y 엣지는 테스트되지 않았음을 유의해 주�
 다음은 남은 테스트로, 이미 Z1 -` Z3가 테스트되었음을 유의하십시오. 3가지 테스트는 비순환 DAG를 생성하고 W -` Y는 알고리즘에 올바르다고 암시되었기 때문에 제외됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -851,19 +928,21 @@ Z1 -` X, Z2 -` Y, Z3 -` Y 엣지는 테스트되지 않았음을 유의해 주�
 - Reverse Z2 -` Z3
 - Reverse Z3 -` X
 
-![image](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_23.png)
+![image](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_23.png)
 
 결과는 혼재되어 있습니다. 이 알고리즘은 데이터의 유효한 표현이 아님을 올바르게 식별하고, 테스트 케이스의 100%에서 의도적으로 반전된 엣지를 선택합니다.
 
 안타깝게도 알고리즘은 항상 과대식별을 합니다. 즉, 반전되어야 하는 엣지를 선택하는 것 외에도 사실 올바른 엣지를 식별합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -877,12 +956,14 @@ Z1 -` X, Z2 -` Y, Z3 -` Y 엣지는 테스트되지 않았음을 유의해 주�
 # "하이브리드 엣지 뒤집기 탐지 알고리즘"에 대한 제안
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -899,12 +980,14 @@ Z1 -` X, Z2 -` Y, Z3 -` Y 엣지는 테스트되지 않았음을 유의해 주�
 - 알고리즘이 유효하다고 결론 내린 각 DAG를 DAG에서 오류가 있는 것으로 알려진 DAG에 대한 가능한 수정 사항으로 제시합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -918,36 +1001,40 @@ Z1 -` X, Z2 -` Y, Z3 -` Y 엣지는 테스트되지 않았음을 유의해 주�
 V-구조를 이해하는 데서부터 관련 데이터셋과 비교했을 때 DAG에서 역전된 엣지를 감지하는 사용 가능한 알고리즘을 만드는 데의 오랜 여정이 이제 완료되었습니다. 이제 남은 일은 하이브리드 알고리즘을 테스트하여 어떻게 수행되는지 확인하는 것뿐입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 표준 예제 DAG
 
-![image](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_24.png)
+![image](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_24.png)
 
 먼저 테스트할 DAG는 이 기사의 주요 내용으로 사용된 우리의 옛 친구입니다.
 
 가장자리 W -` Y가 암시되었으며 몇 가지 가장자리는 역을 취해도 비순환 그래프가 생성되지 않기 때문에 테스트할 수 없습니다 (Z1 -` X, Z2 -` Y 및 Z3 -` Y). 그렇게 되어 데이터에서 역전시킬 수 있는 4개의 가장자리가 남는데, 그것은 (X -` W, Z1 -` Z3, Z2 -` Z3 및 Z3 -` X)입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-다음은 결과입니다 - 
+다음은 결과입니다 -
 
 - DAG가 4개 중 4개의 테스트에서 올바르게 무효로 식별되었습니다 (100.0%).
 - 4개 중 4개의 테스트에서 모든 역전파가 발견되었습니다 (100.0%).
@@ -958,12 +1045,14 @@ V-구조를 이해하는 데서부터 관련 데이터셋과 비교했을 때 DA
 다음 단계는 데이터에서 2개의 엣지 조합을 임의로 선택하여 역전시킨 뒤 알고리즘이 DAG에서 여러 오류를 감지할 수 있는지 확인하는 것입니다. 다음은 결과입니다 -
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -981,19 +1070,21 @@ V-구조를 이해하는 데서부터 관련 데이터셋과 비교했을 때 DA
 - 15개 중 14개 테스트에서 잘못된 양성 결과가 발견되었습니다 (93.3%).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 다음은 트라페조이드 DAG에 대한 정보입니다.
 
-![Trapezium DAG](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_25.png)
+![Trapezium DAG](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_25.png)
 
 트라페조이드 DAG에는 3개의 단일 엣지 반전이 있습니다(즉, 다른 경우는 acyclic DAG를 생성합니다). 시험 결과는 다음과 같습니다.
 
@@ -1002,12 +1093,14 @@ V-구조를 이해하는 데서부터 관련 데이터셋과 비교했을 때 DA
 - 잘못된 양성 결과는 3개 중 1회에서 발견되었습니다(33.3%).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1023,18 +1116,19 @@ V-구조를 이해하는 데서부터 관련 데이터셋과 비교했을 때 DA
 E-자형태 DAG
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![image](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_26.png)
+![image](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_26.png)
 
 7개의 가능한 단일 엣지 반전 테스트가 있고, 테스트 결과는 다음과 같습니다...
 
@@ -1044,14 +1138,15 @@ E-자형태 DAG
 
 이 DAG에는 이전 예제보다 적은 인접 및 백도어 콜라이더가 있습니다. 따라서 더 나은 성능을 기대할 수 있으며 테스트 결과는 정말로 매우 좋습니다!
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1064,15 +1159,17 @@ E-자형태 DAG
 
 The Complex Exogenous DAG
 
-![Complex Exogenous DAG](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_27.png)
+![Complex Exogenous DAG](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_27.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1090,12 +1187,14 @@ The Complex Exogenous DAG
 - 거짓 양성은 10개 중 0개의 테스트에서 발견됨 (0.0%)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1111,31 +1210,35 @@ The Complex Exogenous DAG
 그러나 3개의 역전 테스트의 실행 속도가 문제가 됩니다. 최종 테스트에서 상세히 다룰 예정이니 기대해주세요...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 슈퍼 복잡한 현실 세계 DAg
 
-![image](/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_28.png)
+![image](/TIL/assets/img/2024-07-09-UnderstandingV-StructuresandtheCriticalRoleTheyPlayinCausalValidationandCausalInference_28.png)
 
 슈퍼 복잡한 DAG는 B -` X, E-` X 및 G -` X로 테스트되기 전에 힌트가 있었습니다.
 
 단일 엣지 전환 테스트 결과는 다음과 같습니다...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1153,12 +1256,14 @@ The Complex Exogenous DAG
 그리고 3개 엣지 반전에 대해서...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1174,12 +1279,14 @@ The Complex Exogenous DAG
 제안된 데이터 집합을 표현하는 DAG에서 화살표의 올바른 방향을 자동으로 감지하기 어려웠습니다. 왜냐하면 y = 3x이면 x = 1/3y이므로 양방향에 계수 / 기울기 (3 또는 1/3)가 있기 때문에 올바른 방향을 감지하는 것이 불가능합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1193,12 +1300,14 @@ v-구조는 서로 인접하지 않는 collider의 부분 집합이라는 것이
 전통적인 Pearlean 알고리즘은 잘못된 DAG를 감지하는 데 사용하는 것으로 개선될 수 있으며, 그런 다음 유효한 DAG를 생성하는 데 필요한 최소 역전을 찾기 위해 모든 역전을 시도할 수 있는 하이브리드 알고리즘과 결합하여 오류의 위치를 정확히 파악할 수 있는 좋은 지표를 제공할 수 있어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1212,12 +1321,14 @@ v-구조는 서로 인접하지 않는 collider의 부분 집합이라는 것이
 5개의 엣지를 가진 DAG는 2의 5승 또는 32개의 역전 조합을 탐색할 수 있지만 16개의 엣지는 2의 16승 또는 65,536개의 역전 가능한 조합이 있습니다. Python은 해석 방식의 프로그래밍 언어이므로 이러한 많은 조합을 실행하는 데 많은 시간이 걸릴 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1231,12 +1342,14 @@ v-구조는 서로 인접하지 않는 collider의 부분 집합이라는 것이
 이 기사를 즐겼다면 앞으로의 기사 소식을 받아보기 위해 저를 팔로우해주세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

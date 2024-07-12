@@ -1,18 +1,16 @@
 ---
 title: "일상적인 프로덕션 프로젝트에서 사용하는 파이썬 도구들  Part I"
 description: ""
-coverImage: "/assets/img/2024-07-09-PythonThingsIUseInDayToDayProductionProjectsPartI_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-PythonThingsIUseInDayToDayProductionProjectsPartI_0.png"
 date: 2024-07-09 20:45
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-PythonThingsIUseInDayToDayProductionProjectsPartI_0.png
 tag: Tech
 originalTitle: "Python Things I Use In Day To Day Production Projects — Part I"
 link: "https://medium.com/python-in-plain-english/python-things-i-use-in-day-to-day-production-projects-part-i-68b80c7c9962"
 ---
 
-
-
-![Python Project](/assets/img/2024-07-09-PythonThingsIUseInDayToDayProductionProjectsPartI_0.png)
+![Python Project](/TIL/assets/img/2024-07-09-PythonThingsIUseInDayToDayProductionProjectsPartI_0.png)
 
 Let's talk about real-world projects. I like to share things that can have a real impact on your Python journey, and today I've decided to share how I structure, code, test, and deploy a real Python project.
 
@@ -20,14 +18,15 @@ Let's talk about real-world projects. I like to share things that can have a rea
 
 To provide more context, I work as a Solution Engineer (SE) at a Spanish company. As an SE, my tasks range from creating customized systems to helping speed up integration with a new customer through APIs.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -42,12 +41,14 @@ To provide more context, I work as a Solution Engineer (SE) at a Spanish company
 그럼, 더 이상 언제까지 기다릴 필요 없이 바로 시작해보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -61,12 +62,14 @@ To provide more context, I work as a Solution Engineer (SE) at a Spanish company
 - 각 모듈과 패키지는 자명해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -84,24 +87,24 @@ connection.py 모듈은 데이터베이스에 연결을 만들고 해당 연결�
 하지만 이 모듈을 올바른 모듈에 배치하면 명확해집니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 .
 ├── my_app
-│   ├── __init__.py
-│   └── db
-│       ├── __init__.py
-│       └── connection.py
-
+│ ├── **init**.py
+│ └── db
+│ ├── **init**.py
+│ └── connection.py
 
 우리에게는 이제 Database를 의미하는 db라는 패키지가 있습니다. 그래서 Database와 관련된 모든 것이 거기에 있다고 가정합니다. 그 중에 connection도 포함되어 있겠네요.
 
@@ -109,14 +112,15 @@ connection.py 모듈은 데이터베이스에 연결을 만들고 해당 연결�
 
 저는 일을 체계적으로 정리하는 것을 좋아합니다. 코딩할 때는 다른 프로그래머들이 나와 함께 작업해야 할 경우에는 무엇을 생각하게 될지 또는 제가 떠난 후에 작업을 계속해야 할 경우를 피해 생각할 수 없습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -130,12 +134,14 @@ connection.py 모듈은 데이터베이스에 연결을 만들고 해당 연결�
 예를 들어, 우리 API가 주문과 제품을 다룬다고 해보자. 각 주문과 관련된 작업은 특정 엔드포인트를 호출함으로써 이루어지고, 제품도 마찬가지야.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -176,14 +182,15 @@ async def delete_order(id: str | int):
 
 각각의 엔드포인트를 따로 관리하는 것이 좋은 접근 방식일 것입니다. 저는 routes 패키지를 생성하여 각 작업에 따른 모든 엔드포인트를 담는 것을 좋아합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -240,12 +247,14 @@ async def delete_order(id: str | int):
 이렇게 하면 main.py 모듈의 주요 프로젝트에 루트를 연결할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -267,12 +276,14 @@ app.include_router(order.routes)
 대부분의 경우, 우리는 불필요하게 같은 것을 반복하고 있습니다. 그러나 코드를 반복하지 않고 간단하게 만드는 것은 생각보다 쉽지 않을 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -301,12 +312,14 @@ DRY는 소프트웨어 개발 원칙 중 하나로, Don't Repeat Yourself의 약
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -334,12 +347,14 @@ class BaseResponse:
 — 컨트롤러, 모델 및 스키마
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -350,34 +365,34 @@ class BaseResponse:
 
 저는 M과 C를 "버리기"를 좋아해요. 주문을 위한 패키지를 가지는 것을 선호하며, 여기에는 모델/스키마와 해당 독점 로직이 모두 포함됩니다.
 
-
 .
 ├── my_app
-│   ├── __init__.py
-│   ├── main.py
-│   └── db
-│   │   ├── __init__.py
-│   │   ├── connection.py
-|   └── routes
-│   |   ├── __init__.py
-│   |   └── order.py
-│   |   └── product.py
-|   └── commons
-│   |   ├── __init__.py
-|   |   └── base_response.py
-|   └── order
-│       ├── __init__.py
-|       └── schemas.py
-|       └── response.py # base_response.py를 상속받을 것임
-
+│ ├── **init**.py
+│ ├── main.py
+│ └── db
+│ │ ├── **init**.py
+│ │ ├── connection.py
+| └── routes
+│ | ├── **init**.py
+│ | └── order.py
+│ | └── product.py
+| └── commons
+│ | ├── **init**.py
+| | └── base_response.py
+| └── order
+│ ├── **init**.py
+| └── schemas.py
+| └── response.py # base_response.py를 상속받을 것임
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -409,12 +424,14 @@ class BaseResponse:
 테스트에 대해 더 알아보려면:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -433,12 +450,14 @@ class BaseResponse:
 - 기타.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -475,12 +494,14 @@ class BaseResponse:
 하지만 제 프로젝트에서 얼마나 그것을 사용하고 있을까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -508,12 +529,14 @@ match expression:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -534,12 +557,14 @@ class BaseResponse:
 여기에서는 제네릭 타입 T를 받아 제네릭 타입인 T를 반환하는 함수를 정의했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -553,12 +578,14 @@ class BaseResponse:
 따라서 해당 메소드를 재정의하고 있는 것을 명시적으로 표시하기 위해, PEP 698에서 소개된 @override 데코레이터를 사용합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -584,12 +611,14 @@ class Response(BaseResponse):
 각 프로젝트는 새로운 것을 배우고 적용할 수 있는 새로운 기회입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -603,12 +632,14 @@ class Response(BaseResponse):
 안녕하세요! 제 글을 읽어주셔서 감사합니다. 이 글을 즐기셨다면 비슷한 내용을 직접 이메일로 받아보고 싶다면
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

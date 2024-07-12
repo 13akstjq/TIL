@@ -1,15 +1,14 @@
 ---
 title: "구글 Python 팀 전원 해고, Flutter 팀도 위기 직면"
 description: ""
-coverImage: "/assets/img/2024-07-06-GooglePythonTeamEntirelyLaidOffFlutterTeamAlsoFacingtheAxe_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-GooglePythonTeamEntirelyLaidOffFlutterTeamAlsoFacingtheAxe_0.png"
 date: 2024-07-06 02:32
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-GooglePythonTeamEntirelyLaidOffFlutterTeamAlsoFacingtheAxe_0.png
 tag: Tech
 originalTitle: "Google Python Team Entirely Laid Off, Flutter Team Also “Facing the Axe”"
 link: "https://medium.com/stackademic/google-python-team-entirely-laid-off-flutter-team-also-facing-the-axe-88173d1bbf04"
 ---
-
 
 /assets/img/2024-07-06-GooglePythonTeamEntirelyLaidOffFlutterTeamAlsoFacingtheAxe_0.png
 
@@ -18,12 +17,14 @@ link: "https://medium.com/stackademic/google-python-team-entirely-laid-off-flutt
 /assets/img/2024-07-06-GooglePythonTeamEntirelyLaidOffFlutterTeamAlsoFacingtheAxe_1.png
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

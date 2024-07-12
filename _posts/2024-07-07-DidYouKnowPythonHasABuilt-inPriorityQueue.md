@@ -1,17 +1,16 @@
 ---
 title: "알고 계셨나요  Python 내장 우선순위 큐 소개"
 description: ""
-coverImage: "/assets/img/2024-07-07-DidYouKnowPythonHasABuilt-inPriorityQueue_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-DidYouKnowPythonHasABuilt-inPriorityQueue_0.png"
 date: 2024-07-07 21:48
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-DidYouKnowPythonHasABuilt-inPriorityQueue_0.png
 tag: Tech
 originalTitle: "Did You Know — Python Has A Built-in Priority Queue"
 link: "https://medium.com/gitconnected/did-you-know-python-has-a-built-in-priority-queue-cd65acc4a5d6"
 ---
 
-
-<img src="/assets/img/2024-07-07-DidYouKnowPythonHasABuilt-inPriorityQueue_0.png" />
+<img src="/TIL/assets/img/2024-07-07-DidYouKnowPythonHasABuilt-inPriorityQueue_0.png" />
 
 우선 순위 큐:
 
@@ -23,18 +22,20 @@ link: "https://medium.com/gitconnected/did-you-know-python-has-a-built-in-priori
 예를 들어, 이 숫자들이 포함된 우선 순위 큐가 있다고 가정해봅시다. 낮은 숫자가 높은 우선 순위를 의미합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-pq = [3, 7, 1, 6, 4, 5]
+pq = [3, 7, 1, 6, 4, 5];
 ```
 
 - 여기서 3이 먼저 삽입되고, 그 다음에 7, 그 다음에 1이 들어갑니다.
@@ -56,12 +57,14 @@ pq = [3, 7, 1, 6, 4, 5]
 - 4는 3 다음으로 가장 높은 우선순위를 가지고 있기 때문에 그 다음에 나갑니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

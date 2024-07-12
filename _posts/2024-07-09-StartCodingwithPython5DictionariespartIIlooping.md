@@ -1,15 +1,14 @@
 ---
 title: "파이썬으로 코딩 시작하기 5 딕셔너리 part II  반복문 사용법"
 description: ""
-coverImage: "/assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_0.png"
 date: 2024-07-09 20:57
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_0.png
 tag: Tech
 originalTitle: "Start Coding with Python: 5. Dictionaries (part II — looping)"
 link: "https://medium.com/@audrey_evans/start-coding-with-python-5-dictionaries-part-ii-e9316455f083"
 ---
-
 
 딕셔너리를 순회하는 방법을 배울 거에요. 딕셔너리는 여러 가지 방법으로 정보를 저장할 수 있기 때문에 이를 순회하는 다양한 방법이 있어요. 주어진 딕셔너리의 키, 값 또는 모든 키-값 쌍을 순회할 수 있어요.
 
@@ -32,12 +31,14 @@ for key, value in scientist_0.items():
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -62,12 +63,14 @@ Value: feynman
 키와 값에 대해 간단히 k와 v를 사용할 수 있습니다. 따라서 아래와 같이 코드를 작성하면 (특히 루프 부분을 참조하십시오), Python이 이전 코드와 정확히 동일하게 이해합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -92,15 +95,15 @@ for k, v in scientist_0.items():
 
 items() 메서드 대신 keys() 메서드를 사용하면 사전의 키만을 순회할 수 있습니다.
 
-
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -130,12 +133,14 @@ Dirac
 위 코드를 실행하면 사전의 키만을 반환합니다. 여기서 간단히 언급하고 싶은데, 이러한 상황(값이 아닌 키만 반환하는 것)은 keys() 메서드를 특별히 지정하지 않을 때의 기본 동작입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -171,12 +176,14 @@ for name in sorted(scientist_hobby.keys()):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -195,12 +202,14 @@ Feynman
 상담하신 것처럼, 우리는 키가 없는 값의 순서를 반환하기 위해 위에서 논의한 keys() 메소드와 대조해서 values() 메소드를 사용할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -234,12 +243,14 @@ Violin
 여기서 바이올린은 두 명이 동일한 취미를 가지고 있기 때문에 반복됩니다. 이러한 종류의 반복을 방지하고 싶은 경우 아래에 표시된 대로 set() 메소드를 사용할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -272,12 +283,14 @@ Now Violin is returned only once.
 One can also make a set using braces ({}). However, in contrast to a dictionary where a set of key-value pairs are given inside '{}', in a set each single element should be separated by a comma.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -290,20 +303,21 @@ One can also make a set using braces ({}). However, in contrast to a dictionary 
 
 딕셔너리와 집합 사이의 차이를 알아두면 혼란을 방지할 수 있어요.
 
-![이미지](/assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_0.png)
+![이미지](/TIL/assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_0.png)
 
-![이미지](/assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_1.png)
+![이미지](/TIL/assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![image](/assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_2.png)
+![image](/TIL/assets/img/2024-07-09-StartCodingwithPython5DictionariespartIIlooping_2.png)

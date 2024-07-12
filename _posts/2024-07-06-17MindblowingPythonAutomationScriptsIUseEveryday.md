@@ -1,15 +1,14 @@
 ---
 title: "일상에서 유용한 놀라운 17가지 Python 자동화 스크립트"
 description: ""
-coverImage: "/assets/img/2024-07-06-17MindblowingPythonAutomationScriptsIUseEveryday_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-17MindblowingPythonAutomationScriptsIUseEveryday_0.png"
 date: 2024-07-06 10:26
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-17MindblowingPythonAutomationScriptsIUseEveryday_0.png
 tag: Tech
 originalTitle: "17 Mindblowing Python Automation Scripts I Use Everyday"
 link: "https://medium.com/pythoneers/17-mindblowing-python-automation-scripts-i-use-everyday-523fb1eb9284"
 ---
-
 
 ## 해야 할 자동화 스크립트 (컬렉션)
 
@@ -20,12 +19,14 @@ link: "https://medium.com/pythoneers/17-mindblowing-python-automation-scripts-i-
 # 1. Speakify
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

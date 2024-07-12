@@ -1,31 +1,32 @@
 ---
 title: "Pandas 코드 최적화 연산 순서가 미치는 영향"
 description: ""
-coverImage: "/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_0.png"
 date: 2024-07-09 20:47
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_0.png
 tag: Tech
 originalTitle: "Optimizing Pandas Code: The Impact of Operation Sequence"
 link: "https://medium.com/towards-data-science/optimizing-pandas-code-the-impact-of-operation-sequence-0c5aa159632a"
 ---
 
-
 ## 파이썬 프로그래밍
 
-![image](/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_0.png)
+![image](/TIL/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_0.png)
 
 Pandas는 데이터프레임에서 작업할 때 환상적인 프레임워크를 제공합니다. 데이터 과학에서는 작은 데이터프레임부터 크고 때로는 아주 큰 데이터프레임까지 다룹니다. 작은 데이터프레임을 분석하는 것은 매우 빠를 수 있지만, 큰 데이터프레임에서 심지어 단일 작업도 상당한 시간이 걸릴 수 있습니다.
 
 이 글에서는 종종 데이터프레임에서 작업 순서를 바꿈으로써 이 시간을 단축시킬 수 있다는 것을 보여 드리겠습니다. 이 작업은 사실상 아무 비용도 들지 않는 방법입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -47,39 +48,43 @@ df = pd.DataFrame({
 가령, 다음 조건을 따르는 행만 필터링하여 가져와야 한다고 상상해보죠: `a` 50,000이상 그리고 `b` 3,000이상, 그리고 `a`, `b`, `g`, `n`, `x` 열 다섯 개만 선택해야 한다면, 다음과 같이 할 수 있어요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-subdf = df[take_cols]
-subdf = subdf[subdf['a'] < 50_000]
-subdf = subdf[subdf['b'] > 3000]
+subdf = df[take_cols];
+subdf = subdf[subdf["a"] < 50_000];
+subdf = subdf[subdf["b"] > 3000];
 ```
 
 위 코드에서는 먼저 필요한 열을 가져와서 행을 필터링합니다. 동일한 결과를 얻을 수 있으며, 연산의 순서를 바꿔서 먼저 필터링을 수행한 다음 열을 선택할 수도 있습니다:
 
 ```js
-subdf = df[df['a'] < 50_000]
-subdf = subdf[subdf['b'] > 3000]
-subdf = subdf[take_cols]
+subdf = df[df["a"] < 50_000];
+subdf = subdf[subdf["b"] > 3000];
+subdf = subdf[take_cols];
 ```
 
 더불어 Pandas 연산을 연결하여 동일한 결과를 얻을 수도 있습니다. 해당 명령의 연결은 다음과 같습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -99,12 +104,14 @@ df가 크기 때문에 네 가지 버전 간 성능이 다를 것으로 예상�
 이 작업을 벤치마크해보겠습니다. timeit 모듈을 사용할 것입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -113,17 +120,19 @@ df가 크기 때문에 네 가지 버전 간 성능이 다를 것으로 예상�
 
 저희의 벤치마크는 다음과 같습니다:
 
-![벤치마크 이미지](/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_1.png)
+![벤치마크 이미지](/TIL/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_1.png)
 
 다음 섹션에서는 벤치마크 결과를 분석한 후 결과를 해석하겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -133,20 +142,22 @@ df가 크기 때문에 네 가지 버전 간 성능이 다를 것으로 예상�
 ## Bracketing: 열 선택한 다음 행 필터링하기 (16.5 ms)
 
 ```js
-subdf = df[take_cols]
-subdf = subdf[subdf['a'] < 50_000]
-subdf = subdf[subdf['b'] > 3000]
+subdf = df[take_cols];
+subdf = subdf[subdf["a"] < 50_000];
+subdf = subdf[subdf["b"] > 3000];
 ```
 
 이 코드에서는 Tipycal Pandas 코드로 괄호, 불리언 인덱싱 및 대입을 사용했습니다. 예상 결과를 얻기 위해 다음 순서대로 세 줄을 사용했습니다: 먼저 열 하위 집합을 선택하고 그런 다음 두 개의 필터링 조건을 순차적으로 적용했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -171,12 +182,14 @@ Out [10]: 1174975
 불필요한 열을 먼저 제거하면 불필요한 행을 먼저 제거하는 것보다 작업이 느려질 것이 당연해요 — 다음 섹션에서 보여줄게요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -184,9 +197,9 @@ Out [10]: 1174975
 ## 괄호 사용: 행 필터링 후 열 선택 (10.7 ms)
 
 ```js
-subdf = df[df['a'] < 50_000]
-subdf = subdf[subdf['b'] > 3000]
-subdf = subdf[take_cols]
+subdf = df[df["a"] < 50_000];
+subdf = subdf[subdf["b"] > 3000];
+subdf = subdf[take_cols];
 ```
 
 이 코드는 브래킷, 부울 인덱싱, 및 할당을 기반으로 한 전형적인 판다스 코드를 사용하지만, 이번에는 데이터프레임의 크기를 줄이기 위해 먼저 행이 필터링됩니다. 그런 다음 선택된 열이 가져와집니다.
@@ -194,12 +207,14 @@ subdf = subdf[take_cols]
 이는 시험한 네 가지 방법 중에서 명백히 가장 빠른 방법입니다. 효율성 향상은 데이터프레임 크기의 초기 감소로 인해 얻어지며, 결과적으로 후속 단계에서 처리해야 하는 더 작은 데이터셋을 제공합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -215,12 +230,14 @@ df.filter(take_cols).query(query)
 이 코드는 연결된 Pandas 연산을 사용합니다. 먼저 행을 필터링한 다음 필요한 열을 가져옵니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -234,18 +251,20 @@ df.filter(take_cols).query(query)
 ## Pipes: 행을 필터링한 다음 열을 선택합니다 (17.3 ms)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-df.query(query).filter(take_cols)
+df.query(query).filter(take_cols);
 ```
 
 이 코드는 이전 것의 개선된 버전으로 간주할 수 있습니다. 이미 필요 없는 행을 먼저 없애야 하고, 그 후에 필요한 열을 선택해야 한다는 것을 알고 있습니다. 이 코드는 Pandas 연산을 연쇄적으로 수행하여 이 작업을 수행합니다.
@@ -254,14 +273,15 @@ df.query(query).filter(take_cols)
 
 # 해석
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -276,15 +296,17 @@ df.query(query).filter(take_cols)
 
 그러나 이해해야 할 점은 이해가 일반적이 아니라는 것입니다. 이는 우리의 벤치마크 및 분석한 특정 시나리오를 참조합니다.
 
-여러분에게 연습 문제를 남기겠습니다: ` 50_000 또는 b ` 3000 중 어떤 행 필터링을 먼저 적용하느냐에 따라 어떤 영향이 있을까요?
+여러분에게 연습 문제를 남기겠습니다: `50_000 또는 b` 3000 중 어떤 행 필터링을 먼저 적용하느냐에 따라 어떤 영향이 있을까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -293,55 +315,61 @@ df.query(query).filter(take_cols)
 
 위에서는 행보다 열이 더 많은 데이터프레임을 다루었지만, 상황이 정반대인 경우는 어떨까요? 즉, 훨씬 많은 열이 있고 훨씬 적은 행이 있는 데이터프레임을 다루는 경우를 생각해보겠습니다.
 
-위에서 배운 내용을 바탕으로, 우리가 작업 순서를 선택하는 주요 기준은 결과 데이터프레임의 크기입니다. 그래서 다음 시나리오를 분석해봅시다: 
+위에서 배운 내용을 바탕으로, 우리가 작업 순서를 선택하는 주요 기준은 결과 데이터프레임의 크기입니다. 그래서 다음 시나리오를 분석해봅시다:
 
-![이미지](/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_2.png)
+![이미지](/TIL/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_2.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 이거 봤어요? 718 µs 대 121 ms로 첫 번째 접근 방식(먼저 열을 선택)이 훨씬 빠릅니다. 거의 170 배나 빠르죠! 그 이유는 이전과 같아요 — 첫 번째 작업 후 데이터프레임의 크기 때문이에요. 이번에는 차이가 엄청나죠:
 
-![이미지](/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_3.png)
+![이미지](/TIL/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_3.png)
 
 두 번째 작업도 매우 다른 크기의 데이터프레임에서 작동합니다:
 
-![이미지](/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_4.png)
+![이미지](/TIL/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_4.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 Pandas 연쇄 작업은 이러한 데이터프레임에 대해 매우 비효율적으로 작동하는 흥미로운 점입니다:
 
-![Image](/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_5.png)
+![Image](/TIL/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_5.png)
 
 열을 먼저 처리했음에도 불구하고 이 파이프는 위의 느린 작업보다 시간을 세 배나 적게 소요했음을 유념하세요. 순서를 바꾼 상태의 대응하는 파이프를 벤치마킹 해보려고 했지만, 3시간 후에 벤치마킹을 종료했습니다:
 
-![Image](/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_6.png)
+![Image](/TIL/assets/img/2024-07-09-OptimizingPandasCodeTheImpactofOperationSequence_6.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -355,12 +383,14 @@ Pandas 연쇄 작업은 이러한 데이터프레임에 대해 매우 비효율�
 이 권장 사항은 놀랍지 않을 수 있지만 상당히 분명해 보입니다. 과거에 가끔 이를 따르지 못한 적이 있었는데, 앞으로는 판다스 작업의 순서에 대해 생각해야겠다고 확실히 기억하겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -374,12 +404,14 @@ Pandas 연쇄 작업은 이러한 데이터프레임에 대해 매우 비효율�
 따라서 성능이 중요하다면 각각의 데이터프레임을 개별적으로 분석하고 모양과 크기를 고려하여 작업 순서를 신중히 선택해야 합니다. 이 통찰력은 특히 대용량 데이터셋을 다룰 때 판다스 워크플로를 최적화하는 데 매우 소중합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -395,12 +427,14 @@ Pandas 연쇄 작업은 이러한 데이터프레임에 대해 매우 비효율�
 ¹ 이 코드에서는 다음 람다 정의를 사용하여 명명된 함수를 정의했습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -416,12 +450,14 @@ In [7]: n_of_elements = lambda d: d.shape[0]*d.shape[1]
 여기에서는 이 규칙의 예외를 보여드려요: 저장이나 배포되지 않는 데이터 분석 코드를 사용할 때요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

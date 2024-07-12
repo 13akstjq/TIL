@@ -1,17 +1,16 @@
 ---
 title: "Python을 사용한 PDF를 Word로 변환하는 5가지 방법 비교 가이드"
 description: ""
-coverImage: "/assets/img/2024-07-09-5WaystoConvertPDFtoWordinPythonAComparisonGuide_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-5WaystoConvertPDFtoWordinPythonAComparisonGuide_0.png"
 date: 2024-07-09 14:43
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-5WaystoConvertPDFtoWordinPythonAComparisonGuide_0.png
 tag: Tech
 originalTitle: "5 Ways to Convert PDF to Word in Python: A Comparison Guide"
 link: "https://medium.com/@alexaae9/5-ways-to-convert-pdf-to-word-in-python-a-comparison-guide-1771cfd109e7"
 ---
 
-
-![image](/assets/img/2024-07-09-5WaystoConvertPDFtoWordinPythonAComparisonGuide_0.png)
+![image](/TIL/assets/img/2024-07-09-5WaystoConvertPDFtoWordinPythonAComparisonGuide_0.png)
 
 PDF 문서를 편집 가능한 Microsoft Word 파일로 변환하면 변경 사항을 가할 수 있고 주석을 추가하며 PDF 콘텐츠에 대해 더 효율적으로 협업할 수 있습니다.
 
@@ -24,12 +23,14 @@ PDF 문서를 편집 가능한 Microsoft Word 파일로 변환하면 변경 사�
 - .NET을 통해 Aspose.Words for Python을 사용하여 PDF를 Word로 변환
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -43,12 +44,14 @@ python-docx는 Microsoft Word (.docx) 파일을 생성하고 업데이트하는 
 PyPI를 통해 이들을 설치하려면 다음과 같은 pip 명령을 사용하십시오.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -71,7 +74,7 @@ document = Document()
 
 # PDF 파일 열기
 with open("C:\\Users\\Administrator\\Desktop\\Input.pdf", "rb") as file:
-    
+
     # PdfReader 객체 생성
     pdf_reader = PdfReader(file)
 
@@ -80,13 +83,13 @@ with open("C:\\Users\\Administrator\\Desktop\\Input.pdf", "rb") as file:
 
         # 각 페이지를 순환하며
         for page_num in range(len(pdf_reader.pages)):
-            
+
             # 현재 페이지 가져오기
             page = pdf_reader.pages[page_num]
 
             # 페이지에서 텍스트 추출
             text = page.extract_text()
-            
+
             # 텍스트를 담는 단락을 Word에 추가
             document.add_paragraph(text)
 
@@ -97,12 +100,14 @@ document.save("output.docx")
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -117,12 +122,14 @@ document.save("output.docx")
 ## pdfplumber와 python-docx를 이용해 PDF를 워드로 변환하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -139,12 +146,14 @@ pip install python-docx
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -163,7 +172,7 @@ with pdfplumber.open("C:\\Users\\Administrator\\Desktop\\Input.pdf") as pdf:
     text = ""
     for page in pdf.pages:
         text += page.extract_text()
- 
+
 # 새 Word 문서 생성
 document = Document()
 
@@ -179,12 +188,14 @@ document.save("output.docx")
 - 무료입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -199,12 +210,14 @@ document.save("output.docx")
 pdf2docx는 PDF 파일을 Microsoft Word (.docx) 문서로 간단하고 효율적으로 변환하는 방법을 제공하는 Python 라이브러리입니다. 이는 문서 변환, 데이터 추출 및 텍스트 처리와 같은 여러 목적으로 사용할 수 있는 무료 오픈 소스 라이브러리입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -234,12 +247,14 @@ convert_pdf_to_docx("C:\\Users\\Administrator\\Desktop\\Input.pdf", "Output.docx
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -255,12 +270,14 @@ convert_pdf_to_docx("C:\\Users\\Administrator\\Desktop\\Input.pdf", "Output.docx
 - 상업용 라이브러리를 사용하는 것보다 복잡한 PDF 문서를 변환하는 데 시간이 조금 더 소요됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -276,12 +293,14 @@ pip install Spire.PDF
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -315,12 +334,14 @@ doc.Close()
 - 변환 속도가 빠릅니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -334,33 +355,34 @@ doc.Close()
 Aspose.Words for Python via .NET은 Python을 통해 Microsoft Word 문서(.docx, .doc)를 조작하고 변환하는 상용 라이브러리입니다. 또한 PDF 및 HTML과 같은 다른 형식을 Word 형식으로 변환하는 기능도 지원합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 테이블 태그를 Markdown 형식으로 변경해보세요.
 
-
 | Header One | Header Two |
-|------------|------------|
+| ---------- | ---------- |
 | Data 1     | Data 2     |
 | Data 3     | Data 4     |
 
-
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -376,12 +398,14 @@ Aspose.Words for Python via .NET은 Python을 통해 Microsoft Word 문서(.docx
 - 가장 낮은 수준의 라이선스 비용은 $1199입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -395,12 +419,14 @@ Aspose.Words for Python via .NET은 Python을 통해 Microsoft Word 문서(.docx
 Python에서 PDF에 주석 달기의 8가지 방법
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,18 +1,16 @@
 ---
 title: "간단한 파이썬 포트 스캐너 사용법"
 description: ""
-coverImage: "/assets/img/2024-07-09-Asimplepythonportscanner_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-Asimplepythonportscanner_0.png"
 date: 2024-07-09 09:14
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-Asimplepythonportscanner_0.png
 tag: Tech
 originalTitle: "A simple python port scanner"
 link: "https://medium.com/@alhobabtagiddin/a-simple-python-port-scanner-57f99c154cef"
 ---
 
-
-
-![포트 스캐너](/assets/img/2024-07-09-Asimplepythonportscanner_0.png)
+![포트 스캐너](/TIL/assets/img/2024-07-09-Asimplepythonportscanner_0.png)
 
 포트 스캐너는 시스템의 네트워크 보안을 분석하기 위해 사용되는 도구로, 열린 포트를 스캔하여 확인합니다. 포트는 컴퓨터의 문과 같이 다양한 유형의 통신을 허용합니다. 포트 스캐너는 대상 시스템에서 열린 포트, 닫힌 포트 또는 필터링된 포트를 식별할 수 있어 잠재적인 취약점을 평가하고 네트워크를 보호하는 데 도움이 됩니다.
 
@@ -20,14 +18,15 @@ link: "https://medium.com/@alhobabtagiddin/a-simple-python-port-scanner-57f99c15
 
 선호하는 편집기를 사용하여 코드를 작성할 수 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -45,12 +44,14 @@ from datetime import datetime
 ## 이제 대상을 정의해 봅시다
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -70,12 +71,14 @@ else:
 이제 예쁜 배너를 추가해 봅시다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -103,19 +106,20 @@ try:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 ```js
-s.close()
+s.close();
 ```
 
 마지막으로
@@ -138,12 +142,14 @@ except socket.error:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -165,12 +171,14 @@ python 3 scanner.py 192.168.1.10 4444
 # 파트2
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

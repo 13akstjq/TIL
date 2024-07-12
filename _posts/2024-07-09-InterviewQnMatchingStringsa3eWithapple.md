@@ -1,18 +1,16 @@
 ---
 title: "인터뷰 질문 apple과 a3e 문자열 매칭 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-InterviewQnMatchingStringsa3eWithapple_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-InterviewQnMatchingStringsa3eWithapple_0.png"
 date: 2024-07-09 09:10
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-InterviewQnMatchingStringsa3eWithapple_0.png
 tag: Tech
 originalTitle: "[Interview Qn] Matching Strings “a3e” With “apple”"
 link: "https://medium.com/@zlliu/interview-qn-matching-strings-a3e-with-apple-5b0740e84a74"
 ---
 
-
-
-![image](/assets/img/2024-07-09-InterviewQnMatchingStringsa3eWithapple_0.png)
+![image](/TIL/assets/img/2024-07-09-InterviewQnMatchingStringsa3eWithapple_0.png)
 
 함수 match(string, pattern)을 작성하세요. 이 함수는 2개의 문자열을 입력받고, 문자열이 값과 일치하면 True를 반환하고 그렇지 않으면 False를 반환합니다.
 
@@ -21,14 +19,15 @@ link: "https://medium.com/@zlliu/interview-qn-matching-strings-a3e-with-apple-5b
 
 일부 예시:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -44,7 +43,7 @@ def match(string: str, pattern: str) -> bool:
     pattern: 예: 'a2e', 'a3e'
     """
     # 할 일
-    
+
 testcases = [
     ('apple', 'a3e', True),
     ('apple', '4e', True),

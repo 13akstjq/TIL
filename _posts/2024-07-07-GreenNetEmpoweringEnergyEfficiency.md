@@ -1,31 +1,32 @@
 ---
 title: "GreenNet 에너지 효율성을 높이는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_0.png"
 date: 2024-07-07 02:28
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_0.png
 tag: Tech
 originalTitle: "GreenNet: Empowering Energy Efficiency"
 link: "https://medium.com/@x17-green/greennet-4287c9a49fc7"
 ---
 
-
 # 소개
 
-![이미지](/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_0.png)
+![이미지](/TIL/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_0.png)
 
 저는 대규모 에너지 소비 관리 시스템의 중요 구성 요소 중 하나인 독립형 마이크로 서비스 프로젝트에 참여할 기회가 있었습니다. 우리 프로젝트는 다양한 엔지니어가 다양한 구성 요소에 작업하는 이 대규모 이니셔티브의 한 부분이었습니다.
 
 이 프로젝트의 개념은 원래 ALX에서 나의 동료가 고안하여 에너지 소비를 관리하는 포괄적인 시스템을 상상했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/@x17-green/greennet-4287c9a49fc7"
 ## 세그먼트:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -56,18 +59,20 @@ link: "https://medium.com/@x17-green/greennet-4287c9a49fc7"
 ## 엔지니어:
 
 - 엔지니어 1 (Okoyen Ebisine Precious): 그린넷을 위한 사용자 관리 및 장치 관리 마이크로서비스 개발.
-- 엔지니어 2 (Joshua Benjamin): 에너지 소비 및 알림 마이크로서비스 개발을 위한 엔지지 소비 추적기. 
+- 엔지니어 2 (Joshua Benjamin): 에너지 소비 및 알림 마이크로서비스 개발을 위한 엔지지 소비 추적기.
 - 엔지니어 3 (Benedict Akosa): 모니터링 및 커뮤니케이션 마이크로서비스, 그리고 실시간 커뮤니케이션과 지원을 위한 챗펄스 챗 마이크로서비스를 담당합니다.
 
 저는 개인적으로 팀 엔지니어 1로서 견고하고 확장 가능한 인증 시스템을 설계하고 구현하는 데 초점을 맞추었습니다. 엔지니어 팀 2는 에너지 소비 분석 모듈을 개발하였으며, 엔지니어 팀 3은 실시간 커뮤니케이션과 지원을 위한 마이크로서비스를 구현하는 데 초점을 맞추었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -76,17 +81,19 @@ link: "https://medium.com/@x17-green/greennet-4287c9a49fc7"
 
 그린넷을 만들기 위한 여정을 되돌아보면, 몇 주 전에 겪었던 어려움이 생생하게 떠오릅니다. 학습 일정에서 뒤처지고 있었고, 프로젝트를 맡아야 한다는 생각이 겁나기 시작했습니다. 자신에게 의심이 들고, 복잡한 작업에 도전할 준비가 되어있는지 의문이 들었습니다.
 
-![GreenNet](/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_1.png)
+![GreenNet](/TIL/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_1.png)
 
 하지만, 친구 Chymezy(Engineer 2)와 나눈 대화가 모든 것을 바꿨습니다. 그가 제시한 아이디어는 나에게 와닿았습니다. '보안을 최우선으로 하는 프로젝트를 만들면 어떨까?' 라는 생각이 날 것 같습니다. 생각을 많이 해보니, 나에게는 이 어려움을 극복하고 의미 있는 것을 만들어낼 기회가 된다는 것을 깨달았습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -100,17 +107,19 @@ link: "https://medium.com/@x17-green/greennet-4287c9a49fc7"
 아래는 GreenNet의 아키텍처 다이어그램입니다. 응용 프로그램을 통해 데이터가 어떻게 흘러가는지를 보여줍니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![GreenNet](/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_2.png)
+![GreenNet](/TIL/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_2.png)
 
 ## 사용된 기술
 
@@ -119,12 +128,14 @@ GreenNet을 만들기 위해 견고하고 확장 가능한 애플리케이션을
 백엔드에서는 Python을 선택했습니다. 그 이유는 간단함, 유연성 및 다양한 라이브러리 때문입니다. 이를 통해 빠르게 안전한 사용자 인증 시스템을 개발할 수 있었습니다. Node.js를 선택할 수도 있었지만, Python의 사용 편의성과 다양성으로 인해 이상적인 선택이었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -139,12 +150,14 @@ GreenNet을 만들기 위해 견고하고 확장 가능한 애플리케이션을
 - 반응형 및 사용자 친화적 인터페이스: 프론트엔드 사용자 인터페이스는 HTML, CSS 및 Bootstrap을 사용하여 반응형 및 사용자 친화적인 경험을 제공합니다. JavaScript 스크립트도 UI를 개선하고 동적 기능을 제공하는 데 사용되었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -155,15 +168,17 @@ GreenNet을 만들기 위해 견고하고 확장 가능한 애플리케이션을
 
 그린넷 프로젝트 도중, 사용 중이었던 웹 프레임워크인 Flask가 데이터베이스를 초기화하고 이관하는 데 실패하여 중요한 기술적 도전에 직면했어요. 이 문제는 프로젝트 초반에 발생했기 때문에 진행에 상당한 영향을 미쳤고, 이를 해결하기 위해 노력했어요.
 
-![이미지](/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_3.png)
+![이미지](/TIL/assets/img/2024-07-07-GreenNetEmpoweringEnergyEfficiency_3.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -177,12 +192,14 @@ GreenNet을 만들기 위해 견고하고 확장 가능한 애플리케이션을
 GreenNet과 함께한 내 여정을 되새기면서, 미래의 소프트웨어 엔지니어링에 대한 접근 방식을 형성할 가치 있는 통찰을 얻었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -196,12 +213,14 @@ GreenNet과 함께한 내 여정을 되새기면서, 미래의 소프트웨어 �
 아마도 더 안전하고 사용자 친화적인 시스템을 구축하는 데 집중하고, 기기, 위치 또는 연결 여부에 관계없이 최종 사용자가 에너지 사용량을 추적하는 데 원활한 경험을 제공하는 것에 초점을 맞출 것입니다. 모든 사용자가 플랫폼에 접근하고 효율적으로 사용할 수 있도록 혁신적인 솔루션을 탐색하는 것이 포함될 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -215,12 +234,14 @@ GreenNet은 소프트웨어 엔지니어링에서의 다양한 가능성을 내�
 요약하자면, GreenNet과의 경험은 저에게 끈기, 적응력 및 혁신에 관한 소중한 교훈을 전달해 주었어요. 내가 이룬 성과에 자랑스럽고, 앞으로의 프로젝트에 배운 기술과 지식을 적용하는 것에 기대가 되요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

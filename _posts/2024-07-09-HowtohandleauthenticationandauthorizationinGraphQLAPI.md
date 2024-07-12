@@ -1,33 +1,34 @@
 ---
 title: "GraphQL API에서 인증 및 권한 관리하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_0.png"
 date: 2024-07-09 20:30
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_0.png
 tag: Tech
 originalTitle: "How to handle authentication and authorization in GraphQL API"
 link: "https://medium.com/gitconnected/how-to-implement-authentication-and-authorization-in-graphql-api-90c17a92a5d9"
 ---
 
+아래는 작성한 표의 내용이에요.
 
-아래는 작성한 표의 내용이에요. 
-
-| 제목 | 링크 |
-| ------ | ------ |
-| Authentication and authorization | [여기](/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_0.png) |
+| 제목                             | 링크                                                                                           |
+| -------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Authentication and authorization | [여기](/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_0.png) |
 
 인증(Authentication)과 권한 부여(authorization)는 종종 혼동되지만, 이러한 개념들은 서로 다른 프로세스를 담당하고 있어요. '인증'은 사용자 식별을 결정하며(사용자가 시스템에 로그인되어 있는지 여부), '권한 부여'는 인증된 사용자가 특정 리소스에 액세스할 수 있는지 여부를 나타냅니다. 그래서 보통 인증 단계가 권한 부여 단계를 선행해요. GraphQL에서 인증과 권한 부여는 도전적일 수 있는데 이는 하나의 노출된 HTTP 엔드포인트 (예: /graphql)만 있기 때문이에요. 이 엔드포인트 진입점에서 사용자를 인증할 수는 있지만, 그 구현에서 일부 리소스에 대한 공개 접근 옵션을 포기해야 할 수 있어요. 이 유일한 엔드포인트 진입에서 권한을 부여하는 것은 불가능해요. 왜냐하면 어떤 리소스가 쿼리될 지 모르기 때문이에요.
 
 이 게시물의 영감은 해당 주제에 대한 답변을 찾는 스택오버플로우 질문에서 얻은 거예요. # 애플리케이션 설정
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -53,12 +54,14 @@ class User(Base):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -76,7 +79,7 @@ class SignUp(graphene.Mutation):
         password = graphene.String(required=True)
 
    user = graphene.Field(UserNode)
-   
+
    def mutate(self, info, email: str, password: str):
         session = info.context["session"]
         user = sign_up(session, email, password)
@@ -111,15 +114,17 @@ def generate_password_hash(password: str) -> str:
 
 뮤테이션은 /graphql 엔드포인트에서 POST 요청을 통해 실행됩니다. GraphQL에 대한 이전 게시물과 같이 insomnia를 사용하여 HTTP 요청을 수행합니다.
 
-![이미지](/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_1.png)
+![이미지](/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -185,15 +190,17 @@ def generate_token(user: User) -> str:
 
 SignIn 뮤테이션을 위해 이메일과 비밀번호를 전달하고 인증이 필요한 요청에서 사용할 수 있는 토큰을 페이로드로 받습니다.
 
-![이미지](/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_2.png)
+![이미지](/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_2.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -280,33 +287,35 @@ def get_user_by_token(session: Session, token: str) -> Optional[User]:
 up 필드는 공개 액세스이므로 쿼리를 위해 자격 증명을 전달할 필요가 없습니다. 한편, me 필드는 sign_in_required로 데코레이트되었으므로 적절한 토큰을 전달해야 해결할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+![이미지](/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_3.png)
 
-![이미지](/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_3.png)
-
-![이미지](/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_4.png)
+![이미지](/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_4.png)
 
 "Authorization" 헤더에 토큰을 전달하지 않고 sign_in_required로 표시된 필드에 접근하면 UnauthenticatedUser 예외가 발생합니다.
 
-![이미지](/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_5.png)
-
+![이미지](/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_5.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -316,18 +325,21 @@ up 필드는 공개 액세스이므로 쿼리를 위해 자격 증명을 전달�
 쿼리를 인증하여 로그인한 사용자만 액세스할 수 있도록 제한하는 방법을 살펴보았습니다. 그러나 사용자가 로그인했지만 수행하는 작업이 허용되지 않는 경우는 어떻게 할까요? 예를 들어, 예약한 레스토랑 테이블이 있으며 사용자가 인증되었을 때 허용되어야 하는 경우와 테이블 예약을 취소해야 하는 경우와 같이 사용자가 이전에 생성한 예약만 취소할 수 있는 경우가 있습니다.
 
 우리는 두 가지 작업을 구현했습니다:
+
 - 사용자가 인증되었을 때 허용되어야 하는 BookRestaurantTable 뮤테이션,
 - 취소되어야 하는 TableBooking을 취소하는 CancelTableBooking 뮤테이션.
 
 이를 위해 BookRestaurantTable은 sign_in_required로 데코레이트된 mutate 메서드를 사용하고, CancelTableBooking은 authorize_required로 데코레이트된 새로운 메서드를 사용합니다. 이 데코레이터는 사용자가 인증되었는지 확인하고, table_booking_gid(인스턴스의 전역 ID를 나타내는 값)가 인증된 사용자에 의해 생성된 TableBooking 인스턴스와 일치하는지 확인합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -360,7 +372,7 @@ class CancelTableBooking(graphene.Mutation):
         table_booking_gid = graphene.ID(required=True)
 
     table_booking = graphene.Field(TableBookingNode)
-    
+
     @authorize_required(TableBooking)
     def mutate(self, info, table_booking_gid: str, **kwargs):
         session = info.context["session"]
@@ -396,7 +408,7 @@ class InstanceNotExist(Exception):
 
 def authorize_required(model):
     """
-    We assume that the global id field name of a resource 
+    We assume that the global id field name of a resource
     follow convention like:
     model_name: `TableBooking`
     global id field name: `table_booking_gid`
@@ -441,33 +453,35 @@ BookRestaurantTable을 실행하기 위해 restaurant_gid 및 persons라는 두 
 CancelTableBooking은 BookRestaurantTable 페이로드(TableBooking.id)에서 가져올 수 있는 table_booking_gid만 필요합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-<img src="/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_7.png" />
+<img src="/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_7.png" />
 
 만약 토큰이 주어진 테이블 예약의 소유자와 일치하지 않는 경우, 동작을 수행할 수 없으며, 권한이 없음 예외가 발생합니다.
 
-<img src="/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_8.png" />
+<img src="/TIL/assets/img/2024-07-09-HowtohandleauthenticationandauthorizationinGraphQLAPI_8.png" />
 
 # 결론
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

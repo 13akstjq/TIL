@@ -1,50 +1,53 @@
 ---
 title: "Langchain이 필요하지 않은 이유"
 description: ""
-coverImage: "/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_0.png"
 date: 2024-07-09 19:54
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_0.png
 tag: Tech
 originalTitle: "Here’s Why You Probably Don’t Need Langchain!"
 link: "https://medium.com/gitconnected/chat-with-csv-files-using-googles-gemini-flash-no-langchain-0e8f79d63348"
 ---
 
-
 ## Langchain을 사용하지 않고 CSV 파일과 상호 작용하는 LLM 파이프라인
 
 LangChain, LangGraph, LlamaIndex, CrewAI... 한 가지 도구에 익숙해지기 시작하면 또 다른 도구가 등장합니다. 이 도구들을 깎아내리거나 싫어하지는 않지만, 이 중 하나와 개발하는 것은 학습 곡선 때문에 진정으로 무섭고 당황스러울 수 있습니다. 이 도서관들을 배우는 것으로 끝내는 대신에 실제로 무언가를 구축하고 싶다면 낙담하기 쉬울 수 있습니다. LangChain은 훌륭하지만 정말 밀도있게 포장되어 있습니다. 문서 자체로는 Python용, JavaScript용 하나씩, 그리고 아마도 API를 위한 부모 문서가 있을 거라고 생각합니다. 그리고 Python 내에서도 비슷한 작업을 수행하는 여러 기능들이 있습니다. 이 모든 것은 좋지만, 코드에 충분한 제어권이 없습니다. 예를 들어, 이전 블로그에서 PDF를 바이트로 로더에 전달하려고 했지만, 함수는 파일 URL만 허용했기 때문에 제대로 수행할 수 없었습니다. 나에게 따르면, 무언가를 간단히 구축할 때 LangChain은 마지막 선택이어야 합니다. 항상 KISS (Keep it simple, stupid)를 지키세요.
 
-![이미지](/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_0.png)
+![이미지](/TIL/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_0.png)
 
 음, 그들이 나가리키는 만큼 사악하지 않을 수도 있지만, 충분하지 않다고 판단된다면 먼저 원시적인 것을 시도한 다음에 더 고급 도구로 넘어가는 것이 항상 좋습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 이번 달은 상당히 바쁘게 보냈어요 (사실, 2022년 11월 이후 모든 달이 그랬어요) GPT-4o의 발매와 Gemini 업데이트가 두 날에 걸쳐 연이어 발표되면서요.
 
-![image](/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_1.png)
+![image](/TIL/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_1.png)
 
 GPT-4o의 'ScarJo' - 아니, 'Sky' - 음성은 데모에서 영향을 주었는데, 이로 인해 인공지능 산업에 파도를 일으키고 구글 I/O의 Gemini 성능을 가려버렸어요. 솔직히 말해서, GPT는 항상 모든 LLM들보다 한 발 앞서 있을 거예요만 MVP 및 개인 프로젝트를 만들 때, 무료 티어를 제공하는 Gemini는 제 같은 가난한 개발자들에게 축복이예요. 최신 모델에 액세스할 수 있는 무료 티어로 API 제한 속도가 15 rpm로 정해져 있어요. 나쁘지 않죠?
 
 ChatGPT의 무료 버전을 통해 이제 GPT-4o로 파일을 업로드할 수 있지만, 여전히 코드 해석기 없이 CSV나 엑셀 데이터를 해석할 수 없어요. 그래서 Gemini Flash의 능력을 테스트해보기 위해 제가 직접 CSV 해석기를 만들기로 결심했어요. Langchain을 사용하는 방법을 보여주는 많은 튜토리얼이 있지만, 저희는 처음 시작하는 사람들에게 특히 더 이해하기 쉬운 방법으로 처음부터 만들어볼 거예요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -58,12 +61,14 @@ ChatGPT의 무료 버전을 통해 이제 GPT-4o로 파일을 업로드할 수 �
 2단계에서는 1단계에서 생성된 코드를 실행하여 생성된 출력을 LLM에 제공하고 사용자 쿼리와 결합시킨다. 이를 통해 pandas 명령의 출력을 자연어로 변환하여 대화 경험을 향상시킬 수 있어.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -71,12 +76,14 @@ ChatGPT의 무료 버전을 통해 이제 GPT-4o로 파일을 업로드할 수 �
 표 태그를 Markdown 형식으로 변경해주세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -90,31 +97,33 @@ ChatGPT의 무료 버전을 통해 이제 GPT-4o로 파일을 업로드할 수 �
 시스템 프롬프트
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
 
 ### Main Prompt
 
 The dataframe name is ‘df’. df has the columns 'cols' and their datatypes are 'dtype'. df is in the following format: 'desc'. The head of df is: 'head'. You cannot use `df.info()` or any command that cannot be printed. Write a pandas command for this query on the dataframe df: 'user_query'
 
-
 If you provide me with the specific metadata values, I can help you generate the pandas command for the user query on the dataframe 'df'. Feel free to ask any questions!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -137,12 +146,14 @@ class Command(typing_extensions.TypedDict):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -156,12 +167,14 @@ class Command(typing_extensions.TypedDict):
 주 프롬프트
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -175,16 +188,17 @@ class Command(typing_extensions.TypedDict):
 데이터프레임 메타데이터
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
 
 df = pd.read_csv(uploaded_file)
 head = str(df.head().to_dict())
@@ -192,27 +206,27 @@ desc = str(df.describe().to_dict())
 cols = str(df.columns.to_list())
 dtype = str(df.dtypes.to_dict())
 
-
 시스템 프롬프트
 
-
 # Stage 1
+
 model_pandas = genai.GenerativeModel('gemini-1.5-flash-latest', system_instruction="판다스와 함께 작업하는 전문 파이썬 개발자입니다. JSON 형식으로 사용자 쿼리를 위한 간단한 판다스 '명령'을 생성하는 것을 확인합니다. 'print' 함수를 추가할 필요는 없습니다. 명령을 생성하기 전에 열의 데이터 유형을 분석하세요. 불가능한 경우 'None'을 반환하십시오. ")
 
 # Stage 2
+
 model_response = genai.GenerativeModel('gemini-1.5-flash-latest', system_instruction="태스크는 이해하는 것입니다. 사용자 쿼리를 분석하고 응답 데이터를 자연어로 생성하는 데 있어서 의무가 있습니다.")
-
-
 
 메인 프롬프트
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -248,14 +262,15 @@ bot_response = model_response.generate_content(
 
 temperature는 생성된 응답의 무작위성을 제어하는 데 사용됩니다. 높은 temperature는 더 창의적이고 다양한 응답을 생성하지만 실제 사용자 쿼리에서 벗어날 수 있습니다. 낮은 temperature는 더 일관된 몰입형 응답을 생성하지만 창의적이지 않을 수 있습니다. 그래서 제가 Stage 1에는 정확한 명령을 얻기 위해 낮은 temperature를 선택했고, Stage 2에는 답변이 지루하고 로봇적이지 않도록 더 높은 temperature를 선택했습니다. 달콤한 지점을 찾기 위해 실험해보세요.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -264,22 +279,24 @@ temperature는 생성된 응답의 무작위성을 제어하는 데 사용됩니
 
 # 사용자 인터페이스
 
-![이미지 1](/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_2.png)
+![이미지 1](/TIL/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_2.png)
 
-![이미지 2](/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_3.png)
+![이미지 2](/TIL/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_3.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![이미지](/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_4.png)
+![이미지](/TIL/assets/img/2024-07-09-HeresWhyYouProbablyDontNeedLangchain_4.png)
 
 # 결론
 

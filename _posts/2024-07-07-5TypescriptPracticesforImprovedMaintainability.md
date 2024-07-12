@@ -1,18 +1,16 @@
 ---
 title: "유지보수성을 높이는 5가지 TypeScript 실천법"
 description: ""
-coverImage: "/assets/img/2024-07-07-5TypescriptPracticesforImprovedMaintainability_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-5TypescriptPracticesforImprovedMaintainability_0.png"
 date: 2024-07-07 19:20
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-5TypescriptPracticesforImprovedMaintainability_0.png
 tag: Tech
 originalTitle: "5 Typescript Practices for Improved Maintainability"
 link: "https://medium.com/@davislaura/5-typescript-practices-for-improved-maintainability-cd52bc5c8eda"
 ---
 
-
-
-![이미지](/assets/img/2024-07-07-5TypescriptPracticesforImprovedMaintainability_0.png)
+![이미지](/TIL/assets/img/2024-07-07-5TypescriptPracticesforImprovedMaintainability_0.png)
 
 아래의 권장 사항은 Typescript를 사용하여 더 유지보수가 용이한 코드를 만드는 데 도움이 되었던 몇 가지 조언에 대한 것입니다. 이 조언들은 새로운 구성 요소에서 Typescript를 사용하고 기존 페이지에서는 여전히 순수 JavaScript를 사용하는 프런트엔드 코드 베이스에서 특히 유용했습니다. 여러분에게도 조금 도움이 되기를 바랍니다.
 
@@ -20,14 +18,15 @@ link: "https://medium.com/@davislaura/5-typescript-practices-for-improved-mainta
 
 # 팁 #1: 난해한 API 값 해결 및 타입의 힘을 활용하여 이름 변경하기
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -43,12 +42,14 @@ link: "https://medium.com/@davislaura/5-typescript-practices-for-improved-mainta
 ## 예시
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -140,12 +141,14 @@ const UsersList = ({ users }: { users: Users[] }) => {
 ## 왜 이렇게 해야 하나요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -160,7 +163,7 @@ const UsersList = ({ users }: { users: Users[] }) => {
 ## 예시
 
 ```js
-/** 
+/**
 * 예시 1: 열거형
 * 사용 시기:이 것을 사용할 모든 파일이 ts인 경우
 * 장점: 변경할 수 없는 상수
@@ -416,12 +419,14 @@ const UsersList = ({ users }: { users: Users[] }) => {
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -529,8 +534,8 @@ import React from "react";
 import { primitiveIsDuplicatedInArray } from "../utils/reusableFunctions";
 
 const GenericFunctions = () => {
-//`primitiveIsDuplicatedInArray`에서 제네릭 유형을 사용하면
-//숫자, 문자열 및 다른 기본 유형을 가진 배열에서 중복 항목을 찾을 수 있습니다.
+  //`primitiveIsDuplicatedInArray`에서 제네릭 유형을 사용하면
+  //숫자, 문자열 및 다른 기본 유형을 가진 배열에서 중복 항목을 찾을 수 있습니다.
   const myNumberArray = [4, 5, 5, 1, 6, 3];
   const isThreeDuplicated = primitiveIsDuplicatedInArray(3, myNumberArray);
   const isFiveDuplicated = primitiveIsDuplicatedInArray(5, myNumberArray);
@@ -557,12 +562,14 @@ export default GenericFunctions;
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -580,12 +587,14 @@ export default GenericFunctions;
 ## 예시들
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -671,7 +680,7 @@ const DifferentPropTypes = () => {
     formStatus,
   };
 
-// 여기서 `props`가 상위 레벨에서 스프레드 연산자를 통해 전달되었다고 상상해보세요. 
+// 여기서 `props`가 상위 레벨에서 스프레드 연산자를 통해 전달되었다고 상상해보세요.
 // 최상위 레벨까지 거슬러 올라가지 않고 그 당시의 props가 무엇인지 추적할 수 있을까요?
   return (
     <div>
@@ -695,34 +704,27 @@ import React from "react";
 
 // 예제 A: 구조 분해는 사용 방법을 애매하게 만들 수 있습니다
 type DestructuredProps = {
-  userName: string;
-  userNamesArray: string[];
+  userName: string,
+  userNamesArray: string[],
 };
 
-export const userNameIsDuplicatedDestructuredProps = (
-  props: DestructuredProps
-) => {
-// 이렇게 구조 분해할 때, 이 prop들은 모두 널이 아니라는 것을 주목하세요
+export const userNameIsDuplicatedDestructuredProps = (props: DestructuredProps) => {
+  // 이렇게 구조 분해할 때, 이 prop들은 모두 널이 아니라는 것을 주목하세요
   const { userName, userNamesArray } = props;
   return userNamesArray.filter((value) => value === userName).length > 1;
 };
 
 // 예제 B: 암시적인 속성은 전달 순서에 의존하고 타입 완성도가 낮아서 버그를 유발할 수 있습니다
-export const userNameIsDuplicatedImplicitProps = (
-  userName: string,
-  userNamesArray: string[]
-) => userNamesArray.filter((value) => value === userName).length > 1;
+export const userNameIsDuplicatedImplicitProps = (userName: string, userNamesArray: string[]) =>
+  userNamesArray.filter((value) => value === userName).length > 1;
 
 // 예제 C: 명시적 속성은 속성 순서와 타입을 강제화합니다
 type ExplicitProps = {
-  userName: string;
-  userNamesArray: string[];
+  userName: string,
+  userNamesArray: string[],
 };
 
-export const userNameIsDuplicatedExplicitProps = ({
-  userName,
-  userNamesArray,
-}: ExplicitProps) =>
+export const userNameIsDuplicatedExplicitProps = ({ userName, userNamesArray }: ExplicitProps) =>
   userNamesArray.filter((value) => value === userName).length > 1;
 
 // 데이터
@@ -750,29 +752,23 @@ export const TypingFnProps = () => {
     },
   ];
 
-  const userNamesArray = users.map(
-    ({ firstName, lastName }) => `${firstName} ${lastName}`
-  );
+  const userNamesArray = users.map(({ firstName, lastName }) => `${firstName} ${lastName}`);
 
   const props = {
     userNamesArray,
     userName: "Janet Wong",
   };
 
-  const isJanetDuplicatedDestructuredProps =
-    userNameIsDuplicatedDestructuredProps(props);
+  const isJanetDuplicatedDestructuredProps = userNameIsDuplicatedDestructuredProps(props);
 
-  const isJanetDuplicatedImplicitProps = userNameIsDuplicatedImplicitProps(
-    "Janet Wong",
-    userNamesArray
-  );
+  const isJanetDuplicatedImplicitProps = userNameIsDuplicatedImplicitProps("Janet Wong", userNamesArray);
 
   const isJanetDuplicatedExplicitProps = userNameIsDuplicatedExplicitProps({
     userName: "Janet Wong",
     userNamesArray,
   });
 
-// 이것을 변경해가며 출력과 타입 체크 차이를 관찰해보세요
+  // 이것을 변경해가며 출력과 타입 체크 차이를 관찰해보세요
   return (
     <div>
       <div>Janet이 중복되었나요? {`${isJanetDuplicatedDestructuredProps}`}</div>
@@ -794,12 +790,14 @@ export default TypingFnProps;
 전체 소스 코드: [https://github.com/lbd1607/ts-blog](https://github.com/lbd1607/ts-blog)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,15 +1,14 @@
 ---
 title: "Python으로 머신러닝에서 불균형 데이터 다루는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_0.png"
 date: 2024-07-09 14:33
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_0.png
 tag: Tech
 originalTitle: "How to Handle Imbalanced Data for Machine Learning in Python"
 link: "https://medium.com/@semaphoreci/how-to-handle-imbalanced-data-for-machine-learning-in-python-b6d56c9a0489"
 ---
-
 
 기계 학습의 분류 문제를 다룰 때 고려해야 할 중요한 요소 중 하나는 레이블을 정의하는 클래스의 균형입니다.
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@semaphoreci/how-to-handle-imbalanced-data-for-machine
 # 초보자를 위한 Jupyter 노트북 설정하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -40,12 +41,14 @@ Anaconda는 데이터 분석 및 기계 학습으로 예측을 하는 데 필요
 반면에 Google Colaboratory는 설정이 필요 없는 호스팅된 Jupyter Notebook 서비스로, 무료로 컴퓨팅 리소스 및 필요한 모든 라이브러리에 대한 액세스를 제공합니다. 따라서 PC에 아무것도 설치하지 않고 데이터를 분석하려면 이 솔루션을 선택할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -59,12 +62,14 @@ Anaconda는 데이터 분석 및 기계 학습으로 예측을 하는 데 필요
 # 불균형 데이터 정의 및 모델 성능에 미치는 영향
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -79,12 +84,14 @@ Anaconda는 데이터 분석 및 기계 학습으로 예측을 하는 데 필요
 - 잘못된 정확도. 컴퓨터의 성능을 평가하려면 컴퓨터가 수학을 잘하는 학생이나 어려워하는 학생을 올바르게 식별한 횟수를 확인하여야 해요. A 그룹이 많기 때문에 컴퓨터는 대부분의 학생을 올바르게 맞출 수 있을 거예요. 그래서 정확도가 높아 보인다면 컴퓨터가 훌륭한 일을 하는 것처럼 보일 수 있어요. 그러나 B 그룹이 적기 때문에 실제로는 B 그룹에는 엉망진창일 수 있어요. 기계 학습에서 이 높은 정확도는 컴퓨터가 소수 클래스에서 얼마나 잘 수행되고 있는지 알려주지 않아서 잘못된 정보일 수 있어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -98,12 +105,14 @@ Anaconda는 데이터 분석 및 기계 학습으로 예측을 하는 데 필요
 # 불균형 데이터가 흔한 시나리오
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -117,12 +126,14 @@ Anaconda는 데이터 분석 및 기계 학습으로 예측을 하는 데 필요
 # 불균형 문제 이해하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -138,12 +149,14 @@ Anaconda는 데이터 분석 및 기계 학습으로 예측을 하는 데 필요
 수학 선생님인 당신이라고 가정해보겠습니다. 이번에는 1000명의 학생으로 이루어진 대규모 강의를 하고 있습니다. 머신러닝을 사용하여 어떠한 분류를 수행하기 전에, 데이터가 불균형인지 확인하기로 결정했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -177,15 +190,17 @@ plt.legend()
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_0.png" />
+<img src="/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_0.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -201,12 +216,14 @@ plt.show()
 - 빨간 막대는 소수 클래스 (클래스 1)를 나타내며, 우측에 더 작고 덜 빈번한 막대입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -243,20 +260,21 @@ plt.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 아래와 같이 테이블 태그를 마크다운 형식으로 변경해주세요.
 
-
-![image](/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_1.png)
+![image](/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_1.png)
 
 그러니까, 이 경우에는 클래스에 속하는 데이터의 모든 발생을 계산하는 내장 메소드 len()을 사용할 수 있습니다.
 
@@ -264,14 +282,15 @@ plt.show()
 
 이상 데이터에 영향을 받는 모든 평가 지표를 설명하려면 먼저 다음을 정의해야 합니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -285,15 +304,17 @@ plt.show()
 
 - 정확도. 데이터 세트에서 올바르게 예측된 인스턴스의 비율을 측정합니다.
 
-![이미지](/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_2.png)
+![이미지](/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_2.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -316,18 +337,20 @@ print("정확도:", accuracy)
 결과는:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-정확도: 0.5
+정확도: 0.5;
 ```
 
 정확도는 불균형한 데이터를 다룰 때 혼란을 줄 수 있습니다.
@@ -337,18 +360,19 @@ print("정확도:", accuracy)
 - 정밀도. 이것은 모든 예측된 긍정 인스턴스 중 올바르게 예측된 긍정 인스턴스의 비율을 측정합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![How to Handle Imbalanced Data for Machine Learning in Python](/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_3.png)
+![How to Handle Imbalanced Data for Machine Learning in Python](/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_3.png)
 
 한 예제를 통해 Python에서 정밀도 지표를 계산하는 방법을 살펴보겠습니다:
 
@@ -357,7 +381,7 @@ from sklearn.metrics import precision_score
 ```
 
 ```python
-# True labels 
+# True labels
 true_labels = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
 # Predicted labels by a model
 predicted_labels = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
@@ -365,14 +389,15 @@ precision = precision_score(true_labels, predicted_labels)
 print("Precision:", precision)
 ```
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -380,7 +405,7 @@ print("Precision:", precision)
 결과는 다음과 같습니다:
 
 ```js
-정밀도: 0.5
+정밀도: 0.5;
 ```
 
 불균형 데이터 세트에서는 정밀도가 매우 오해를 일으킬 수 있습니다.
@@ -388,19 +413,21 @@ print("Precision:", precision)
 실제로, 모델이 하나의 인스턴스만을 긍정적(클래스 B)으로 분류하고 그게 맞는 경우, 정밀도는 100%가 될 것입니다. 그러나 이는 모델이 소수 클래스에서의 성능을 나타내는 것이 아닐 수 있습니다. 왜냐하면 많은 긍정적 인스턴스를 놓칠 수 있기 때문입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 - 재현율 (또는 민감도). 재현율은 또한 민감도 또는 진양성율로 알려져 있으며, 올바르게 예측된 긍정적 인스턴스의 비율을 측정합니다:
 
-![Example](/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_4.png)
+![Example](/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_4.png)
 
 파이썬을 사용하여 재현율 지표를 계산하는 예제를 만들어 보겠습니다:
 
@@ -409,12 +436,14 @@ from sklearn.metrics import recall_score
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -431,18 +460,20 @@ print("재현율:", recall)
 결과는:
 
 ```js
-재현율: 1.0
+재현율: 1.0;
 ```
 
 재현율은 불균형한 데이터셋에서도 잘못된 정보를 줄 수 있습니다. 특히 모든 긍정적인 인스턴스를 포착하는 것이 중요할 때에는요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -451,17 +482,19 @@ print("재현율:", recall)
 
 - F1 스코어. F1 스코어는 정밀도와 재현율의 조화평균입니다. 정밀도와 재현율 사이의 균형을 제공합니다:
 
-![image](/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_5.png)
+![image](/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_5.png)
 
 파이썬을 사용하여 F1 스코어 메트릭을 계산하는 예제를 만들어봅시다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -487,12 +520,14 @@ F1-Score: 0.6666666666666666
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -506,12 +541,14 @@ F1-Score: 0.6666666666666666
 이제 클래스 불균형에 영향을 받지 않는 평가 지표 중 가장 많이 사용되는 두 가지를 설명하겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -536,12 +573,14 @@ print(cm)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -559,12 +598,14 @@ print(cm)
 그에 비해, 보조 대각선은 낮은 결과를 보여줍니다(10개 중 1개). 이는 분류기가 1개의 FP와 0개의 FN을 예측했음을 의미합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -578,12 +619,14 @@ print(cm)
 우리는 다음과 같이 정의합니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -593,17 +636,19 @@ print(cm)
 
 특이도는 분류기가 모든 부정적인 샘플을 찾는 능력을 의미합니다:
 
-![이미지](/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_6.png)
+![이미지](/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_6.png)
 
 AUC는 ROC 곡선 아래 영역을 나타내며 "곡선 아래 영역"을 의미합니다. 이는 0에서 1사이의 전체적인 성능 지표로, 1은 분류기가 레이블의 100%를 실제 값으로 예측한다는 것을 의미하며, 서로 다른 분류기들을 비교할 때 더 적합합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -642,15 +687,17 @@ plt.legend(loc='lower right')
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_7.png" />
+<img src="/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_7.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -669,12 +716,14 @@ plt.show()
 이 섹션에서는 불균형 데이터를 다루는 몇 가지 기술을 다루겠어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -689,12 +738,14 @@ plt.show()
 - 언더샘플링. 다수 클래스에서 샘플을 제거하는 것을 의미합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -708,12 +759,14 @@ Oversampling은 소수 클래스의 인스턴스 수를 늘려 클래스 분포�
 장점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -729,12 +782,14 @@ Oversampling은 소수 클래스의 인스턴스 수를 늘려 클래스 분포�
 Python에서 불균형한 데이터셋에 대한 오버샘플링 기술을 어떻게 활용할 수 있는지 알아보겠습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -778,18 +833,19 @@ plt.xticks(range(3), ['클래스 0', '클래스 1', '클래스 2'])
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_8.png" />
+<img src="/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_8.png" />
 
 ## 언더샘플링
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -804,12 +860,14 @@ plt.show()
 단점:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -861,20 +919,21 @@ plt.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 아래는 Markdown 형식으로 표를 변경한 것입니다.
 
-
-![image](/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_9.png)
+![image](/TIL/assets/img/2024-07-09-HowtoHandleImbalancedDataforMachineLearninginPython_9.png)
 
 ## 성능 비교
 
@@ -885,14 +944,15 @@ plt.show()
 - 언더샘플링 및 오버샘플링된 데이터 세트에 대해 훈련 및 검증 세트를 만들고, KNN 분류기로 학습합니다.
 - 언더샘플링 및 오버샘플링된 데이터 세트의 정확도를 비교합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -961,12 +1021,14 @@ print("언더샘플링된 테스트 세트 정확도:", accuracy_score(y_test, y
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -986,12 +1048,14 @@ print("언더샘플링된 테스트 세트 정확도:", accuracy_score(y_test, y
 따라서 이 경우, 가능한 해결책은 오버샘플링을 사용하고 KNN의 하이퍼파라미터를 조정하여 오버피팅을 피할 수 있는지 확인해 보는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1007,12 +1071,14 @@ print("언더샘플링된 테스트 세트 정확도:", accuracy_score(y_test, y
 - 오류 수정 메커니즘. 랜덤 포레스트는 그 자체의 앙상블 성격을 통해 오류 수정 메커니즘을 사용합니다. 앙상블에서 한 의사 결정 트리가 소수 클래스 인스턴스에서 오류를 발생시키면, 앙상블의 다른 트리들은 해당 인스턴스에 대해 정확한 예측을 함으로써 보상할 수 있습니다. 앙상블 기반의 오류 수정은 주요 클래스의 우세함을 완화하는 데 도움이 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1056,12 +1122,14 @@ print("테스트 세트 정확도:", test_accuracy)
 그리고 우리는 다음과 같은 결과를 얻습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1077,14 +1145,15 @@ print("테스트 세트 정확도:", test_accuracy)
 
 # 결론
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

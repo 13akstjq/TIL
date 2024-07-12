@@ -1,17 +1,16 @@
 ---
 title: "뉴럴 네트워크 손실 함수 이해 및 구현 방법 기초부터"
 description: ""
-coverImage: "/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_0.png"
 date: 2024-07-09 15:01
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_0.png
 tag: Tech
 originalTitle: "Understanding , Implementing Different Loss Functions of Neural Networks from Scratch"
 link: "https://medium.com/@abhinavchaturvedi0905/understanding-implementing-different-loss-functions-of-neural-networks-from-scratch-c39ee92f6c8a"
 ---
 
-
-<img src="/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_0.png" />
+<img src="/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_0.png" />
 
 신경망의 매혹적인 세계에서 손실 함수는 훈련 과정을 정확한 예측으로 이끄는 안내 나침반 같은 역할을 합니다. 이러한 함수들을 숙달하는 것은 딥러닝에 진지하게 임하는 사람들에게 중요합니다. 왜냐하면 손실 함수를 선택하는 것은 모델의 성능에 상당한 영향을 미칠 수 있기 때문입니다. 신진 데이터 과학자든 경험 많은 기계 학습 엔지니어든, 이 블로그는 다양한 손실 함수를 해독하고 그 목적을 설명하며, 처음부터 구현하는 방법을 보여줍니다.
 
@@ -20,18 +19,19 @@ link: "https://medium.com/@abhinavchaturvedi0905/understanding-implementing-diff
 그래서, 우리 마음에 떠오르는 첫 번째 질문은 '손실 함수란 무엇인가요?'입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![image](/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_1.png)
+![image](/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_1.png)
 
 핵심적으로, 손실 함수(J로 표시됨)는 두 개의 매개변수를 입력으로 받는 수학 함수입니다:
 
@@ -40,14 +40,15 @@ link: "https://medium.com/@abhinavchaturvedi0905/understanding-implementing-diff
 
 이 함수는 모델의 예측 값과 모델이 생성해야 하는 실제 값과 비교하여 모델이 얼마나 잘 작동하는지를 평가하기 위해 사용됩니다. 예측 값이 실제 값과 크게 다를 경우 손실 값은 크게 나타납니다. 반면, 낮은 손실 값은 두 값이 거의 유사할 때 발생합니다. 따라서 효율적인 손실 함수를 사용하여 모델을 올바르게 훈련시키는 것이 중요합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -61,12 +62,14 @@ link: "https://medium.com/@abhinavchaturvedi0905/understanding-implementing-diff
 회귀 손실 함수
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -80,35 +83,37 @@ MSE는 회귀 문제에 사용되는 가장 인기 있는 손실 함수 중 하�
 수학적 공식:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 아래는 Markdown 형식으로 표시된 내용입니다.
 
-
-![이미지](/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_2.png)
+![이미지](/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_2.png)
 
 where,
 
-![이미지](/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_3.png)
-
+![이미지](/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_3.png)
 
 코드 구현:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -129,19 +134,21 @@ MAE는 예측 값과 실제 값 사이의 절대 오차의 평균을 측정합�
 사용 사례: MAE는 중앙값 주택 가격을 예측하는 경우와 같이, 이상치에 민감하지 않은 손실 함수를 원할 때 사용됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 수학 공식:
 
-![수식](/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_4.png)
+![수식](/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_4.png)
 
 코드 구현:
 
@@ -155,12 +162,14 @@ def mean_abs_error(y_predicted, y_true):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -174,18 +183,19 @@ def mean_abs_error(y_predicted, y_true):
 수학적 공식:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Image](/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_5.png)
+![Image](/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_5.png)
 
 코드 구현:
 
@@ -204,14 +214,15 @@ def huber_loss(y_true, y_pred, delta=1.0):
 
 분류 손실 함수
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -225,21 +236,21 @@ Binary Cross-Entropy 손실은 이진 분류 작업에 사용됩니다. 출력�
 수학적 공식:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 이미지 태그를 Markdown 형식으로 변경하세요.
 
-
-![UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch](/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_6.png)
-
+![UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch](/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_6.png)
 
 코드 구현:
 
@@ -257,12 +268,14 @@ def binary_crossentropy(y_true, y_pred):
 2. 범주형 Cross-Entropy Loss
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -273,15 +286,17 @@ def binary_crossentropy(y_true, y_pred):
 
 수학적 공식:
 
-![수식](/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_7.png)
+![수식](/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_7.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -307,12 +322,14 @@ def categorical_crossentropy(y_true, y_pred):
 Sparse Categorical Cross-Entropy는 목표 레이블이 원-핫 인코딩된 벡터가 아닌 정수일 때 사용됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -321,17 +338,19 @@ Sparse Categorical Cross-Entropy는 목표 레이블이 원-핫 인코딩된 벡
 
 수학적 공식:
 
-![이미지](/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_8.png)
+![이미지](/TIL/assets/img/2024-07-09-UnderstandingImplementingDifferentLossFunctionsofNeuralNetworksfromScratch_8.png)
 
 코드 구현:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -356,12 +375,14 @@ def sparse_categorical_cross_entropy(y_true, y_pred):
 이제 손실 함수에 대해 간결하고 명확하게 이해하셨기를 바랍니다. 다가오는 블로그에서는 특별한 손실 함수, 사용 사례 및 구현에 대해 논의할 예정이에요. 컴퓨터 비전과 딥 러닝에 관한 더 많은 기사를 위해 블로그를 팔로우해 주세요. 궁금한 사항이 있거나 특정 부분에 대한 추가 정보가 필요하면 언제든지 의견을 남겨주세요!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

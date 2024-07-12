@@ -1,15 +1,14 @@
 ---
 title: "PySpark의 Cache 기능에 대한 오해"
 description: ""
-coverImage: "/assets/img/2024-07-06-CacheinPySparkAmisconception_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-CacheinPySparkAmisconception_0.png"
 date: 2024-07-06 10:34
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-CacheinPySparkAmisconception_0.png
 tag: Tech
 originalTitle: "Cache() in PySpark — A misconception"
 link: "https://medium.com/@rubihali/cache-in-pyspark-a-misconception-3b1f97dd149b"
 ---
-
 
 /assets/img/2024-07-06-CacheinPySparkAmisconception_0.png
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@rubihali/cache-in-pyspark-a-misconception-3b1f97dd149
 # 변환(Transformations) 및 액션(Actions)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -40,12 +41,14 @@ cache()는 RDD를 메모리에 저장하여 이후의 작업에서 빠르게 접
 cache()가 효과를 발휘하는 경우:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -67,12 +70,14 @@ count = cached_rdd.count()  # 이것은 액션으로 계산 및 캐싱을 트리
 - 액션(Action): count(), collect()와 같이 실제 계산을 트리거하는 모든 작업은 변환(캐싱 포함)이 실행되도록 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

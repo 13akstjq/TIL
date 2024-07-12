@@ -1,33 +1,32 @@
 ---
 title: "알아두었으면 좋았을 Python 리스트 방법 12가지"
 description: ""
-coverImage: "/assets/img/2024-07-09-12PythonListThingsIRegretNotKnowingEarlier_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-12PythonListThingsIRegretNotKnowingEarlier_0.png"
 date: 2024-07-09 19:32
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-12PythonListThingsIRegretNotKnowingEarlier_0.png
 tag: Tech
 originalTitle: "12 Python List Things I Regret Not Knowing Earlier"
 link: "https://medium.com/gitconnected/12-python-list-things-i-regret-not-knowing-earlier-ad841b527666"
 ---
 
-
-
-![이미지](/assets/img/2024-07-09-12PythonListThingsIRegretNotKnowingEarlier_0.png)
+![이미지](/TIL/assets/img/2024-07-09-12PythonListThingsIRegretNotKnowingEarlier_0.png)
 
 파이썬 여행을 하면서 몇 가지를 좀 늦게 알게 되었는데, 아마 당신이 이것들을 더 빨리 배울 수 있을 거에요.
 
-### 1) 리스트를 결합하기 위해 * 사용하기
+### 1) 리스트를 결합하기 위해 \* 사용하기
 
-리스트 앞에 *을 추가하면 언팩합니다:
-
+리스트 앞에 \*을 추가하면 언팩합니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,8 +40,8 @@ c = [*a, *b, 5]
 print(c) # [1, 2, 3, 4, 5]
 ```
 
-- 첫 번째 *는 a의 요소를 c에 풀어 헤친다
-- 두 번째 *는 b의 요소를 c에 풀어 헤친다
+- 첫 번째 \*는 a의 요소를 c에 풀어 헤친다
+- 두 번째 \*는 b의 요소를 c에 풀어 헤친다
 - 이것이 왜 1, 2, 3, 4, 5가 동일한 목록 c에 들어 있는지 이유입니다
 
 ```js
@@ -56,22 +55,24 @@ x = [*a, b, *c, d]
 print(x) # [1, 2, [3,4], 5, 6, [7, 8]]
 ```
 
-^ *이 붙은 리스트(a와 c)만 풀어 헤쳐진다는 것을 주목해 주세요. b와 d는 일반 요소처럼 처리됩니다.
+^ \*이 붙은 리스트(a와 c)만 풀어 헤쳐진다는 것을 주목해 주세요. b와 d는 일반 요소처럼 처리됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-# 2) *를 사용하여 리스트 언패킹하기
+# 2) \*를 사용하여 리스트 언패킹하기
 
-리스트를 언패킹할 때, 우리는 *를 변수 앞에 사용하여 즉시 사용하지 않을 초과 요소를 받을 수 있습니다.
+리스트를 언패킹할 때, 우리는 \*를 변수 앞에 사용하여 즉시 사용하지 않을 초과 요소를 받을 수 있습니다.
 
 ```js
 mylist = ['apple', 'orange', 'pear', 'pineapple', 'durian']
@@ -88,12 +89,14 @@ print(others)  # ['pear', 'pineapple', 'durian']
 - others는 mylist의 모든 다른 요소를 받는 리스트에 할당됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -117,17 +120,19 @@ print(others)  # ['orange', 'pear', 'pineapple']
 # 3) 리스트를 함수 인수로 언패킹하는 방법
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-함수 이름, 나이, 성별을 받는 test 함수가 있다고 가정해보죠. 이 함수를 사용하려면 test(이름, 나이, 성별)와 같이 전달해주어야 합니다. 
+함수 이름, 나이, 성별을 받는 test 함수가 있다고 가정해보죠. 이 함수를 사용하려면 test(이름, 나이, 성별)와 같이 전달해주어야 합니다.
 
 ```js
 def test(name, age, gender):
@@ -136,7 +141,7 @@ def test(name, age, gender):
 test('rocky', 5, 'male') # rocky 5 male
 ```
 
-만약 올바른 함수 인수를 포함하는 리스트 x = ['rocky', 5, 'male']가 있다면, *를 사용하여 해당 인수를 함수에 전달할 수 있습니다.
+만약 올바른 함수 인수를 포함하는 리스트 x = ['rocky', 5, 'male']가 있다면, \*를 사용하여 해당 인수를 함수에 전달할 수 있습니다.
 
 ```js
 x = ['rocky', 5, 'male']
@@ -145,12 +150,14 @@ test(*x) # rocky 5 male
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -158,7 +165,7 @@ test(*x) # rocky 5 male
 위 내용은 다음과 같습니다:
 
 ```js
-test('rocky', 5, 'male')
+test("rocky", 5, "male");
 ```
 
 # 4) 리스트 컴프리헨션
@@ -166,12 +173,14 @@ test('rocky', 5, 'male')
 어떤 이유로 인해 나는 리스트 컴프리헨션에 대해 상대적으로 늦게 배웠다 (자료 구조와 알고리즘에 대해서 배운 후에야).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -199,12 +208,14 @@ print(newlist)  # [10, 20, 30, 40, 50]
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -220,19 +231,21 @@ for i in [1, 2]:
     for j in [3, 4]:
         t = (i, j)
         newlist.append(t)
-        
+
 print(newlist) # [(1, 3), (1, 4), (2, 3), (2, 4)]
 ```
 
 리스트 컴프리헨션을 사용하여 정확히 동일한 작업을 수행할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -250,12 +263,14 @@ print(newlist) # [(1, 3), (1, 4), (2, 3), (2, 4)]
 비기너였을 때 저는 꽤 오랫동안 튜플을 무시했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -282,12 +297,14 @@ mytuple.append(4) # ERROR
 그래서 튜플은 목록의 안 좋은 버전으로 보입니다. 왜 튜플을 사용해야 할까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -320,12 +337,14 @@ d = {
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -346,12 +365,14 @@ print(mylist) # [100, 1, 2, 3]
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -372,12 +393,14 @@ print(mylist) # [1, 2, 150, 3]
 # 8) .pop()을 사용하여 요소 제거
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -400,12 +423,14 @@ print(mylist) # [1, 2]
 .pop()에 인덱스를 전달하면 해당 인덱스의 요소를 제거할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -426,14 +451,15 @@ print(내목록)  # [2, 3]
 
 .extend()는 한 목록의 모든 요소를 다른 목록에 추가할 수 있게 해줍니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -456,12 +482,14 @@ print(b)  # [4, 5, 6]
 - `.sort()`은 리스트 자체를 정렬합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -488,12 +516,14 @@ print(mylist)   # [1, 3, 2]
 # 11) 사용자 정의 조건으로 .sort()하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -513,12 +543,14 @@ print(fruits) # ['apple', 'orange', 'pear']
 우리는 .sort()에서 key 인자에 함수를 전달하여 사용자 정의 정렬 조건을 정의할 수 있습니다. 예: list.sort(key=your_function)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -543,12 +575,14 @@ print(fruits) # ['orange', 'pear', 'apple']
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -556,12 +590,14 @@ print(fruits) # ['orange', 'pear', 'apple']
 테이블 태그를 Markdown 형식으로 변경하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -572,24 +608,26 @@ print(fruits) # ['orange', 'pear', 'apple']
 
 ```js
 students = [
-    {'name': 'A', 'math':100, 'science':81},
-    {'name': 'B', 'math':100, 'science':71},
-    {'name': 'C', 'math':100, 'science':91},
-    {'name': 'D', 'math':80, 'science':91},
-    {'name': 'E', 'math':80, 'science':93},
-    {'name': 'F', 'math':80, 'science':92}
-]
+  { name: "A", math: 100, science: 81 },
+  { name: "B", math: 100, science: 71 },
+  { name: "C", math: 100, science: 91 },
+  { name: "D", math: 80, science: 91 },
+  { name: "E", math: 80, science: 93 },
+  { name: "F", math: 80, science: 92 },
+];
 ```
 
 그리고 그들의 수학 점수에 따라 정렬한다고 가정합시다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -601,11 +639,11 @@ print(students)
 
 '''
 [
-  {'name': 'D', 'math': 80, 'science': 91}, 
-  {'name': 'E', 'math': 80, 'science': 93}, 
-  {'name': 'F', 'math': 80, 'science': 92}, 
-  {'name': 'A', 'math': 100, 'science': 81}, 
-  {'name': 'B', 'math': 100, 'science': 71}, 
+  {'name': 'D', 'math': 80, 'science': 91},
+  {'name': 'E', 'math': 80, 'science': 93},
+  {'name': 'F', 'math': 80, 'science': 92},
+  {'name': 'A', 'math': 100, 'science': 81},
+  {'name': 'B', 'math': 100, 'science': 71},
   {'name': 'C', 'math': 100, 'science': 91}
 ]
 '''
@@ -616,16 +654,17 @@ And what if we want to sort by math first, then science?
 
 - first sort by math score
 - for students with the same math score, sort by science score
-``` 
-
+```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -639,11 +678,11 @@ print(students)
 
 '''
 [
-  {'name': 'D', 'math': 80, 'science': 91}, 
-  {'name': 'F', 'math': 80, 'science': 92}, 
-  {'name': 'E', 'math': 80, 'science': 93}, 
-  {'name': 'B', 'math': 100, 'science': 71}, 
-  {'name': 'A', 'math': 100, 'science': 81}, 
+  {'name': 'D', 'math': 80, 'science': 91},
+  {'name': 'F', 'math': 80, 'science': 92},
+  {'name': 'E', 'math': 80, 'science': 93},
+  {'name': 'B', 'math': 100, 'science': 71},
+  {'name': 'A', 'math': 100, 'science': 81},
   {'name': 'C', 'math': 100, 'science': 91}
 ]
 '''
@@ -654,12 +693,14 @@ print(students)
 참고 — 3가지 조건에 따라 정렬하려면, 단순히 (첫 번째 조건, 두 번째 조건, 세 번째 조건)의 튜플을 반환하면 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -673,12 +714,14 @@ print(students)
 # 만약에 제작자로서 저를 지원하고 싶다면
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,17 +1,16 @@
 ---
 title: "PyBroker를 사용한 포트폴리오 최적화 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-PortfolioOptimizationwithPyBroker_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-PortfolioOptimizationwithPyBroker_0.png"
 date: 2024-07-09 14:26
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-PortfolioOptimizationwithPyBroker_0.png
 tag: Tech
 originalTitle: "Portfolio Optimization with PyBroker"
 link: "https://medium.com/@edtechre/portfolio-optimization-with-pybroker-5ce0af389bfa"
 ---
 
-
-<img src="/assets/img/2024-07-09-PortfolioOptimizationwithPyBroker_0.png" />
+<img src="/TIL/assets/img/2024-07-09-PortfolioOptimizationwithPyBroker_0.png" />
 
 포트폴리오 최적화는 포트폴리오 내 자산을 특정 목표를 충족시키기 위해 할당하는 방법입니다. 예를 들어, 이는 리스크를 최소화하고 수익을 극대화하는 목표로 자산 포트폴리오를 구성하는 데 사용할 수 있습니다.
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@edtechre/portfolio-optimization-with-pybroker-5ce0af3
 이 글에서는 Python과 PyBroker를 사용하여 매월 초에 포트폴리오를 리밸런싱하는 거래 전략을 시뮬레이션하는 방법을 살펴볼 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,12 +42,14 @@ pip install -U lib-pybroker
 그 다음으로, 우리가 PyBroker에서 구현할 전략을 위해 포트폴리오 최적화를 수행할 수 있는 Riskfolio-Lib을 설치해봅시다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -68,18 +71,20 @@ from pybroker import ExecContext, Strategy, YFinance
 또한 PyBroker에서 데이터 캐싱을 활성화할 수도 있습니다. 이렇게 하면 Yahoo Finance로부터 다운로드된 히스토리컬 데이터가 캐싱되어 전략을 테스트할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-pyb.enable_data_source_cache('rebalancing')
+pyb.enable_data_source_cache("rebalancing");
 ```
 
 ## Positions Rebalancing
@@ -89,12 +94,14 @@ pyb.enable_data_source_cache('rebalancing')
 먼저, 주식의 목표 할당에 도달하기 위해 주식의 충분한 주식을 매수하거나 매도할 수 있는 함수를 구현하는 것으로 시작합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -131,14 +138,15 @@ def rebalance(ctxs: dict[str, ExecContext]):
         set_target_shares(ctxs, {symbol: target for symbol in ctxs.keys()})
 ```
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -157,19 +165,21 @@ def start_of_month(ctxs: dict[str, ExecContext]) -> bool:
 이제 이러한 함수들을 사용하여 다섯 가지 주식 포트폴리오를 위한 리밸런싱 전략을 백테스트할 수 있습니다.
 
 ```js
-strategy = Strategy(YFinance(), start_date='1/1/2018', end_date='1/1/2023')
-strategy.add_execution(None, ['TSLA', 'NFLX', 'AAPL', 'NVDA', 'AMZN'])
-strategy.set_after_exec(rebalance)
-result = strategy.backtest()
+strategy = Strategy(YFinance(), (start_date = "1/1/2018"), (end_date = "1/1/2023"));
+strategy.add_execution(None, ["TSLA", "NFLX", "AAPL", "NVDA", "AMZN"]);
+strategy.set_after_exec(rebalance);
+result = strategy.backtest();
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -177,12 +187,12 @@ result = strategy.backtest()
 백테스트를 실행한 후에는 주문 목록을 확인할 수 있습니다:
 
 ```js
-result.orders
+result.orders;
 ```
 
 ```js
      type symbol date        shares  limit_price  fill_price  fees
-id       
+id
 1    buy  NFLX   2018-01-03  99      NaN          203.86      0.0
 2    buy  AAPL   2018-01-03  464     NaN           43.31      0.0
 3    buy  TSLA   2018-01-03  935     NaN           21.36      0.0
@@ -199,18 +209,20 @@ id
 그리고 우리의 전략을 평가하기 위한 성능 지표를 확인할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-result.metrics_df
+result.metrics_df;
 ```
 
 ```js
@@ -228,12 +240,14 @@ max_drawdown_pct            -52.068777
 포트폴리오에서 각 주식을 동일한 포지션 크기로 할당하는 대신, 포트폴리오 최적화를 사용하여 각 주식의 할당을 결정해 보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -261,9 +275,9 @@ def optimization(ctxs: dict[str, ExecContext]):
         port.assets_stats(method_mu='hist', method_cov='hist', d=0.94)
         # CVaR을 최소화한 후 목표 가중치 얻기.
         w = port.optimization(
-            model='Classic', 
-            rm='CVaR', 
-            obj='MinRisk', 
+            model='Classic',
+            rm='CVaR',
+            obj='MinRisk',
             rf=0,      # 무위험 이자율.
             l=0,       # 리스크 회피 계수.
             hist=True  # 과거 시나리오 사용.
@@ -276,12 +290,14 @@ def optimization(ctxs: dict[str, ExecContext]):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -289,8 +305,8 @@ def optimization(ctxs: dict[str, ExecContext]):
 Riskfolio-Lib의 공식 문서에서 더 많은 정보와 예제를 찾을 수 있어요. 이제 전략의 백테스팅으로 넘어가 볼까요?
 
 ```js
-strategy.set_after_exec(optimization)
-result = strategy.backtest(warmup=pyb.param('lookback'))
+strategy.set_after_exec(optimization);
+result = strategy.backtest((warmup = pyb.param("lookback")));
 ```
 
 여기서는 새 전략의 성과 지표를 확인해 봅시다:
@@ -306,12 +322,14 @@ max_drawdown_pct                -35.190829
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

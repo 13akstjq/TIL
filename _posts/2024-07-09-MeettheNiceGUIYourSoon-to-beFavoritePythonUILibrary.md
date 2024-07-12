@@ -1,31 +1,32 @@
 ---
 title: "NiceGUI를 만나보세요 곧 여러분의 최애 파이썬 UI 라이브러리가 될 이유"
 description: ""
-coverImage: "/assets/img/2024-07-09-MeettheNiceGUIYourSoon-to-beFavoritePythonUILibrary_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-MeettheNiceGUIYourSoon-to-beFavoritePythonUILibrary_0.png"
 date: 2024-07-09 14:57
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-MeettheNiceGUIYourSoon-to-beFavoritePythonUILibrary_0.png
 tag: Tech
 originalTitle: "Meet the NiceGUI: Your Soon-to-be Favorite Python UI Library"
 link: "https://medium.com/towards-data-science/meet-the-nicegui-your-soon-to-be-favorite-python-ui-library-fb69f14bb0ac"
 ---
 
-
 ## 사용자 정의 웹 앱을 쉽고 빠르게 만드세요
 
-![이미지](/assets/img/2024-07-09-MeettheNiceGUIYourSoon-to-beFavoritePythonUILibrary_0.png)
+![이미지](/TIL/assets/img/2024-07-09-MeettheNiceGUIYourSoon-to-beFavoritePythonUILibrary_0.png)
 
 만나보세요, NiceGUI! 이 간단한 Python 기반 UI 프레임워크는 웹 브라우저나 데스크톱 앱에서 원활하게 작동합니다. 작은 웹 앱, 대시보드, 또는 로봇 프로젝트를 만들고 있는 중이던 중이든, NiceGUI는 쉬운 인터페이스와 다양한 기능으로 여러분을 도와줄 거예요.
 
 이 글의 목표는 이 라이브러리의 장단점을 나열하고 어떻게 NiceGUI 앱을 만들고 배포할 수 있는지 보여줌으로써 여러분이 한 번 시도해보길 설득하는 것입니다. (이 게시물은 후원받은 것이 아니에요, 그냥 이 라이브러리를 좋아해서 쓴거에요 🙃)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ Streamlit은 대화형 앱을 만드는 데 좋지만, 이벤트 및 상태 처�
 NiceGUI는 상태를 쉽게 관리할 수 있습니다. Streamlit과 달리 예상치 못한 상태 재설정이 발생하지 않습니다. NiceGUI는 시작 상태든 사용자가 만든 변경 사항이든 모든 것을 안정적으로 유지합니다. 사용자 상호작용을 처리하기 위해 콜백을 사용할 수 있으며 전체 페이지 새로고침으로 인한 괴롭힘 없이 상태 데이터를 유지할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -66,12 +69,14 @@ NiceGUI에는 여러 가지 멋진 기능들이 많이 있어요:
 제한사항
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -85,12 +90,14 @@ NiceGUI은 정말 멋지지만, 작은 커뮤니티 규모 때문에 다소 제�
 ## 기본 앱
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -105,7 +112,7 @@ pip install nicegui[highcharts]
 
 ```js
 # https://nicegui.io/documentation/section_data_elements
-from nicegui import ui 
+from nicegui import ui
 from random import random
 
 chart = ui.highchart({
@@ -128,12 +135,14 @@ ui.run()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -148,12 +157,14 @@ ui.run()
 또한, 새로운 막대를 추가하기 위해 콜백을 변경할 수도 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -172,14 +183,15 @@ def update():
 
 하지만 주기적 타이머를 사용하여 UI를 업데이트하고 싶다면 어떻게 할까요? 쉽습니다! 버튼 요소를 ui.timer로 변경해주기만 하면 됩니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -194,14 +206,15 @@ ui.timer(5, callback=lambda: (update(), ui.notify("데이터가 업데이트되�
 
 먼저, 여기에 메인 코드가 있습니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -281,12 +294,14 @@ def chuck():
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -317,12 +332,14 @@ class Fact:
 우리는 데이터 클래스의 인스턴스인 fact = Fact()을 정의합니다. 이는 각 사용자별로 구체적인 인스턴스입니다. 그리고 다음으로 update_fact 메소드를 사용하여 팩트를 초기화합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -337,12 +354,14 @@ class Fact:
 첫 번째 열을 위해:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -357,12 +376,14 @@ class Fact:
 - `fact.fact` 값을 바인딩하는 `ui.label`이 있습니다. 이 변수가 변경될 때마다 디스플레이가 자동으로 업데이트됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -376,12 +397,14 @@ class Fact:
 멋지죠?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -415,12 +438,14 @@ gcloud run deploy $SERVICE_NAME --image=$GAR_TAG --max-instances=1 --min-instanc
 이렇게 하면 클라우드 빌드를 사용하여 도커 이미지를 빌드한 다음 CloudRun에 배포할 수 있어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -434,12 +459,14 @@ NiceGUI는 파이썬을 사용해 빠르고 쉽게 사용자 인터페이스를 
 여기에 표시된 내용은 NiceGUI로 할 수 있는 작은 부분에 불과합니다. 아래 링크를 따라가면 더 많은 것을 배울 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

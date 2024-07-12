@@ -1,15 +1,14 @@
 ---
 title: "내 경험 없이 AI 스타트업을 처음 구축한 방법"
 description: ""
-coverImage: "/assets/img/2024-07-06-HowIBuiltMyFirstAIStartupWithNoExperience_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-HowIBuiltMyFirstAIStartupWithNoExperience_0.png"
 date: 2024-07-06 10:31
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-HowIBuiltMyFirstAIStartupWithNoExperience_0.png
 tag: Tech
 originalTitle: "How I Built My First AI Startup (With No Experience)"
 link: "https://medium.com/python-in-plain-english/how-i-built-my-first-ai-startup-with-no-experience-2b676f3768da"
 ---
-
 
 제 첫 AI 스타트업을 어떻게 구축했는지에 대한 자세한 여정(스타트업을 만들기 위한 조언 포함).
 
@@ -20,12 +19,14 @@ link: "https://medium.com/python-in-plain-english/how-i-built-my-first-ai-startu
 먼저, 제 소개를 간략히 하겠습니다. 저는 상업 경험이 2년 이상, Python 코딩 경험이 5년 이상인 데이터 과학자입니다. 주로 백엔드와 AI 작업을 맡고 있습니다. 저는 일반적으로 프로젝트 전체를 혼자 만들어본 적은 없지만, 대신 보통 작업을 맡아 왔습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/python-in-plain-english/how-i-built-my-first-ai-startu
 또 다른 이유는 이력서에 좋은 추가입니다. 스타트업에 투입한 시간만큼은 상업적인 근무 경험으로 인정받을 뿐 아니라 포트폴리오에서도 큰 장점이 됩니다 (특히 일부 인사팀이 방문할 수 있는 웹사이트인 경우).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -58,12 +61,14 @@ link: "https://medium.com/python-in-plain-english/how-i-built-my-first-ai-startu
 /assets/img/2024-07-06-HowIBuiltMyFirstAIStartupWithNoExperience_1.png
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -71,6 +76,7 @@ link: "https://medium.com/python-in-plain-english/how-i-built-my-first-ai-startu
 당신은 제품에 대한 아이디어가 있을 수도 있고, 없을 수도 있습니다. 아니면 수백 가지 아이디어가 있을 수도 있습니다. 브레인스토밍은 창의적인 과정이기 때문에 새로운 아이디어를 발생시키는 표준화된 프로세스는 실제로 존재하지 않습니다.
 
 그러나 아이디어를 검증하는 프로세스는 존재합니다:
+
 - 관련 시장을 확인하세요. 책 대여 웹사이트를 만들고 싶나요? 책, 대여 서비스와 같은 시장 규모를 확인하고, 작년에 판매된 책의 양 등을 찾아보세요. 최근 이러한 시장 중 일부가 하락 추세를 보이고 있다면, 이것이 문제가 될 수 있습니다. 예를 들어, 전자책, 책 앱 등의 등장으로 책이 점점 더 인기가 떨어지고 있습니다.
 - 경쟁사를 확인하세요. 경쟁사가 많다면, 당신의 솔루션이 최소 5배에서 10배 정도 더 나은지 확인해야 합니다. 경쟁사가 적다면, 여전히 긍정적인 신호입니다 — 이 제품을 통해 배울 수 있고, 수익을 내는지 확인할 수 있으며, 시장 적합성이 있는지 확인할 수 있습니다. 그러나 경쟁사가 없다면 — 상황이 복잡해집니다. 이는 아이디어가 너무 혁신적이라 아직 아무도 생각하지 못했을 수도 있고, 아니면 당신의 아이디어가 이른바 "잡초 구덩이" 아이디어일 수도 있습니다. 많은 사람들이 시도해봤지만 아무도 성공하지 못했다는 뜻입니다. 이 경우, 가능한 한 이 아이디어에서 멀리 떨어져야 합니다.
 - 당신이 해결하려는 문제와 고객을 분석하세요. 당신의 타깃 대상은 누구인가요? 그들은 얼마나 지불하려고 할까요? 이 문제가 얼마나 자주 발생하는가요? 이를 피할 수 있을까요?
@@ -78,12 +84,14 @@ link: "https://medium.com/python-in-plain-english/how-i-built-my-first-ai-startu
 그리고 이제 제 스타트업을 소개할 때가 딱인 시점입니다 — https://validator.yazero.io. 우리는 인공지능, 웹 스크레이핑, 다양한 API, 그리고 측정 가능한 피드백을 활용하여 검증 프로세스를 돕습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -97,12 +105,14 @@ link: "https://medium.com/python-in-plain-english/how-i-built-my-first-ai-startu
 /assets/img/2024-07-06-HowIBuiltMyFirstAIStartupWithNoExperience_2.png
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -116,12 +126,14 @@ link: "https://medium.com/python-in-plain-english/how-i-built-my-first-ai-startu
 YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번째 공동 창업자를 찾을 수 있습니다. 저는 거기에서 제 공동 창업자를 찾았고, 그 결정에 매우 만족하고 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -135,12 +147,14 @@ YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번�
 마지막으로, 우리는 기술적 부분부터 시작합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -154,12 +168,14 @@ YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번�
 파이썬 애호가라면, 나의 파이썬에서의 최상위 5개 프론트엔드 라이브러리 및 파이썬에서의 최상위 5개 프론트엔드 라이브러리 파트2를 확인하는 것을 추천합니다. 나는 가장 많이 사용되는 파이썬 라이브러리들에 대한 포괄적인 개요를 제공하고 그들의 장단점을 비교했습니다. 파이썬에 대한 경험이 있는 경우, 이러한 라이브러리를 사용하는 것이 더 쉬울 것이므로 제품을 빨리 개발할 수 있을 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -174,12 +190,14 @@ YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번�
 # Backend
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -193,12 +211,14 @@ YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번�
 내가 우리 스타트업의 백엔드에서 사용한 주요 도구는 FastAPI with Pydantic, Gunicorn, Docker, Docker Compose 그리고 Nginx 입니다. Docker를 좋아하는 이유는 OS, 환경 등에 상관없이 항상 작동하는 솔루션을 제공하기 때문입니다. 또한 앱의 여러 구성 요소를 동시에 실행해야 하는 경우 — 예를 들어 백엔드와 병렬로 데이터베이스 등을 실행해야 하는 경우 — 매우 유용합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -212,12 +232,14 @@ YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번�
 제가 보통 Hetzner의 VPS에 솔루션을 배포하는데, 그것이 가장 저렴한 옵션이기 때문입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -231,12 +253,14 @@ YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번�
 마지막으로, AI 앱을 구축하고 특히 LLMs를 사용하는 경우, 응답 생성이 몇 초가 걸릴 수 있습니다(이는 프로그래밍 언어가 아닌 계산 능력/API/기타 요소에 의존합니다). 따라서 요청이 20초 걸린다면, 파이썬 계산이 0.1초 걸리는 것이 중요할까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -250,12 +274,14 @@ YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번�
 또한 백엔드의 상용화에 대해 더 깊이 들어가서 실제 예제와 안내를 제공할 수도 있습니다. 그러니 이 글 아래에 댓글을 달아서 피드백을 주시면 감사하겠습니다!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -278,12 +304,14 @@ YCombinator 공동 창업자 매칭 플랫폼과 같은 플랫폼에서 첫 번�
 # In Plain English 🚀
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

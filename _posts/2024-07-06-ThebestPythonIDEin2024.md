@@ -1,15 +1,14 @@
 ---
 title: "2024년 최고의 파이썬 IDE는"
 description: ""
-coverImage: "/assets/img/2024-07-06-ThebestPythonIDEin2024_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-ThebestPythonIDEin2024_0.png"
 date: 2024-07-06 10:29
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-ThebestPythonIDEin2024_0.png
 tag: Tech
 originalTitle: "The best Python IDE in 2024?"
 link: "https://medium.com/@simeon.emanuilov/the-best-python-ide-in-2024-d4f536b6b6a2"
 ---
-
 
 /assets/img/2024-07-06-ThebestPythonIDEin2024_0.png
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@simeon.emanuilov/the-best-python-ide-in-2024-d4f536b6
 ## IDE와 코드 편집기의 차이 이해
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,12 +42,14 @@ link: "https://medium.com/@simeon.emanuilov/the-best-python-ide-in-2024-d4f536b6
 통합 개발 환경 (IDE):
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -62,12 +65,14 @@ IDE와 코드 편집기 중 어느 것을 선택할지는 본인의 특정 요�
 PyCharm: 프로페셔널의 선택 JetBrains에서 개발한 PyCharm은 프로의 파이썬 개발자들에게 각광받는 강력하고 기능이 풍부한 IDE로, 지능적인 코드 완성, 오류 검출, 리팩터링 능력으로 생산성을 높여주는 강력한 도구입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -85,12 +90,14 @@ PyCharm에는 두 가지 버전이 있습니다: Community(무료 오픈 소스)
 /assets/img/2024-07-06-ThebestPythonIDEin2024_1.png
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -108,12 +115,14 @@ Visual Studio Code: 다재다능한 만능 편집기 Visual Studio Code (VS Code
 VS Code의 장점 중 하나는 유연성입니다. Python 린팅, 코드 서식 지정 등을 위한 확장 프로그램을 설치하여 편집기를 여러분의 요구에 맞게 맞춤 설정할 수 있습니다. VS Code용 Python 확장은 지능형 코드 완성, 코드 탐색 및 디버깅과 같은 기능을 제공하여 완전한 IDE의 대안으로 사용할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -123,6 +132,7 @@ VS Code의 장점 중 하나는 유연성입니다. Python 린팅, 코드 서식
 주피터 노트북: 데이터 과학자의 동반자! 주피터 노트북은 데이터 과학자와 연구자들 사이에서 매우 인기 있는 웹 기반 대화형 개발 환경입니다. 코드 실행, 수식, 시각화 및 설명 텍스트가 포함된 문서를 만들고 공유할 수 있습니다.
 
 주요 기능:
+
 - 대화형 코드 실행 및 시각화
 - 다양한 프로그래밍 언어 지원 (Python, R, Julia)
 - 인라인 플로팅 및 데이터 탐색
@@ -130,12 +140,14 @@ VS Code의 장점 중 하나는 유연성입니다. Python 린팅, 코드 서식
 - 인기 있는 데이터 과학 라이브러리와 통합 (NumPy, Pandas, Matplotlib)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -149,12 +161,14 @@ Spyder: The Scientific Python IDE Spyder는 과학적 Python 개발을 위해 �
 주요 특징:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -172,12 +186,14 @@ Spyder는 MATLAB과 유사한 개발 환경을 제공하여, 과학적 배경을
 IDLE: 파이썬 초보자의 친구 IDLE (통합 개발 및 학습 환경)은 Python과 함께 제공되는 기본 IDE로, 단순하고 직관적인 인터페이스를 제공하여 Python을 배우는 초보자들에게 우수한 선택지입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -194,12 +210,14 @@ IDLE는 다른 IDE에 비해 고급 기능이 부족할 수 있지만, 간결함
 /assets/img/2024-07-06-ThebestPythonIDEin2024_5.png
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -216,12 +234,14 @@ Neovim은 현대화된 Vim 경험을 찾는 개발자들 사이에서 상당한 
 Neovim의 아키텍처는 더 나은 유지 보수성과 쉬운 기여를 가능하게 하며, 동적이고 진화하는 플랫폼으로 만듭니다. 엄밀히 말해 IDE는 아니지만, Neovim은 언어 서버 프로토콜(LSP) 통합부터 디버깅 도구까지 모든 것을 다루는 풍부한 플러그인 생태계를 통해 강력한 개발 환경으로 변신할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -235,12 +255,14 @@ Neovim의 아키텍처는 더 나은 유지 보수성과 쉬운 기여를 가능
 # 적절한 Python IDE 선택하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -258,12 +280,14 @@ Neovim의 아키텍처는 더 나은 유지 보수성과 쉬운 기여를 가능
 - 확장성과 사용자 정의: 확장성과 사용자 정의에 대한 선호도를 평가해보세요. Visual Studio Code와 같은 일부 IDE는 특정 요구 사항에 맞게 개발 환경을 맞춤화할 수 있는 다양한 확장 생태계를 제공합니다. 다른 IDE인 PyCharm은 더 통합된 경험을 제공하는 경우가 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -277,12 +301,14 @@ Neovim의 아키텍처는 더 나은 유지 보수성과 쉬운 기여를 가능
 새 프로젝트 생성: 파이참을 실행하면 새 프로젝트를 생성하거나 기존 프로젝트를 열 것인지 묻는 팝업이 나타납니다. "새 프로젝트 생성"을 선택하고 프로젝트 위치와 인터프리터를 선택하세요. 파이참은 순수 파이썬, 웹 개발 (장고, 플라스크), 과학 프로젝트 등 다양한 유형의 프로젝트를 지원합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -299,12 +325,14 @@ Python 인터프리터 설정하기: PyCharm을 사용하여 여러 Python 인�
 코드 작성 및 실행하기: 프로젝트 보기에서 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 “New” - “Python File”을 선택하여 새 Python 파일을 만드세요. 편집기에서 Python 코드를 작성하고 파일을 저장하세요. 코드를 실행하려면 파일을 마우스 오른쪽 버튼으로 클릭하고 “Run”을 선택하거나 키보드 바로 가기(Windows/Linux의 경우 Ctrl+Shift+F10, macOS의 경우 Ctrl+Shift+R)를 사용하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -321,12 +349,14 @@ Python 인터프리터 설정하기: PyCharm을 사용하여 여러 Python 인�
 - 데이터베이스 도구: PyCharm의 Professional Edition에는 IDE에서 직접 데이터베이스를 관리하고 쿼리하는 데이터베이스 도구가 포함되어 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -340,12 +370,14 @@ Python 인터프리터 설정하기: PyCharm을 사용하여 여러 Python 인�
 # 결론
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -359,12 +391,14 @@ IDE는 개발 프로세스를 지원하는 도구일 뿐, 마법같은 해결책
 파이썬 생태계가 계속 발전함에 따라 최신 IDE 기능과 확장 프로그램을 계속해서 업데이트하세요. 선택한 IDE의 강력함을 받아들이고 사용자 정의하여 개발 워크플로를 최적화하세요. 적절한 IDE가 곁에 있다면 어떠한 파이썬 프로젝트에도 잘 대처할 수 있을 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

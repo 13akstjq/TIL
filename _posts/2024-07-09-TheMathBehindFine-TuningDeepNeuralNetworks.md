@@ -1,18 +1,16 @@
 ---
 title: "딥 뉴럴 네트워크 파인튜닝의 수학적 원리"
 description: ""
-coverImage: "/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_0.png"
 date: 2024-07-09 19:56
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_0.png
 tag: Tech
 originalTitle: "The Math Behind Fine-Tuning Deep Neural Networks"
 link: "https://medium.com/towards-data-science/the-math-behind-fine-tuning-deep-neural-networks-8138d548da69"
 ---
 
-
-
-![이미지](/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_0.png)
+![이미지](/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_0.png)
 
 머신 러닝에서는 몇 가지 모델을 시도해 가장 성능이 좋은 것을 선택하고 몇 가지 설정을 조정하여 그나마 성공할 수 있을지도 모릅니다. 그러나 딥러닝은 그런 룰에 맞지 않습니다. 신경망을 실험해 본 적이 있다면, 성능이 꽤 불안정할 수 있다는 것을 눈치챌 수 있습니다. 어쩌면 로지스틱 회귀와 같이 간단한 모델이 멋진 200층 심층 신경망을 이길 수도 있습니다.
 
@@ -20,15 +18,15 @@ link: "https://medium.com/towards-data-science/the-math-behind-fine-tuning-deep-
 
 글을 읽기 전에 Jupyter Notebook을 여시는 것을 제안합니다. 오늘 다룰 모든 코드가 담겨 있으므로 함께 따라가는 데 도움이 될 것입니다:
 
-
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -36,10 +34,12 @@ link: "https://medium.com/towards-data-science/the-math-behind-fine-tuning-deep-
 인덱스
 
 - 1: 소개
+
   - 1.1: 기본 신경망의 발전
   - 1.2: 복잡성으로의 길
 
 - 2: 모델 복잡성 확장
+
   - 2.1: 레이어 추가
 
 - 3: 향상된 학습을 위한 최적화 기법
@@ -50,21 +50,25 @@ link: "https://medium.com/towards-data-science/the-math-behind-fine-tuning-deep-
   - 3.5: 그래디언트 클리핑
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 - 4: 최적 레이어 수 결정하기
+
   - 4.1: 레이어 깊이와 모델 성능
   - 4.2: 적절한 깊이 선택을 위한 테스트 전략
 
 - 5: Optuna를 활용한 자동 세부 조정
+
   - 5.1: Optuna 소개
   - 5.2: 신경망 최적화를 위한 Optuna 통합
   - 5.3: 실제 적용
@@ -72,17 +76,20 @@ link: "https://medium.com/towards-data-science/the-math-behind-fine-tuning-deep-
   - 5.5: 제한 사항
 
 - 6: 결론
+
   - 6.1: 다음 단계
 
 - 추가 자료
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -96,12 +103,14 @@ link: "https://medium.com/towards-data-science/the-math-behind-fine-tuning-deep-
 이제 이러한 기초 위에 계속해서 더 진보해 나갈 것입니다. 우리는 레이어를 추가하고, 초기화, 정규화 및 최적화에 대한 다양한 기술을 탐구함으로써 더 많은 복잡성을 도입할 것입니다. 물론, 이러한 수정이 우리의 신경망 성능에 어떻게 영향을 미치는지 확인하기 위해 코드를 테스트할 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -115,12 +124,14 @@ link: "https://medium.com/towards-data-science/the-math-behind-fine-tuning-deep-
 하지만 복잡성을 높이는 것은 그리 수월한 일이 아닙니다. 우리가 도입할 때마다, 세련된 최적화 기술의 필요성이 커집니다. 이는 효과적인 학습뿐만 아니라 새로운 보이지 않는 데이터에 적응하기 위한 모델 능력에 필수적입니다. 이 안내서는 우리의 기반 신경망을 강화하는 과정을 안내해 드릴 것입니다. 우리는 신경망을 세밀하게 조정하는 정교한 전략에 대해 살펴볼 것이며, 학습 속도 조정, 조기 종료 도입, 그리고 SGD(확률적 경사 하강법)와 Adam과 같은 다양한 최적화 알고리즘을 활용하는 방법에 대해 살펴볼 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -136,7 +147,7 @@ class NeuralNetwork:
         self.hidden_size = hidden_size
         self.output_size = output_size
         self.loss_func = loss_func
-        
+
         # 가중치 및 편향 초기화
         self.weights1 = np.random.randn(self.input_size, self.hidden_size)
         self.bias1 = np.zeros((1, self.hidden_size))
@@ -149,7 +160,7 @@ class NeuralNetwork:
 
     def __str__(self):
         return f"Neural Network Layout:\n입력 레이어: {self.input_size} 뉴런\n은닉 레이어: {self.hidden_size} 뉴런\n출력 레이어: {self.output_size} 뉴런\n손실 함수: {self.loss_func}"
-        
+
     def forward(self, X):
         # 순방향 전파 수행
         self.z1 = np.dot(X, self.weights1) + self.bias1
@@ -160,11 +171,11 @@ class NeuralNetwork:
         else:
             self.a2 = self.sigmoid(self.z2)
         return self.a2
-    
+
     def backward(self, X, y, learning_rate):
         # 역전파 수행
         m = X.shape[0]
-        
+
         # 기울기 계산
         if self.loss_func == 'mse':
             self.dz2 = self.a2 - y
@@ -174,25 +185,25 @@ class NeuralNetwork:
             self.dz2 = self.a2 - y
         else:
             raise ValueError('잘못된 손실 함수')
-        
+
         self.dw2 = (1 / m) * np.dot(self.a1.T, self.dz2)
         self.db2 = (1 / m) * np.sum(self.dz2, axis=0, keepdims=True)
         self.dz1 = np.dot(self.dz2, self.weights2.T) * self.sigmoid_derivative(self.a1)
         self.dw1 = (1 / m) * np.dot(X.T, self.dz1)
         self.db1 = (1 / m) * np.sum(self.dz1, axis=0, keepdims=True)
-        
+
         # 가중치 및 편향 업데이트
         self.weights2 -= learning_rate * self.dw2
         self.bias2 -= learning_rate * self.db2
         self.weights1 -= learning_rate * self.dw1
         self.bias1 -= learning_rate * self.db1
-        
+
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
-    
+
     def sigmoid_derivative(self, x):
         return x * (1 - x)
-    
+
     def softmax(self, x):
         exps = np.exp(x - np.max(x, axis=1, keepdims=True))
         return exps/np.sum(exps, axis=1, keepdims=True)
@@ -220,7 +231,7 @@ class Trainer:
             self.model.backward(X_train, y_train, learning_rate)
             train_loss = self.calculate_loss(y_train, self.model.a2)
             self.train_loss.append(train_loss)
-            
+
             self.model.forward(X_test)
             test_loss = self.calculate_loss(y_test, self.model.a2)
             self.val_loss.append(val_loss)
@@ -229,12 +240,14 @@ class Trainer:
 # 2: 모델 복잡성 확대
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -249,12 +262,14 @@ class Trainer:
 더 많은 레이어를 쌓으면 네트워크의 "학습 용량"이 증가하여 보다 넓은 범위의 데이터 관계를 매핑하고 소화하는 능력을 갖추게 됩니다. 이를 통해 더 복잡한 작업을 처리할 수 있습니다. 하지만 마구 레이어를 추가하는 것은 아니며, 모델의 지능에 의미 있는 기여를 하지 않고 무분별하게 레이어를 추가하면 학습 과정을 혼란시키는 것이 아니라 명료하게 해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -299,7 +314,7 @@ class NeuralNetwork:
 
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
-    
+
     def sigmoid_derivative(self, x):
         return x * (1 - x)
 ```
@@ -309,18 +324,20 @@ class NeuralNetwork:
 먼저, 이전에 각 층의 노드 수를 정의했던 self.input, self.hidden, self.output 변수를 삭제했습니다. 이제 목표는 임의의 층 수를 관리할 수 있는 다목적 모델입니다. 예를 들어, 이전에 숫자 데이터셋에 사용했던 모델인 64개의 입력 노드, 64개의 은닉 노드 및 10개의 출력 노드를 사용하는 경우, 다음과 같이 설정할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-nn = NeuralNetwork(layers=[64, 64, 10])
+nn = NeuralNetwork((layers = [64, 64, 10]));
 ```
 
 이제 코드가 각 레이어를 세 번씩 순환하며 다른 목적으로 사용됨을 알 수 있습니다:
@@ -330,12 +347,14 @@ nn = NeuralNetwork(layers=[64, 64, 10])
 순방향 패스 동안 활성화 self.a는 리스트에 수집됩니다. 입력 레이어의 활성화(본질적으로 입력 데이터 X)로 시작합니다. 각 레이어에 대해, np.dot(self.a[-1], layer['weights']) + layer['biases']를 사용하여 가중치 합과 편향을 계산하고 시그모이드 활성화 함수를 적용하여 결과를 self.a에 첨부합니다. 네트워크의 결과는 self.a의 마지막 요소로, 최종 출력을 나타냅니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -351,7 +370,7 @@ class Trainer:
             self.model.backward(X_train, y_train, learning_rate)
             train_loss = self.calculate_loss(y_train, self.model.a[-1])
             self.train_loss.append(train_loss)
-            
+
             self.model.forward(X_test)
             test_loss = self.calculate_loss(y_test, self.model.a[-1])
             self.test_loss.append(test_loss)
@@ -362,12 +381,14 @@ class Trainer:
 이러한 수정 사항은 우리의 신경망을 다양한 아키텍처에 적응할 수 있도록 할뿐만 아니라 데이터와 그래디언트의 흐름을 이해하는 중요성을 강조합니다. 구조를 간소화함으로써, 각종 작업에서 네트워크의 성능을 실험하고 최적화할 수 있는 능력을 향상시킵니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -381,12 +402,14 @@ class Trainer:
 학습률은 손실 경사에 기반하여 네트워크의 가중치를 조정하는 제어 장치입니다. 이는 모델이 학습하는 속도를 결정하며 최적화 중에 취하는 단계가 얼마나 큰지 작은지를 결정합니다. 학습률을 적절하게 설정하면 모델이 빠르게 낮은 오차의 해결책을 찾을 수 있습니다. 그러나 올바르게 설정하지 않으면 모델이 수렴하는 데 시간이 오래 걸리거나 아예 좋은 해결책을 찾지 못할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -414,12 +437,14 @@ class Trainer:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -431,31 +456,35 @@ class Trainer:
 이러한 방식을 따르면 훈련을 시작하면 로그가 나타나면서 우리의 진행 상황을 한 눈에 볼 수 있고 조정할 수 있는 정보를 제공하여 우리가 방향을 수정하는 데 도움이 될 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_1.png" />
+<img src="/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_1.png" />
 
 그런 다음, 훈련이 끝난 후 손실을 그래프로 그려볼 수 있습니다:
 
-<img src="/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_2.png" />
+<img src="/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_2.png" />
 
 훈련 및 검증 손실이 꾸준히 감소하는 것을 보는 것은 좋은 신호입니다. 이는 에포크 수를 늘리고 학습률 스텝 크기를 증가시킨다면 잘 작동할 수 있다는 신호일 수 있습니다. 그러나 반대로 손실이 감소한 후 급상승하는 것을 관찰하면, 학습률 스텝 크기를 줄이는 것이 명백한 신호입니다. 그렇지만 재미있는 점이 있습니다: 에포크 0부터 50까지 우리의 손실이 어떤 이상한 일이 일어나고 있습니다. 우리는 그 부분을 확인하기 위해 다시 살펴보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -469,12 +498,14 @@ class Trainer:
 여기에 이를 실행하는 방법이 있어요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -487,7 +518,7 @@ class Trainer:
 
 ```python
 class Trainer:
-    def train(self, X_train, y_train, X_val, y_val, epochs, learning_rate, 
+    def train(self, X_train, y_train, X_val, y_val, epochs, learning_rate,
               early_stopping=True, patience=10):
         best_loss = np.inf
         epochs_no_improve = 0
@@ -515,12 +546,14 @@ class Trainer:
 train 메서드에서 두 가지 새로운 옵션을 소개했습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -535,12 +568,14 @@ train 메서드에서 두 가지 새로운 옵션을 소개했습니다:
 매 에포크가 끝날 때마다 현재 에포크의 유효성 검사 손실(val_loss)이 best_loss보다 낮아졌다면, 이는 우리가 진전을 이루고 있다는 뜻입니다. 우리는 best_loss를 이 새로운 최솟값으로 업데이트하고, 또한 현재 모델 가중치를 best_weights로 저장합니다. 이렇게 하면 모델이 최상의 성능을 발휘한 시점의 스냅샷을 항상 가지게 됩니다. 그리고 우리는 방금 개선을 보았기 때문에 epochs_no_improve 카운트를 다시 0으로 재설정합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -554,12 +589,14 @@ train 메서드에서 두 가지 새로운 옵션을 소개했습니다:
 ## 3.3: 초기화 방법
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -570,18 +607,20 @@ train 메서드에서 두 가지 새로운 옵션을 소개했습니다:
 랜덤 방식을 선택하면 주로 균일하거나 정규 분포에서 숫자를 추출하여 초기 가중치를 설정하는 것을 의미해요. 이러한 무작위성은 모든 뉴런이 동일한 위치에서 시작하지 않도록하여 네트워크가 학습함에 따라 서로 다른 것을 배울 수 있도록 도와줘요. 핵심은 적절한 분산을 선택하는 것인데, 너무 많으면 기울기가 폭발할 위험이 있고, 너무 적으면 사라질 수도 있어요.
 
 ```js
-weights = np.random.randn(layers[i], layers[i + 1])
+weights = np.random.randn(layers[i], layers[i + 1]);
 ```
 
 이 코드 라인은 표준 정규 분포에서 가중치를 추출하여 각 뉴런이 학습의 길로 나아갈 수 있도록 준비를 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -594,16 +633,18 @@ weights = np.random.randn(layers[i], layers[i + 1])
 모든 가중치를 0으로 설정하는 방법은 매우 간단합니다. 그러나 이 방법에는 주요 단점이 있습니다: 이로 인해 층의 모든 뉴런이 사실상 동일해집니다. 이러한 동일성으로 인해 네트워크의 학습이 저해될 수 있으며, 모든 층의 뉴런이 학습 중에 동일하게 업데이트될 수 있습니다.
 
 ```js
-weights = np.zeros((layers[i], layers[i + 1]))
+weights = np.zeros((layers[i], layers[i + 1]));
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -618,19 +659,21 @@ Glorot 초기화
 시그모이드 활성화 함수를 사용하는 네트워크를 위해 설계된 Glorot 초기화는 네트워크 내 입력 단위와 출력 단위의 수에 기반하여 가중치를 설정합니다. 이 초기화는 활성화와 역전파된 그래디언트의 분산을 유지하고 vanishing 또는 exploding 그래디언트 문제를 방지하기 위해 레이어를 통해 전달됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 글로럿 초기화에서의 가중치는 균일 분포나 정규 분포로 생성할 수 있습니다. 균일 분포를 사용하는 경우, 가중치는 [-a, a] 범위로 초기화됩니다. 여기서 a 값은:
 
-![식](/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_3.png)
+![식](/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_3.png)
 
 ```js
 def glorot_uniform(self, fan_in, fan_out):
@@ -643,19 +686,21 @@ weights = glorot_uniform(layers[i - 1], layers[i])
 이 공식은 가중치가 균등하게 분포되고, 가져올 수 있으며, 좋은 기울기 흐름을 유지할 수 있도록 보장합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 정상 분포에 대한 정보입니다:
 
-![](/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_4.png)
+![](/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_4.png)
 
 ```js
 def glorot_normal(self, fan_in, fan_out):
@@ -668,12 +713,14 @@ weights = self.glorot_normal(layers[i - 1], layers[i])
 이 조정은 시그모이드 활성화 함수를 사용하는 네트워크에서 적절하게 가중치를 유지합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -688,38 +735,42 @@ He 초기화는 ReLU 활성화 함수를 사용하는 레이어에 적합하게 
 Glorot 초기화와 마찬가지로, 가중치는 균등 분포 또는 정규 분포에서 선택할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 균일 분포를 위해 가중치는 [-a, a] 범위를 사용하여 초기화됩니다. 여기서 a는 다음과 같이 계산됩니다:
 
-![a 계산 공식](/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_5.png)
+![a 계산 공식](/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_5.png)
 
 따라서 가중치 W는 균일 분포에서 추출됩니다:
 
-![균일 분포에서 가중치 추출 공식](/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_6.png)
+![균일 분포에서 가중치 추출 공식](/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_6.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-def he_uniform(self, fan_in, fan_out): 
-    limit = np.sqrt(2 / fan_in) 
+def he_uniform(self, fan_in, fan_out):
+    limit = np.sqrt(2 / fan_in)
     return np.random.uniform(-limit, limit, (fan_in, fan_out))
 
 weights = self.he_uniform(layers[i - 1], layers[i])
@@ -727,17 +778,19 @@ weights = self.he_uniform(layers[i - 1], layers[i])
 
 일반 분포를 사용할 때, 가중치는 다음과 같은 수식에 따라 초기화됩니다:
 
-![수식](/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_7.png)
+![수식](/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_7.png)
 
 여기서 W는 가중치를, N은 정규 분포를, 0은 분포의 평균을, 그리고 2/n은 분산을 나타냅니다. n-in은 레이어로 들어오는 입력 단위의 수를 나타냅니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -756,14 +809,15 @@ weights = self.he_normal(layers[i - 1], layers[i])
 
 단점: 특히 ReLU에 최적화되어 있어 다른 활성화 함수만큼 효과적이지 않을 수 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -772,10 +826,10 @@ weights = self.he_normal(layers[i - 1], layers[i])
 
 ```js
 클래스 NeuralNetwork:
-    def __init__(self, 
+    def __init__(self,
                  layers,
                  init_method='glorot_uniform', # 'zeros', 'random', 'glorot_uniform', 'glorot_normal', 'he_uniform', 'he_normal'
-                 loss_func='mse', 
+                 loss_func='mse',
                  ):
         ...
 
@@ -815,7 +869,7 @@ weights = self.he_normal(layers[i - 1], layers[i])
     def he_uniform(self, fan_in, fan_out):
         limit = np.sqrt(2 / fan_in)
         return np.random.uniform(-limit, limit, (fan_in, fan_out))
-    
+
     def glorot_normal(self, fan_in, fan_out):
         stddev = np.sqrt(2. / (fan_in + fan_out))
         return np.random.normal(0., stddev, size=(fan_in, fan_out))
@@ -832,31 +886,35 @@ weights = self.he_normal(layers[i - 1], layers[i])
 ## 3.4: 드롭아웃
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 Dropout은 신경망에서 오버피팅을 방지하기 위해 설계된 정규화 기술로, 훈련 단계에서 네트워크에서 임시로 그리고 무작위로 유닛(뉴런)과 해당 연결을 제거함으로써 사용합니다. 이 방법은 Srivastava 및 그 동료들이 2014 년 논문에서 고안한 간단하면서도 효과적인 방법으로 견고한 신경망을 훈련하는 데 사용됩니다.
 
-![이미지](/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_8.png)
+![이미지](/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_8.png)
 
 각 훈련 반복에서 각 뉴런(입력 단위 포함되지만 보통 출력 단위는 제외)은 일시적으로 "드랍아웃"될 확률 p를 가집니다. 이는 해당 뉴런이 이 전방 및 역방향 패스 동안 완전히 무시된다는 것을 의미합니다. 이 확률 p은 "드랍아웃 비율"로 불리며 성능을 최적화하기 위해 조절할 수 있는 하이퍼파라미터입니다. 예를 들어, 0.5의 드랍아웃 비율은 각 뉴런이 각 훈련 패스에서 계산에서 제외될 확률이 50% 라는 것을 의미합니다.
 
 이 과정의 효과는 네트워크가 개별 뉴런의 특정 가중치에 덜 민감해진다는 것입니다. 이것은 예측을 할 때 개별 뉴런의 출력에 의존할 수 없으므로 네트워크가 뉴런들 사이에 중요성을 분산시키도록 장려합니다. 이는 실제로 가중치를 공유하는 신경망의 의사앙상블을 훈련하며, 각 훈련 반복에서 네트워크의 다른 "드랍아웃된" 버전이 포함됩니다. 시험 시간에는 드랍아웃이 적용되지 않고, 대신 가중치는 일반적으로 드랍아웃 비율 p에 의해 조정되어 더 많은 유닛이 활성화되었다는 사실을 균형 있게 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -872,28 +930,30 @@ Dropout은 신경망에서 오버피팅을 방지하기 위해 설계된 정규�
 우리 코드에서 어떻게 보이는지 살펴보겠습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```python
 class NeuralNetwork:
-    def __init__(self, 
+    def __init__(self,
                  layers,
                  init_method='glorot_uniform', # 'zeros', 'random', 'glorot_uniform', 'glorot_normal', 'he_uniform', 'he_normal'
-                 loss_func='mse', 
+                 loss_func='mse',
                  dropout_rate=0.5
                  ):
         ...
 
         self.dropout_rate = dropout_rate
-        
+
         ...
 
     ...
@@ -919,14 +979,15 @@ dropout_rate : 이것은 훈련 중에 신경세포들이 네트워크에서 일
 
 is_training 부울 플래그는 네트워크가 현재 훈련되고 있는지를 알려줍니다. 이것은 훈련 중에만 드롭아웃이 발생해야 하므로 새 데이터에 대한 네트워크 성능을 평가할 때는 드롭아웃이 일어나서는 안 된다는 점이 중요합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -941,12 +1002,14 @@ is_training 부울 플래그는 네트워크가 현재 훈련되고 있는지를
 드롭아웃을 적용한 후(해당하는 경우), 생성된 활성화를 self.a에 추가하여 모든 레이어를 통해 활성화를 추적하는 리스트를 유지합니다. 이렇게 하면 신호를 그냥 한 레이어에서 다음 레이어로 무작정 이동시키는 것이 아니라, 네트워크가 더 견고하게 학습하도록 장려하는 기술을 적용하여 특정 경로의 뉴런에 지나치게 의존하지 않도록 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -961,34 +1024,36 @@ is_training 부울 플래그는 네트워크가 현재 훈련되고 있는지를
 이 방법은 미리 정의된 임계값을 설정하고, 각 그레이디언트 구성 요소를 해당 임계값을 초과하는 경우 지정된 범위 내로 직접 클리핑하는 접근 방식입니다. 예를 들어, 임계값이 1로 설정되면, 1보다 큰 모든 그레이디언트 구성 요소를 1로 설정하고, -1보다 작은 모든 구성 요소를 -1로 설정합니다. 이는 모든 그레이디언트가 [-1, 1] 범위 내에 유지되도록 보장하여 너무 커지는 그레이디언트를 효과적으로 방지합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-<img src="/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_9.png" />
+<img src="/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_9.png" />
 
 gi는 기울기 벡터의 각 구성 요소를 나타냅니다.
 
 노름에 의한 클리핑
 이 방법은 각 기울기 구성 요소를 개별적으로 클리핑하는 대신, 일정 임계값을 초과하는 경우 전체 기울기를 조절합니다. 이렇게 하면 기울기의 방향을 보존한 채 크기가 지정된 한도를 초과하지 않도록 할 수 있습니다. 이는 모든 매개변수를 통해 업데이트의 상대적 방향을 유지하는 데 특히 유용하며, 값에 의한 클리핑보다 학습 과정에 더 유익할 수 있습니다.
 
-<img src="/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_10.png" />
-
+<img src="/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_10.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -999,11 +1064,11 @@ gi는 기울기 벡터의 각 구성 요소를 나타냅니다.
 
 ```js
 class NeuralNetwork:
-    def __init__(self, 
+    def __init__(self,
                  layers,
                  init_method='glorot_uniform', # 'zeros', 'random', 'glorot_uniform', 'glorot_normal', 'he_uniform', 'he_normal'
-                 loss_func='mse', 
-                 dropout_rate=0.5, 
+                 loss_func='mse',
+                 dropout_rate=0.5,
                  clip_type='value',
                  grad_clip=5.0
                  ):
@@ -1011,7 +1076,7 @@ class NeuralNetwork:
 
         self.clip_type = clip_type
         self.grad_clip = grad_clip
-        
+
         ...
 
     ...
@@ -1048,19 +1113,21 @@ class NeuralNetwork:
         if l2_norm > clip_norm:
             grads = grads / l2_norm * clip_norm
         return grads
-    
+
     ...
 ```
 
 초기화 중에 이제 사용할 그래디언트 클리핑 유형(clip_type)과 그래디언트 클리핑 임계값(grad_clip)이 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1074,12 +1141,14 @@ class NeuralNetwork:
 만약 `clip_type`이 `norm`인 경우, 그레디언트의 노름이 grad_clip을 초과하는 경우 이 방향을 유지하면서 그에 대한 크기를 제한하기 위해 clip_by_norm 메서드가 호출됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1094,12 +1163,14 @@ class NeuralNetwork:
 그래디언트 클리핑은 신경망 훈련의 안정성과 성능을 향상시키는 간단하면서도 강력한 기술입니다. 그래디언트가 지나치게 커지지 않도록 보장함으로써, 훈련 불안정성(과적합, 과소적합, 수렴 속도 저하 등)의 문제를 피하고, 신경망이 효과적이고 효율적으로 학습하기 쉽도록 돕습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1113,12 +1184,14 @@ class NeuralNetwork:
 신경망에 더 많은 층을 추가하면 학습 능력이 향상되어 데이터의 더 복잡한 패턴과 관계를 파악할 수 있습니다. 이는 추가적인 층이 입력 데이터의 보다 추상적인 표현을 만들 수 있기 때문에 단순한 기능에서 더 복잡한 조합으로 이동할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1133,12 +1206,14 @@ class NeuralNetwork:
 간단한 모델부터 시작하여 점진적으로 층을 추가하고 검증 성능이 크게 향상될 때까지 관찰합니다. 이 접근 방식은 각 층이 전체 성능에 어떤 기여를 하는지 이해하는 데 도움이 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1151,15 +1226,17 @@ class NeuralNetwork:
 학습 동태 관찰
 더 많은 레이어를 추가할 때 학습과 검증 손실을 모니터링하세요. 이 두 지표 사이에 차이가 발생하는 경우 — 학습 손실이 감소하지만 검증 손실이 그렇지 않을 때 — 오버피팅을 나타낼 수 있으며, 현재 깊이가 지나칠 수 있다는 것을 시사할 수 있습니다.
 
-![이미지](/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_11.png)
+![이미지](/TIL/assets/img/2024-07-09-TheMathBehindFine-TuningDeepNeuralNetworks_11.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1174,12 +1251,14 @@ class NeuralNetwork:
 신경망 아키텍처 탐색(NAS) 도구나 Optuna와 같은 하이퍼파라미터 최적화 프레임워크를 활용하여 서로 다른 아키텍처를 체계적으로 탐색하십시오. 이러한 도구는 다양한 구성을 평가하고 검증 지표에서 최상의 성능을 발휘하는 구성을 선택함으로써 최적의 레이어 수를 자동화할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1193,12 +1272,14 @@ class NeuralNetwork:
 ## 5.1: Optuna 소개
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1212,12 +1293,14 @@ class NeuralNetwork:
 옵투나를 신경망 훈련 워크플로우에 통합하는 것은 옵투나가 최소화 또는 최대화하려는 목적 함수를 정의하는 과정을 포함합니다. 이 함수에는 일반적으로 모델 훈련 및 검증 과정이 포함되며, 목표는 검증 손실을 최소화하거나 검증 정확도를 최대화하는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1266,12 +1349,14 @@ print(f"Best value: {study.best_trial.value:.3f}")
 Optuna 최적화 프로세스의 핵심은 목적 함수입니다. 이 함수는 시험 목표를 정의하고 각 시험에 대해 Optuna에 의해 호출됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1285,12 +1370,14 @@ Optuna 최적화 프로세스의 핵심은 목적 함수입니다. 이 함수는
 **learning_rate**는 로그 스케일로 1e-3에서 1e-1 사이를 제안하여, 학습률 최적화에 대한 공통적인 민감도로 인해 크기의 범위를 포괄하는 넓은 탐색 공간을 보장합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1304,12 +1391,14 @@ clip_type과 clip_value는 그래디언트 클리핑 전략과 값으로, 값이
 목적 함수와 NeuralNetwork 인스턴스가 정의된 후 Optuna 스터디로 이동할 수 있습니다. Optuna 스터디 객체는 목적 함수를 최대화(`maximize`)하는 데 사용되며, 이 문맥에서는 신경망의 정확도가 목적 함수입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1323,12 +1412,14 @@ clip_type과 clip_value는 그래디언트 클리핑 전략과 값으로, 값이
 옵튜나를 통합함으로써, 개발자는 하이퍼파라미터 튜닝 프로세스를 자동화할뿐만 아니라 어떻게 다른 매개변수가 모델에 영향을 미치는지에 대한 깊은 통찰을 얻을 수 있습니다. 이를 통해 수동 실험을 통해 걸릴 시간의 일부로 최적화된, 더 견고하고 정확한 신경망이 생성됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1343,12 +1434,14 @@ clip_type과 clip_value는 그래디언트 클리핑 전략과 값으로, 값이
 각 시도는 신경망을 처음부터 훈련해야 하므로, 특히 심층 신경망이나 대규모 데이터셋의 경우에는 계산 리소스가 많이 필요할 수 있습니다. 하이퍼파라미터 공간을 철저히 탐색하기 위해 수백 번이나 수천 번의 시도를 실행하는 것은 상당한 계산 리소스와 시간이 필요할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1364,12 +1457,14 @@ clip_type과 clip_value는 그래디언트 클리핑 전략과 값으로, 값이
 모델의 성능 평가는 무작위 초기화, 데이터 섞기, 또는 데이터셋 내 잡음과 같은 요소로 인해 달라질 수 있습니다. 이러한 변동성은 최적화 과정에 잡음을 도입하여 결과의 신뢰성에 영향을 줄 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1384,12 +1479,14 @@ Optuna은 검색 공간을 탐색하기 위해 정교한 알고리즘을 사용�
 ## 6.1: 다음 단계
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1406,12 +1503,14 @@ Optuna은 검색 공간을 탐색하기 위해 정교한 알고리즘을 사용�
 이러한 주제들은 단지 저희가 다루는 것 중 일부에 불과하며, 각각 고유한 이점과 도전을 제공합니다. 앞으로 나아가면서, 이러한 기술을 자세히 살펴보고, 언제 사용해야 하는지, 그들이 어떻게 작용하는지, 그리고 당신의 신경망 프로젝트에 미치는 영향에 대한 통찰력을 제공할 것을 목표로 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,15 +1,14 @@
 ---
 title: "Django 앱 사이에서 모델을 이동하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-06-HowToMoveAModelFromOneDjangoAppToAnother_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-HowToMoveAModelFromOneDjangoAppToAnother_0.png"
 date: 2024-07-06 10:26
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-HowToMoveAModelFromOneDjangoAppToAnother_0.png
 tag: Tech
 originalTitle: "How To Move A Model From One Django App To Another"
 link: "https://medium.com/@shweta17/how-to-move-a-model-from-one-django-app-to-another-743184d6a5b2"
 ---
-
 
 /assets/img/2024-07-06-HowToMoveAModelFromOneDjangoAppToAnother_0.png
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@shweta17/how-to-move-a-model-from-one-django-app-to-a
 공용 앱에서 사용자 앱으로 고객 모델을 이전하는 예시가 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -46,7 +47,7 @@ class Customer(models.Model):
   last_name = CleanCharField(max_length=150, null=False)
   email = models.EmailField(null=False)
   address = models.ForeignKey('common.Address', on_delete=models.SET_NULL, null=True, blank=True, default=None)
-  
+
   def __str__(self) -> str:
     return f"{self.first_name} {self.last_name}"
 ```
@@ -54,12 +55,14 @@ class Customer(models.Model):
 ## 이제 모델을 새 앱으로 이동하세요
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -78,7 +81,7 @@ class Customer(models.Model):
   last_name = CleanCharField(max_length=150, null=False)
   email = models.EmailField(null=False)
   address = models.ForeignKey('common.Address', on_delete=models.SET_NULL, null=True, blank=True, default=None)
-  
+
   def __str__(self) -> str:
     return f"{self.first_name} {self.last_name}"
 ```
@@ -89,12 +92,14 @@ class Customer(models.Model):
 ## 데이터베이스 마이그레이션 생성
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -105,17 +110,19 @@ class Customer(models.Model):
 python manage.py makemigrations
 ```
 
-이 명령어를 실행하면 2개의 마이그레이션 파일이 생성됩니다. 
+이 명령어를 실행하면 2개의 마이그레이션 파일이 생성됩니다.
 
 - 하나는 공통 앱에서 모델을 삭제하는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -135,7 +142,7 @@ class Migration(migrations.Migration):
             name='Customer',
         ),
     ]
-``` 
+```
 
 - 사용자 앱에서 모델을 생성하세요.
 
@@ -166,17 +173,19 @@ class Migration(migrations.Migration):
             },
         ),
     ]
-``` 
+```
 
 ## 데이터 손실을 방지하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -245,12 +254,14 @@ class Migration(migrations.Migration):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -266,12 +277,14 @@ python manage.py migrate
 성공적으로 공통 앱에서 사용자 앱으로 Customer 모델을 이동했고, 데이터베이스 변경이나 데이터 손실 없이 처리되었습니다. 완료되었습니다!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

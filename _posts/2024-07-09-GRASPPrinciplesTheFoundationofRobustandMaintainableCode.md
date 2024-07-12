@@ -1,36 +1,37 @@
 ---
 title: "GRASP 원칙 견고하고 유지보수 가능한 코드의 기초"
 description: ""
-coverImage: "/assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_0.png"
 date: 2024-07-09 14:55
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_0.png
 tag: Tech
 originalTitle: "GRASP Principles: The Foundation of Robust and Maintainable Code"
 link: "https://medium.com/@okanyenigun/grasp-principles-the-foundation-of-robust-and-maintainable-code-eb014711e60b"
 ---
 
-
 ## 일반 책임 할당 소프트웨어 패턴
 
-![그림](/assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_0.png)
+![그림](/TIL/assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_0.png)
 
 GRASP(일반 책임 할당 소프트웨어 패턴) 원칙은 객체지향 설계에서 객체와 클래스에 책임을 할당하는 데 도움이 되는 지침 세트입니다.
 
 이러한 원칙은 처음으로 Craig Larman이 그의 책 "UML과 패턴 적용"에서 소개했습니다. 그 책 정말 좋아요; 이전에 읽지 않았다면 읽어보시기를 추천합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_1.png" />
+<img src="/TIL/assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_1.png" />
 
 이러한 패턴들은 개발자가 핵심 객체 지향 설계 원칙을 이해하고 적용하는 데 도움이 되는 교육 도구입니다. 이 패턴들은 개발자들이 책임을 클래스와 객체에 체계적으로 할당하고, 잘 구조화되고 유지보수 가능한 소프트웨어를 촉진하는 데 도움을 줍니다.
 
@@ -39,12 +40,14 @@ GRASP를 따르면, 개발자들은 합리적이고 설명 가능한 설계 결�
 ## 책임 주도 설계
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -58,12 +61,14 @@ Larman의 책에서 역할을 두 가지 주요 유형으로 나눕니다:
 역할 인식: 객체는
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -81,12 +86,14 @@ Larman의 책에서 역할을 두 가지 주요 유형으로 나눕니다:
 GRASP 원칙:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -108,31 +115,35 @@ GRASP 원칙:
 이는 캡슐화를 강조하고 데이터 결합을 피하기 위한 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 예를 들어, 작업을 수행하는 메서드를 가지고 있다고 가정해보겠습니다. 이 메서드가 데이터를 사용한다면, 해당 메서드는 데이터가 포함된 클래스에 배치되어야 합니다.
 
-![이미지](/assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_2.png)
+![이미지](/TIL/assets/img/2024-07-09-GRASPPrinciplesTheFoundationofRobustandMaintainableCode_2.png)
 
 제품에 대한 할인을 계산하려고 합니다.
 
 좋지 않은 예: DiscountCalculator 클래스가 제품 클래스에서 데이터를 사용하여 할인 가격을 계산합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -164,14 +175,15 @@ Product는 책임이 없습니다. 실제 클래스가 아닙니다.
 
 좋은 점: 할인을 계산하는 메서드가 필요한 데이터를 포함한 클래스에 위치합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -202,14 +214,15 @@ Product 클래스에는 할인 가격을 계산하는 calculate_discounted_price
 
 다른 클래스의 인스턴스를 생성하는 책임이 있는 클래스에 대한 지침을 제공합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -227,12 +240,14 @@ Product 클래스에는 할인 가격을 계산하는 calculate_discounted_price
 여러 옵션이 적용되는 경우 집약 또는 포함 (우선 순위가 높음)하는 클래스 B를 선호합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -297,12 +312,14 @@ class B:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -330,12 +347,14 @@ class B:
 Factory 디자인 패턴에서는 세부 사항을 알 필요가 없습니다. 이 패턴은 "필요한 데이터를 제공하면 객체를 생성할 테니까"라고 합니다. 그것은 객체를 만드는 방법을 알지만 그것을 사용하지는 않습니다. 그저 생성합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -349,12 +368,14 @@ Factory 디자인 패턴에서는 세부 사항을 알 필요가 없습니다. �
 이 두 가지 개념에 대해 이미 다른 게시물에서 설명했기 때문에 여기서 다시 설명하지는 않겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -406,12 +427,14 @@ class SystemController:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -460,12 +483,14 @@ class LoginSession:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -491,12 +516,14 @@ class TaskController:
 컨트롤러 클래스가 담당해야 할 책임이 너무 많아지고 논리와 기능을 더 다루게 되면 컨트롤러가 부풀어 오르는 상황이 발생합니다. 보통 이런 상황은 컨트롤러가 다른 객체나 클래스에 효과적으로 작업을 위임하지 않아서 발생하며, 관심사의 명확한 분리가 이루어지지 않는 것이 일반적입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -554,7 +581,7 @@ class TaskController:
                 print(f"'{task_name}' 작업을 {self.logged_in_user} 사용자가 찾을 수 없습니다.")
         else:
             print("로그인된 사용자가 없습니다.")
-    
+
     ...
 
     # 작업 스케줄링 메서드
@@ -570,12 +597,14 @@ TaskController는 사용자 인증, 작업 관리 및 스케줄링을 처리하�
 모든 로직이 컨트롤러 내에서 처리되어 서로 강하게 결합되어 유지 관리하기 어려운 코드로 이어집니다. (부적절한 위임)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -705,12 +734,14 @@ class TaskController:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -724,12 +755,14 @@ class TaskController:
 ## 순수 가공
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -754,12 +787,14 @@ class Resource:
 이제 Resource 객체가 필요한 경우에만 생성되도록 액세스를 제어하는 ResourceProxy 클래스를 소개해보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -793,12 +828,14 @@ class ResourceProxy:
 `순수 가상화`는 문제 도메인 내에서 실제 세계 개념을 나타내지 않는 인공 클래스를 생성하는 디자인 원칙입니다. 이 클래스는 고유한 디자인 목표인 높은 응집력, 낮은 결합도, 재사용성을 달성하기 위해 도입됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -834,12 +871,14 @@ class CustomerRepository:
 ## 간접성
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -872,12 +911,14 @@ UserRepository는 User와 Database 클래스 간의 상호 작용을 추상화�
 User 클래스는 Database 클래스와 직접 상호 작용하지 않으므로 종속성이 줄어듭니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -891,12 +932,14 @@ Protected Variations은 시스템의 요소들을 안정적인 인터페이스 �
 이 원칙을 구현하기 위해 우리는 먼저 시스템 내에서 변경이 가장 가능성이 높은 지점을 식별합니다. 이를 "변이 지점"이라고 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -930,12 +973,14 @@ class Order:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -972,12 +1017,14 @@ class Order:
 결제 처리 로직은 특정 결제 방법 클래스 내에 캡슐화되어 있습니다. 새로운 결제 방법이 도입되면 Order 클래스를 수정하지 않고 PaymentMethod 인터페이스를 구현하는 새 클래스를 생성하여 추가할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -991,12 +1038,14 @@ Applying UML and Patterns, Craig Larman
 https://www.geeksforgeeks.org/grasp-design-principles-in-ooad/
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

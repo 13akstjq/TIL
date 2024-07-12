@@ -1,15 +1,14 @@
 ---
 title: "웹 서비스 개발을 위한 언어 선택 가이드"
 description: ""
-coverImage: "/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_0.png"
 date: 2024-07-09 15:08
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-Decidingonalanguageforyourwebservice_0.png
 tag: Tech
 originalTitle: "Deciding on a language for your web service"
 link: "https://medium.com/singularity-energy/deciding-on-a-language-for-your-web-service-c6f73fb9d448"
 ---
-
 
 Singularity에서는 주로 웹 서비스에 Python을 사용합니다. 프론트 엔드에서는 Typescript를 사용합니다. 또한 실시간 푸시 서버에는 Elixir를 사용합니다. 최근에 매우 높은 I/O 처리량이 필요한 프로젝트를 시작했는데, Python이 그 사용 사례에서 최선의 도구가 아닐 수도 있다는 걱정이 들었습니다. 그래서 우리는 다음과 같은 질문을 하였습니다:
 
@@ -23,12 +22,14 @@ Singularity에서는 주로 웹 서비스에 Python을 사용합니다. 프론�
 - C++
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -46,12 +47,14 @@ Singularity에서는 주로 웹 서비스에 Python을 사용합니다. 프론�
 - Elixir (Phoenix/Ecto)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -65,12 +68,14 @@ Singularity에서는 주로 웹 서비스에 Python을 사용합니다. 프론�
 각 결과 집합마다, 우리는 동시 사용자 수와 각 프레임워크가 그들을 어떻게 다뤄갔는지 살펴볼 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -81,55 +86,59 @@ Singularity에서는 주로 웹 서비스에 Python을 사용합니다. 프론�
 
 Python
 
-![이미지](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_0.png)
+![이미지](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_0.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 NodeJS
 
-![NodeJS](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_1.png)
+![NodeJS](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_1.png)
 
 Elixir
 
-![Elixir](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_2.png)
+![Elixir](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_2.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 Rust
 
-![Rust](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_3.png)
+![Rust](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_3.png)
 
 Async Python
 
-![Async Python](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_4.png)
-
+![Async Python](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_4.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -143,12 +152,14 @@ sorry, too many clients already
 이후의 모든 테스트에서는 Async Python 설정을 제외하겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -157,39 +168,41 @@ sorry, too many clients already
 
 파이썬
 
-![이미지](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_5.png)
+![이미지](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_5.png)
 
 NodeJS
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+![Elixir](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_6.png)
 
-![Elixir](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_6.png)
-
-![Rust](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_7.png)
-
+![Rust](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_7.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![이미지](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_8.png)
+![이미지](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_8.png)
 
 여기서는 초당 약 2,000개의 요청에 대한 설정을 유지하도록 요청하고 있습니다. 모든 프레임워크가 이를 처리하는 데 예쁘게 처리하지만 Python은 그렇지 않습니다. Python은 왜 따라잡지 못할까요? 왜 약 200개의 요청/초까지 제한될까요? 제 정확한 설정은 무엇인가요?
 
@@ -198,52 +211,56 @@ NodeJS
 ## 2,000 사용자
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 Python
 
-![Python image](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_9.png)
+![Python image](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_9.png)
 
 NodeJS
 
-![NodeJS image](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_10.png)
-
+![NodeJS image](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_10.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 # Elixir
 
-![Elixir](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_11.png)
+![Elixir](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_11.png)
 
 # Rust
 
-![Rust](/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_12.png)
+![Rust](/TIL/assets/img/2024-07-09-Decidingonalanguageforyourwebservice_12.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -257,12 +274,14 @@ NodeJS
 Python을 사용하길 꺼리지는 않겠습니다. 몇 년간 사용해온 것이며, 설정의 용이성과 문법을 즐기고 있으며, 데이터 분석 및 조작 워크로드에 특히 유용하기 때문에 계속해서 사용할 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

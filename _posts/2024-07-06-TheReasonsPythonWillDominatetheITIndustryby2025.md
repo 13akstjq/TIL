@@ -1,15 +1,14 @@
 ---
 title: "2025년까지 파이썬이 IT 산업을 지배할 7가지 이유"
 description: ""
-coverImage: "/assets/img/2024-07-06-TheReasonsPythonWillDominatetheITIndustryby2025_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-TheReasonsPythonWillDominatetheITIndustryby2025_0.png"
 date: 2024-07-06 02:21
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-TheReasonsPythonWillDominatetheITIndustryby2025_0.png
 tag: Tech
 originalTitle: "The Reasons Python Will Dominate the IT Industry by 2025"
 link: "https://medium.com/@danielbuilescu/the-reasons-python-will-dominate-the-it-industry-by-2025-87afcd613427"
 ---
-
 
 /assets/img/2024-07-06-TheReasonsPythonWillDominatetheITIndustryby2025_0.png
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@danielbuilescu/the-reasons-python-will-dominate-the-i
 ## 파이썬의 묻힌 영웅: 사용 편의성, 커뮤니티, 다양성
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,31 +1,32 @@
 ---
 title: "더 나은 프로그래머가 되는 10가지 팁"
 description: ""
-coverImage: "/assets/img/2024-07-09-BecomeaBetterCoder10Tips_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-BecomeaBetterCoder10Tips_0.png"
 date: 2024-07-09 14:47
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-BecomeaBetterCoder10Tips_0.png
 tag: Tech
 originalTitle: "Become a Better Coder: 10 Tips"
 link: "https://medium.com/@deasadiqbal/become-a-better-coder-10-tips-fa81f732a624"
 ---
 
-
 위반 시 해고 조치를 받을 수 있습니다.
 
-![이미지](/assets/img/2024-07-09-BecomeaBetterCoder10Tips_0.png)
+![이미지](/TIL/assets/img/2024-07-09-BecomeaBetterCoder10Tips_0.png)
 
 수백 개, 아니면 수천 개의 Python 최상의 관례들이 있습니다. 누구든 물으면 약간 다른 버전의 관례를 듣게 될 것입니다.
 
 인터넷은 모든 사람이 의견을 표현할 권리를 주었습니다. 심지어 제게도요. 그러나 이 글에서는 절대로 변할 수 없는 20가지 Python 최상의 관례에 대해 다룰 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -48,12 +49,14 @@ def calculate_area(length: int, width: int) -> int:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -73,12 +76,14 @@ do_something("이것은 실수입니다!")  # 오류를 발생시킬 수 있어�
 함수가 동일한 추상화 수준에 있을 때, 우리는 함수가 단일하고 명확한 작업을 수행해야 한다는 것을 의미합니다. 해당 작업은 함수 내에서 일관된 추상화 수준이어야 합니다. 다시 말해, 함수는 특정 세부 수준이나 복잡성에 집중해야 하며, 모든 함수의 작업은 해당 동일한 수준에서 작동해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -103,7 +108,7 @@ def get_numbers():
 def calculate_average():
     numbers = get_numbers()
     numbers_plus_30 = [num + 30 for num in numbers]
-    
+
     total = sum(numbers_plus_30)
     count = len(numbers)
     average = total / count
@@ -113,12 +118,14 @@ calculate_average()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -132,12 +139,14 @@ calculate_average()
 개방 폐쇄 원칙(Open Closed Principle, OCP)은 클래스, 메소드 또는 함수는 확장에 대해 열려 있어야 하지만 수정에 대해서는 닫혀 있어야 한다는 원칙입니다. 이는 정의된 클래스, 메소드 또는 함수가 코드를 변경하지 않고도 쉽게 재사용하거나 여러 인스턴스에 대해 확장할 수 있어야 한다는 것을 의미합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -166,12 +175,14 @@ print(address.get_capital())
 이것이 바로 OCP가 필요한 이유입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -189,7 +200,7 @@ class Address:
 
     def get_capital(self):
         return capitals.get(self.country, "Capital not found")
-   
+
 address = Address('united Kingdom')
 print(address.get_capital())
 ```
@@ -200,14 +211,15 @@ print(address.get_capital())
 
 시간이 흐르고 코드가 업데이트나 변경을 받는 경우에 매우 문제가 될 수 있습니다. 어느 순간 주석은 거짓이 되고 모두가 이제 모두가 거짓을 통해 진실을 관찰해야 합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -221,19 +233,21 @@ print(address.get_capital())
 매직 넘버는 나중에 변경될 수 있는 하드코딩된 값입니다. 그러나 이는 업데이트하기 어려울 수도 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 예를 들어, "Your Orders" 개요 페이지에 표시되는 마지막 50개 주문이 있는 페이지가 있다고 가정해 보겠습니다. 여기서 50은 '매직 넘버'입니다. 즉, 표준 또는 관례를 통해 설정된 숫자가 아니라 규격에 명시된 이유에 따라 임의로 설정한 숫자입니다.
 
-이제 50이 다양한 위치에 있습니다 — SQL 스크립트( SELECT TOP 50 * FROM orders), 웹사이트(Your Last 50 Orders), 주문 로그인(for (i = 0; i < 50; i++)) 및 가능한 많은 다른 위치에 있습니다.
+이제 50이 다양한 위치에 있습니다 — SQL 스크립트( SELECT TOP 50 \* FROM orders), 웹사이트(Your Last 50 Orders), 주문 로그인(for (i = 0; i < 50; i++)) 및 가능한 많은 다른 위치에 있습니다.
 
 좋은 방법:
 
@@ -243,12 +257,14 @@ SELECT TOP NUM_OF_ORDERS * FROM orders
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -264,12 +280,14 @@ SELECT TOP 50 * FROM orders
 루프, 조건문 또는 함수 내에서 중첩된 수준을 제한하여 가독성을 향상시키세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -290,12 +308,14 @@ if x:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -312,12 +332,14 @@ file_path = os.getenv("FILE_PATH")
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -327,12 +349,14 @@ file_path = os.getenv("FILE_PATH")
 그렇다! 클래스도 가능한 작아야 해요. 함수처럼 말이죠.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -346,12 +370,14 @@ file_path = os.getenv("FILE_PATH")
 ## 팁 10: 복잡한 삼항 표현식을 피하세요
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -372,12 +398,14 @@ else:
 나쁜 예시:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -387,6 +415,7 @@ result = "even" if number % 2 == 0 else "odd" if number % 3 == 0 else "neither"
 ```
 
 읽어 주셔서 감사합니다!✨ 만약 내 컨텐츠가 마음에 들고 나를 지원하고 싶다면, Patreon에서 나를 지원하는 가장 좋은 방법 —
+
 - 더 많은 컨텐츠는 DeepNexus에서 확인하기 🚀
 - 팔로우하기: LinkedIn | YouTube✅ | Github
 - 기계 학습 및 딥 러닝에서 도움이 필요하다면, 내 Fiverr ✔서비스를 확인하고 Upwork에서 연락해요!

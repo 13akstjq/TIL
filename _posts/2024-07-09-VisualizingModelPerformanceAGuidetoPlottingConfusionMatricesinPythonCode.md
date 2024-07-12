@@ -1,17 +1,16 @@
 ---
 title: "모델 성능 시각화 Python 코드로 혼동 행렬 그리는 방법 가이드"
 description: ""
-coverImage: "/assets/img/2024-07-09-VisualizingModelPerformanceAGuidetoPlottingConfusionMatricesinPythonCode_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-VisualizingModelPerformanceAGuidetoPlottingConfusionMatricesinPythonCode_0.png"
 date: 2024-07-09 14:27
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-VisualizingModelPerformanceAGuidetoPlottingConfusionMatricesinPythonCode_0.png
 tag: Tech
 originalTitle: "Visualizing Model Performance: A Guide to Plotting Confusion Matrices in Python Code"
 link: "https://medium.com/@hussainmiraqib/in-this-article-we-delve-into-the-importance-of-confusion-matrices-in-evaluating-machine-learning-d1f70abf0ffc"
 ---
 
-
-<img src="/assets/img/2024-07-09-VisualizingModelPerformanceAGuidetoPlottingConfusionMatricesinPythonCode_0.png" />
+<img src="/TIL/assets/img/2024-07-09-VisualizingModelPerformanceAGuidetoPlottingConfusionMatricesinPythonCode_0.png" />
 
 안녕하세요! 이 기사에서는 머신러닝 모델을 평가하는데 있어서 혼동 행렬의 중요성에 대해 살펴보겠습니다. 혼동 행렬이 무엇이며, 어떻게 작동하는지, 그리고 분류 모델의 성능을 평가하는 데 왜 중요한지에 대한 자세한 설명을 제공할 것입니다. 게다가, 우리는 혼동 행렬을 그리는 Python 함수를 살펴보고, 결과를 효과적으로 해석하는 방법에 대한 통찰을 제공할 것입니다.
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@hussainmiraqib/in-this-article-we-delve-into-the-impo
 혼동 행렬은 분류 알고리즘의 성능을 평가하는 데 사용되는 표입니다. 예측된 레이블을 실제 레이블과 비교하여 모델이 얼마나 잘 수행되고 있는지 명확하게 보여줍니다. 이 행렬은 모델이 어떤 종류의 오류를 범하고 있는지 이해하는 데 특히 유용하며, 개선할 부분을 식별하는 데 도움이 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -34,17 +35,19 @@ link: "https://medium.com/@hussainmiraqib/in-this-article-we-delve-into-the-impo
 
 이진 분류 문제의 혼동 행렬은 일반적으로 다음과 같은 모습을 갖습니다:
 
-![Confusion Matrix](/assets/img/2024-07-09-VisualizingModelPerformanceAGuidetoPlottingConfusionMatricesinPythonCode_1.png)
+![Confusion Matrix](/TIL/assets/img/2024-07-09-VisualizingModelPerformanceAGuidetoPlottingConfusionMatricesinPythonCode_1.png)
 
 다중 클래스 분류 문제의 경우, 행렬은 더 많은 클래스를 수용하도록 확장됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -143,12 +146,14 @@ def plot_confusion_matrix(cm, class_labels=None, normalize=False, figsize=(10, 1
 Plot Confusion Matrix 함수 사용 방법
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -165,16 +170,18 @@ cm = confusion_matrix(y_test, y_pred)
 2. 혼동 행렬 플로팅: 생성된 행렬로 plot_confusion_matrix 함수를 호출하세요.
 
 ```js
-plot_confusion_matrix(cm, class_labels=['Class 0', 'Class 1'], normalize=True)
+plot_confusion_matrix(cm, (class_labels = ["Class 0", "Class 1"]), (normalize = True));
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

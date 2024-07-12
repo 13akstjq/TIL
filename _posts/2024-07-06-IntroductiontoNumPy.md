@@ -1,15 +1,14 @@
 ---
 title: "초보자를 위한 NumPy 입문 가이드"
 description: ""
-coverImage: "/assets/img/2024-07-06-IntroductiontoNumPy_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-IntroductiontoNumPy_0.png"
 date: 2024-07-06 02:23
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-IntroductiontoNumPy_0.png
 tag: Tech
 originalTitle: "Introduction to NumPy"
 link: "https://medium.com/@vandroidsri/introduction-to-numpy-fba057edf28e"
 ---
-
 
 /assets/img/2024-07-06-IntroductiontoNumPy_0.png
 
@@ -24,12 +23,14 @@ NumPy은 Numerical Python의 약자로, 수치 계산에 사용되는 파이썬�
 - 다른 라이브러리와의 통합: NumPy는 SciPy(과학 계산용), Matplotlib(그래픽 및 시각화용) 및 Pandas(데이터 조작 및 분석용) 등 다른 파이썬 라이브러리와 완벽하게 통합됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -44,12 +45,14 @@ NumPy를 설치하는 방법은 2가지가 있어요:
 ## NumPy를 불러오는 방법:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -66,14 +69,15 @@ import numpy
 
 그리고 제 Github 프로필에서 더 많은 것을 배울 수 있어요:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

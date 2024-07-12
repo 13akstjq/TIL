@@ -1,18 +1,16 @@
 ---
 title: "파이썬 고급 문자열 조작 기법들"
 description: ""
-coverImage: "/assets/img/2024-07-09-AdvancedStringManipulationsinPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-AdvancedStringManipulationsinPython_0.png"
 date: 2024-07-09 19:28
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-AdvancedStringManipulationsinPython_0.png
 tag: Tech
 originalTitle: "Advanced String Manipulations in Python"
 link: "https://medium.com/scriptserpent/advanced-string-manipulations-in-python-dfd7f3812b6f"
 ---
 
-
-
-![Advanced String Manipulations in Python](/assets/img/2024-07-09-AdvancedStringManipulationsinPython_0.png)
+![Advanced String Manipulations in Python](/TIL/assets/img/2024-07-09-AdvancedStringManipulationsinPython_0.png)
 
 파이썬에서 문자열은 기본적이며 거의 모든 파이썬 애플리케이션에서 널리 사용됩니다. 연결 및 슬라이싱과 같은 기본적인 문자열 작업은 간단하지만, 파이썬은 코드를 보다 효율적이고 가독성 있게 만들어주는 다양한 고급 문자열 조작 기술을 제공합니다. 이 기사는 파이썬에서의 고급 문자열 조작에 대해 자세히 설명하고 있으며, 중급 개발자들이 문자열 처리 능력을 향상할 수 있도록 예제와 함께 제공합니다.
 
@@ -20,14 +18,15 @@ link: "https://medium.com/scriptserpent/advanced-string-manipulations-in-python-
 
 ## format() 사용하기
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -35,10 +34,10 @@ link: "https://medium.com/scriptserpent/advanced-string-manipulations-in-python-
 `format()` 메서드는 더 다양한 문자열 포맷팅을 가능하게 합니다.
 
 ```js
-name = "Alice"
-age = 30
-formatted_string = "Name: {}, Age: {}".format(name, age)
-print(formatted_string)
+name = "Alice";
+age = 30;
+formatted_string = "Name: {}, Age: {}".format(name, age);
+print(formatted_string);
 ```
 
 결과:
@@ -48,12 +47,14 @@ Name: Alice, Age: 30
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -72,12 +73,14 @@ print(formatted_string)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -93,12 +96,14 @@ f-Strings는 format()보다 읽기 쉬우면서 더 빠릅니다.
 # 문자열 메서드
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -108,20 +113,22 @@ f-Strings는 format()보다 읽기 쉬우면서 더 빠릅니다.
 join() 메서드는 지정된 구분자로 문자열의 이터러블을 연결하는 데 사용됩니다.
 
 ```js
-words = ["Python", "is", "awesome"]
-sentence = " ".join(words)
-print(sentence)
+words = ["Python", "is", "awesome"];
+sentence = " ".join(words);
+print(sentence);
 ```
 
 결과:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -137,37 +144,41 @@ print(sentence)
 split() 메서드는 지정된 구분기호를 사용하여 문자열을 리스트로 분할합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-sentence = "Python is awesome"
-words = sentence.split(" ")
-print(words)
+sentence = "Python is awesome";
+words = sentence.split(" ");
+print(words);
 ```
 
 결과:
 
 ```js
-['Python', 'is', 'awesome']
+["Python", "is", "awesome"];
 ```
 
 기본적으로 split()은 모든 공백을 구분자로 사용합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -179,18 +190,20 @@ print(words)
 replace() 메서드는 문자열에서 지정된 부분 문자열을 다른 부분 문자열로 대체합니다.
 
 ```js
-text = "Hello, world!"
-new_text = text.replace("world", "Python")
-print(new_text)
+text = "Hello, world!";
+new_text = text.replace("world", "Python");
+print(new_text);
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -206,12 +219,14 @@ print(new_text)
 ## translate()
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -232,12 +247,14 @@ H2ll4, w4rld!
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -251,39 +268,42 @@ H2ll4, w4rld!
 이러한 메서드는 문자열이 지정된 부분 문자열로 시작하거나 끝나는지 확인합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-텍스트 = "Python 프로그래밍"
-print(텍스트.startswith("Python"))
-print(텍스트.endswith("프로그래밍"))
+텍스트 = "Python 프로그래밍";
+print(텍스트.startswith("Python"));
+print(텍스트.endswith("프로그래밍"));
 ```
 
 결과:
 
 ```js
-True
-True
+True;
+True;
 ```
 
 이 메서드들은 간단한 패턴 매칭에 정규식을 사용하는 것보다 더 빠릅니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -295,19 +315,21 @@ True
 이러한 메서드들은 지정된 너비 내에서 문자열을 정렬합니다.
 
 ```js
-text = "Python"
-print(text.ljust(10, '-'))
-print(text.rjust(10, '-'))
-print(text.center(10, '-'))
+text = "Python";
+print(text.ljust(10, "-"));
+print(text.rjust(10, "-"));
+print(text.center(10, "-"));
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -325,12 +347,14 @@ Python----
 # 원치 않는 문자 제거
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -340,29 +364,31 @@ Python----
 이 메서드들은 선행하거나 후행에 있는 문자들을 제거합니다.
 
 ```js
-text = "   Python   "
-print(text.strip())
-print(text.lstrip())
-print(text.rstrip())
+text = "   Python   ";
+print(text.strip());
+print(text.lstrip());
+print(text.rstrip());
 ```
 
 결과:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-Python
-Python   
-   Python
+Python;
+Python;
+Python;
 ```
 
 기본적으로 이러한 메소드들은 공백을 제거하지만, 다른 문자를 지정할 수도 있어요.
@@ -372,12 +398,14 @@ Python
 ## upper(), lower(), title(), capitalize()
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -385,11 +413,11 @@ Python
 이 메서드들은 문자열의 대소문자를 변경합니다.
 
 ```js
-text = "python programming"
-print(text.upper())
-print(text.lower())
-print(text.title())
-print(text.capitalize())
+text = "python programming";
+print(text.upper());
+print(text.lower());
+print(text.title());
+print(text.capitalize());
 ```
 
 결과:
@@ -402,12 +430,14 @@ Python programming
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

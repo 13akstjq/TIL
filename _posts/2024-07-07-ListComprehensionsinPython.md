@@ -1,17 +1,16 @@
 ---
 title: "파이썬 리스트 내포 쉽게 사용하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-07-ListComprehensionsinPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-ListComprehensionsinPython_0.png"
 date: 2024-07-07 21:31
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-ListComprehensionsinPython_0.png
 tag: Tech
 originalTitle: "List Comprehensions in Python"
 link: "https://medium.com/@mmalhotra183/list-comprehensions-in-python-a7284cdb11b4"
 ---
 
-
-![이미지](/assets/img/2024-07-07-ListComprehensionsinPython_0.png)
+![이미지](/TIL/assets/img/2024-07-07-ListComprehensionsinPython_0.png)
 
 파이썬은 간결함과 가독성으로 유명하며, 그 중 가장 강력한 기능 중 하나는 리스트 컴프리헨션입니다. 리스트 컴프리헨션은 리스트를 생성하는 간결한 방법을 제공합니다. 이 글에서는 리스트 컴프리헨션을 자세히 살펴보고, 작동 방식을 설명하며, 사용 예시를 통해 그 활용을 설명할 것입니다.
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@mmalhotra183/list-comprehensions-in-python-a7284cdb11
 리스트 컴프리헨션은 기본적으로 반복문이나 다른 순회 가능한 것들을 작성하거나 표현하는 또 다른 방법입니다. 기존에 있는 리스트나 범위와 같은 순회 가능한 항목 각각에 표현식을 적용하여 새 리스트를 만들고 선택적으로 항목들을 필터링할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,12 +42,14 @@ link: "https://medium.com/@mmalhotra183/list-comprehensions-in-python-a7284cdb11
 구성 요소:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -63,12 +66,14 @@ link: "https://medium.com/@mmalhotra183/list-comprehensions-in-python-a7284cdb11
 전통적인 For 루프:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -95,12 +100,14 @@ print(squared_numbers)
 이 예제에서 두 가지 방법 모두 동일한 결과를 얻지만, 리스트 컴프리헨션은 보다 간결합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -122,12 +129,14 @@ print(even_numbers)
 필터링을 사용한 List Comprehension:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -146,12 +155,14 @@ print(even_numbers)
 ## 1. 중첩된 반복문
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -177,12 +188,14 @@ print(flattened)
 중첩된 루프를 사용한 리스트 컴프리헨션:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -205,12 +218,14 @@ print(flattened)
 리스트 컴프리헨션의 식 부분에서 함수를 호출할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -231,12 +246,14 @@ print(squared_numbers)
 # 성능 비교: 리스트 컴프리헨션 대 반복문
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -266,12 +283,14 @@ print("리스트 컴프리헨션 시간:", end_time - start_time)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -288,12 +307,14 @@ For 루프 시간: 0.2 초
 우리가 알다시피, Python은 기본 C 위에 구축된 해석형 언어입니다. 리스트 내장을 사용할 때 Python은 이를 반복 및 리스트 구성을 효율적으로 처리하는 일련의 바이트 코드 명령으로 변환합니다. append를 반복적으로 호출하는 대신, 리스트 내포는 리스트에 요소를 더하는 작업을 더욱 효율적으로 처리하는 특수화된 바이트 코드를 사용합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -310,12 +331,14 @@ For 루프 시간: 0.2 초
 # 예시 해체
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -337,16 +360,17 @@ dis.dis(for_loop_example)
 For Loop Bytecode Output:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
 
 ```js
   2           0 LOAD_CONST               1 (1)
@@ -372,7 +396,7 @@ For Loop Bytecode Output:
              40 JUMP_ABSOLUTE           22
         >>   42 LOAD_CONST               0 (None)
              44 RETURN_VALUE
-``` 
+```
 
 리스트 컴프리헨션 예제:
 
@@ -386,31 +410,32 @@ dis.dis(list_comprehension_example)
 
 리스트 컴프리헨션 바이트코드 출력:
 
-
-
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
 특수화된 C 함수
-```  
+```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -425,12 +450,14 @@ dis.dis(list_comprehension_example)
 - 리스트 컴프리헨션: 반복적인 오버헤드를 피하고 연속된 단일 작업으로 리스트를 구성합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -445,12 +472,14 @@ Python 코드가 실행될 때, 먼저 바이트 코드로 컴파일됩니다. �
 3. 인플레이스 생성:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -464,12 +493,14 @@ Python 코드가 실행될 때, 먼저 바이트 코드로 컴파일됩니다. �
 ## 기억해야 할 중요한 사항
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

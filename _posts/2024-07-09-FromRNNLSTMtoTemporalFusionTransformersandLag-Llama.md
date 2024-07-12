@@ -1,17 +1,16 @@
 ---
 title: "RNN LSTM부터 Temporal Fusion Transformers와 Lag-Llama까지 최신 시계열 예측 기술들"
 description: ""
-coverImage: "/assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_0.png"
 date: 2024-07-09 20:52
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_0.png
 tag: Tech
 originalTitle: "From RNN LSTM to Temporal Fusion Transformers and Lag-Llama"
 link: "https://medium.com/dataman-in-ai/from-rnn-lstm-to-temporal-fusion-transformers-and-lag-llama-6e6a62c811bd"
 ---
 
-
-![이미지](/assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_0.png)
+![이미지](/TIL/assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_0.png)
 
 샘플 eBook 챕터(무료): [링크](https://github.com/dataman-git/modern-time-series/blob/main/20240522beauty_TOC.pdf)
 
@@ -22,12 +21,14 @@ Amazon.com에서 프린트 버전: $65
 [링크](https://a.co/d/25FVsMx)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -47,12 +48,14 @@ Amazon.com에서 프린트 버전: $65
 RNN/LSTM에서 시퀀스-투-시퀀스(Seq2Seq) 모델로
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -68,33 +71,35 @@ RNN/LSTM에서 시퀀스-투-시퀀스(Seq2Seq) 모델로
 Ilya Sutskever, Oriol Vinyals 및 Quoc V. Le이 2014년에 "Neural Networks를 사용한 Sequence to Sequence Learning" 논문을 발표했을 때 번역 솔루션이 크게 발전했어요 [1]. 그들의 신경망 프레임워크는 일반적인 유연성을 제공하며 수작업 기능이나 특별한 기능이 필요하지 않아요. 무엇보다도, Seq2Seq는 다양한 길이 문제를 효과적으로 해결할 수 있어요. Seq2Seq는 입력 시퀀스를 "컨텍스트 벡터"로 인코딩하는 인코더 네트워크와 이 벡터로부터 출력 시퀀스를 생성하는 디코더 네트워크로 구성되어 있어요. 이 전략은 입력 시퀀스와 대상 시퀀스를 아주 잘 분리시킵니다. (그림 1)을 참조해 보세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Figure (2)](/assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_1.png)
+![Figure (2)](/TIL/assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_1.png)
 
 인코더 RNN과 디코더 RNN의 펼침 표현이 포함된 그림 (2)입니다. 컨텍스트 벡터는 입력 시퀀스의 의미적인 의미를 포착합니다. Seq2Seq 모델은 정보를 해석하여 다른 언어로 번역하기 위한 방법으로 생각할 수 있습니다.
 
-![RNN/LSTM](/assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_2.png)
+![RNN/LSTM](/TIL/assets/img/2024-07-09-FromRNNLSTMtoTemporalFusionTransformersandLag-Llama_2.png)
 
 RNN/LSTM은 시계열 모델링 도구이며 이제는 언어 모델링 도구로 활용되고 있습니다. 언어 데이터와 시계열 데이터 사이에 기본적인 차이가 있습니다. 언어 데이터는 단어와 문장부호이고, 시계열 데이터는 숫자 값입니다. 언어 데이터는 신경망 알고리즘에 피드하기 위해 숫자 벡터 표현으로 변환되어야 합니다. 출력 또한 단어가 되도록 디코딩되어야 합니다. 논문 [1]에서는 입력 데이터로 16만개의 자주 사용되는 단어를 사용했습니다. 단어 "I"는 "I"의 요소 위치가 1.0이고 그렇지 않으면 0.0인 16만 길이의 벡터가 됩니다. 마찬가지로, 단어 "love"는 다른 16만 길이의 벡터로 "love"의 요소 위치가 1.0이 되고 그렇지 않으면 0.0이 됩니다. 텍스트 표현에 대한 자세한 설명은 Kuo (2023)의 "The Handbook of NLP with Gensim" [3]에서 찾아볼 수 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -104,12 +109,14 @@ RNN/LSTM은 시계열 모델링 도구이며 이제는 언어 모델링 도구�
 이제 가중치와 편향에 집중해 봅시다. 단어의 위치와 무관하게 모두 동일하다는 사실은 너무 제한적으로 보입니다. 예를 들어, "love"와 "."가 동일한 가중치와 편향을 갖는 것은 자연스럽지 않고 제한적으로 보입니다. 모든 말소통이 마법 같으며 많은 내재적 함축을 가질 수 있습니다. 문장을 인코딩하기 위해 LSTM 세트만 사용하는 것은 많은 정보를 잃을 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -121,12 +128,14 @@ Figure (2)에서 컨텍스트 벡터와 디코더에 대해 이야기해 봅시�
 Seq2Seq의 혁신을 알았으니, 이제 두 번째 특징인 주의 메커니즘에 대해 알아봅시다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -140,12 +149,14 @@ Seq2Seq의 혁신을 알았으니, 이제 두 번째 특징인 주의 메커니�
 그림(5)은 왼쪽의 단일 파이프라인 아키텍처가 오른쪽의 주의 메커니즘으로 대체된 것을 보여줍니다. 디코딩하는 동안 각 시간 단계마다, 디코더는 이전 숨겨진 상태 및 이전에 생성된 토큰을 기반으로 숨겨진 상태(gt)를 생성합니다. 그런 다음 주의 메커니즘은 입력 시퀀스의 각 위치에 대해 주의 가중치를 계산합니다. 이 가중치는 각 입력 토큰이 현재 디코딩 단계에 대해 얼마나 관련성 또는 중요성이 있는지 나타냅니다. 주의 가중치를 사용하여 컨텍스트 벡터가 계산되고 인코더 상태의 가중 합으로 계산됩니다. 그런 다음 이 컨텍스트 벡터가 현재 디코더 상태와 결합되어 현재 시간 단계의 출력 토큰을 생성합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -159,12 +170,14 @@ Seq2Seq의 혁신을 알았으니, 이제 두 번째 특징인 주의 메커니�
 셀프-어텐션은 내부 주의라고도 불리는 특정 유형의 주의 메커니즘입니다. "셀프"라는 용어는 셀프-어텐션이 외부 문장에 주의를 기울이는 것이 아닌 같은 문장 내에서 내부적으로 작동한다는 점을 강조합니다. 이 메커니즘은 다양한 자연어 처리 작업에서 매우 효과적임이 입증되었습니다. 이는 “Attention is All You Need”(2017) [2]라는 고전적 논문에서 제안되었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -178,12 +191,14 @@ Seq2Seq의 혁신을 알았으니, 이제 두 번째 특징인 주의 메커니�
 쿼리, 키, 밸류 벡터에 대해 설명이 필요할 것 같네요. 하나씩 설명해보죠.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -197,12 +212,14 @@ Seq2Seq의 혁신을 알았으니, 이제 두 번째 특징인 주의 메커니�
 트랜스포머 모델은 주의 메커니즘을 기반으로 한 구조로 자연어 처리 작업을 혁신적으로 변화시켰습니다. 아래는 트랜스포머 아키텍처를 보여주는 그림입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -219,12 +236,14 @@ Figure (6)의 오른쪽에 있는 디코더 스택은 인코더 스택과 유사
 트랜스포머에서 시계열 퓨전 트랜스포머(TFT)로!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -238,12 +257,14 @@ Transformer 아키텍처는 원래 기계 번역 및 질문 응답과 같은 순
 여러 시계열 데이터의 특징을 얻는 방법부터 시작해 보겠습니다. 시계열 데이터는 현재 및 늦춰진 값 사이의 시간적 패턴을 가집니다. 또한 캘린더 관련 정보도 포함하고 있습니다. 캘린더 기능은 일주일의 날짜나 월의 주와 같은 것들인데, 미래에도 결정적입니다. 그래서 TFT는 네 가지 종류의 특징을 만듭니다. 이전 장 "Amazon's DeepAR for RNN/LSTM"의 Walmart 매장 판매 데이터를 사용하여 네 가지 특징 그룹을 설명하겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -260,12 +281,14 @@ Transformer 아키텍처 외에도, TFT를 매력적인 선택지로 만드는 �
 이번 개요 챕터에서는 TFT에 대해 깊이 파헤치지 않을 예정입니다. 다음 챕터 "해석 가능한 시계열 예측을 위한 Temporal Fusion Transformer"에서 TFT 아키텍처와 시각화에 대해 자세히 알아보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -279,12 +302,14 @@ Transformer 아키텍처 외에도, TFT를 매력적인 선택지로 만드는 �
 Lag-Llama— 오픈 소스 시계열 기본 모델
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -296,12 +321,14 @@ Lag-Llama 모델은 LLaMA 모델의 디코더 부분을 기반으로 하며 다�
 Lag-Llama는 확률적 출력을 학생 t-분포에서 추출한 결과로 근사합니다. 따라서 학생 t-분포의 세 매개변수, 즉 자유도, 평균 및 척도를 모델링합니다. "시계열 확률적 예측을 위한 몬테칼로 시뮬레이션"이라는 이전 챕터에서 학생 t-분포에 대해 공부했습니다. 학생 t-분포를 이해하기 위해 해당 챕터를 참조할 수 있습니다. Lag-Llama에는 다른 분포도 포함시킬 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -315,12 +342,14 @@ Lag-Llama는 확률적 출력을 학생 t-분포에서 추출한 결과로 근�
 이 장에서는 RNN/LSTM부터 Temporal Fusion Transformer 및 Lag-라마로 이어지는 시계열 모델링 기술의 진화를 살펴보았습니다. Seq2Seq 모델, 어텐션 메커니즘, 셀프 어텐션 메커니즘 및 트랜스포머 모델에 대해 다루었습니다. 언어 트랜스포머 모델이 시계열에 효과적이지 않을 수 있는 이유를 설명했습니다. 그리고 시계열 인코딩 기술을 통합하고 해석 가능성과 불확실성 추정을 강조하는 Temporal Fusion Transformer(TFT)를 소개했습니다. 마지막으로, 단일 변수 확률적 시계열 예측을 위해 설계된 오픈 소스 기본 모델인 Lag-라마를 소개했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -345,12 +374,14 @@ Lag-Llama는 확률적 출력을 학생 t-분포에서 추출한 결과로 근�
 샘플 eBook 장(chapter) (무료): [여기를 클릭해주세요](https://github.com/dataman-git/modern-time-series/blob/main/20240522beauty_TOC.pdf)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -367,12 +398,14 @@ https://a.co/d/25FVsMx
 - "이 책은 시계열 분석 및 예측 분석, 이상 탐지에 대한 깊은 이해를 증명하는 책입니다. 독자들이 현실 세계의 문제에 대처하기 위한 필수 기술을 갖추게 도와줍니다. 데이터 과학 분야로의 직군 전환을 원하는 사람들에게 특히 가치 있습니다. Kuo는 전통적이고 혁신적인 기술에 대해 상세히 탐구합니다. 최신 경향과 발전을 반영하기 위해 신경망 및 다른 고급 알고리즘에 대한 논의가 통합되어 있습니다. 이를 통해 독자들은 기존 방법뿐만 아니라 데이터 과학 분야의 가장 최신이자 혁신적인 기술과 상호작용할 준비가 되어 있습니다. Kuo의 생동감 넘치는 글쓰기 스타일로 책의 명료함과 접근성이 향상되었습니다. 그는 복잡한 수학적 및 통계적 개념을 분명하게 풀어내어 엄밀성을 희생하지 않으면서도 접근하기 쉽게 만들었습니다."
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -386,12 +419,14 @@ Chapter 1: 소개
 Chapter 2: 비즈니스 예측을 위한 Prophet
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -405,12 +440,14 @@ Chapter 2: 비즈니스 예측을 위한 Prophet
 ### 장 6: 시계열 확률 예측을 위한 몬테카를로 시뮬레이션
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -424,12 +461,14 @@ Chapter 2: 비즈니스 예측을 위한 Prophet
 10장: 자동 ARIMA!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -443,12 +482,14 @@ Chapter 2: 비즈니스 예측을 위한 Prophet
 # 14장: 다기간 시계열 예측을 위한 두 가지 주요 전략
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -462,12 +503,14 @@ Chapter 2: 비즈니스 예측을 위한 Prophet
 ### 18장: 주가에 대한 확률적 예측 응용
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

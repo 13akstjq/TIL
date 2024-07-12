@@ -1,31 +1,32 @@
 ---
 title: "코드 몇 줄로 40개의 머신러닝 모델 적용하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_0.png"
 date: 2024-07-07 19:15
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_0.png
 tag: Tech
 originalTitle: "A couple lines of code to apply 40 ML models"
 link: "https://medium.com/@benhui.ca/a-couple-lines-of-code-to-apply-40-ml-models-d6024a98197e"
 ---
 
-
-<img src="/assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_0.png" />
+<img src="/TIL/assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_0.png" />
 
 이 글에서는 "lazypredict" 라이브러리를 소개하려고 합니다. 이 라이브러리를 사용하면 여러 개의 머신러닝 모델을 동시에 적용할 수 있습니다.
 
 이 라이브러리는 pip로 설치할 수 있습니다:
 
-<img src="/assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_1.png" />
+<img src="/TIL/assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_1.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -42,15 +43,17 @@ df = pd.read_csv('https://gist.githubusercontent.com/pravalliyaram/5c05f43d23512
 df.head()
 ```
 
-![이미지](/assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_2.png)
+![이미지](/TIL/assets/img/2024-07-07-Acouplelinesofcodetoapply40MLmodels_2.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

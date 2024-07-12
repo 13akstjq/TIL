@@ -1,31 +1,32 @@
 ---
 title: "Python으로 나만의 트레이딩 인덱스 만드는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-BuildyourowntradingindexwithPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-BuildyourowntradingindexwithPython_0.png"
 date: 2024-07-09 20:37
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-BuildyourowntradingindexwithPython_0.png
 tag: Tech
 originalTitle: "Build your own trading index with Python"
 link: "https://medium.com/python-in-plain-english/build-your-own-trading-index-with-python-483cea143bc2"
 ---
 
-
 ## 거래 결정 도구
 
-![Trading Index](/assets/img/2024-07-09-BuildyourowntradingindexwithPython_0.png)
+![Trading Index](/TIL/assets/img/2024-07-09-BuildyourowntradingindexwithPython_0.png)
 
 맞춤 지수는 자산 구성 및 가중치에 대한 유연성과 제어를 제공하여 전통적인 지수와 비교했을 때 투자 전략을 더 잘 반영할 수 있는 고유한 기준을 제공합니다. 이 기사에서는 Python을 사용하여 맞춤 지수를 작성하는 방법을 안내하겠습니다.
 
 ## 왜 맞춤 지수를 사용해야 하나요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,12 +42,14 @@ link: "https://medium.com/python-in-plain-english/build-your-own-trading-index-w
 제가 미국 달러(USD)를 선택한 이유는 우리가 사용자 정의 결과를 실제 지수와 비교하여 테스트할 수 있기 때문입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -65,12 +68,14 @@ import mplfinance as mpf
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -90,12 +95,14 @@ with open('currencies_pairs.json') as f:
 아래 for 루프를 사용하면 모든 쌍에 대한 1시간 가격을 다운로드하고, 우리 사랑하는 `yfinance`의 도움으로 이를 딕셔너리에 추가할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -121,12 +128,14 @@ print(mindate, maxdate)
 이제 계산할 통화의 지수와 이 통화를 포함하는 모든 통화에 대한 종가를 갖는 데이터 프레임을 생성하고 설정해야 합니다. 통화가 판매 쪽에 있다면 환율을 뒤집어서 모두 매수쪽으로 가져와야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -143,7 +152,7 @@ for pair in pairs:
     elif 통화 in pairs[pair]['sellcur']:
         print("매도", pair)
         mydict[pairs[pair]['buycur']] = 1 / pairs[pair]['df']['Close']
-    
+
 df_currency = pd.DataFrame(mydict)
 ```
 
@@ -160,12 +169,14 @@ weights = [weight / sum(weights) for weight in weights]
 이제 가중 폐장 가격을 생성하고 선택한 데이터프레임으로 재샘플링하는 마법이 일어납니다(원본보다 더 높아야 함).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -192,16 +203,18 @@ ohlc.dropna(inplace=True)
 과정을 확인하려면 실제 미국 달러 지수를 다운로드하여 비교해보겠습니다.
 
 ```js
-usd_dollar_index = yf.download('DX-Y.NYB', start='2023-01-01',end='2023-12-31', interval='1d')
+usd_dollar_index = yf.download("DX-Y.NYB", (start = "2023-01-01"), (end = "2023-12-31"), (interval = "1d"));
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -209,21 +222,23 @@ usd_dollar_index = yf.download('DX-Y.NYB', start='2023-01-01',end='2023-12-31', 
 첫 번째 점검은 시각적으로 이루어질 것입니다. 그래서 우리가 만든 그래프와 공식 그래프를 겹쳐서 플로팅할 거에요. 멋져 보이죠?
 
 ```js
-mpf.plot(ohlc,type='candle',figratio=(30,10))
-mpf.plot(usd_dollar_index,type='candle',figratio=(30,10))
+mpf.plot(ohlc, (type = "candle"), (figratio = (30, 10)));
+mpf.plot(usd_dollar_index, (type = "candle"), (figratio = (30, 10)));
 ```
 
-<img src="/assets/img/2024-07-09-BuildyourowntradingindexwithPython_1.png" />
+<img src="/TIL/assets/img/2024-07-09-BuildyourowntradingindexwithPython_1.png" />
 
 다른 방법은 종가의 상관 관계를 점검하는 것이에요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -247,14 +262,15 @@ correlation = combined_df.corr().iloc[0, 1]
 
 여기에서 Git Hub에서 코드와 통화 쌍에 대한 json 파일을 찾을 수 있습니다. 클릭하세요.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -270,12 +286,14 @@ correlation = combined_df.corr().iloc[0, 1]
 면책 조항: 이 글에서 투자의 흥미로운 세계를 탐험하는 동안 교육 목적으로 제공되는 정보임을 꼭 상기해주세요. 저는 금융 자문가가 아니며 여기에 게시된 내용은 금융 조언으로 간주되지 않습니다. 언제나 연구를 하시고 투자 결정을 내리기 전에 전문가와 상의하는 것을 고려해주십시오.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

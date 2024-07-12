@@ -1,19 +1,18 @@
 ---
 title: "Flask와 SQLAlchemy를 사용한 데이터베이스 통합 방법"
 description: ""
-coverImage: "/assets/img/2024-07-07-UsingFlaskwithSQLAlchemyforDatabaseIntegration_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-UsingFlaskwithSQLAlchemyforDatabaseIntegration_0.png"
 date: 2024-07-07 02:30
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-UsingFlaskwithSQLAlchemyforDatabaseIntegration_0.png
 tag: Tech
 originalTitle: "Using Flask with SQLAlchemy for Database Integration"
 link: "https://medium.com/@oludakevin/using-flask-with-sqlalchemy-for-database-integration-f2d7182ef0f1"
 ---
 
-
 이 기사에서는 SQLAlchemy를 사용하여 Flask 애플리케이션에 데이터베이스를 통합하는 방법에 대해 살펴볼 것입니다. SQLAlchemy는 데이터베이스 상호 작용을 훨씬 쉽게 만드는 파이썬용 강력한 SQL 툴킷 및 객체 관계 매핑(ORM) 라이브러리입니다.
 
-![이미지](/assets/img/2024-07-07-UsingFlaskwithSQLAlchemyforDatabaseIntegration_0.png)
+![이미지](/TIL/assets/img/2024-07-07-UsingFlaskwithSQLAlchemyforDatabaseIntegration_0.png)
 
 SQLAlchemy란 무엇인가요?
 SQLAlchemy는 개발자들이 파이썬 객체를 사용하여 데이터베이스 작업을 수행할 수 있는 인기 있는 ORM 라이브러리로, 원시 SQL 쿼리를 작성하지 않고도 데이터베이스 작업을 더 쉽게 관리할 수 있게 해줍니다.
@@ -21,12 +20,14 @@ SQLAlchemy는 개발자들이 파이썬 객체를 사용하여 데이터베이�
 ## Flask 및 SQLAlchemy 설정하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -42,12 +43,14 @@ SQLAlchemy를 사용한 기본 Flask 애플리케이션 만들기
 - 프로젝트 구조: 프로젝트 구조를 다음과 같이 설정하세요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -74,14 +77,15 @@ class Config:
 
 3. 모델 정의: 데이터베이스 모델을 정의하는 models.py 파일을 생성하세요:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -288,3 +292,4 @@ if __name__ == '__main__':
 </script>
 
 이 글에서는 SQLAlchemy를 Flask와 통합하여 데이터베이스 작업을 관리하는 방법을 다루었습니다. 우리는 간단한 사용자 모델을 생성하고 데이터베이스와 상호 작용하기 위한 CRUD 작업을 구현했습니다. SQLAlchemy의 ORM 기능은 Flask 애플리케이션에서 데이터베이스 관리를 위한 강력한 도구로 만들어 줍니다.
+```

@@ -1,31 +1,32 @@
 ---
 title: "파이썬에서 덮어쓰기 헷갈리지만 위험하고 강력한 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_0.png"
 date: 2024-07-09 19:09
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_0.png
 tag: Tech
 originalTitle: "Overwriting in Python: Tricky. Dangerous. Powerful"
 link: "https://medium.com/towards-data-science/overwriting-in-python-tricky-dangerous-powerful-04b12a9b1a7e"
 ---
 
-
 ## 파이썬 프로그래밍
 
-![이미지](/assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_0.png)
+![이미지](/TIL/assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_0.png)
 
 파이썬에서 여러 가지 객체를 덮어썼습니다. 여러분도 파이썬으로 코딩하는데 많은 시간을 보냈다면 이를 경험했을 것입니다. 적어도 파이썬에서는 객체를 덮어쓰는 것이 이 언어의 핵심이기 때문입니다.
 
 변수를 덮어썼지만 함수, 클래스, 그리고 클래스 메서드까지도 덮어썼습니다. 때로는 예외까지 덮어썼습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/towards-data-science/overwriting-in-python-tricky-dang
 그럼에도 불구하고 나는 '덮어쓰기'라는 용어를 넓은 의미로 사용합니다. 특정 상황에서는 더 정확한 용어가 특정 형태의 덮어쓰기를 더 잘 설명할 수 있습니다. 오버로딩과 몽키 패칭과 같은 형태의 덮어쓰기를 보다 정확하게 설명하는 것이요. 오버로딩은 다양한 유형의 입력에 대해 작동하도록 함수를 정의하는 것을 말합니다. 몽키 패칭은 실행 시간에 클래스, 함수 또는 모듈의 동적 수정을 참조하며, 원본 객체를 수정하지 않고 호출 가능한 객체의 동작을 변경할 때 자주 사용됩니다. 그러나 이러한 용어들은 모두 덮어쓰기의 특정 사례입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -58,12 +61,14 @@ link: "https://medium.com/towards-data-science/overwriting-in-python-tricky-dang
 일반적으로, Python에서 덮어쓰기란 이름에 새 객체를 할당하는 것을 의미합니다. 그러니까:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -85,12 +90,14 @@ link: "https://medium.com/towards-data-science/overwriting-in-python-tricky-dang
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -111,12 +118,14 @@ link: "https://medium.com/towards-data-science/overwriting-in-python-tricky-dang
 Python의 동적 유형 시스템은 변수가 수명 주기의 어느 시점에서든 어떤 유형의 개체를 참조할 수 있도록하는 중요한 수준의 유연성을 제공합니다. 이에 대해 자세히 읽을 수 있는 다음 글이 있으니 참고하세요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -130,12 +139,14 @@ Python의 동적 유형 시스템은 변수가 수명 주기의 어느 시점에
 한편으로, 파이썬의 동적 타이핑은 변수가 수명 동안 다른 유형의 값들을 보관할 수 있도록 합니다. 다른 한편으로, 타입 힌트의 도입은 예상 유형을 명시하는 방법을 제공하면서 코드의 가독성을 향상시키고 정적 분석 도구를 지원합니다. 예를 들어, 타입 힌트 관점에서 첫 번째 코드 블록에서 x를 덮어쓰는 것은 완전히 올바릅니다. 그러나 두 번째 블록에서는 그렇지 않습니다. 이는 정수를 새 이름 x에 할당할 때 타입 힌트를 넣지 않고 실제로는 x가 정수임을 간접적으로 타입 검사기에 알렸기 때문입니다. 이후에 x를 문자열로 덮어쓰기 때문입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -157,12 +168,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 잠깐, 뭐라구요?! 왜 타입 힌트에 대해 그렇게 많이 언급하나요? 우리는 파이썬에서 덮어쓰기에 대해 얘기하고 싶지 않았나요? 왜 이걸 하고 있지 않나요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -176,12 +189,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 다양한 객체 유형을 다루지만 관련 위험요소가 기본적으로 동일하기 때문에 세 가지 덮어쓰기 형태를 함께 설명하기로 결정했습니다. 따라서 가독성을 위해 함수에 대해 설명하겠지만, 모든 내용은 동일하게 클래스, 클래스 메서드 및 기타 콜러블 객체에도 적용됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -195,31 +210,35 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 \[이미지 첨부: "2024-07-09-OverwritinginPythonTrickyDangerousPowerful_1.png"\]
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 위에서 sum 함수를 max 함수로 덮어썼습니다. 그러나 더 많은 것을 할 수 있습니다. 아래에서 sum 함수를 문자열로 덮어씁니다!
 
-![이미지](/assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_2.png)
+![이미지](/TIL/assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_2.png)
 
 파이썬에서 덮어쓰기가 어떻게 작동하는지 이해하려면 파이썬에서 전역 변수가 어떻게 작동하는지 이해하는 것이 중요합니다. 이와 관련한 자세한 내용은 다음 기사에서 확인할 수 있습니다:
 
 간단히 말하면, 한 모듈에서 sum을 덮어쓰면 다른 모듈에 영향을 미치지 않습니다. 따라서 sum은 여기에 덮어씌워지지 않습니다. 이것은 기억해야 할 중요한 사항입니다. 왜냐하면 위에서 보여준대로 sum을 덮어쓰면 두 개의 다른 sum 함수가 만들어지기 때문입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -234,12 +253,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 이 글은 파이썬에서 전역 변수와 파이썬 모듈에서 객체를 가져오는 다양한 방법에 대한 두 가지 기사로, 파이썬에서 덮어쓰기가 어떻게 작동하는지 이해하는 데 필요한 지식을 제공합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -253,12 +274,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 더 많은 Python decoration에 대해 알고 싶다면, 다음 기사에서 기본 및 고급 정보를 찾을 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -276,12 +299,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 4번째 단계에서 무엇을 했는지 주목했나요? 다른 것이 아니라 덮어쓰기입니다 — 이것이 장식이 덮어쓰기의 한 형태인 이유입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -295,12 +320,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 지금 이 방식을 다른 모듈에 숨겨진 한 줄로 함수를 덮어씌우는 방식과 비교해보세요. 꾸미기는 덮어쓰기를 알려주고 있지만, 후자의 방식은 조용히 속삭이는 것과 같습니다: "쉿... 덮어쓰고 있어요... 이 함수를... 다르게 동작하게 할 거에요..."
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -314,12 +341,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 다음 가상이지만 완전히 타당한 사례 연구를 고려해 보겠습니다. 이 시나리오를 읽고 분석하면서 개발자의 역할을 맡아주세요. 실수를 저지른 사람은 아니지만 그 결과물과 씨름해야 하는 사람이 바로 여러분입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -333,31 +362,35 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 21주차에 드디어 출력물의 문제를 인식하게 되었습니다. 처음에 데이터에 문제가 있을 수 있다는 것을 알아차렸지만, 이를 찾지 못했습니다. 코드를 디버깅했지만 덮어쓰기를 알지 못했습니다 — 코드 전체를 한 줄씩 디버깅하는 것은 선택지가 아니었고, 적어도 처음에는 가능한 방법이 아니었습니다. 왜냐하면 10만 줄 이상의 코드를 다루는데, 버그를 찾을 위치조차 알 길이 없기 때문입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 결국, 해결되지 않은 디버깅을 3일 더 한 후에 모든 것이 다운되었습니다. E-V-E-R-Y-T-H-I-N-G!
 
-![image](/assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_3.png)
+![image](/TIL/assets/img/2024-07-09-OverwritinginPythonTrickyDangerousPowerful_3.png)
 
 모든 유닛 테스트는 통과했는데, 이는 해당 시나리오를 커버하지 않았다는 것을 의미합니다. 해킹은 심지어 설명서에도 언급되지 않았습니다. 그래서 그것을 간과한 것이 당연한 일이었습니다.
 
 따라서 첫 번째 결론은: 덮어쓰기 해킹을 사용할 때는 항상 명확하게 문서화하고, 해당되는 유닛 테스트를 구현하고, 그것들을 철저하게 만드는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -371,12 +404,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 이 예에서 덮어쓰기는 해킹이었습니다. 그러나 항상 그런 것은 아닙니다. 종종 이는 의도적인 결정일 수 있습니다. Python은 다양한 상황에서 다양한 개체를 덮어쓸 수 있도록 허용하기 때문에 이 기법을 사용하는 데 주저하지 마세요. 그러나 이를 할 때 항상 주의해야 합니다. 결과 코드가 불분명해질 위험이 있다면, 이를 문서화하고 이 특정 객체를 덮어쓰기로 선택한 이유를 설명하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -390,12 +425,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 아래에서 덮어쓰기의 가능한 위험 목록을 찾을 수 있습니다. 이 목록이 완전한 것은 아니지만, 가장 중요한 위험을 다루고 있다고 생각합니다. 객체를 덮어쓸 때 이러한 위험들을 인식하는 것이 좋습니다 — 특히 덮어쓰기가 복잡하거나 비표준적이거나 불분명할 때입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -409,12 +446,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 ## 2. 유지보수
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -428,12 +467,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 따라서 이러한 변경은 업데이트 후 진단하기 어려운 오류로 이어질 수 있습니다. 덮어씌운 기능에 대한 좋은 단위 및 통합 테스트가 도움이 될 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -447,12 +488,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 ## 5. 성능
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -466,12 +509,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 물론 성능이 중요하지 않다면, 벤치마킹에 미친 듯이 집착할 필요는 없습니다. 그렇다고 완전히 무시해선 안 됩니다. 이러한 경우에도 특정 함수나 클래스를 덮어써서 코드를 천 배 느리게 만들지 않았는지 확인하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -485,12 +530,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 이 추가된 복잡성이 반드시 문제가 되지는 않지만, 혼동과 오해로 이어질 수 있습니다. 따라서, 덮어쓰기로 인해 애플리케이션에서 발생하는 환경 변경 사항을 문서화하는 것을 기억해 주세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -504,12 +551,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 클래스의 개인 속성을 덮어쓰면 원래 개발자가 방지하려고 했던 것을 정확히 하는 것입니다. 때로는 원래 개발자가 계획하지 않은 기능을 달성하기 위해 필요할 수 있지만, 그럼에도 불구하고 이러한 조치는 객체 지향 프로그래밍(OOP)의 기본 원칙에 도전할 수 있어서 불안정한 코드로 이어질 수 있습니다. OOP 원칙을 훼손한다고 생각하는 사람들도 있는데, 이는 강한 표현이지만 무리가 없는 발언입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -523,12 +572,14 @@ x가 정수 또는 문자열일 수 있다고 알려주면, 타입 체커는 이
 이전에 언급했듯이, 덮어쓴 기능에 대한 새로운 단위 및 통합 테스트를 구현하는 것은 효과적이며 종종 필수적인 안전장치입니다. 그러나 기존 기능의 동작을 변경하면 기존 테스트에 영향을 미칠 것이라는 점을 기억하는 것이 중요합니다. 최소한 일부 기존 동작을 고려한 테스트 중 몇 개는 실패해야 합니다. 그리고 그것은 놀랄 일이 아니어야 합니다. 왜냐하면 우리는 다른 동작을 얻기 위해 기능을 덮어썼기 때문입니다. 사실, 이러한 중요한 변경사항 이후에 모든 원래 테스트가 여전히 통과한다면, 원래 테스트가 충분히 설계되지 않았을 수도 있다는 것을 나타낼 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -550,12 +601,14 @@ def test_foo_blahblah():
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -569,12 +622,14 @@ def test_foo_blahblah():
 ## 9. 디버깅의 어려움
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -598,12 +653,14 @@ if __name__ == "__main__":
 다음과 같이 할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -654,12 +711,14 @@ if __name__ == "__main__":
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -673,12 +732,14 @@ if __name__ == "__main__":
 이 섹션에서는 다른 시나리오로서의 덮어쓰기 사용에 대해 이야기하고 싶습니다. 보통 이러한 경우에는 그 정도 리스크를 안고있지 않고, 때로는 전혀 리스크가 없을 수도 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -709,12 +770,14 @@ False
 Counter를 적용한 Counter 인스턴스를 비교하는 것은 요소를 비교하고 순서는 무시한다는 것을 보실 수 있습니다. 따라서 list_1과 list_2가 동일한 요소를 가지고 있더라도 요소의 순서가 다르기 때문에 서로 다르다는 것이죠. 그러나 이들 리스트에 Counter를 적용한 후에 비교하는 경우, 비교 결과는 True를 반환합니다. list_3는 이들 중 양쪽과 다른 요소를 가지고 있기 때문에, list_1 및 list_2로부터 Counter를 적용한 비교에서 실패합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -733,12 +796,14 @@ False
 하나씩 확인할 수 있습니다. 한편으로, 이는 각 어설션을 개별적으로 확인하기 때문에 좋은 방법일 수 있습니다. 그러나 반대로 이것은 상당히 시간 소요가 될 수 있습니다, 특히 새로운 어설션이 모두 통과하는 경우가 발생할 때. 그렇다면 빠르게 이 작업을 수행할 방법이 있는가요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -752,12 +817,14 @@ False
 대신 덮어쓰기를 사용할 수 있습니다. 이 특정 상황에서는 실제로 매우 간단합니다. Counter(list_1)을 list_1이나 일반적으로 Counter(obj)를 obj와 같은 의미로 만들고 싶은 경우, Counter를 동일한 함수로 덮어씌우면 됩니다. 동일한 함수는 객체(예: obj)를 받아서 변경하지 않은 채로 반환하는 함수입니다. 이를 정의하는 것은 매우 간단합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -779,12 +846,14 @@ Counter = lambda obj: obj
 당연히 일반적인 def 정의를 사용할 수도 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -814,12 +883,14 @@ False
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -845,12 +916,14 @@ True
 이것은 개발 기술에 불과하다는 것을 기억하세요. 얼마나 유혹적인지에 관계없이 실제 코드에서 사용해서는 안 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -864,12 +937,14 @@ True
 덮어쓰기가 종종 해킹으로 여겨지기도 하지만 항상 그런 것은 아니에요. 개발자의 도구 세트에서 표준적이고 귀중한 도구가 될 수 있어요. 그러나 단순 변수 외의 복잡한 객체에 덮어쓰기를 사용하는 경우에는 기본적인 조건을 기억해야 해요. 개발 목적의 일시적인 해결책이 아닌 경우, 덮어쓰기의 각 인스턴스는 충분히 문서화되고 명확하고 포괄적인 테스트로 처리되어야 해요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -883,12 +958,14 @@ True
 이 글을 계획할 때, 상당히 간단할 것으로 예상했습니다. 덮어쓰기의 위험에 대해 얼마나 많은 얘기를 할 수 있겠는가? 그러나 주제에 더 깊이 파고들수록 그 안에 복잡한 부분들을 보게 되었습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

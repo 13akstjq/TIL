@@ -1,17 +1,16 @@
 ---
 title: "FastAPI Apppy에서 모듈러 아키텍처로 전환하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_0.png"
 date: 2024-07-09 20:24
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_0.png
 tag: Tech
 originalTitle: "FastAPI: From App.py to a Modular Architecture"
 link: "https://medium.com/towardsdev/fastapi-from-app-py-to-a-modular-architecture-54ca9e0044eb"
 ---
 
-
-<img src="/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_0.png" />
+<img src="/TIL/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_0.png" />
 
 패스트API를 사용하여 백엔드를 구축할 때, 일반적으로 하나의 app.py 파일로 시작하는 것이 흔합니다. 이 접근 방식은 작은 프로젝트에 적합하지만, 응용 프로그램이 성장함에 따라 유지 보수와 확장이 어려워집니다.
 
@@ -20,31 +19,35 @@ link: "https://medium.com/towardsdev/fastapi-from-app-py-to-a-modular-architectu
 ## 소개: 우리의 할 일 API
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 리팩터링 프로세스에 뛰어들기 전에 함께 작업할 API를 살펴보겠습니다. 다음과 같은 엔드포인트를 가진 간단한 할 일 애플리케이션을 구축 중입니다.
 
-![API Image](/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_1.png)
+![API Image](/TIL/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_1.png)
 
 이러한 API를 통해 사용자는 할 일 항목에 대한 CRUD(Create, Read, Update, Delete) 작업을 수행할 수 있습니다. 각 할 일 항목은 다음과 같은 속성을 가지게 될 것입니다.
 
 이제 작업 중인 API를 이해했으므로 몇 가지 전제 조건 및 이를 구현하는 방법을 살펴보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -59,17 +62,19 @@ source env/bin/activate  # Windows에서는 `env\Scripts\activate
 ```
 
 ```js
-fastapi
-uvicorn
+fastapi;
+uvicorn;
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -149,12 +154,14 @@ if __name__ == "__main__":
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -171,18 +178,19 @@ API를 시작하려면 python3 app.py 명령어를 사용해요
 - 코드의 재사용성이 제한되어요
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![FastAPIFromApppytoaModularArchitecture](/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_2.png)
+![FastAPIFromApppytoaModularArchitecture](/TIL/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_2.png)
 
 Refactoring journey starts now...
 
@@ -190,14 +198,15 @@ Refactoring journey starts now...
 
 To structure our application effectively, the first step is to introduce routers.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -246,12 +255,14 @@ if __name__ == "__main__":
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -265,12 +276,14 @@ if __name__ == "__main__":
 controllers라는 새 디렉토리를 생성하고 todo_controller.py라는 파일을 추가하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -352,12 +365,14 @@ def delete_todo(todo_id: int):
 ## 서비스 레이어 구현
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -412,12 +427,14 @@ class TodoService:
 todo_controller.py를 업데이트하여 서비스를 사용하도록합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -461,12 +478,14 @@ class TodoController:
 repositories라는 새 디렉토리를 만들고 todo_repository.py라는 파일을 추가하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -542,12 +561,14 @@ class TodoService:
 우리의 리팩터링 여정은 여기서 끝납니다…
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -563,17 +584,19 @@ class TodoService:
 우리의 리포지토리는 이제 다음과 같이 보입니다...
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-`<img src="/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_3.png" />`
+`<img src="/TIL/assets/img/2024-07-09-FastAPIFromApppytoaModularArchitecture_3.png" />`
 
 FastAPI 애플리케이션을 모듈식 아키텍처로 리팩토링함으로써, 지속적인 성장과 유연성을 위한 견고한 기반을 마련했습니다. 이 접근 방식은 현재 개발 노력을 향상시킬 뿐만 아니라 앞으로의 도전과 기회에 대비하는 데 도움이 됩니다.
 

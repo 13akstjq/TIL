@@ -1,31 +1,32 @@
 ---
 title: "구버전 AWS Lambda 런타임 자동 업데이트 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_0.png"
 date: 2024-07-09 09:20
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_0.png
 tag: Tech
 originalTitle: "Automate Outdated AWS Lambda Runtime Updates"
 link: "https://medium.com/@akhilesh-mishra/automate-outdated-aws-lambda-runtime-updates-752ec4dc9fd4"
 ---
 
-
 ## Python for devops v1.2 - 구버전/지원 중단된 런타임을 사용 중인 AWS 람다 함수의 업그레이드를 위한 Python 스크립트 작성하기.
 
-![이미지](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_0.png)
+![이미지](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_0.png)
 
 저의 블로그 시리즈 Python for DevOps의 두 번째 블로그 포스트입니다. 여기서는 실제 데브옵스 사용 사례를 탐구하면서 Python 스크립트를 작성해봅니다.
 
 Python for devops 첫 번째 부분 - SQS 큐 암호화 자동화
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ Python for devops 첫 번째 부분 - SQS 큐 암호화 자동화
 # 블로그 포스트에서 다룰 내용은 무엇인가요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -63,12 +66,14 @@ Python for devops 첫 번째 부분 - SQS 큐 암호화 자동화
 # 선행 조건:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -83,12 +88,14 @@ Python for devops 첫 번째 부분 - SQS 큐 암호화 자동화
 - 람다 함수 코드를 위한 디렉터리를 만드세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -107,14 +114,15 @@ def lambda_handler(event, context):
 
 - 디렉토리 내용을 압축하세요
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -129,26 +137,28 @@ zip -r deployment-package.zip .
 
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "lambda.amazonaws.com"
-            },
-            "Action": "sts:AssumeRole"
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
 }
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -159,50 +169,50 @@ zip -r deployment-package.zip .
 aws iam create-role --role-name MyLambdaExecutionRole --assume-role-policy-document file://trust-policy.json
 ```
 
-![연결된 이미지](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_1.png)
+![연결된 이미지](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_1.png)
 
 - 역할에 AWSLambdaBasicExecutionRole 정책을 연결하세요
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 aws iam attach-role-policy --role-name MyLambdaExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-
 
 ## 3. 람다 함수 배포하기
 
 - 람다 함수를 만드는 AWS CLI 명령어는 다음과 같이 보일 것입니다.
 
-
 aws lambda create-function \
-    --function-name MyPython38Function \
-    --runtime python3.8 \
-    --role arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_LAMBDA_EXECUTION_ROLE \
-    --handler lambda_function.lambda_handler \
-    --zip-file fileb://path/to/your/deployment/package.zip
-
+ --function-name MyPython38Function \
+ --runtime python3.8 \
+ --role arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_LAMBDA_EXECUTION_ROLE \
+ --handler lambda_function.lambda_handler \
+ --zip-file fileb://path/to/your/deployment/package.zip
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-- 이제 IAM 역할과 배포 패키지를 사용하여 3개의 람다 함수를 배포할 예정입니다. 
+- 이제 IAM 역할과 배포 패키지를 사용하여 3개의 람다 함수를 배포할 예정입니다.
 
 ```js
 aws lambda create-function \
@@ -217,15 +227,17 @@ aws lambda create-function \
 
 아래와 같이 3개의 람다 함수가 생성됩니다.
 
-![이미지](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_2.png)
+![이미지](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_2.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -245,12 +257,14 @@ source medium_blog/bin/activate
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -259,20 +273,21 @@ source medium_blog/bin/activate
 
 boto3는 Python 라이브러리로, Python을 사용하여 AWS 리소스와 통신할 수 있게 해줍니다.
 
-
 # requirements.txt
-boto3
 
+boto3
 
 - 의존성을 설치해주세요
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -288,31 +303,35 @@ pip install -r requirements.txt
 참고: 블로그 포스트의 전체 코드는 제 공개 GitHub에 올릴 예정이에요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ## 1. Python 모듈을 가져와 boto3를 사용하여 람다 클라이언트를 만듭니다
 
-![lambda client](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_3.png)
+![lambda client](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_3.png)
 
 ## 2. 모든 람다를 나열하는 함수 — 람다 함수 목록을 반환합니다.
 
-![list lambdas](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_4.png)
+![list lambdas](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_4.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -323,15 +342,17 @@ list_functions()[“Functions”] 대신 list_functions().get(“Functions”, N
 
 ## 3. 람다 런타임 가져오기.
 
-<img src="/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_5.png" />
+<img src="/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_5.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -340,55 +361,61 @@ list_functions()[“Functions”] 대신 list_functions().get(“Functions”, N
 
 4. 원하는 런타임과 런타임을 비교하고 런타임이 원하는 것보다 낮으면 True를 반환합니다.
 
-![이미지](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_6.png)
+![이미지](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_6.png)
 
 버전 클래스는 packaging.version 모듈에서 사용되며 버전 문자열을 구문 분석하고 비교하는 데 사용됩니다. 이 함수에서는 현재 런타임 버전이 지정된 버전보다 이전 버전인지 확인합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ## 5. 비교 함수가 True 값을 반환하면 람다 런타임을 업데이트합니다.
 
-![Lambda Runtime Update](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_7.png)
+![Lambda Runtime Update](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_7.png)
 
 이 함수는 람다 함수를 새로운 런타임으로 업데이트합니다.
 
 예외 처리를 위해 try/except 블록을 사용했습니다. 이를 통해 예기치 않은 오류를 관리하고 대응할 수 있습니다. try 블록 내에서 위험한 작업을 시도하고 그에 따른 예외를 except에서 처리하여 프로그램이 오류로 인해 충돌하지 않고 우아하게 회복될 수 있도록 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ## 6. 조각들을 함께 모으기
 
-![이미지](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_8.png)
+![이미지](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_8.png)
 
 ## 7. 스크립트 실행하기
 
-![이미지](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_9.png)
+![이미지](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_9.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -404,33 +431,35 @@ python update_lambda_runtimes.py
 스크립트의 유용성을 높이기 위해 명령줄 인수를 받을 수 있도록 활성화해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Automatic Outdated AWS Lambda Runtime Updates](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_10.png)
+![Automatic Outdated AWS Lambda Runtime Updates](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_10.png)
 
 이 함수는 Python에서 argparse 모듈을 사용하여 명령줄 인자 파서를 만듭니다. 스크립트 실행 시 제공해야 할 인수인 python_version (단축 형식 -a)을 기대합니다.
 
 ## 명령줄 인수를 사용하여 스크립트 실행
 
-![Automatic Outdated AWS Lambda Runtime Updates Example](/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_11.png)
-
+![Automatic Outdated AWS Lambda Runtime Updates Example](/TIL/assets/img/2024-07-09-AutomateOutdatedAWSLambdaRuntimeUpdates_11.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -448,12 +477,14 @@ python update_lambda_runtimes.py --python-version python3.9
 - NodeJS, Go 등 다른 런타임을 포함하는 스크립트 확장하기.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

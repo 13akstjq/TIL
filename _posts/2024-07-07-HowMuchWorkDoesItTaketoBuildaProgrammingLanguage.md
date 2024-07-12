@@ -1,15 +1,14 @@
 ---
 title: "프로그래밍 언어를 만드는 데 얼마나 많은 작업이 필요할까"
 description: ""
-coverImage: "/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_0.png"
 date: 2024-07-07 21:54
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_0.png
 tag: Tech
 originalTitle: "How Much Work Does It Take to Build a Programming Language?"
 link: "https://medium.com/zenstack/how-much-work-does-it-take-to-build-a-programming-language-784a6868f4e9"
 ---
-
 
 ## 언어 생성을 시도해보세요! 왜냐하면 왜 안되겠어요
 
@@ -17,15 +16,17 @@ link: "https://medium.com/zenstack/how-much-work-does-it-take-to-build-a-program
 
 15년 전, 어린 시절 컴파일러를 만들게 된 이래팀의 구조 설계자가 나에게 드래곤 북을 건넬 때 이렇게 말했다. 아쉽게도 그 책을 읽다가 밤에 잠이 들어 바닥에 넘어뜨리고 말았다. 반납할 때 표지에 작은 흠이 살짝 들어간 것을 발견하지 않길 바라며.
 
-![이미지](/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_0.png)
+![이미지](/TIL/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_0.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -54,12 +55,14 @@ model Post {
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -75,12 +78,14 @@ model Post {
 # 여섯 단계로 언어 만들기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -94,12 +99,14 @@ model Post {
 우리의 ZModel 언어 구문은 다음과 같이 형식화될 수 있어요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -157,17 +164,19 @@ ZModel 문법
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_1.png" />
+<img src="/TIL/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_1.png" />
 
 ## 단계 2: 구문 트리에서 링크드 트리로
 
@@ -176,18 +185,19 @@ ZModel 문법
 우리의 ZModel 언어는 "교참조"를 허용합니다. 예를 들어, User 모델의 posts 필드는 Post 모델을 참조합니다. 그리고 Post 모델은 다시 author 필드를 통해 참조를 합니다. 파스 트리를 탐색할 때, ModelReference 노드에 도달하면 "Post"라는 이름을 참조하는 것을 볼 수 있지만 그 의미를 직접 알 수 없습니다. 일치하는 이름의 모델을 찾기 위해 즉석 조회를 할 수 있지만, 보다 체계적인 접근법은 "링킹" 패스를 수행하여 모든 이러한 참조를 해결하고 해당 노드에 링크하는 것입니다. 이러한 링킹이 완료되면, 우리의 파스 트리는 다음과 같이 보입니다 (간략함을 위해 일부 트리만 표시됨):
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Image](/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_2.png)
+![Image](/TIL/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_2.png)
 
 기술적으로 말하면 그것은 트리가 아닌 그래프이지만, 관례상 파스 트리라고 계속 부르겠습니다.
 
@@ -195,14 +205,15 @@ Langium의 장점 중 하나는 대부분의 경우 도구가 링킹 패스를 �
 
 ## 단계 3. 연결된 트리에서 의미론적 정확성으로
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -223,12 +234,14 @@ model {
 그러나 이러한 오류가 없어도 코드가 의미론적으로 올바르다는 뜻은 아닙니다. 예를 들어, 아래 내용은 구문적으로 유효하지만 의미론적으로 잘못되었습니다. title을 true와 비교하는 것은 말이 되지 않습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -258,47 +271,47 @@ export function registerValidationChecks(services: ZModelServices) {
 
 export class ZModelValidator {
   checkExpression(expr: SimpleExpression, accept: ValidationAcceptor) {
-   if (isFieldReference(expr) && expr.target.ref?.type !== 'Boolean') {
-     accept('error', 'Only boolean fields are allowed in conditions', {
-       node: expr,
-     });
-   }
+    if (isFieldReference(expr) && expr.target.ref?.type !== "Boolean") {
+      accept("error", "Only boolean fields are allowed in conditions", {
+        node: expr,
+      });
+    }
   }
 }
 ```
 
 이제 의미론적 문제에 대한 좋은 오류를 얻을 수 있습니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 오직 불리언 필드만 조건문에서 허용됩니다 [Ln 7, Col 19]
-
 
 렉싱, 파싱, 링킹과는 달리, 의미 체크 프로세스는 매우 선언적이거나 체계적이지 않습니다. 복잡한 언어의 경우, 명령적 코드로 많은 규칙을 작성하게 될 것입니다.
 
-![Programming Language](/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_3.png)
+![Programming Language](/TIL/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_3.png)
 
 ## 4단계. 개발자 경험 향상
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -306,22 +319,24 @@ export class ZModelValidator {
 요즘에는 개발 도구를 만드는 데 기준이 높습니다. 혁신은 탁월하게 작동할 뿐만 아니라 탁월한 느낌을 주어야 번창할 수 있어요. 언어와 컴파일러 관점에서, DX는 주로 세 가지로 이루어져 있어요:
 
 - IDE 지원
-좋은 IDE 지원 — 구문 강조, 서식 지정, 자동 완성 등 — 은 학습 곡선을 크게 낮추고 개발자의 삶의 질을 향상시킵니다. Langium에 대해 좋아하는 점 중 하나는 Language Server Protocol을 내장 지원한다는 것이에요. 구문 분석 규칙과 유효성 검사가 자동으로 적절한 기본 LSP 구현이 되어서 VSCode와 최신 JetBrains IDE와 직접 작동합니다(일부 제한 사항이 있을 수 있습니다). 그러나 탁월한 IDE 경험을 제공하기 위해서는 Langium에 의한 LSP 관련 서비스의 기본 구현을 많이 수정하여 광택을 내야 할 필요가 있습니다.
+  좋은 IDE 지원 — 구문 강조, 서식 지정, 자동 완성 등 — 은 학습 곡선을 크게 낮추고 개발자의 삶의 질을 향상시킵니다. Langium에 대해 좋아하는 점 중 하나는 Language Server Protocol을 내장 지원한다는 것이에요. 구문 분석 규칙과 유효성 검사가 자동으로 적절한 기본 LSP 구현이 되어서 VSCode와 최신 JetBrains IDE와 직접 작동합니다(일부 제한 사항이 있을 수 있습니다). 그러나 탁월한 IDE 경험을 제공하기 위해서는 Langium에 의한 LSP 관련 서비스의 기본 구현을 많이 수정하여 광택을 내야 할 필요가 있습니다.
 
-![이미지](/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_4.png)
+![이미지](/TIL/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_4.png)
 
 - 오류 보고
-귀하의 유효성 검사 로직은 많은 경우 오류 메시지를 생성할 것이며, 이 메시지의 정확성과 유용성은 개발자가 얼마나 빨리 이해하고 이를 수정할 수 있는지를 크게 결정할 것입니다.
+  귀하의 유효성 검사 로직은 많은 경우 오류 메시지를 생성할 것이며, 이 메시지의 정확성과 유용성은 개발자가 얼마나 빨리 이해하고 이를 수정할 수 있는지를 크게 결정할 것입니다.
 - 디버깅
-귀하의 언어가 "작동"하는 경우(더 자세한 내용은 다음 섹션을 참조하세요), 디버깅 경험이 필수적입니다. 디버깅이란 어떤 것을 의미하는지는 언어의 성격에 따라 다릅니다. 그것이 명령문과 제어 흐름을 포함하는 명령형 언어면 단계별 진행 및 상태 검사가 필요할 것입니다. 또는 선언적 언어인 경우, 디버깅은 복잡성(규칙, 표현식 등)을 해결하는 데 도움이 되는 시각화를 의미할 것입니다.
+  귀하의 언어가 "작동"하는 경우(더 자세한 내용은 다음 섹션을 참조하세요), 디버깅 경험이 필수적입니다. 디버깅이란 어떤 것을 의미하는지는 언어의 성격에 따라 다릅니다. 그것이 명령문과 제어 흐름을 포함하는 명령형 언어면 단계별 진행 및 상태 검사가 필요할 것입니다. 또는 선언적 언어인 경우, 디버깅은 복잡성(규칙, 표현식 등)을 해결하는 데 도움이 되는 시각화를 의미할 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -331,23 +346,25 @@ export class ZModelValidator {
 결정된 오류가 없는 파스 트리를 도출하는 것은 상당히 멋지지만, 그 자체로는 그리 유용하지 않습니다. 여러 가지 방법을 사용하여 추후 진행하고 실제 값으로 생성할 수 있습니다:
 
 - 여기서 그만 두기
-여기서 멈출 수도 있고, 파스 트리를 결과물로 선언하고 사용자가 이를 어떻게 사용할지 결정하도록 할 수도 있습니다.
+  여기서 멈출 수도 있고, 파스 트리를 결과물로 선언하고 사용자가 이를 어떻게 사용할지 결정하도록 할 수도 있습니다.
 - 다른 언어로 변환하기
-언어는 종종 파스 트리를 하위 수준의 언어로 변환하는 "백엔드"를 갖습니다. 예를 들어, Java 컴파일러의 백엔드는 JVM 바이트 코드를 생성합니다. TypeScript의 백엔드는 Javascript 코드를 생성합니다. ZenStack에서는 ZModel을 Prisma 스키마 언어로 변환합니다. 그런 다음 대상 언어의 도구/런타임이 이를 입력으로 사용할 수 있게 됩니다.
+  언어는 종종 파스 트리를 하위 수준의 언어로 변환하는 "백엔드"를 갖습니다. 예를 들어, Java 컴파일러의 백엔드는 JVM 바이트 코드를 생성합니다. TypeScript의 백엔드는 Javascript 코드를 생성합니다. ZenStack에서는 ZModel을 Prisma 스키마 언어로 변환합니다. 그런 다음 대상 언어의 도구/런타임이 이를 입력으로 사용할 수 있게 됩니다.
 - 플러그 가능한 변환 메커니즘 구현하기
-언어 사용자가 자체 백엔드 변환을 제공할 수 있도록 플러그인 메커니즘을 구현할 수도 있습니다. 이것은 #1을 수행하는 보다 구조화된 방법입니다.
+  언어 사용자가 자체 백엔드 변환을 제공할 수 있도록 플러그인 메커니즘을 구현할 수도 있습니다. 이것은 #1을 수행하는 보다 구조화된 방법입니다.
 - 파스 트리를 실행하는 런타임 구축하기
-언어를 구축하는 가장 "완전한" 루트입니다. 구문 분석된 코드를 "실행"하는 인터프리터를 구현할 수 있습니다. "실행"이 의미하는 바는 완전히 사용자에게 달려있습니다. ZenStack에서는 ZModel을 Prisma 스키마 언어로 변환하는 것 외에도 데이터 액세스 중에 접근 제어 규칙을 강제하는 런타임이 있습니다.
+  언어를 구축하는 가장 "완전한" 루트입니다. 구문 분석된 코드를 "실행"하는 인터프리터를 구현할 수 있습니다. "실행"이 의미하는 바는 완전히 사용자에게 달려있습니다. ZenStack에서는 ZModel을 Prisma 스키마 언어로 변환하는 것 외에도 데이터 액세스 중에 접근 제어 규칙을 강제하는 런타임이 있습니다.
 
 ## 단계 6. 사용하기 좋게 만들기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -361,16 +378,18 @@ export class ZModelValidator {
 왜냐면 언어를 만들어보는 것이 어떨까요? 😊
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![ZenStack](/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_5.png)
+![ZenStack](/TIL/assets/img/2024-07-07-HowMuchWorkDoesItTaketoBuildaProgrammingLanguage_5.png)
 
 ZenStack를 개발 중입니다. 이 툴킷은 Prisma ORM을 강력한 엑세스 제어 계층과 함께 사용하여 풀스택 개발을 위한 최대한의 잠재력을 발휘합니다. 만약 이 프로젝트가 흥미로우시다면 읽어 주셨던 분들 중 별을 눌러 주시면 더 많은 분들이 찾아볼 수 있도록 도와주세요!

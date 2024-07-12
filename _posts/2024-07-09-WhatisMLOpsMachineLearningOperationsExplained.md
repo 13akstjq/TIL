@@ -1,31 +1,32 @@
 ---
 title: "MLOps란  머신러닝 운영 쉽게 이해하기"
 description: ""
-coverImage: "/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_0.png"
 date: 2024-07-09 20:49
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_0.png
 tag: Tech
 originalTitle: "What is MLOps? — Machine Learning Operations Explained"
 link: "https://medium.com/stackademic/what-is-mlops-machine-learning-operations-explained-3ae1e30350c0"
 ---
 
-
 MLOps는 AI 통합과 혁신을 위한 기계 학습 모델과 실제 응용 프로그램 사이의 다리 역할을 합니다.
 
-![MLOps](/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_0.png)
+![MLOps](/TIL/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_0.png)
 
 저희가 사는 세상의 모든 측면에 AI가 통합된 시대에, 실리콘 밸리의 작은 팀이 기계 학습과 상호 작용하는 방식을 바꿀 수 있는 위험을 감지했습니다.
 
 MLOps의 심층적인 내용을 밝혀냄으로써, 기계 학습 모델과 현실 세계 응용 프로그램 간의 간극을 메우는 역할을 발견할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ MLOps는 기계 학습 운영(Machine Learning Operations)을 의미하며, 기�
 MLOps는 DevOps 철학 중 일부 중요한 요소를 통합하여 데이터 과학 및 운영 전문가의 개선된 커뮤니케이션, 협력 및 통합 작업을 도입합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -53,17 +56,19 @@ MLOps는 DevOps 철학 중 일부 중요한 요소를 통합하여 데이터 과
 
 # MLOps의 주요 구성 요소
 
-![이미지](/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_1.png)
+![이미지](/TIL/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_1.png)
 
 MLOps에는 다양한 구성 요소가 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -83,12 +88,14 @@ MLOps에는 다양한 구성 요소가 있습니다:
 기관은 기계 학습 모델의 흐름 내에서 MLOps를 구현함으로써 여러 이점을 얻을 수 있습니다. 일부 주요 이점은 다음과 같습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -108,12 +115,14 @@ MLOps에는 다양한 구성 요소가 있습니다:
 MLOps 생태계의 일부인 여러 도구와 기술들이 ML 라이프사이클의 다양한 단계를 지원하기 위해 개발되었습니다. 아래에는 일반적으로 MLOps에서 사용되는 가장 중요한 도구와 기술 중 일부가 소개되어 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -131,15 +140,17 @@ MLOps 생태계의 일부인 여러 도구와 기술들이 ML 라이프사이클
 
 # DevOps vs MLOps
 
-![MLOps 이미지](/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_2.png)
+![MLOps 이미지](/TIL/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_2.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -158,12 +169,14 @@ MLOps 생태계의 일부인 여러 도구와 기술들이 ML 라이프사이클
 # 엠엘옵스에서의 Best Practices
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -184,17 +197,19 @@ MLOps를 수용하려면 올바른 장치와 최상의 실천 방법을 준수�
 # 실제 적용 사례
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_3.png" />
+<img src="/TIL/assets/img/2024-07-09-WhatisMLOpsMachineLearningOperationsExplained_3.png" />
 
 MLOps은 이론적인 개념뿐만 아니라 다양한 산업 분야에서 현실 세계 문제 해결을 위해 적용될 수 있습니다. 아래는 MLOps가 실무에서 활용되는 몇 가지 예시입니다:
 
@@ -208,12 +223,14 @@ MLOps은 이론적인 개념뿐만 아니라 다양한 산업 분야에서 현�
 이러한 예시들은 다양한 분야에서 MLOps의 다재다능성과 영향을 보여줍니다. 기계 학습 모델의 효율적인 배포와 관리를 가능케 함으로써 MLOps는 기업이 AI의 힘을 활용하여 혁신을 추구하고 운영 효율성을 향상시키며 고객 경험을 개인화하는 데 도움이 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -227,12 +244,14 @@ MLOps를 숙달하고 능숙한 데이터 과학자가 되기 위한 여정은 �
 원본 게시물: https://www.stratascratch.com.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

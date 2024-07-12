@@ -1,15 +1,14 @@
 ---
 title: "FastAPI 실습 간단한 할 일 목록 애플리케이션 만들기 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_0.png"
 date: 2024-07-09 09:18
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_0.png
 tag: Tech
 originalTitle: "Hands-On with FastAPI: Creating a Simple To-Do List Application"
 link: "https://medium.com/@ahmedfry34/hands-on-with-fastapi-creating-a-simple-to-do-list-application-478159a6959e"
 ---
-
 
 # 먼저, FastAPI에 대한 간결한 소개부터 시작해보겠습니다.
 
@@ -22,12 +21,14 @@ FastAPI는 여러 이유로 눈에 띕니다:
 - 대화형 문서: Swagger UI 및 ReDoc와 같은 도구를 사용하여 대화형 API 문서를 자동으로 생성합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,12 +42,14 @@ FastAPI은 웹 부분에 Starlette(Starlette은 Python에서 비동기 웹 서�
 Flask와 Django와 비교했을 때, FastAPI는 다음과 같은 특징으로 두각을 나타냅니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -63,12 +66,14 @@ FastAPI는 이러한 분야에서 뛰어나므로 Python 기반 API 프레임워
 FastAPI로 시작하는 것은 간단하며 몇 가지 주요 단계를 거치면 됩니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -84,12 +89,14 @@ pip install fastapi
 2- 개발 서버 실행:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -106,12 +113,14 @@ uvicorn your_module_name:app --reload
 3- 첫 번째 FastAPI 애플리케이션 만들기:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -130,15 +139,17 @@ def read_root():
 
 - 이 예제에서 @app.get("/")은 루트 URL("/")에서 GET 요청에 응답하는 라우트를 정의합니다.
 
-![이미지](/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_0.png)
+![이미지](/TIL/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_0.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -147,23 +158,24 @@ def read_root():
 
 - FastAPI는 자동으로 대화식 API 문서를 생성합니다. 브라우저에서 http://localhost:8000/docs 에 방문하여 Swagger UI를 탐색해보세요.
 
-![FastAPI Swagger UI](/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_1.png)
+![FastAPI Swagger UI](/TIL/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_1.png)
 
 - 또는, http://localhost:8000/redoc 에 방문하여 ReDoc 문서를 확인할 수도 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![image](/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_2.png)
+![image](/TIL/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_2.png)
 
 5- Expand Your Application:
 
@@ -171,14 +183,15 @@ def read_root():
 
 # Real-World Use Case: Simple To-Do List API
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -207,12 +220,14 @@ class TodoList(BaseModel):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -265,12 +280,14 @@ async def delete_todo(todo_id: int):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -279,44 +296,45 @@ async def delete_todo(todo_id: int):
 
 - GET 라우트 (/todos/): 모든 할 일 항목을 검색하여 리스트 형식으로 반환합니다.
 
-![이미지](/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_3.png)
+![이미지](/TIL/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_3.png)
 
 - POST 라우트 (/todos/): 고유한 ID, 제목 및 설명을 갖는 새로운 할 일 항목을 만들고 목록에 추가합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![image](/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_4.png)
+![image](/TIL/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_4.png)
 
 - PUT Route (/todos/'todo_id'/): 기존에 있는 ID로 식별된 to-do 항목을 업데이트합니다. 부분적 업데이트가 가능합니다 (제목 또는 설명만 업데이트할 수 있음).
 
-![image](/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_5.png)
+![image](/TIL/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_5.png)
 
 - DELETE Route (/todos/'todo_id'/): 목록에서 ID로 식별된 to-do 항목을 삭제합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-<img src="/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_6.png" />
+<img src="/TIL/assets/img/2024-07-09-Hands-OnwithFastAPICreatingaSimpleTo-DoListApplication_6.png" />
 
 이러한 경로들은 클라이언트가 할 일 항목에 대해 모든 CRUD 작업(생성, 읽기, 업데이트, 삭제)을 수행할 수 있도록 합니다. 이를 통해 FastAPI가 다양한 유형의 HTTP 요청과 응답을 처리하는 방법을 보여줍니다.
 
@@ -324,14 +342,15 @@ async def delete_todo(todo_id: int):
 
 FastAPI를 사용하여 간단한 할 일 목록 API를 작성하면 강력한 기능과 이점에 대해 실용적으로 소개 받을 수 있습니다. 모델 정의, 경로 구현, CRUD 작업 처리 단계를 따르면 FastAPI의 사용 편의성, 성능 및 자동 문서화 기능에 대한 실전 경험을 얻을 수 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

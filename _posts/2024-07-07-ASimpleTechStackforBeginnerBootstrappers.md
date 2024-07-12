@@ -1,31 +1,32 @@
 ---
 title: "초보 부트스트래퍼를 위한 간단한 기술 스택 추천"
 description: ""
-coverImage: "/assets/img/2024-07-07-ASimpleTechStackforBeginnerBootstrappers_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-ASimpleTechStackforBeginnerBootstrappers_0.png"
 date: 2024-07-07 21:59
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-ASimpleTechStackforBeginnerBootstrappers_0.png
 tag: Tech
 originalTitle: "A Simple Tech Stack for Beginner Bootstrappers"
 link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstrappers-2f3b9a44c587"
 ---
 
-
 최근에 테이블 화면 클립을 CSV 파일로 변환하는 도구를 만들어서 론칭했어요.
 
 이 도구는 이메일 인증과 Stripe를 이용한 실제 결제 기능을 갖춘 기능적인 앱이에요.
 
-여기에는 해당 도구를 구축하기 위해 사용한 기술 스택을 공유해봤어요. 입문자 루트 개발자들에게 완벽한 간단한 스택이라고 생각해요 (초보에서 중급 프로그래머들 😉). 
+여기에는 해당 도구를 구축하기 위해 사용한 기술 스택을 공유해봤어요. 입문자 루트 개발자들에게 완벽한 간단한 스택이라고 생각해요 (초보에서 중급 프로그래머들 😉).
 
-![image](/assets/img/2024-07-07-ASimpleTechStackforBeginnerBootstrappers_0.png)
+![image](/TIL/assets/img/2024-07-07-ASimpleTechStackforBeginnerBootstrappers_0.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -42,12 +43,14 @@ link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstra
 - Vercel도 함께 사용하면 배포도 매우 쉽습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -64,12 +67,14 @@ link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstra
 - 그 결과로 클라이언트 컴포넌트는 인터랙티브한 기능이 필요한 곳으로 컴포넌트 트리 아래로 밀어 넣어야 합니다 (예: 폼 및 버튼).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -85,12 +90,14 @@ link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstra
 - 방법 1과 2를 혼합해서 사용합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -104,12 +111,14 @@ link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstra
 컴포넌트 라이브러리를 사용하면 많은 시간을 절약할 수 있습니다. 하지만 그러면 다음 문제는 어떤 컴포넌트 라이브러리를 사용해야 할지입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -126,12 +135,14 @@ link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstra
 - Next.js와 shadcn/ui 설정하는 방법
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -148,12 +159,14 @@ link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstra
 # 미리 알았더라면 좋았을 것들
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -167,12 +180,14 @@ link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstra
 스타터를 사용하면 Vercel 마법사를 사용해 설정하면 좋아요. 그러면 대부분의 배포 구성이 이미 완료된 프로젝트로 시작할 수 있어요 (아래 링크 참조).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -186,12 +201,14 @@ link: "https://medium.com/gitconnected/a-simple-tech-stack-for-beginner-bootstra
 제 알기로는 애플리케이션을 구축할 때 Stripe가 결제 분야의 사실상 표준이라고 생각됩니다 (다르게 생각하시면 말씀해주세요).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -205,12 +222,14 @@ Stripe 문서에는 시작하는 데 도움이되는 꽤 좋은 정보와 보일
 Stripe 결제 링크는 Stripe를 사용하여 결제를 받는 가장 쉬운 방법입니다. Stripe 대시 보드 내에서 코딩없이 구성할 수 있습니다. 그런 다음 앱 내의 버튼이나 다른 구성요소가 사용자를 결제 링크로 안내하면 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -224,12 +243,14 @@ Stripe 결제 링크는 Stripe를 사용하여 결제를 받는 가장 쉬운 �
 사용자가 결제 프로세스를 진행할 때 Stripe는 결제 의도 설정이나 체크아웃 세션 완료와 같이 다양한 '이벤트'를 생성합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -243,12 +264,14 @@ Stripe는 업데이트를 수신하는 앱을 알 수 있도록 해당 이벤트
 # 유용한 링크
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -264,12 +287,14 @@ Stripe는 업데이트를 수신하는 앱을 알 수 있도록 해당 이벤트
 Resend는 Supabase의 권장사항 중 하나였습니다. 합리적인 무료 티어를 갖추고 있으며 통합이 매우 원활하다고 생각했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -283,12 +308,14 @@ Supabase 이메일 인증 설정은 간단한데, 제작용으로 설계되어 �
 # 유용한 링크
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -303,12 +330,14 @@ Supabase 이메일 인증 설정은 간단한데, 제작용으로 설계되어 �
 만약 이 이야기를 즐겁게 읽었다면 몇 손가락 운동을 하셔서 이 게시물을 좋아요 👏🏻 를 눌러주시겠어요? 읽고 싶어하시는 내용을 쓰고 있는지를 알려주어서 도움이 돼요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

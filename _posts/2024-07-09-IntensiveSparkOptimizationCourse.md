@@ -1,18 +1,16 @@
 ---
 title: "스파크 최적화 집중 강좌 최고의 성능을 위한 단계별 가이드"
 description: ""
-coverImage: "/assets/img/2024-07-09-IntensiveSparkOptimizationCourse_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-IntensiveSparkOptimizationCourse_0.png"
 date: 2024-07-09 20:14
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-IntensiveSparkOptimizationCourse_0.png
 tag: Tech
 originalTitle: "Intensive Spark Optimization Course"
 link: "https://medium.com/@kevinchwong/intensive-spark-optimization-course-082bdd0592bc"
 ---
 
-
-
-![Intensive Spark Optimization Course](/assets/img/2024-07-09-IntensiveSparkOptimizationCourse_0.png)
+![Intensive Spark Optimization Course](/TIL/assets/img/2024-07-09-IntensiveSparkOptimizationCourse_0.png)
 
 # 로컬에서 플레이그라운드 설정하기
 
@@ -29,12 +27,14 @@ link: "https://medium.com/@kevinchwong/intensive-spark-optimization-course-082bd
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -51,12 +51,14 @@ spark = SparkSession.builder.appName("Spark Test").getOrCreate()
 ## 1. 데이터프레임 생성하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -91,12 +93,14 @@ df = spark.createDataFrame(data, schema=schema)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -134,21 +138,23 @@ df.show()
 ## 2. 데이터프레임 표시
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-df.printSchema()
-print(df.schema)
-print(df.columns)
-df.describe().show()
+df.printSchema();
+print(df.schema);
+print(df.columns);
+df.describe().show();
 ```
 
 ```js
@@ -161,7 +167,7 @@ root
 
 ## print(df.schema)
 StructType([
-  StructField(‘Name’, StringType(), True), 
+  StructField(‘Name’, StringType(), True),
   StructField(‘Age’, LongType(), True)
 ])
 
@@ -183,19 +189,21 @@ StructType([
 ## 3. 컬럼 선택
 
 ```js
-df.select(df[0]).show()
-df.select(df.Name).show()
-df.select(df["Name"]).show()
-df.select("Name").show()
+df.select(df[0]).show();
+df.select(df.Name).show();
+df.select(df["Name"]).show();
+df.select("Name").show();
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -231,12 +239,14 @@ df.filter(df["Age"] > 25).show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -261,12 +271,14 @@ df_parquet = spark.read.parquet("test123.parquet")
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -302,12 +314,14 @@ root
 # 쿼리: 그룹화 및 집계
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -322,8 +336,8 @@ from pyspark.sql.functions import count
 spark = SparkSession.builder.appName("그루핑 및 집계").getOrCreate()
 
 # 데이터프레임 생성
-data = [("James", "Sales", 3000), 
-        ("Michael", "Sales", 4600), 
+data = [("James", "Sales", 3000),
+        ("Michael", "Sales", 4600),
         ("Robert", "Sales", 4100),
         ("Maria", "Finance", 3000),
         ("James", "Sales", 3000),
@@ -355,12 +369,14 @@ grouped_df.show()
 ## 2. max(), min(), avg(), sum()
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -400,12 +416,14 @@ agg_df.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -446,12 +464,14 @@ collected_list_df.show(truncate=False)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -490,12 +510,14 @@ udaf_df.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -575,10 +597,11 @@ conditional_agg_df.show()
 </script>
 
 ```
+
 # 데이터
 
 | department | employee_name | salary |
-|------------|---------------|--------|
+| ---------- | ------------- | ------ |
 | Sales      | James         | 3000   |
 | Sales      | Michael       | 4600   |
 | Sales      | Robert        | 4100   |
@@ -603,26 +626,25 @@ result_df = spark.createDataFrame(result_rdd, ["department", "max_salary"])
 result_df.show()
 ```
 
-
 # 결과
 
 | department | max_salary |
-|------------|------------|
+| ---------- | ---------- |
 | Sales      | 4600       |
 | Finance    | 3900       |
 | Marketing  | 3000       |
 
-
 # 조회: 다른 것
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -656,12 +678,14 @@ rollup_df.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -716,12 +740,14 @@ cube_df.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -779,12 +805,14 @@ cube_df.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -810,14 +838,15 @@ pivot_df.show()
 
 - 윈도우 함수는 현재 행과 관련된 "윈도우"에 대해 계산을 수행할 수 있어 전통적인 group-by 작업보다 더 유연성을 제공합니다. 이는 러닝 토탈, 이동 평균 또는 이전 및 다음 행에 액세스하는 데 특히 유용합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -839,7 +868,6 @@ pivot_df.show()
 
 ```
 
-
 ```js
 from pyspark.sql.window import Window
 from pyspark.sql.functions import col, row_number
@@ -848,7 +876,6 @@ windowSpec = Window.partitionBy("department").orderBy(col("salary").asc())
 df_with_row_number = df.withColumn("row_number", row_number().over(windowSpec))
 df_with_row_number.show()
 ```
-
 
 ```js
 # 결과
@@ -869,14 +896,15 @@ df_with_row_number.show()
 
 - Rank() 함수를 위해
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -913,12 +941,14 @@ df_with_rank.show()
 ## 0. 불필요한 원시 데이터 제거
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -926,8 +956,8 @@ df_with_rank.show()
 ## 1. DataFrame이 여러 번 액세스 될 때 캐시합니다.
 
 ```js
-df.cache()
-df.count()
+df.cache();
+df.count();
 ```
 
 ```js
@@ -938,12 +968,14 @@ df.count()
 ## 2. 적절한 파일 형식 사용하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -952,7 +984,7 @@ df.count()
 - 압축 해제된 파일은 CPU를 절약할 수 있어요.
 
 ```js
-df.write.parquet("output.parquet")
+df.write.parquet("output.parquet");
 ```
 
 ## 3. 스키마 수동 지정하기
@@ -968,12 +1000,14 @@ df = spark.read.schema(schema).csv("path/to/file.csv")
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -983,8 +1017,10 @@ df = spark.read.schema(schema).csv("path/to/file.csv")
 데이터 처리 파이프라인에서 메모리 사용량을 줄이기 위해 필요한 열만 미리 선택하세요.
 
 ```js
-df.select("dept_name", "name").filter("dept_id >= 102").show()
-df.select("dept_name", "name").filter(df.dept_id >= 102).show()
+df.select("dept_name", "name").filter("dept_id >= 102").show();
+df.select("dept_name", "name")
+  .filter(df.dept_id >= 102)
+  .show();
 ```
 
 ```js
@@ -998,12 +1034,14 @@ df.select("dept_name", "name").filter(df.dept_id >= 102).show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1011,7 +1049,7 @@ df.select("dept_name", "name").filter(df.dept_id >= 102).show()
 ## 5. 필터를 조인이나 집계 전에 빠르게 적용하세요.
 
 ```js
-df.filter("age > 25").join(df_other, "id").show()
+df.filter("age > 25").join(df_other, "id").show();
 ```
 
 ## 6. 큰 데이터셋 수집 방지를 위해 limit() 사용하기
@@ -1019,18 +1057,20 @@ df.filter("age > 25").join(df_other, "id").show()
 - 큰 데이터셋에 collect()를 사용하지 않도록 주의하여 메모리 부족 오류를 방지하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-df.filter("age > 30").limit(100).collect()
+df.filter("age > 30").limit(100).collect();
 ```
 
 ## 7. Using spark.sql(): Catalyst optimizer for Complex Queries
@@ -1038,17 +1078,19 @@ df.filter("age > 30").limit(100).collect()
 - Leverage Spark SQL for complex queries, which might be more readable and can benefit from the Catalyst optimizer.
 
 ```js
-df.createOrReplaceTempView("table") 
-spark.sql("SELECT id, sum(value) FROM table GROUP BY id").show()
+df.createOrReplaceTempView("table");
+spark.sql("SELECT id, sum(value) FROM table GROUP BY id").show();
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1066,12 +1108,14 @@ reduced.toDF(["key", "value"]).show()
 # 최적화 II: 파티션 없이 병렬화 없음
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1081,18 +1125,20 @@ reduced.toDF(["key", "value"]).show()
 - 데이터프레임을 디스크에 저장할 때 빠른 후속 읽기를 위해 분할을 사용하세요.
 
 ```js
-df.write.partitionBy("year", "month").parquet("path/to/output")
+df.write.partitionBy("year", "month").parquet("path/to/output");
 ```
 
 ## 2. 스튜 관리를 위한 Salting 키
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1102,8 +1148,8 @@ df.write.partitionBy("year", "month").parquet("path/to/output")
 - 이 문제를 해결하는 방법은 skewed 데이터를 관리하기 위해 키에 임의의 접두사를 추가하는 것입니다.
 
 ```js
-from pyspark.sql.functions import monotonically_increasing_id, expr 
-df.withColumn("salted_key", 
+from pyspark.sql.functions import monotonically_increasing_id, expr
+df.withColumn("salted_key",
     expr("concat(name, '_', (monotonically_increasing_id() % 10))")
 ).groupBy("salted_key").count().select(sum("count")).show()
 ```
@@ -1120,25 +1166,27 @@ df.withColumn("salted_key",
 - 데이터 로딩의 균형을 어떻게 맞출까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-from pyspark.sql.functions import monotonically_increasing_id, expr 
-df.withColumn("salted_key", 
+from pyspark.sql.functions import monotonically_increasing_id, expr
+df.withColumn("salted_key",
     expr("concat(name, '_', (monotonically_increasing_id() % 10))")
 ).groupBy("salted_key").count().show()
 ```
 
 ```js
-# 결과 
+# 결과
 +----------+-----+
 |salted_key|count|
 +----------+-----+
@@ -1161,12 +1209,14 @@ df.withColumn("salted_key",
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1185,12 +1235,14 @@ df.withColumn("salted_key",
 - 데이터 지역성 최적화: 데이터가 처리될 위치에 가까이 이동하도록 합니다. 네트워크 트래픽을 줄입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1233,12 +1285,14 @@ df_joined.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1263,12 +1317,14 @@ df_joined.show()
 ## 2. 파티션 조정: 병렬성 증가를 위한 다시 분할
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1290,12 +1346,14 @@ df_repartitioned = df.repartition(10)  # 파티션 수 증가
 - 전형적인 사용 사례: 많은 파티션이 부분적으로 채워지거나 비어있는 상태로 남을 수 있는 대규모 DataFrame을 필터링한 후 사용됩니다. coalesce는 네트워크 오버헤드를 줄이고 비용 효율적으로 리소스를 관리하는 데 도움이 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1315,14 +1373,15 @@ df_coalesced = df_filtered.coalesce(2)  # 파티션 수 줄이기
 
 ## 4–1. 일찍 필터링하기
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1361,12 +1420,14 @@ aggregated_df.show()
 ## 4-2. 가능한 경우 RDD/넓은 변환 사용하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1397,12 +1458,14 @@ updated_salaries_df.show()
 ## 4-3. Boardcasting join으로 불필요한 셔플을 피하세요
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1440,12 +1503,14 @@ optimized_join_df.show()
 ## 4-4. 전략적으로 파티션 나누기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1472,12 +1537,14 @@ aggregated_df.show()
 # 성능 모니터링 및 세부 조정
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1496,12 +1563,14 @@ spark.conf.set(“spark.driver.memory”, “2g”)
 - Executor 메트릭 분석: 각 executor의 메트릭을 모니터링하여 메모리 사용, 디스크 스피릴 및 가비지 수집에 대한 통찰을 얻을 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1520,12 +1589,14 @@ df.explain(“formatted”)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1538,7 +1609,7 @@ df.explain(“formatted”)
 (1) 기존 RDD 스캔 [코드 생성 ID : 1]
 출력 [3]: [이름 #4628, 부서 #4629, 급여 #4630L]
 인수: [이름 #4628, 부서 #4629, 급여 #4630L],
- applySchemaToPythonRDD에 있는 MapPartitionsRDD[693]에서 
+ applySchemaToPythonRDD에 있는 MapPartitionsRDD[693]에서
                        at <알 수 없음>:0, ExistingRDD, UnknownPartitioning(0)
 ```
 
@@ -1547,20 +1618,22 @@ df.explain(“formatted”)
 - 워크로드에 따라 스파크가 실행자 수를 동적으로 조정할 수 있도록 동적 할당을 활성화합니다.
 
 ```js
-spark.conf.set("spark.dynamicAllocation.enabled", "true")
-spark.conf.set("spark.dynamicAllocation.minExecutors", "1")
-spark.conf.set("spark.dynamicAllocation.maxExecutors", "20")
-spark.conf.set("spark.dynamicAllocation.executorIdleTimeout", "60s")
-spark.conf.set("spark.shuffle.service.enabled", "true")
+spark.conf.set("spark.dynamicAllocation.enabled", "true");
+spark.conf.set("spark.dynamicAllocation.minExecutors", "1");
+spark.conf.set("spark.dynamicAllocation.maxExecutors", "20");
+spark.conf.set("spark.dynamicAllocation.executorIdleTimeout", "60s");
+spark.conf.set("spark.shuffle.service.enabled", "true");
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1570,18 +1643,20 @@ spark.conf.set("spark.shuffle.service.enabled", "true")
 - 저장 및 처리 장치 간에 데이터가 이동해야 하는 거리를 최소화하여 데이터 지역성을 최적화합니다.
 
 ```js
-spark.conf.set("spark.locality.wait", "300ms")
+spark.conf.set("spark.locality.wait", "300ms");
 ```
 
 ## 6. Garbage Collection Tuning
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1600,12 +1675,14 @@ spark.conf.set("spark.executor.extraJavaOptions", "-XX:MaxGCPauseMillis=100")
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1634,12 +1711,14 @@ spark.conf.set("spark.core.connection.ack.wait.timeout", "600s")
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1659,12 +1738,14 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", "10485760")  # 10 MB
 ## 10. 데이터 파티셔닝 최적화
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1683,12 +1764,14 @@ spark.conf.set("spark.sql.shuffle.partitions", "200")
 - 적응형 쿼리 실행 (AQE)는 실행 중에 쿼리 계획을 조정함으로써 Spark SQL 쿼리를 더 빠르고 데이터 스쿠 및 기타 이슈에 더 강건하게 만드는 기능이에요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1704,23 +1787,23 @@ spark.conf.set("spark.sql.adaptive.enabled", "true")
 
 - 적절한 메모리 관리는 메모리 집약적인 작업에서 특히 효과적인 성능 개선을 위해 스파이지를 방지할 수 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 # RDD 저장소에 예약된 메모리 분수를 구성합니다.
+
 spark.conf.set(“spark.memory.fraction”, “0.6”)
 spark.conf.set(“spark.memory.storageFraction”, “0.5”)
-
 
 이러한 설정은 실행 메모리와 저장소 메모리 사이의 균형을 맞추어 셔플 및 캐싱 중 디스크 스파일을 줄이는 데 도움이 됩니다.
 
@@ -1728,14 +1811,15 @@ spark.conf.set(“spark.memory.storageFraction”, “0.5”)
 
 이 글이 마음에 드시면:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

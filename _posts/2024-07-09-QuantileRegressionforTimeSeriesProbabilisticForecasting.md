@@ -1,18 +1,16 @@
 ---
 title: "시계열 확률 예측을 위한 분위 회귀 방법 "
 description: ""
-coverImage: "/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_0.png"
 date: 2024-07-09 19:41
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_0.png
 tag: Tech
 originalTitle: "Quantile Regression for Time Series Probabilistic Forecasting"
 link: "https://medium.com/dataman-in-ai/quantile-regression-for-time-series-probabilistic-forecasts-6fbd5ee298eb"
 ---
 
-
-
-![Quantile Regression for Time Series Probabilistic Forecasting](/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_0.png)
+![Quantile Regression for Time Series Probabilistic Forecasting](/TIL/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_0.png)
 
 가끔 우리는 유일한 확실한 것은 불확실함이라는 것을 듣습니다. 우리는 불확실성을 좋아하지 않습니다. "내일 날씨는 50% 폭염, 50% 허리케인일 것이다"라는 말을 듣고 싶지 않습니다. 그러나 반대로 불확실성을 양적으로 나타내기 위해 가능한 예측 범위를 요청하기도 합니다. 불확실성 속에서도 확실성을 원하는 건데요. 미래를 위해 계획을 세우는 데 도움을 주기 위해서입니다. 조직의 재정 계획을 수행 중이라고 상상해 봅시다. 두 가지 중 어느 것이 더 나을까요:
 
@@ -21,20 +19,20 @@ link: "https://medium.com/dataman-in-ai/quantile-regression-for-time-series-prob
 
 분위 회귀(Quantile regression)는 이 요구를 충족시킵니다. 분위 회귀는 예측 구간을 제공하며 표시된 것처럼 가능성을 양적으로 나타냅니다. 분위 회귀는 예측 변수와 반응 변수 간의 관계를 모델링하기 위해 사용되는 통계 기법으로, 반응 변수의 조건부 분포가 관심 대상인 경우에 특히 유용합니다. 예측 변수가 주어졌을 때 반응 변수의 조건부 평균을 추정하는 전통적인 회귀 방법(예: 최소 제곱 회귀)과 달리 분위 회귀는 반응 변수의 조건부 분위수를 추정합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Quantile Regression for Time Series Probabilistic Forecasting](/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_1.png)
+![Quantile Regression for Time Series Probabilistic Forecasting](/TIL/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_1.png)
 
 "Monte Carlo Simulation for Time Series Probabilistic Forecasts"에서 몬테카를로 시뮬레이션 기술을 배웠습니다. 양분위 회귀(Quantile regression)가 몬테카를로 시뮬레이션보다 어떤 장점을 가지고 있는지 알아보았습니다. 첫째로, 양분위 회귀는 예측 변수가 주어졌을 때 종속 변수의 조건부 양분위를 직접 추정합니다. 이는 몬테카를로 시뮬레이션에서와 같이 많은 가능한 결과를 생성하는 대신에 양분위 회귀는 종속 변수의 분포의 특정 양분위를 추정해줍니다. 이는 중앙값, 사분위 또는 극단적 양분위에서 예측 불확실성을 이해하는 데 특히 유용할 수 있습니다. 둘째로, 양분위 회귀는 예측 불확실성을 추정하기 위한 모델 기반 접근 방식을 제공합니다. 이는 관찰 데이터를 이용하여 변수 간의 관계를 추정하고, 이 관계를 기반으로 예측을 수행합니다. 반면에 몬테카를로 시뮬레이션은 입력 변수에 대한 확률 분포를 지정하고 무작위 샘플링을 통해 결과를 생성하는 데 의존합니다.
 
@@ -43,14 +41,15 @@ NeuralProphet를 사용하여 시계열 모델을 구축하는 방법을 다음 
 - Chapter 3: Tutorial I: Trend + seasonality + holidays & events
 - Chapter 4: Tutorial II: Trend + seasonality + holidays & events + auto-regressive (AR) + lagged regressors + future regressors
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -66,12 +65,14 @@ NeuralProphet를 설치하기 위해 표준 설치 방법인 pip install NeuralP
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -87,12 +88,14 @@ NeuralProphet를 설치하기 위해 표준 설치 방법인 pip install NeuralP
 데이터를 로드하고, 몇 가지 도구를 가져와 보겠습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -118,16 +121,17 @@ data = pd.read_csv(path + '/bike_sharing_daily.csv')
 data.tail()
 ```
 
-<img src="/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_2.png" />
-
+<img src="/TIL/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_2.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -145,17 +149,19 @@ plt.ylabel("수량")
 plt.show()
 ```
 
-![그림](/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_3.png)
+![그림](/TIL/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_3.png)
 
 모델링을 위해 매우 기본적인 데이터 준비를 할 거에요. NeuralProphet에서는 칼럼 이름을 “ds”와 “y”로 지정해야 해요. Prophet과 동일하죠.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -189,12 +195,14 @@ metrics.tail()
 작업이 완료되면 prophet에서 상속받은 .make_future_dataframe()을 사용하여 예측을 위한 새 데이터 프레임을 만들 것입니다. n_historic_predictions 매개변수는 지난 100개 데이터 포인트만 포함하도록 설정됩니다. "True"로 설정하면 전체 기록이 포함됩니다. "periods=50"를 설정하여 다음 50개 데이터 포인트를 예측합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -209,25 +217,26 @@ metrics.tail()
 
 예측값은 "forecast" 데이터 프레임에 저장됩니다.
 
-![이미지](/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_4.png)
+![이미지](/TIL/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_4.png)
 
 위 데이터 프레임은 플로팅을 위한 모든 데이터 요소를 갖고 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
 m.plot(
-    forecast, 
+    forecast,
     plotting_backend="plotly-static"
     #plotting_backend = "matplotlib"
 )
@@ -235,24 +244,26 @@ m.plot(
 
 아래와 같이 플롯이 표시됩니다. 예측 구간은 분위값으로 제공됩니다!
 
-<img src="/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_5.png" />
+<img src="/TIL/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_5.png" />
 
 분위 회귀에 의한 예측 구간과 OLS에 의한 신뢰 구간은 다릅니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 예측 구간이 인기를 얻으면, 분위수 회귀와 최소 자승법(OLS)에서의 신뢰 구간의 차이를 구별하는 것이 도움이 될 것입니다. 그림 (F)에서 좌측에는 선형 회귀를 그리고 우측에는 분위수 회귀를 표시했습니다.
 
-![그림](/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_6.png)
+![그림](/TIL/assets/img/2024-07-09-QuantileRegressionforTimeSeriesProbabilisticForecasting_6.png)
 
 우선, 이들의 목표는 다릅니다:
 
@@ -260,19 +271,21 @@ m.plot(
 - 분위수 회귀: 목표는 특정 신뢰 수준에서 예상되는 미래 관측값이 위치할 범위를 제공하는 것입니다. 종속 변수 Y의 조건부 분포의 다양한 분위수에서 독립 변수(T) 사이의 관련성을 추정합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 다음으로, 그들의 계산방법이 다릅니다:
 
-- 선형 회귀에서 신뢰구간은 독립변수의 계수에 대한 구간 추정입니다. 예를 들어 b ± 1.96 * b의 표준 오차(Figure F)와 같이 표시됩니다. 이는 주로 최소 총 거리를 찾기 위해 최소제곱법(OLS)을 사용하여 데이터 포인트와 선 간의 거리를 최소화합니다. 계수가 변할 수 있기 때문에 예측된 조건부 평균값도 변할 수 있습니다. Figure F의 왼쪽 그래프에서, 계수 b가 변하기 때문에 예측된 평균값이 약간씩 다를 수 있습니다.
+- 선형 회귀에서 신뢰구간은 독립변수의 계수에 대한 구간 추정입니다. 예를 들어 b ± 1.96 \* b의 표준 오차(Figure F)와 같이 표시됩니다. 이는 주로 최소 총 거리를 찾기 위해 최소제곱법(OLS)을 사용하여 데이터 포인트와 선 간의 거리를 최소화합니다. 계수가 변할 수 있기 때문에 예측된 조건부 평균값도 변할 수 있습니다. Figure F의 왼쪽 그래프에서, 계수 b가 변하기 때문에 예측된 평균값이 약간씩 다를 수 있습니다.
 - 분위 회귀에서는 종속 변수의 25번째, 50번째 또는 75번째 분위와 같은 분위수 수준을 선택하여 회귀 계수를 추정합니다. 분위 회귀는 일반적으로 절대 편차의 가중 합을 최소화하지만 OLS를 사용하지는 않습니다.
 
 세 번째로, 그들의 응용이 다릅니다:
@@ -281,12 +294,14 @@ m.plot(
 - 분위 회귀에서는 "예측값이 예측 구간의 범위 내에 들어갈 가능성이 95%입니다."라고 말합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -300,12 +315,14 @@ m.plot(
 - 아름다운 형식으로 책을 재현하여 즐거운 독서 경험을 제공해준 The Innovation Press, LLC 직원들에게 감사드립니다. eBook을 분배하기 위해 Teachable 플랫폼을 선택했습니다. 이를 통해 부담스럽지 않은 경비와 전 세계 독자들에게 배포할 수 있었습니다. 신용카드 거래는 Teachable.com에서 기밀이지키며 안전하게 처리됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -321,12 +338,14 @@ The print edition on Amazon.com: $65 [링크](https://a.co/d/25FVsMx)
 # 모던 시계열 예측: 예측 분석 및 이상 감지를 위한
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -340,12 +359,14 @@ Chapter 2: 비즈니스 예측을 위한 선지자
 Chapter 3: 튜토리얼 I: 트렌드 + 계절성 + 휴일 및 이벤트
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -361,28 +382,35 @@ Chapter 3: 튜토리얼 I: 트렌드 + 계절성 + 휴일 및 이벤트
 - Chapter 7: Quantile Regression for Time Series Probabilistic Forecasting
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 # Chapter 8: 시계열 확률 예측을 위한 조화형 예측
+
 # Chapter 9: 시계열 확률 예측을 위한 조화화된 분위 회귀
+
 # Chapter 10: 자동 ARIMA!
+
 # Chapter 11: 시계열 데이터 형식 만들기 쉽게
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -396,12 +424,14 @@ Chapter 3: 튜토리얼 I: 트렌드 + 계절성 + 휴일 및 이벤트
 #### Chapter 15: 다기간 시계열 확률 예측을 위한 Tree-based XGB, LightGBM, 및 CatBoost 모델
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -415,12 +445,14 @@ Chapter 3: 튜토리얼 I: 트렌드 + 계절성 + 휴일 및 이벤트
 # 19 장: RNN에서 Transformer 기반 시계열 모델로
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

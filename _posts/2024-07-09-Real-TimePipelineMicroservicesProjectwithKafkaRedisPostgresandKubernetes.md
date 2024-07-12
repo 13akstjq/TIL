@@ -1,31 +1,32 @@
 ---
 title: "Kafka, Redis, Postgres, Kubernetes를 활용한 실시간 파이프라인 마이크로서비스 프로젝트 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-Real-TimePipelineMicroservicesProjectwithKafkaRedisPostgresandKubernetes_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-Real-TimePipelineMicroservicesProjectwithKafkaRedisPostgresandKubernetes_0.png"
 date: 2024-07-09 19:43
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-Real-TimePipelineMicroservicesProjectwithKafkaRedisPostgresandKubernetes_0.png
 tag: Tech
 originalTitle: "Real-Time Pipeline Microservices Project with Kafka, Redis, Postgres, and Kubernetes."
 link: "https://medium.com/stackademic/real-time-pipeline-microservices-project-with-kafka-redis-postgres-and-kubernetes-a09e40c20520"
 ---
 
-
 # 소개
 
 이 문서는 데이터를 처리하여 분석을 위해 데이터베이스를 채우는 데 사용되는 실시간 마이크로서비스 프로젝트에 대한 안내서입니다.
 
-![이미지](/assets/img/2024-07-09-Real-TimePipelineMicroservicesProjectwithKafkaRedisPostgresandKubernetes_0.png)
+![이미지](/TIL/assets/img/2024-07-09-Real-TimePipelineMicroservicesProjectwithKafkaRedisPostgresandKubernetes_0.png)
 
 # STG-Service
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -57,12 +58,14 @@ class RedisClient:
 # Postgres 클라이언트
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -182,12 +185,14 @@ class KafkaConsumer:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -211,12 +216,14 @@ CREATE TABLE IF NOT EXISTS stg.order_events (
 그리고 이를 실행할 파이썬 함수는:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -238,12 +245,14 @@ def make_stg_migrations(db: PgConnect) -> None:
 먼저 소비된 카프카 메시지를 STG 포스트그레스 테이블(StgRepository)에 삽입한 다음, 레디스에서 레스토랑 데이터를 풍부하게하여 다른 카프카 클러스터(StgMessageProcessor)를 위한 출력 메시지를 구성해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -256,7 +265,7 @@ from lib.pg.pg_connect import PgConnect
 class StgRepository:
     def __init__(self, db: PgConnect) -> None:
         self._db = db
-    
+
     def order_events_insert(self,
                             object_id: int,
                             object_type: str,
@@ -269,7 +278,7 @@ class StgRepository:
                     """
                         INSERT INTO stg.order_events (object_id, object_type, sent_dttm, payload) VALUES (%(object_id)s, %(object_type)s, %(sent_dttm)s, %(payload)s)
                         ON CONFLICT (object_id)
-                        DO UPDATE 
+                        DO UPDATE
                         SET object_type = EXCLUDED.object_type,
                             sent_dttm = EXCLUDED.sent_dttm,
                             payload = EXCLUDED.payload;
@@ -304,7 +313,7 @@ class StgMessageProcessor:
         self._redis = redis
         self._stg_repository = stg_repository
         self._batch_size = 100
-    
+
     def run(self) -> None:
         self._logger.info(f"{datetime.utcnow()}: START")
         for i in range(self._batch_size):
@@ -318,7 +327,7 @@ class StgMessageProcessor:
             dst_msg = self._construct_output_message(msg)
             self._producer.produce(dst_msg)
         self._logger.info(f"{datetime.utcnow()}: FINISH")
-    
+
     def _construct_output_message(self, original_message: dict) -> dict:
         restaurant_id = original_message["payload"]["restaurant"]["id"]
         restaurant_data = self._redis.get(restaurant_id)
@@ -358,12 +367,14 @@ class StgMessageProcessor:
 소스/싱크 카프카, Redis 및 포스트그레스와 연결해야 합니다. 이것은 확실히 많은 구성이 필요하며 환경 변수를 사용해야 하므로 이를 별도의 클래스에서 수용할 것입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -479,12 +490,14 @@ if __name__ == '__main__':
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -515,12 +528,14 @@ CMD ["app.py"]
 로컬 테스트를 위해 Docker Compose를 사용하여 스테이징 서비스를 실행할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -586,14 +601,15 @@ PG_PASSWORD=**********
 
 # HELM 차트
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -638,22 +654,22 @@ image:
 containerPort: 5000
 config:
   KAFKA_HOST: rc1a-hins1kp5qsfnsob3.mdb.yandexcloud.net
-  KAFKA_PORT: '9091'
+  KAFKA_PORT: "9091"
   KAFKA_CONSUMER_USERNAME: producer_consumer
-  KAFKA_CONSUMER_PASSWORD: '*****'
+  KAFKA_CONSUMER_PASSWORD: "*****"
   KAFKA_CONSUMER_GROUP: test-consumer1
   KAFKA_SOURCE_TOPIC: order-service_orders
   KAFKA_PRODUCER_USERNAME: producer_consumer
-  KAFKA_PRODUCER_PASSWORD: '*****'
+  KAFKA_PRODUCER_PASSWORD: "*****"
   KAFKA_DESTINATION_TOPIC: dds_topic_name
   REDIS_HOST: c-c9qeltiiu2rkcr6v9net.rw.mdb.yandexcloud.net
-  REDIS_PORT: '6380'
-  REDIS_PASSWORD: '*****'
+  REDIS_PORT: "6380"
+  REDIS_PASSWORD: "*****"
   PG_HOST: rc1b-4olk4uzgdrdte114.mdb.yandexcloud.net
-  PG_PORT: '6432'
+  PG_PORT: "6432"
   PG_DB_NAME: sprint9dwh
   PG_USER: yandex_pg
-  PG_PASSWORD: '*****'
+  PG_PASSWORD: "*****"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -671,12 +687,14 @@ resources:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1007,3 +1025,4 @@ app.py 파일은 기본적으로 동일합니다: 서비스를 백그라운드 �
 - 저희를 팔로우해주세요: X | LinkedIn | YouTube | Discord
 - 저희 다른 플랫폼도 방문해주세요: In Plain English | CoFeed | Differ
 - 스택아데믹닷컴에서 더 많은 콘텐츠를 만나보세요
+```

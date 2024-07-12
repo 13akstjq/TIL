@@ -1,15 +1,14 @@
 ---
 title: "빠른 푸리에 변환을 이용한 주식 시장 신호 분석 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_0.png"
 date: 2024-07-09 15:03
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_0.png
 tag: Tech
 originalTitle: "Stock Market Signal Analysis Using Fast Fourier Transform"
 link: "https://medium.com/@kt.26karanthakur/stock-market-signal-analysis-using-fast-fourier-transform-e3bdde7bcee6"
 ---
-
 
 # 소개
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@kt.26karanthakur/stock-market-signal-analysis-using-f
 ![image](https://miro.medium.com/v2/resize:fit:1400/1*e-_z80BnbHWyFTfRLblJ_w.gif)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/@kt.26karanthakur/stock-market-signal-analysis-using-f
 주식 가격이나 거래량과 같은 금융 시계열은 다양한 경제 주기, 계절성 또는 투자자 행동으로 인해 주기적인 패턴을 나타내는 경우가 많습니다. 푸리에 변환은 이러한 주기와 해당 주파수를 식별하는 데 도움이 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -58,12 +61,14 @@ link: "https://medium.com/@kt.26karanthakur/stock-market-signal-analysis-using-f
 주파수를 식별함으로써, 분석가들은 역사적인 패턴을 기반으로 미래 가격 변동이나 트렌드에 대한 예측을 할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -77,12 +82,14 @@ Fourier 변환에서 얻은 주파수 구성 요소는 머신 러닝 모델에�
 ## 노트북 설정 및 주식 데이터 수집
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -114,12 +121,14 @@ df = pdr.get_data_yahoo(ticker + '.NS', start = start_date, end = end_date)
 ## FFT의 적용
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -138,12 +147,14 @@ periods = 1 / frequencies
 아래의 주파수 플롯은 시계열 내에서 우세한 주파수를 강조합니다. 이러한 주파수는 역 FFT를 수행하거나 원래 시계열을 다시 만들거나 잡음을 줄인 버전을 생성하는 데 사용될 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -170,20 +181,21 @@ plt.tight_layout()
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_0.png" />
+<img src="/TIL/assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_0.png" />
 
 하지만, 이러한 우세 주파수의 중요성은 단순히 시계열을 재구성하는 데서 그치지 않습니다. 이들은 시계열 구조에 영향을 미치는 주요 경제 보고서나 거시경제 사건과 관련될 수 있습니다.
 
 ## 원래 주식 시장 데이터 복구하기
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -191,28 +203,30 @@ plt.show()
 np.fft.ifft() 함수를 사용하여 원래의 시계열을 복원할 수 있습니다. 이 함수는 fft_results를 역변환합니다. 아래 그래프에서 볼 수 있듯이 완벽하게 재구성되었습니다.
 
 ```js
-recovered = np.fft.ifft(fft_result)
-plt.figure(figsize=(14, 6))
-plt.plot(df.index, df['Close'], label='Original')
-plt.plot(df.index, recovered, label='Recovered')
-plt.title('TCS 시계열: FFT 역변환')
-plt.xlabel('날짜')
-plt.ylabel('가격')
-plt.legend()
-plt.show()
+recovered = np.fft.ifft(fft_result);
+plt.figure((figsize = (14, 6)));
+plt.plot(df.index, df["Close"], (label = "Original"));
+plt.plot(df.index, recovered, (label = "Recovered"));
+plt.title("TCS 시계열: FFT 역변환");
+plt.xlabel("날짜");
+plt.ylabel("가격");
+plt.legend();
+plt.show();
 ```
 
-<img src="/assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_1.png" />
+<img src="/TIL/assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_1.png" />
 
 ## 주요 주파수를 갖는 파형의 재구성
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -220,35 +234,36 @@ plt.show()
 이것은 상위 25개 FFT 주파수만 사용하여 재구성된 신호를 생성합니다. 이것은 데이터의 노이즈 제거를 의미합니다.
 
 ```js
-dominant_periods = pd.Series(periods, index = magnitude).nlargest(25)
-dominant_periods.to_frame('주기 (일)')
-top_periods = dominant_periods.index
-top_fft_result = fft_result.copy()
-top_fft_result[np.abs(frequencies) > 1 / top_periods.min()] = 0
-top_recovered = np.fft.ifft(top_fft_result)
+dominant_periods = pd.Series(periods, (index = magnitude)).nlargest(25);
+dominant_periods.to_frame("주기 (일)");
+top_periods = dominant_periods.index;
+top_fft_result = fft_result.copy();
+top_fft_result[np.abs(frequencies) > 1 / top_periods.min()] = 0;
+top_recovered = np.fft.ifft(top_fft_result);
 
-
-plt.figure(figsize = (14, 6))
-plt.plot(df.index, df['Close'], label = '원본')
-plt.plot(df.index, top_recovered, label = '복원된')
-plt.title('TCS 시계열: FFT 역변환')
-plt.xlabel('날짜')
-plt.ylabel('가격')
-plt.legend()
-plt.show()
+plt.figure((figsize = (14, 6)));
+plt.plot(df.index, df["Close"], (label = "원본"));
+plt.plot(df.index, top_recovered, (label = "복원된"));
+plt.title("TCS 시계열: FFT 역변환");
+plt.xlabel("날짜");
+plt.ylabel("가격");
+plt.legend();
+plt.show();
 ```
 
-<img src="/assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_2.png" />
+<img src="/TIL/assets/img/2024-07-09-StockMarketSignalAnalysisUsingFastFourierTransform_2.png" />
 
 # 결론
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

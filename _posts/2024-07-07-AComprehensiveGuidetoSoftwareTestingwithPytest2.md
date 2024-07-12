@@ -1,17 +1,16 @@
 ---
 title: "Pytest로 소프트웨어 테스트하는 종합 가이드 2"
 description: ""
-coverImage: "/assets/img/2024-07-07-AComprehensiveGuidetoSoftwareTestingwithPytest2_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-AComprehensiveGuidetoSoftwareTestingwithPytest2_0.png"
 date: 2024-07-07 19:17
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-AComprehensiveGuidetoSoftwareTestingwithPytest2_0.png
 tag: Tech
 originalTitle: "A Comprehensive Guide to Software Testing with Pytest #2"
 link: "https://medium.com/@rockeyrockssandeep1994/a-comprehensive-guide-to-software-testing-with-pytest-2-e0e59fdf1933"
 ---
 
-
-<img src="/assets/img/2024-07-07-AComprehensiveGuidetoSoftwareTestingwithPytest2_0.png" />
+<img src="/TIL/assets/img/2024-07-07-AComprehensiveGuidetoSoftwareTestingwithPytest2_0.png" />
 
 두 번째 부분에서는 소프트웨어 테스트의 원칙과 실천 방법에 대해 이야기하겠습니다. 또한 "pytest가 이러한 원칙과 실천 방법을 구현하는 데 어떻게 도움이 되는지"에 대한 질문에 대답할 것입니다.
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@rockeyrockssandeep1994/a-comprehensive-guide-to-softw
 # 소프트웨어 테스트의 필요성은 무엇인가요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -44,12 +45,14 @@ link: "https://medium.com/@rockeyrockssandeep1994/a-comprehensive-guide-to-softw
 ## 소프트웨어 테스트 수명 주기 (STLC)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -69,12 +72,14 @@ link: "https://medium.com/@rockeyrockssandeep1994/a-comprehensive-guide-to-softw
 ## 다양한 관행 및 개발자의 마인드셋
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -88,12 +93,14 @@ link: "https://medium.com/@rockeyrockssandeep1994/a-comprehensive-guide-to-softw
 2. 행위 주도 개발 (BDD):
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -107,12 +114,14 @@ link: "https://medium.com/@rockeyrockssandeep1994/a-comprehensive-guide-to-softw
 4. 지속적 배포 (CD):
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -126,12 +135,14 @@ link: "https://medium.com/@rockeyrockssandeep1994/a-comprehensive-guide-to-softw
 ## 테스트를 위한 최상의 실첵
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -149,12 +160,14 @@ def test_addition_function_adds_two_numbers_correctly():
 2. 테스트 격리:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -179,20 +192,20 @@ def test_example(setup_environment):
 - 예시: 만약 두 숫자를 더하는 test_function이라는 함수가 있다면, test_function 대신 test_addition_function_adds_two_numbers_correctly와 같이 명확한 이름을 사용하세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 def test_addition_function_adds_two_numbers_correctly():
-    assert addition(2, 3) == 5
-
+assert addition(2, 3) == 5
 
 4. 자동화 테스트:
 
@@ -201,14 +214,15 @@ def test_addition_function_adds_two_numbers_correctly():
 - Pytest는 CI/CD 파이프라인에 쉽게 통합할 수 있습니다. 프로젝트에 구성 파일을 추가하여 테스트를 자동 실행합니다.
 - 예시: GitHub Actions를 위한 .github/workflows/python-app.yml을 사용합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -228,12 +242,14 @@ pytest -n 4  # 4개의 코어를 사용하여 테스트를 병렬로 실행합�
 # 참고 문헌
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -242,7 +258,7 @@ pytest -n 4  # 4개의 코어를 사용하여 테스트를 병렬로 실행합�
 - BrowserStack. "테스트 주도 개발(TDD)란 무엇인가요?" BrowserStack
 - Wikipedia. "테스트 주도 개발" Wikipedia
 - Built In. "테스트 주도 개발(TDD)란 무엇인가요? 안내." Built In
-- Agile Alliance. "행위 주도 개발(BDD)란 무엇인가요?" Agile Alliance 
+- Agile Alliance. "행위 주도 개발(BDD)란 무엇인가요?" Agile Alliance
 - Wikipedia. "행위 주도 개발" Wikipedia
-- LambdaTest. "행위 주도 개발(BDD)란 무엇인가요? 전체 가이드." LambdaTest 
+- LambdaTest. "행위 주도 개발(BDD)란 무엇인가요? 전체 가이드." LambdaTest
 - BrowserStack. "BDD가 뭔가요? (행위 주도 개발)" BrowserStack

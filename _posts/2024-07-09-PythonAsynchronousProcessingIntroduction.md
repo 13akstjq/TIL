@@ -1,33 +1,32 @@
 ---
 title: "파이썬 비동기 프로세싱 소개"
 description: ""
-coverImage: "/assets/img/2024-07-09-PythonAsynchronousProcessingIntroduction_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-PythonAsynchronousProcessingIntroduction_0.png"
 date: 2024-07-09 20:08
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-PythonAsynchronousProcessingIntroduction_0.png
 tag: Tech
 originalTitle: "Python — Asynchronous Processing Introduction"
 link: "https://medium.com/@tonylixu/python-asynchronous-processing-introduction-601be5ba361c"
 ---
 
-
-
-![image](/assets/img/2024-07-09-PythonAsynchronousProcessingIntroduction_0.png)
+![image](/TIL/assets/img/2024-07-09-PythonAsynchronousProcessingIntroduction_0.png)
 
 # Asynchronous Processing이란 무엇인가요?
 
 비동기 처리는 작업이나 동작을 메인 프로그램의 실행을 차단하지 않고 동시에 실행할 수 있는 프로그래밍 패러다임입니다.
 
-![image](/assets/img/2024-07-09-PythonAsynchronousProcessingIntroduction_1.png)
-
+![image](/TIL/assets/img/2024-07-09-PythonAsynchronousProcessingIntroduction_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -60,12 +59,14 @@ print("메인 프로그램 완료")
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -88,12 +89,14 @@ Main program completed
 예를 들어:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -144,12 +147,14 @@ asyncio.run(main())
 모든 작업이 동시에 시작되며, 완료 순서는 다를 수 있습니다. 메인 프로그램은 작업이 완료될 때까지 기다리지 않고 실행을 계속하여 비동기성을 실현합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -163,12 +168,14 @@ asyncio.run(main())
 ## 병렬성
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -183,7 +190,7 @@ def worker(num):
 
 if __name__ == '__main__':
     processes = [Process(target=worker, args=(i,)) for i in range(5)]
-    
+
     for process in processes:
         process.start()
 
@@ -202,12 +209,14 @@ Worker: 4
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -241,12 +250,14 @@ asyncio.run(main())
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -265,12 +276,14 @@ Finish worker: 3
 스레딩은 동시성을 달성하기 위한 프로그래밍 개념과 기술입니다. 스레드는 운영 체제의 스케줄러에 의해 독립적으로 관리될 수 있는 프로그램 명령의 가장 작은 시퀀스입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -298,36 +311,39 @@ if __name__ == '__main__':
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-Worker: 0
-Worker: 1
-Worker: 2
-Worker: 4
-Worker: 3
+Worker: 0;
+Worker: 1;
+Worker: 2;
+Worker: 4;
+Worker: 3;
 ```
 
 요약하면, 병행 시스템에서 작업이 겹치면서 시작, 실행 및 완료되지만, 병렬 시스템에서 작업은 동시에 실행됩니다— 이것이 핵심적인 차이점입니다. 스레딩은 우리가 동시성 및 가능한 병렬성의 목표를 달성하는 기술일 뿐입니다. 동시성에는 CPU 집약적 작업에 최적화된 다중 처리와 IO 집약적 작업에 적합한 스레딩이 포함됩니다. 다중 처리는 병렬성의 한 유형으로 간주될 수 있으며, 병렬성 자체가 동시성의 특정 종류(하위 집합)입니다.
 
 # Python Asyncio 모듈
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -341,12 +357,14 @@ The `asyncio` 모듈은 파이썬에서 강력한 라이브러리로, 비동기 
 ## 주요 기능
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -364,12 +382,14 @@ The `asyncio` 모듈은 파이썬에서 강력한 라이브러리로, 비동기 
 # async와 await
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -383,12 +403,14 @@ async is a keyword used to declare a function as an "asynchronous function". Suc
 When an async function is called, it doesn't execute in the traditional way. Instead, it returns an "awaitable" object, which is a coroutine object. This object needs to be awaited or run in an event loop to get the result. The event loop is where the asynchronous code is executed. It's the core of every asyncio application, managing and scheduling the execution of asynchronous tasks.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -402,12 +424,14 @@ await 표현식이 실행되면 사용된 코루틴은 awaitable이 해결될 �
 ## async와 await을 사용하는 이유
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

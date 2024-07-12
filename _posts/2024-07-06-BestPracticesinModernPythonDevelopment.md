@@ -1,16 +1,14 @@
 ---
 title: "최신 파이썬 개발 모범 사례 10가지"
 description: ""
-coverImage: "/assets/img/2024-07-06-BestPracticesinModernPythonDevelopment_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-BestPracticesinModernPythonDevelopment_0.png"
 date: 2024-07-06 10:28
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-BestPracticesinModernPythonDevelopment_0.png
 tag: Tech
 originalTitle: "Best Practices in Modern Python Development"
 link: "https://medium.com/gitconnected/best-practices-in-modern-python-development-870a97c5593d"
 ---
-
-
 
 /assets/img/2024-07-06-BestPracticesinModernPythonDevelopment_0.png
 
@@ -20,14 +18,15 @@ Python Version Management
 
 최신 Python 버전
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -41,12 +40,14 @@ Python 도구 및 응용 프로그램
 프로젝트 구성 및 관리
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

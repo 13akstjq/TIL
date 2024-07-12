@@ -1,15 +1,14 @@
 ---
 title: "Python으로 LoRa 모듈레이션 시뮬레이션 하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-HowtoSimulateLoRaModulationWithPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-HowtoSimulateLoRaModulationWithPython_0.png"
 date: 2024-07-09 09:09
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-HowtoSimulateLoRaModulationWithPython_0.png
 tag: Tech
 originalTitle: "How to Simulate LoRa Modulation With Python"
 link: "https://medium.com/@pinheirofelipe88/how-to-simulate-lora-modulation-with-python-a32a45df49ce"
 ---
-
 
 # 소개
 
@@ -17,15 +16,17 @@ LoRa (Long Range) 변조는 저전력 소비로 장거리 데이터 전송이 �
 
 # 매개변수 정의
 
-코드의 첫 번째 섹션은 LoRa 조작에 사용되는 매개변수를 정의합니다. 대역폭 B는 125 kHz (125e3)로 설정되고 샘플링 주기 T는 대역폭의 역수로 계산됩니다. 즉, T = 1 / B 입니다. 확산 계수(SF)는 7로 정의되어 있으며 LoRa 변조를 위한 전형적인 값으로 7에서 12 사이의 값으로 변할 수 있습니다. 이 계수는 심볼 주기 T_s를 결정하며, T_s = (2**SF) * T로 계산됩니다. 이러한 매개변수는 LoRa 시스템에서 심볼의 시간적 행동과 전송 속도를 정의하는 데 필수적입니다.
+코드의 첫 번째 섹션은 LoRa 조작에 사용되는 매개변수를 정의합니다. 대역폭 B는 125 kHz (125e3)로 설정되고 샘플링 주기 T는 대역폭의 역수로 계산됩니다. 즉, T = 1 / B 입니다. 확산 계수(SF)는 7로 정의되어 있으며 LoRa 변조를 위한 전형적인 값으로 7에서 12 사이의 값으로 변할 수 있습니다. 이 계수는 심볼 주기 T_s를 결정하며, T_s = (2\*_SF) _ T로 계산됩니다. 이러한 매개변수는 LoRa 시스템에서 심볼의 시간적 행동과 전송 속도를 정의하는 데 필수적입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -55,19 +56,21 @@ for h in range(SF):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 # 시간 및 시간 인덱스 벡터 생성 및 Chirp 계산하기
 
-코드의 세 번째 부분은 Chirp 신호를 생성하는 데 필요한 시간 벡터를 만듭니다. t 벡터는 np.linspace 함수를 사용하여 생성되며, 이 함수는 0부터 T_s까지 num 개의 동일 간격으로 나누어진 점을 생성합니다. 점의 개수 num은 int(T_s / T)로 계산되어 샘플링 주기 T에 따라 점이 적절히 간격을 두고 생성됩니다. 그다음, k 벡터는 np.arange를 사용하여 생성되는데, len(t)까지 0.01의 간격으로 동일하게 나뉜 값을 생성합니다. 그리고 Chirp 신호는 chirp = np.exp(1j * 2 * np.pi * ((symbol + k) % (2**SF)) / (2**SF) * k) 공식을 사용하여 계산됩니다. 여기서, 1j는 허수 단위를 나타냅니다.
+코드의 세 번째 부분은 Chirp 신호를 생성하는 데 필요한 시간 벡터를 만듭니다. t 벡터는 np.linspace 함수를 사용하여 생성되며, 이 함수는 0부터 T_s까지 num 개의 동일 간격으로 나누어진 점을 생성합니다. 점의 개수 num은 int(T_s / T)로 계산되어 샘플링 주기 T에 따라 점이 적절히 간격을 두고 생성됩니다. 그다음, k 벡터는 np.arange를 사용하여 생성되는데, len(t)까지 0.01의 간격으로 동일하게 나뉜 값을 생성합니다. 그리고 Chirp 신호는 chirp = np.exp(1j _ 2 _ np.pi _ ((symbol + k) % (2**SF)) / (2**SF) _ k) 공식을 사용하여 계산됩니다. 여기서, 1j는 허수 단위를 나타냅니다.
 
 ```js
 t = np.linspace(start=0, stop=T_s, num=int(T_s / T))
@@ -76,17 +79,19 @@ k = np.arange(start=0, stop=len(t), step=0.01)
 
 # Chirp 공식
 chirp = np.exp(1j * 2 * np.pi * ((symbol + k) % (2**SF)) / (2**SF) * k)
-``` 
+```
 
 # Chirp 신호들의 플로팅
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -97,7 +102,7 @@ chirp = np.exp(1j * 2 * np.pi * ((symbol + k) % (2**SF)) / (2**SF) * k)
 # Chirp 신호 플로팅
 plt.figure(figsize=(10, 6))
 
-# Chirp 실수부 플로팅 
+# Chirp 실수부 플로팅
 plt.subplot(2, 1, 1)
 plt.plot(k, chirp.real, label='실수부', color='blue')
 plt.title('LoRa 신호 - s(t)의 실수부')
@@ -119,17 +124,19 @@ plt.tight_layout()
 plt.show()
 ```
 
-<img src="/assets/img/2024-07-09-HowtoSimulateLoRaModulationWithPython_0.png" />
+<img src="/TIL/assets/img/2024-07-09-HowtoSimulateLoRaModulationWithPython_0.png" />
 
 의견과 피드백은 댓글에서 환영합니다. 여기 테스트 용 전체 코드가 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

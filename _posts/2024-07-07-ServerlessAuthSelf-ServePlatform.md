@@ -1,17 +1,16 @@
 ---
 title: "서버리스 인증 자가 서비스 플랫폼 구축 방법"
 description: ""
-coverImage: "/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_0.png"
 date: 2024-07-07 21:49
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_0.png
 tag: Tech
 originalTitle: "Serverless Auth Self-Serve Platform"
 link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0caa2ca61892"
 ---
 
-
-<img src="/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_0.png" />
+<img src="/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_0.png" />
 
 ## 서문
 
@@ -24,12 +23,14 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 # 소개 👋🏽
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -40,15 +41,17 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 
 컨텐츠를 이해하기 쉽게 하기 위해, TypeScript 및 AWS CDK를 사용하여 가상의 'LJ Health Food' 회사의 완벽한 솔루션 코드 예제를 생성할 것입니다. 이 회사는 건강식품 배달 회사이지만 Uber Eats나 Just Eat과 같은 서드파티 통합을 통해 주문을 받을 수도 있습니다.
 
-![이미지](/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_1.png)
+![이미지](/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -57,38 +60,40 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 
 이 예제에서는 3rd party 서비스가 자사의 앱을 통해 주문을 배치하는 내용에 대해 리더십팀과 회의를 가졌습니다. 그들은 동의하고, 엔지니어링 팀은 통합 과정을 시작합니다.
 
-![image](/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_2.png)
+![image](/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_2.png)
 
 이를 위해 우리는 그들을 신뢰할 수 있는 클라이언트로 설정하고, 다른 서비스가 주문을 배치할 수 있는 부분에만 액세스할 수 있도록 권한을 부여해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Image](/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_3.png)
+![Image](/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_3.png)
 
 이 특정 인가 플로우를 통해 이 신뢰가 어떤 모습인지 살펴보겠습니다.
 
 👇 더 나아가기 전에 — 향후 블로그 포스트와 서버리스 뉴스에 대해 연결하려면 LinkedIn에서 저와 연락해주세요. https://www.linkedin.com/in/lee-james-gilmore/
 
-![Image](/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_4.png)
-
+![Image](/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_4.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -102,15 +107,17 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 - Amazon Cognito의 UI는 매우 복잡하며 필요하지 않은 많은 기능이 포함되어 있습니다. 우리는 자체 UI에서 이것을 제거함으로써 이런 소음을 최소화할 수 있습니다 (필요한 기능만 표시).
 - 보안 팀이 처리해야 하는 포인트가 더 많아집니다.
 
-<img src="/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_5.png" />
+<img src="/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_5.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -124,12 +131,14 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 ✔️ 보안 팀은 한 솔루션의 디자인을 확인하고 팀과 함께 쉽게 모니터링할 수 있어요."
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -143,12 +152,14 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 간단한 용어 해설을 통해 이야기를 나눠보죠:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -165,12 +176,14 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 위 다이어그램에서 보듯이:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -183,17 +196,19 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 
 지금 우리가 높은 수준에서 이에 대해 이야기했으니, 우리의 자체 서비스 포털이 어떻게 생겼는지 살펴봅시다. 이를 통해 3rd Party 모바일 앱이 우리 주문 서비스를 이용하여 주문을 배치할 수 있도록 관리 세부 정보를 관리할 수 있는 것입니다.
 
-![이미지](/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_6.png)
+![이미지](/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_6.png)
 
 # 저희 클라이언트 앱은 어떻게 생겼나요? 🎨
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -207,12 +222,14 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 '새 리소스 서버 만들기' 버튼을 클릭하여 새 리소스 서버를 추가할 필요한 세부 정보를 추가하는 모달이 표시됩니다. 예를 들어, 우리의 리소스 서버에는 '주문하기' 및 '주문 목록'이라는 두 가지 스코프가 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -226,12 +243,14 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 # 무엇을 만들고 있나요? 🛠️
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -249,12 +268,14 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 이제 주요 코드에 대해 이야기해 보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -270,12 +291,14 @@ link: "https://medium.com/@leejamesgilmore/serverless-auth-self-serve-platform-0
 자, 각각의 중요 코드를 살펴보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -322,26 +345,28 @@ export class SharedCentralAuthStatefulStack extends cdk.Stack {
 다음으로 사용자 풀과 상호 작용할 UI에 사용될 Amazon API Gateway를 생성합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```typescript
 // 우리의 경험 레이어 API를 생성합니다.
-const api: apigw.RestApi = new apigw.RestApi(this, 'CentralAuthApi', {
-  description: 'LJ Food Delivery - Central Auth Service',
+const api: apigw.RestApi = new apigw.RestApi(this, "CentralAuthApi", {
+  description: "LJ Food Delivery - Central Auth Service",
   deploy: true,
   defaultCorsPreflightOptions: {
     allowOrigins: apigw.Cors.ALL_ORIGINS,
   },
   deployOptions: {
-    stageName: 'prod',
+    stageName: "prod",
     loggingLevel: apigw.MethodLoggingLevel.INFO,
   },
 });
@@ -351,47 +376,44 @@ const api: apigw.RestApi = new apigw.RestApi(this, 'CentralAuthApi', {
 
 ```typescript
 // API에서 리소스를 만듭니다.
-const resourceServers: apigw.Resource =
-  api.root.addResource('resource-servers');
-const clients: apigw.Resource = api.root.addResource('clients');
-const client: apigw.Resource = clients.addResource('{id}');
-const resourceServer: apigw.Resource = resourceServers.addResource('{id}');
+const resourceServers: apigw.Resource = api.root.addResource("resource-servers");
+const clients: apigw.Resource = api.root.addResource("clients");
+const client: apigw.Resource = clients.addResource("{id}");
+const resourceServer: apigw.Resource = resourceServers.addResource("{id}");
 ```
 
 여러 Lambda 함수가 있으며 이 함수들은 클라이언트 목록 표시, 리소스 서버 생성, 클라이언트 삭제 등과 같은 기능을 위해 API Gateway 엔드포인트와 통합됩니다. 한 예시 함수를 살펴보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
 // 새로운 리소스 서버를 추가하는 람다 함수를 생성합니다
-const createResourceServer: nodeLambda.NodejsFunction =
-  new nodeLambda.NodejsFunction(this, 'CreateResourceServer', {
-    functionName: 'create-resource-server',
-    runtime: lambda.Runtime.NODEJS_20_X,
-    entry: path.join(
-      __dirname,
-      'src/adapters/primary/create-resource-server/create-resource-server.adapter.ts'
-    ),
-    memorySize: 1024,
-    handler: 'handler',
-    tracing: Tracing.ACTIVE,
-    bundling: {
-      minify: true,
-    },
-    environment: {
-      ...lambdaPowerToolsConfig,
-      USER_POOL_ID: userPoolId,
-    },
-  });
+const createResourceServer: nodeLambda.NodejsFunction = new nodeLambda.NodejsFunction(this, "CreateResourceServer", {
+  functionName: "create-resource-server",
+  runtime: lambda.Runtime.NODEJS_20_X,
+  entry: path.join(__dirname, "src/adapters/primary/create-resource-server/create-resource-server.adapter.ts"),
+  memorySize: 1024,
+  handler: "handler",
+  tracing: Tracing.ACTIVE,
+  bundling: {
+    minify: true,
+  },
+  environment: {
+    ...lambdaPowerToolsConfig,
+    USER_POOL_ID: userPoolId,
+  },
+});
 ```
 
 Lambda 함수들은 우리의 Cognito 사용자 풀을 관리하기 위해 AWS SDK v3를 활용하므로, 각각에 필요한 관련 권한을 부여해야 합니다. 위의 'CreateResourceServer' 람다 함수의 경우, 아래와 같이 할 수 있습니다:
@@ -400,7 +422,7 @@ Lambda 함수들은 우리의 Cognito 사용자 풀을 관리하기 위해 AWS S
 // 람다 함수에 사용자 풀 액세스 권한 부여
 createResourceServer.addToRolePolicy(
   new iam.PolicyStatement({
-    actions: ['cognito-idp:CreateResourceServer'],
+    actions: ["cognito-idp:CreateResourceServer"],
     resources: [userPool.userPoolArn],
   })
 );
@@ -409,12 +431,14 @@ createResourceServer.addToRolePolicy(
 그런 다음 Lambda 함수 핸들러 유즈케이스(비즈니스 로직)는 Amazon Cognito와 통신하기 위해 보조 어댑터를 활용하며, 아래는 AWS SDK를 사용하여 리소스 서버를 생성하는 예시입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -434,24 +458,19 @@ export async function createCognitoResourceServer(
 
   try {
     const command = new CreateResourceServerCommand(params);
-    const response: CreateResourceServerCommandOutput = await client.send(
-      command
-    );
+    const response: CreateResourceServerCommandOutput = await client.send(command);
 
-    logger.info(
-      'resource server created: ',
-      JSON.stringify(response.ResourceServer)
-    );
+    logger.info("resource server created: ", JSON.stringify(response.ResourceServer));
     const resourceServer = response.ResourceServer;
 
     if (!resourceServer) {
-      throw new Error('resource server could not be created');
+      throw new Error("resource server could not be created");
     }
 
-    logger.info('resource server details: ', JSON.stringify(resourceServer));
+    logger.info("resource server details: ", JSON.stringify(resourceServer));
     return resourceServer;
   } catch (error) {
-    logger.error('error creating resource server: ', JSON.stringify(error));
+    logger.error("error creating resource server: ", JSON.stringify(error));
     throw error;
   }
 }
@@ -463,14 +482,15 @@ export async function createCognitoResourceServer(
 
 이 시점에서 UI로 이동하여 클라이언트가 사용할 주문 API를 위한 리소스 서버를 생성할 수 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -483,7 +503,7 @@ export async function createCognitoResourceServer(
 // ensure that our lambda function is invoked through the api
 // and we have a request based lambda authorizer to validate the token
 orders.addMethod(
-  'POST',
+  "POST",
   new apigw.LambdaIntegration(createOrder, {
     proxy: true,
   }),
@@ -495,12 +515,14 @@ orders.addMethod(
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -510,26 +532,24 @@ API 엔드포인트가 호출될 때마다 먼저 Lambda Authorizer를 호출하
 그런 다음 아래의 Lambda 핸들러 내용을 확인할 수 있습니다. 여기에서는 Authorization 헤더의 액세스 토큰을 유효성 검사합니다:
 
 ```js
-import { APIGatewayAuthorizerResult } from 'aws-lambda/trigger/api-gateway-authorizer';
-import { CognitoJwtVerifier } from 'aws-jwt-verify';
-import { PolicyDocument } from 'aws-lambda';
-import { config } from '@config';
-import { logger } from '@shared';
+import { APIGatewayAuthorizerResult } from "aws-lambda/trigger/api-gateway-authorizer";
+import { CognitoJwtVerifier } from "aws-jwt-verify";
+import { PolicyDocument } from "aws-lambda";
+import { config } from "@config";
+import { logger } from "@shared";
 
 const cognitoJwtVerifier = CognitoJwtVerifier.create({
-  userPoolId: config.get('userPoolId'),
-  clientId: [config.get('clientId')], // 유효한 클라이언트 ID 배열
-  scope: [config.get('scopes')], // 허용된 스코프
-  tokenUse: 'access',
+  userPoolId: config.get("userPoolId"),
+  clientId: [config.get("clientId")], // 유효한 클라이언트 ID 배열
+  scope: [config.get("scopes")], // 허용된 스코프
+  tokenUse: "access",
 });
 
-export const handler = async function (
-  event: any
-): Promise<APIGatewayAuthorizerResult> {
+export const handler = async function (event: any): Promise<APIGatewayAuthorizerResult> {
   try {
     // 클라이언트가 클라이언트 ID와 클라이언트 시크릿(스코프로)를 사용하여 받은
     // 인증 토큰을 요청에서 가져옵니다. 이를 로그에만 표시합니다.
-    const authToken = event.headers['Authorization'] || '';
+    const authToken = event.headers["Authorization"] || "";
 
     logger.info(`Auth token: ${authToken}`);
 
@@ -538,12 +558,12 @@ export const handler = async function (
 
     // methodArn에 대한 허용 정책 생성
     const policyDocument: PolicyDocument = {
-      Version: '2012-10-17',
+      Version: "2012-10-17",
       Statement: [
         {
-          Action: 'execute-api:Invoke',
-          Effect: 'Allow',
-          Resource: event['methodArn'],
+          Action: "execute-api:Invoke",
+          Effect: "Allow",
+          Resource: event["methodArn"],
         },
       ],
     };
@@ -561,8 +581,8 @@ export const handler = async function (
 
     return response;
   } catch (err) {
-    console.error('invalid auth token: ', err);
-    throw new Error('unauthorized');
+    console.error("invalid auth token: ", err);
+    throw new Error("unauthorized");
   }
 };
 ```
@@ -570,12 +590,14 @@ export const handler = async function (
 위 코드에서 유효성 확인이 이루어지는 것을 확인할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -592,12 +614,14 @@ export const handler = async function (
 그래서 이제 우리에게는 새로운 주문을 생성하는 리소스 서버 서비스가 있고, 중앙 인증 플랫폼에서 이를 위한 모든 구성 설정이 완료되었습니다. 이제 리소스 서버 API를 사용할 3rd party 서비스인 클라이언트를 생성해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -605,12 +629,12 @@ export const handler = async function (
 새 주문을 만드는 비즈니스 로직인 사용 사례를 살펴보겠습니다. 아래에 표시된 대로, 우리의 서드파티 서비스에서 새 주문을 만드는 방법을 살펴보겠습니다.
 
 ```js
-import { CreateOrder, Order } from '@dto/order';
-import { logger, schemaValidator } from '@shared';
+import { CreateOrder, Order } from "@dto/order";
+import { logger, schemaValidator } from "@shared";
 
-import { createOrder } from '@adapters/secondary/https-adapter';
-import { saveOrder } from '@adapters/secondary/database-adapter';
-import { schema } from '@schemas/order';
+import { createOrder } from "@adapters/secondary/https-adapter";
+import { saveOrder } from "@adapters/secondary/database-adapter";
+import { schema } from "@schemas/order";
 
 export async function createOrderUseCase(order: CreateOrder): Promise<Order> {
   logger.info(`주문이 접수되었습니다: ${JSON.stringify(order)}`);
@@ -635,42 +659,39 @@ export async function createOrderUseCase(order: CreateOrder): Promise<Order> {
 HTTP 핸들러는 액세스 토큰을 생성하고 주문 요청을 리소스 서버 API로 보내는 데 관여합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-import { CreateOrder, Order } from '@dto/order';
-import { generateAccessToken, logger } from '@shared';
+import { CreateOrder, Order } from "@dto/order";
+import { generateAccessToken, logger } from "@shared";
 
-import axios from 'axios';
-import { config } from '@config';
-import { decode } from 'jsonwebtoken';
+import axios from "axios";
+import { config } from "@config";
+import { decode } from "jsonwebtoken";
 
 export async function createOrder(order: CreateOrder): Promise<Order> {
   // 설정 가능한 세부 정보를 구성에서 가져옵니다
-  const clientId = config.get('clientId');
-  const clientSecret = config.get('clientSecret');
-  const url = config.get('authUrl');
-  const resourceServerUrl = config.get('resourceServerUrl');
+  const clientId = config.get("clientId");
+  const clientSecret = config.get("clientSecret");
+  const url = config.get("authUrl");
+  const resourceServerUrl = config.get("resourceServerUrl");
 
   // 주문 서비스를 이용하여 주문을 작성하기 위한 스코프
-  const scopes: string[] = ['lj-health-food/place-order'];
+  const scopes: string[] = ["lj-health-food/place-order"];
 
   // 주문 서비스를 위한 액세스 토큰 생성
   // 클라이언트 자격 증명으로 중앙 인증 서비스를 호출하여
-  const accessToken = await generateAccessToken(
-    clientId,
-    clientSecret,
-    url,
-    scopes
-  );
+  const accessToken = await generateAccessToken(clientId, clientSecret, url, scopes);
 
   // 참고: 접근 토큰은 절대로 로깅해서는 안 됩니다
   // 그러나 이 예제에서는 디코딩된 내용을 살펴보겠습니다
@@ -680,8 +701,8 @@ export async function createOrder(order: CreateOrder): Promise<Order> {
   // 주문을 생성하기 위해 주문 API(리소스 서버)에 요청 보냄
   // 헤더에 액세스 토큰을 전달합니다
   const { data }: { data: Order } = await axios.request({
-    url: 'orders',
-    method: 'post',
+    url: "orders",
+    method: "post",
     baseURL: resourceServerUrl,
     headers: {
       Authorization: accessToken,
@@ -738,14 +759,15 @@ export async function generateAccessToken(
 
 위의 코드에서 알 수 있듯이, 이 코드는 클라이언트 ID, 시크릿 및 스코프를 사용하여 중앙 인증 서비스(Cognito 사용자 풀)의 토큰 엔드포인트에 POST 요청을 수행하여 유효하면 액세스 토큰을 반환합니다. 액세스 토큰은 이와 유사합니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -779,12 +801,14 @@ The token의 주요 속성들은 다음과 같습니다:
 이제 코드를 확인하고 배포하고 UI를 탐험하여 여러분의 요구에 맞게 조정하세요!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -802,12 +826,14 @@ The token의 주요 속성들은 다음과 같습니다:
 # 마무리 인사 👋🏽
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -816,17 +842,19 @@ The token의 주요 속성들은 다음과 같습니다:
 
 유사한 콘텐츠를 원하신다면 제 유튜브 채널을 구독해주세요!
 
-![이미지](/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_7.png)
+![이미지](/TIL/assets/img/2024-07-07-ServerlessAuthSelf-ServePlatform_7.png)
 
 아래의 채널을 통해 저와 연결하고 싶습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -841,12 +869,14 @@ https://twitter.com/LeeJamesGilmore
 # 나에 대해
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -855,6 +885,6 @@ https://twitter.com/LeeJamesGilmore
 
 저는 서버리스를 지지하는 입장에서 모든 것에 대한 사랑, 혁신, 소프트웨어 아키텍처, 기술에 대한 관심을 가지고 있습니다."
 
-*** 제공된 정보는 제 개인적인 견해이며 정보 사용에 대한 책임을 지지 않습니다. ***
+**_ 제공된 정보는 제 개인적인 견해이며 정보 사용에 대한 책임을 지지 않습니다. _**
 
 아래 내용도 참고하실 수 있습니다:

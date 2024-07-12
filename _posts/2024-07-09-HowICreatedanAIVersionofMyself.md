@@ -1,17 +1,16 @@
 ---
 title: "AI 버전의 나를 만드는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-HowICreatedanAIVersionofMyself_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-HowICreatedanAIVersionofMyself_0.png"
 date: 2024-07-09 19:14
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-HowICreatedanAIVersionofMyself_0.png
 tag: Tech
 originalTitle: "How I Created an AI Version of Myself"
 link: "https://medium.com/@keith-mcnulty/how-i-created-an-ai-version-of-myself-aec12bc30067"
 ---
 
-
-![이미지](/assets/img/2024-07-09-HowICreatedanAIVersionofMyself_0.png)
+![이미지](/TIL/assets/img/2024-07-09-HowICreatedanAIVersionofMyself_0.png)
 
 생성적 AI는 화가 나게 만드는 괴로운 발전으로 가장 잘 설명될 수 있습니다. 2022년 말에 처음 출시된 ChatGPT는 자연어의 품질에 대해 현혹되고 광활한 놀라움을 줬습니다. 그 이후로 그 제품에 대한 다수의 업데이트와 경쟁 제품이 등장했습니다.
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@keith-mcnulty/how-i-created-an-ai-version-of-myself-a
 검색 증강 생성(RAG)은 큰 언어 모델을 더 효과적으로 사용하는 방법입니다. 비용이 크게 들지 않고 간단한 워크플로우를 사용하여, 모델에 관련된 맥락 정보를 제공하고 주어진 정보를 기반으로 답변하거나 주어진 정보를 우선시하여 반응하도록 제한할 수 있습니다. 이러한 방식으로, 큰 언어 모델의 실제 가치가 발휘됩니다 — 컨텐츠의 자동 자연어 요약기로서, 환각과 같은 원치 않는 행동은 최소화되거나 아예 제거될 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -38,15 +39,17 @@ link: "https://medium.com/@keith-mcnulty/how-i-created-an-ai-version-of-myself-a
 
 ## Retrieval Augmented Generation (RAG) 개요
 
-![이미지](/assets/img/2024-07-09-HowICreatedanAIVersionofMyself_1.png)
+![이미지](/TIL/assets/img/2024-07-09-HowICreatedanAIVersionofMyself_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -61,12 +64,14 @@ RAG의 아이디어는 프롬프트가 전문 지식 데이터베이스를 방�
 - LLM 구성 요소는 원래 프롬프트와 일치하는 문서를 사용하여 새로운 프롬프트를 작성하고 이를 우리 LLM에 보내 응답을 유도합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -80,12 +85,14 @@ RAG의 아이디어는 프롬프트가 전문 지식 데이터베이스를 방�
 먼저 필요한 몇 가지 패키지를 설치할 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -127,12 +134,12 @@ chapter_list = [
 # 각 장의 텍스트를 가져오는 함수 생성
 def get_text(chapter: str) -> str:
     # Rmd 파일이 저장된 Github의 URL
-    github_url = f"https://raw.githubusercontent.com/keithmcnulty/peopleanalytics-regression-book/master/r/{chapter}.Rmd"  
-    
+    github_url = f"https://raw.githubusercontent.com/keithmcnulty/peopleanalytics-regression-book/master/r/{chapter}.Rmd"
+
     result = requests.get(github_url)
     return result.text
 
-# 각 장의 URL을 순회하며 텍스트 내용을 가져오기    
+# 각 장의 URL을 순회하며 텍스트 내용을 가져오기
 book_text = []
 for chapter in chapter_list:
     chapter_text = get_text(chapter)
@@ -146,12 +153,14 @@ book_data = pd.DataFrame.from_dict(book_data)
 현재, 저는 길이가 상당히 긴 14개의 문서를 가지게 되었습니다. 앞으로 생각해보면, LLM에 보낼 모든 문서는 그 문맥 창에 맞게 맞춰져야 합니다. 현재 문서의 길이에서는 이를 제어할 수 없으므로, 이러한 문서를 더 많은 짧은 문서로 분할해야 할 필요가 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -177,21 +186,23 @@ len(docs)
 # 예상대로 문서가 보이는지 확인하기 위해 문서를 살펴봅시다
 docs[0]
 
-## Document(page_content="`r if (knitr::is_latex_output()) '\\\\mainmatter'`\n\n# The Importance of Regression in People Analytics {#inf-model}\n\nIn the 19th century, 
-## when Francis Galton first used the term 'regression' to describe a statistical phenomenon (see Chapter \\@ref(linear-reg-ols)), little did he know how important that 
-## term would be today.  Many of the most powerful tools of statistical inference that we now have at our disposal can be traced back to the types of early analysis that 
-## Galton and his contemporaries were engaged in.  The sheer number of different regression-related methodologies and variants that are available to researchers and practitioners 
-## today is mind-boggling, and there are still rich veins of ongoing research that are focused on defining and refining new forms of regression to tackle new problems.", 
+## Document(page_content="`r if (knitr::is_latex_output()) '\\\\mainmatter'`\n\n# The Importance of Regression in People Analytics {#inf-model}\n\nIn the 19th century,
+## when Francis Galton first used the term 'regression' to describe a statistical phenomenon (see Chapter \\@ref(linear-reg-ols)), little did he know how important that
+## term would be today.  Many of the most powerful tools of statistical inference that we now have at our disposal can be traced back to the types of early analysis that
+## Galton and his contemporaries were engaged in.  The sheer number of different regression-related methodologies and variants that are available to researchers and practitioners
+## today is mind-boggling, and there are still rich veins of ongoing research that are focused on defining and refining new forms of regression to tackle new problems.",
 ## metadata={'chapter': 0})
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -200,17 +211,19 @@ docs[0]
 
 ## 나의 문서를 포함하는 벡터 데이터베이스 설정하기
 
-![이미지](/assets/img/2024-07-09-HowICreatedanAIVersionofMyself_2.png)
+![이미지](/TIL/assets/img/2024-07-09-HowICreatedanAIVersionofMyself_2.png)
 
 적절한 길이의 문서를 보유하게 되었으므로, 이제 해당 문서를 벡터 데이터베이스에 로드해야 합니다. 벡터 데이터베이스는 텍스트를 원본 형식으로 저장하는데 더불어 임베딩으로도 저장합니다. 임베딩은 대규모의 부동 소수점 수 배열로, 대형 언어 모델이 언어를 처리하는 데 기본적인 역할을 합니다. 다차원 공간에서 '근접한' 임베딩을 가진 단어, 문장 또는 문서는 콘텐츠 면에서 서로 밀접한 관련성을 가질 것입니다. 임베딩 개념의 2D 그래픽 단순화된 다이어그램은 위의 도표를 참조하십시오.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -247,12 +260,14 @@ collection = client.create_collection(
 이제 문서를 로드할 준비가 되었어요. 벡터 데이터베이스는 한 번에 로드할 수 있는 문서의 제한이 있어요. 제 경우에는 몇 백 개의 문서밖에 없어서 괜찮을 것 같지만, 그래도 안전하게 하기 위해 일괄 로드를 설정하겠어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -426,9 +441,9 @@ ask_question("순서대로 범주형 결과를 모델링하는 데 어떤 방법
 
 ask_question('Proportional Odds 회귀분석을 사용할 때 주의해야 할 점은 무엇인가요?')
 
-## Proportional Odds 회귀분석을 사용할 때 주의해야 할 점은 다음과 같습니다:\n\n    
-## * **Proportional Odds 가정 검정:** 모델을 실행하기 전에 데이터에 적합한지 확인하기 위해 Proportional Odds 가정을 테스트해야 합니다. 가정이 실패하면 순서형 결과에 대한 대안 모델을 고려해야 합니다.\n    
-## * **변수 제거:** 가정이 실패하면 결과에 영향을 미치지 않는 변수를 제거할 수 있습니다. 그러나 이를 하는 것이 적합한지 여부는 전반적인 모델 적합도에 대한 영향에 매우 의존합니다.\n    
+## Proportional Odds 회귀분석을 사용할 때 주의해야 할 점은 다음과 같습니다:\n\n
+## * **Proportional Odds 가정 검정:** 모델을 실행하기 전에 데이터에 적합한지 확인하기 위해 Proportional Odds 가정을 테스트해야 합니다. 가정이 실패하면 순서형 결과에 대한 대안 모델을 고려해야 합니다.\n
+## * **변수 제거:** 가정이 실패하면 결과에 영향을 미치지 않는 변수를 제거할 수 있습니다. 그러나 이를 하는 것이 적합한지 여부는 전반적인 모델 적합도에 대한 영향에 매우 의존합니다.\n
 ## * **대안 모델:** 변수 제거에 대해 편안하지 않다면, 순서형 결과에 대한 대안 모델을 고려해야 합니다. 가장 일반적인 대안 모델로는 누적 로짓 모델, 순위 기반 모델, 기준 기반 모델 등이 있습니다.'
 
 다시, 제가 한 말 같네요. 그러면 교재에 다루지 않는 주제에 대해 물어본다면 어떨까요?
@@ -468,3 +483,4 @@ AI Keith에 대해서는, 곧 오픈할 계획이 없습니다. 우선 이 예�
 </script>
 
 AI Keith에 대해 어떻게 생각하시나요? RAG 아키텍처를 다뤄보신 적이 있나요? 자유롭게 의견을 남겨주세요!
+```

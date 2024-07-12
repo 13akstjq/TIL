@@ -1,18 +1,16 @@
 ---
 title: "Garman-Klass를 사용해 시계열 변동성 측정하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-MeasureTimeSeriesVolatilityUsingGarman-Klass_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-MeasureTimeSeriesVolatilityUsingGarman-Klass_0.png"
 date: 2024-07-09 09:09
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-MeasureTimeSeriesVolatilityUsingGarman-Klass_0.png
 tag: Tech
 originalTitle: "Measure Time Series Volatility Using Garman-Klass"
 link: "https://medium.com/@kaabar-sofien/measure-time-series-volatility-using-garman-klass-865901ba9322"
 ---
 
-
-
-![Garman-Klass volatility estimator](/assets/img/2024-07-09-MeasureTimeSeriesVolatilityUsingGarman-Klass_0.png)
+![Garman-Klass volatility estimator](/TIL/assets/img/2024-07-09-MeasureTimeSeriesVolatilityUsingGarman-Klass_0.png)
 
 가만-클라스(Grarman-Klass) 변동성 추정기는 고가, 저가, 시가 및 종가를 사용하여 금융 자산의 변동성을 추정하는 방법입니다. 이 방법은 종가만 사용하는 기존 방법보다 변동성을 더 정확하게 추정하는 데 설계되었습니다.
 
@@ -20,14 +18,15 @@ link: "https://medium.com/@kaabar-sofien/measure-time-series-volatility-using-ga
 
 # 가만-클라스(Grarman-Klass) 변동성 이해하기
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,15 +1,14 @@
 ---
 title: "아직 FastAPI를 프로덕션에 사용하면 안 되는 이유"
 description: ""
-coverImage: "/assets/img/2024-07-06-ThisisWhyFastAPIisNOTProduction-ReadyYet_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-ThisisWhyFastAPIisNOTProduction-ReadyYet_0.png"
 date: 2024-07-06 10:24
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-ThisisWhyFastAPIisNOTProduction-ReadyYet_0.png
 tag: Tech
 originalTitle: "This is Why FastAPI is NOT(!) Production-Ready Yet"
 link: "https://medium.com/python-in-plain-english/this-is-why-fastapi-is-not-production-ready-yet-6c707823bd7c"
 ---
-
 
 # 요약
 
@@ -20,12 +19,14 @@ link: "https://medium.com/python-in-plain-english/this-is-why-fastapi-is-not-pro
 # FastAPI 소개
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ FastAPI에서는 의존성 주입이 함수 시그니처 내의 Depends 키워�
 ## 예시: FastAPI 의존성 주입
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -71,12 +74,14 @@ async def read_items(commons: dict = Depends(common_parameters)):
 FastAPI는 각 라우트의 함수 수준에서 의존성이 주입되어야 합니다. 여러 라우트가 동일한 의존성을 필요로 하는 경우 각 라우트 핸들러 함수에 별도로 주입해야 합니다. 특히 많은 수의 라우트와 공유 의존성이 있는 응용 프로그램에서 반복적이고 장황한 코드로 이어질 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -116,12 +121,14 @@ async def create_item(logger: Annotated[Logger, Depends(Logger)]):
 # FastAPI에서 클래스 의존성 주입하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -159,16 +166,17 @@ if __name__ == "__main__":
 출력:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
 
 로그 출력 시작
 로그 출력 시작 위치 - <main.Logger object at 0x102f3ddf0>
@@ -185,7 +193,6 @@ if __name__ == "__main__":
 로그 - 엔드포인트 요청
 정보: 127.0.0.1:64670 - "GET / HTTP/1.1" 200 OK
 
-
 위의 결과를 살펴보겠습니다. 애플리케이션의 루트 경로에 접속하려고 할 때, 로거 객체가 초기화되고 "0x102f3ddf0" 위치로 설정되었음을 볼 수 있습니다. 그런 다음 두 번째로 동일한 경로에 액세스하면 로거 객체가 다시 초기화됩니다. 이 때는 다른 메모리 위치에 설정됩니다. 루트 경로를 호출할 때마다 로거 초기화에 2초의 대기 시간이 소요됩니다.
 
 그렇다면 로거에 의존하는 서비스가 필요한 경우 어떻게 될까요?
@@ -195,20 +202,20 @@ import time
 import random
 
 class Logger:
-    def __init__(self):
-        print("로그 출력 시작")
-        time.sleep(2)
-        print(f"로그 출력 시작 위치 - {self}")
+def **init**(self):
+print("로그 출력 시작")
+time.sleep(2)
+print(f"로그 출력 시작 위치 - {self}")
 
     def log(self, message):
         print(f"로그 - {message}")
 
 class Service:
-    def __init__(self, logger: Logger = Depends(Logger)):
-        self.logger = logger
-        print("서비스 시작")
-        time.sleep(1)
-        print(f"서비스 시작 위치 - {self}")
+def **init**(self, logger: Logger = Depends(Logger)):
+self.logger = logger
+print("서비스 시작")
+time.sleep(1)
+print(f"서비스 시작 위치 - {self}")
 
     def 실행(self):
         self.logger.log("어떤 작업을 수행 중")
@@ -218,21 +225,21 @@ app = FastAPI()
 
 @app.get("/")
 def get(service: Service = Depends(Service)):
-    return f"{service.실행()}"
+return f"{service.실행()}"
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
-
-
+if **name** == "**main**":
+import uvicorn
+uvicorn.run(app, host="0.0.0.0", port=8000)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -246,12 +253,14 @@ if __name__ == "__main__":
 PyNest의 DI 시스템은 반복적인 코드를 줄이고 대규모 애플리케이션에 특히 유용한 개발 프로세스를 간소화하는 데에 디자인되었습니다. PyNest는 의존성이 한 번에 한 번씩 주입되는 구조화된 DI 시스템을 제공하며, 대체로 컨트롤러 클래스 수준에서 이루어집니다. 이 구조는 한 번 의존성이 컨트롤러에 주입되면 더 이상 주입이 필요하지 않고 코드가 재사용되며 DRY 원칙을 준수할 수 있음을 의미합니다. 이 구조를 통해 한 번 의존성이 컨트롤러에 주입되면 더 이상의 주입이 필요 없이 해당 컨트롤러의 모든 경로 메서드에서 사용될 수 있으므로 코드베이스를 간소화할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -265,12 +274,14 @@ PyNest의 모듈화된 아키텍처를 사용하면 컨트롤러 클래스의 �
 예시 —
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -315,14 +326,15 @@ class ItemsController:
 
 이전에 논의한 바와 같이, FastAPI의 DI 매커니즘의 가장 큰 단점은 종속성을 관리하기 위해 싱글턴 패턴을 사용하지 않는 것입니다. 우리는 종속성이 모든 들어오는 요청마다 초기화되어야 한다는 것을 관찰했습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -351,12 +363,14 @@ import time
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -437,12 +451,14 @@ class ItemController:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -485,12 +501,14 @@ INFO:     127.0.0.1:63840 - "POST /items/ HTTP/1.1" 200 OK
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -504,12 +522,14 @@ INFO:     127.0.0.1:63840 - "POST /items/ HTTP/1.1" 200 OK
 ## 주입 가능한 객체
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -523,12 +543,14 @@ INFO:     127.0.0.1:63840 - "POST /items/ HTTP/1.1" 200 OK
 ## Dependency Graph
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -542,12 +564,14 @@ INFO:     127.0.0.1:63840 - "POST /items/ HTTP/1.1" 200 OK
 ## 제공자(Providers) 내보내기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -561,12 +585,14 @@ INFO:     127.0.0.1:63840 - "POST /items/ HTTP/1.1" 200 OK
 ## 인스턴스 참조 및 재사용
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -580,12 +606,14 @@ PyNest의 DI 접근 방식은 코드 조직화와 유지 보수 측면에서 명
 반면에 FastAPI의 DI 시스템은 각자의 강점을 갖고 있지만, 함수 수준에서의 주입 요구는 불필요하고 중복적인 요소를 도입할 수 있으며, 웹 애플리케이션이 복잡성을 더해감에 따라 유지 보수 및 확장성에서 오히려 역효과를 낼 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -604,12 +632,14 @@ PyNest의 DI 접근 방식은 코드 조직화와 유지 보수 측면에서 명
 In Plain English 커뮤니티의 일원이 되어 주셔서 감사합니다! 계속하시기 전에:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

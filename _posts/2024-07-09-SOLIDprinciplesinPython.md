@@ -1,18 +1,16 @@
 ---
 title: "파이썬에서 SOLID 원칙 적용하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-SOLIDprinciplesinPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-SOLIDprinciplesinPython_0.png"
 date: 2024-07-09 14:45
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-SOLIDprinciplesinPython_0.png
 tag: Tech
 originalTitle: "SOLID principles in Python"
 link: "https://medium.com/@tai.him18/solid-principles-in-python-0e01b66c1afe"
 ---
 
-
-
-![SOLID principles in Python](/assets/img/2024-07-09-SOLIDprinciplesinPython_0.png)
+![SOLID principles in Python](/TIL/assets/img/2024-07-09-SOLIDprinciplesinPython_0.png)
 
 # SOLID이란 무엇인가요?
 
@@ -20,14 +18,15 @@ link: "https://medium.com/@tai.him18/solid-principles-in-python-0e01b66c1afe"
 
 SOLID 원칙은 이러한 함정을 피하고 깔끔하고 유지보수 가능한 코드를 작성하는 데 도움이 되는 일련의 지침입니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +38,14 @@ SOLID 원칙은 이러한 함정을 피하고 깔끔하고 유지보수 가능�
 - 리스코프 치환 원칙 (LSP)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -58,12 +59,14 @@ SOLID 원칙은 이러한 함정을 피하고 깔끔하고 유지보수 가능�
 로버트 C. 마틴 (a.k.a 아저씨 밥)이 "OOD의 원칙"이라는 기사에서 만들어진 단일 책임 원칙은 다음과 같습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -82,13 +85,13 @@ class StorageClient:
         self._google_client = "Google 클라이언트"
         self._dropbox_client = "Dropbox 클라이언트"
 
-    @classmethod    
+    @classmethod
     def get_or_create_instance(cls, google_credentials, dropbox_credentials) -> "StorageClient":
         if not cls._instance:
             cls._instance = StorageClient(google_credentials, dropbox_credentials)
 
         return cls._instance
-        
+
     def read_from_google(self, key):
         ...
 
@@ -97,7 +100,7 @@ class StorageClient:
 
     def read_from_dropbox(self, key):
         ...
-    
+
     def upload_to_dropbox(self, key, value):
         ...
 ```
@@ -105,12 +108,14 @@ class StorageClient:
 이 클래스의 문제는 두 가지 책임을 가지고 있다는 점입니다. Google 드라이브 및 Dropbox에서 객체를 읽고 쓰는 데에 대한 별도의 로직을 구현해야 합니다. SRP를 준수하기 위해 이 클래스를 GoogleStorageClient와 DropboxStorageClient로 분리할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -123,13 +128,13 @@ class GoogleStorageClient:
     def __init__(self, google_credentials) -> None:
         self._google_client = "Google client"
 
-    @classmethod    
+    @classmethod
     def get_or_create_instance(cls, google_credentials) -> "GoogleStorageClient":
         if not cls._instance:
             cls._instance = GoogleStorageClient(google_credentials)
 
         return cls._instance
-        
+
     def read(self, key):
         ...
 
@@ -144,13 +149,13 @@ class DropboxStorageClient:
     def __init__(self, dropbox_credentials) -> None:
         self._dropbox_client = "Dropbox client"
 
-    @classmethod    
+    @classmethod
     def get_or_create_instance(cls, dropbox_credentials) -> "DropboxStorageClient":
         if not cls._instance:
             cls._instance = DropboxStorageClient(dropbox_credentials)
 
         return cls._instance
-        
+
     def read(self, key):
         ...
 
@@ -164,14 +169,15 @@ class DropboxStorageClient:
 
 버트랜드 메이어는 1988년 저술한 "객체지향 소프트웨어 구성"에서 개방-폐쇄 원칙을 처음 제안한 것으로 일반적으로 알려져 있습니다. 그러나 1990년대에 이 원칙은 언클 밥이 1996년에 발표한 "개방-폐쇄 원칙"으로 현재의 형태로 재정의되었습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -201,12 +207,14 @@ class Vehicle:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -254,12 +262,14 @@ class Plane(Vehicle):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -273,12 +283,14 @@ class Plane(Vehicle):
 다시 말해, 만약 `S`가 `T`의 서브 클래스라면, `T` 타입의 객체를 `S` 타입의 객체로 대체할 수 있어야 하며, 프로그램의 기능을 변경하지 않아야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -312,44 +324,41 @@ class Child(Person):
 이 문제를 해결하기 위해서는 Person을 추상 기본 클래스로 변환하고, 그것을 상속하는 Child와 Adult 두 클래스를 만들면 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 from abc import ABC, abstractmethod
 
-
 class Person(ABC):
-    def __init__(self, name, age) -> None:
-        self.name = name
-        self.age = age
+def **init**(self, name, age) -> None:
+self.name = name
+self.age = age
 
     def get_name(self) -> str:
         return self.name
 
-
 class Child(Person):
-    def __init__(self, name, age) -> None:
-        super().__init__(name, age)
+def **init**(self, name, age) -> None:
+super().**init**(name, age)
 
     def go_to_school(self) -> None:
         print(f"{self.name} is going to school.")
 
-
 class Adult(Person):
-    def __init__(self, name, age) -> None:
-        super().__init__(name, age)
+def **init**(self, name, age) -> None:
+super().**init**(name, age)
 
     def vote(self) -> int:
         return 1
-
 
 이제 프로그램의 정확성에 영향을 주지 않고 Person 유형의 객체를 Child 또는 Adult 유형의 객체로 대체할 수 있습니다.
 
@@ -358,12 +367,14 @@ class Adult(Person):
 인터페이스 분리 원칙(Interface Segregation Principle, ISP)은 Uncle Bob이 만들었습니다. 이 원칙은 다음과 같이 설명합니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -408,12 +419,14 @@ class AdvancedPrinter(Printer):
 이 경우, SimplePrinter 클래스는 scan 및 fax 메서드가 필요하지 않지만, Printer 인터페이스를 구현하므로 이들을 구현해야 합니다. 이는 인터페이스 격리 원칙을 위반하는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -463,12 +476,14 @@ class AdvancedPrinter(Scanner, Fax, Printer):
 이 방식을 통해 코드를 이해하기 쉽게 만들고 SimplePrinter 클래스에 불필요한 메서드가 필요 없어졌습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -482,12 +497,14 @@ class AdvancedPrinter(Scanner, Fax, Printer):
 다음은 의존성 역전 원칙을 위반하는 예시입니다. 고수준 모듈인 PaymentService가 저수준 모듈인 PaypalProcessor에 직접 의존하는 것입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -527,7 +544,7 @@ class PaymentProcessor(ABC):
 class PayPalPaymentProcessor(PaymentProcessor):
     def process_payment(self, amount):
         print(f"Processing payment of ${amount} via PayPal")
-        
+
 
 class StripePaymentProcessor(PaymentProcessor):
     def process_payment(self, amount):
@@ -548,12 +565,14 @@ payment_service.perform_payment(100)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

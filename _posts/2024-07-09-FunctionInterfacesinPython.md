@@ -1,31 +1,32 @@
 ---
 title: "파이썬에서 함수 인터페이스 사용하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-FunctionInterfacesinPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-FunctionInterfacesinPython_0.png"
 date: 2024-07-09 20:34
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-FunctionInterfacesinPython_0.png
 tag: Tech
 originalTitle: "Function Interfaces in Python"
 link: "https://medium.com/towards-data-science/function-interfaces-in-python-4846ede71cd9"
 ---
 
-
 ## 파이썬 프로그래밍
 
-<img src="/assets/img/2024-07-09-FunctionInterfacesinPython_0.png" />
+<img src="/TIL/assets/img/2024-07-09-FunctionInterfacesinPython_0.png" />
 
 파이썬은 다른 프로그래밍 언어에서 흔히 알려진 의미에서의 인터페이스를 제공하지는 않지만, 비슷한 기능을 제공합니다. 전통적인 것들은 추상 베이스 클래스(ABC)로, abc 모듈을 통해 이용할 수 있습니다. 나중에는 타입 힌트와 타입 프로토콜(typing.Protocol)이 추가되었습니다.
 
 추상 베이스 클래스(ABC)와 타입 프로토콜은 다른 프로그래밍 언어에서의 인터페이스와 비슷한 클래스의 구조 및 행동을 정의하는 파이썬의 메커니즘으로 작용합니다. 파이썬 자체는 이 기능을 설명하기 위해 공식적으로 "인터페이스"라는 용어를 사용하지는 않지만, 파이썬의 "프로토콜"이 제공하는 내용과 밀접한 개념입니다. 사실, typing 모듈에 typing.Protocol이 추가되기 전에 파이썬에서 "프로토콜"이라는 용어가 인터페이스를 설명하는 데 사용되었습니다. 따라서 파이썬의 동적 특성은 동적 인터페이스의 생성을 허용하고, 타입 힌트와 타입 프로토콜은 정적 확인 관점에서 인터페이스의 명세를 용이하게 합니다. 이에 대해 이 기사에서 논의하겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/towards-data-science/function-interfaces-in-python-484
 파이썬 타입 힌트는 클래스에 대한 인터페이스 사양에 대한 직접적인 지원은 제공하지 않습니다. 그러므로 함수에 대한 클래스와 함수에 대해 동일한 방식으로 작동하지 않습니다. 따라서 파이썬에서 함수 인터페이스를 이해하기 위해서는 클래스 인터페이스와 다르게 취급할 것을 기억해야 합니다. 이 구분의 중요한 결과는 파이썬에서 클래스 인터페이스를 정의하는 주요 도구인 추상 기본 클래스가 함수 인터페이스를 정의하는 데 직접적으로 적용되지 않는다는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -58,12 +61,14 @@ link: "https://medium.com/towards-data-science/function-interfaces-in-python-484
 # 함수 인터페이스란 무엇인가요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -77,12 +82,14 @@ link: "https://medium.com/towards-data-science/function-interfaces-in-python-484
 물론, 이 설명은 Python에서 유효한 함수 인터페이스에 필요한 구문을 사용하지는 않습니다. 이 기사에서는 이러한 개념적 함수 인터페이스를 형식적인 Python 함수 인터페이스로 번역하는 방법을 보여드리겠습니다. 바로 타입 힌트와 타입 프로토콜을 사용하는 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -96,12 +103,14 @@ link: "https://medium.com/towards-data-science/function-interfaces-in-python-484
 함수 인터페이스의 일반적인 사용법을 다음과 같은 주요 측면으로 분해할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -117,12 +126,14 @@ link: "https://medium.com/towards-data-science/function-interfaces-in-python-484
 함수 인터페이스를 구현한다는 것은 무엇을 의미할까요? 간단히 말해서, 함수 인터페이스를 구현하는 Python 함수는 인터페이스가 정의한 시그니처를 가져야 합니다. 예를 들어, 앞에서 설명한 인터페이스를 고려해보겠습니다. 이 인터페이스를 구현하려면, 함수는 두 개의 인수를 정확히 — 그리고 오직 두 개의 인수만 — 가져야 하며, 이 인수들은 둘 다 부동 소수점수여아 하고 부동 소수점수를 반환해야 합니다. 이러한 함수만이 이 인터페이스를 구현합니다. 따라서 세 개의 부동 소수점수를 인수로 받는 함수가 있다면 이 인터페이스를 구현하지 않습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -136,12 +147,14 @@ link: "https://medium.com/towards-data-science/function-interfaces-in-python-484
 # 타입 힌트를 사용한 함수 인터페이스
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -159,12 +172,14 @@ ThreeFloatCallable = Callable[[float, float], float]
 이 타입 힌트를 해석해봅시다: ThreeFloatCallable은 2개의 부동소수점 숫자를 입력으로 받아 부동소수점 숫자를 반환하는 callable입니다. 이것이 바로 우리가 정의하고자 했던 인터페이스입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -192,12 +207,14 @@ def call_threefloats(
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -227,16 +244,17 @@ call_threefloats(1., 1.5, add)
 함수 add는 ThreeFloatCallable 인터페이스를 구현하므로 mypy는 이 코드에서 문제를 발견하지 않을 것입니다. 그러나 add() 함수를 다음과 같이 변경하세요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
 
 ```js
 def add(x: int, y: float) -> float:
@@ -255,14 +273,15 @@ call_threefloats(1, 1.5, add)
 
 보시는 바와 같이, mypy는 우리가 정의한 형식 별칭(ThreeFloatCallable)을 사용하지 않고 전체 유형을 제공합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -280,16 +299,18 @@ call_threefloats(1, 1.5, Adder())
 다시 한 번, mypy는 이 코드에서 문제가 없다고 판단할 것입니다. 그러나 주의할 점은 이 Adder 클래스가 ThreeFloatCallable 인터페이스를 구현하고 call_threefloats()에서 사용되는 것이 아니라, 클래스의 인스턴스(여기서는 Adder())임을 알아두어야 합니다. 이 클래스를 사용하는 경우:
 
 ```js
-call_threefloats(1, 1.5, Adder)
+call_threefloats(1, 1.5, Adder);
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -302,17 +323,19 @@ call_threefloats(1, 1.5, Adder)
        [arg-type]
 ```
 
-Adder 클래스의 메서드 중 하나인 __call__()만 구현했지만, 필요한 다른 메서드들을 구현할 수 있으며 Adder의 인스턴스는 여전히 ThreeFloatCallable 인터페이스를 구현할 것입니다.
+Adder 클래스의 메서드 중 하나인 **call**()만 구현했지만, 필요한 다른 메서드들을 구현할 수 있으며 Adder의 인스턴스는 여전히 ThreeFloatCallable 인터페이스를 구현할 것입니다.
 
 ## typing.Callable의 한계
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -326,48 +349,47 @@ typing.Callable 구문은 이를 자연스럽게 처리할 수 있는 방법을 
 typing.Protocol을 사용하여 두 개의 함수 인터페이스를 구현해 봅시다. 먼저, 선택적 인자 없이 한 경우부터 시작합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 from typing import Protocol
 
 class ThreeFloatCallable(Protocol):
-    def __call__(self, x: float, y: float) -> float:
-        ...
-
+def **call**(self, x: float, y: float) -> float:
+...
 
 이제 선택적 인수를 사용하는 인터페이스를 구현해 봅시다:
 
-
 class ThreeFloatCallableWithArgsKwargs(Protocol):
-    def __call__(
-        self,
-        x: float,
-        y: float,
-        args: Any,
-        kwargs: Any
-    ) -> float:
-        ...
-
+def **call**(
+self,
+x: float,
+y: float,
+args: Any,
+kwargs: Any
+) -> float:
+...
 
 이것들은 선택적 인수입니다. 그러나 이 인터페이스를 구현하는 함수는 이러한 선택적 인수를 반드시 가져야 합니다. 따라서 이 함수는 이 인터페이스를 구현합니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -403,12 +425,14 @@ def implements_not_only_kwargs(
 보는 바와 같이 인터페이스가 정의한 것과 정확히 동일한 서명을 사용해야 합니다: 동일한 수의 인수, 동일한 유형의 인수 및 동일한 반환 값 유형을 가져야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -431,12 +455,14 @@ def add_named(*, x: float, y: float) -> float:
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -459,12 +485,14 @@ call_threefloats(1, 1.5, add_a_positional)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -478,17 +506,19 @@ call_threefloats(1, 1.5, add_a_positional)
 typing.Protocol을 사용하여 함수 인터페이스를 생성하고 pylint을 사용하는 경우, 일반적으로 R0903 경고가 발생할 수 있습니다: Too few public methods (x/y), 여기서 x/y의 x와 y는 각각 실제 및 예상하는 공개 메서드 수를 나타냅니다. 이 경고는 클래스가 적절하게 설계되지 않았을 가능성을 제안합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-그러나, 이 권장 사항은 항상 typing.Protocol의 사용 사례와 일치하지는 않습니다. 함수 인터페이스는 여기에 해당하는 예시입니다: 대부분의 경우에는 __call__이라는 단일 메소드를 정의하고 다른 것은 필요하지 않습니다.
+그러나, 이 권장 사항은 항상 typing.Protocol의 사용 사례와 일치하지는 않습니다. 함수 인터페이스는 여기에 해당하는 예시입니다: 대부분의 경우에는 **call**이라는 단일 메소드를 정의하고 다른 것은 필요하지 않습니다.
 
 만약 pylint을 사용한다면, 이 경고에 대해 대응하는 것이 좋습니다. 세 가지 가장 흔한 시나리오를 고려해 봅시다:
 
@@ -515,12 +545,14 @@ class StrFloatStr(Protocol):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -546,12 +578,14 @@ disable = [
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -568,12 +602,14 @@ disable=too-few-public-methods,
 # 인터페이스의 간접 구현
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -600,12 +636,14 @@ def func_of_squares(
 그러나 ThreeFloatCallable로 사용해야 하는 함수의 시그니처가 호환되지 않습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -630,14 +668,15 @@ model() 함수를 func_of_squares() 함수의 func 인자로 직접 사용할 �
 
 이것이 우리가 따를 방향입니다. 일부 인수의 값이 고정된 함수를 부분 함수(partial functions)라고 합니다. 오늘은 이 주제를 자세히 다루지 않겠습니다. 별도의 기사가 필요한 만큼 우리의 작업에 집중합시다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -649,27 +688,25 @@ def modelwrapper_raw(x: float, y: float) -> float:
     return model(x, y, 1, 1, 1)
 ```
 
-(이름에 _raw를 추가한 이유는 이것이 실제로 Python 구문 설탕이 없는 일종의 처음 버전이기 때문입니다.)
+(이름에 \_raw를 추가한 이유는 이것이 실제로 Python 구문 설탕이 없는 일종의 처음 버전이기 때문입니다.)
 
 modelwrapper_raw() 함수가 ThreeFloatCallable 인터페이스를 구현한다는 것에 유의하세요! 따라서 이 부분 함수를 func_of_squares()에서 사용할 수 있습니다. 이 곳에서 mypy는 오류를 주장하지 않습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-func_of_squares(
-    x=1.5,
-    y=2.34,
-    func=modelwrapper_raw()
-)
+func_of_squares((x = 1.5), (y = 2.34), (func = modelwrapper_raw()));
 ```
 
 modelwrapper_raw() 함수는 ThreeFloatCallable 인터페이스를 직접 구현함으로써 model() 함수가 간접적으로 인터페이스를 구현할 수 있도록 도와줍니다.
@@ -688,12 +725,14 @@ modelwrapper_partial = partial(
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -701,31 +740,29 @@ modelwrapper_partial = partial(
 `modelwrapper_partial()`은 ThreeFloatCallable 타입의 부분 함수이므로 `func_of_squares()`에서 func로 사용할 수 있습니다. 다시 말하지만, mypy는 불평하지 않을 겁니다:
 
 ```js
-func_of_squares(
-    x=1.5,
-    y=2.34,
-    func=modelwrapper_partial
-)
+func_of_squares((x = 1.5), (y = 2.34), (func = modelwrapper_partial));
 ```
 
 부분 함수(partial function)는 함수를 반환하는 함수입니다. `functools.partial`을 사용할 때, 보다 정확히는 부분 함수가 반환됩니다:
 
 ```js
->>> type(model)     
+>>> type(model)
 <class 'function'>
->>> type(modelwrapper_raw)     
+>>> type(modelwrapper_raw)
 <class 'function'>
 >>> type(modelwrapper_partial)
 <class 'functools.partial'>
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -738,40 +775,44 @@ modelwrapper_lambda = lambda x, y: model(x, y, 1, 1, 1)
 
 이것은 부분 함수를 만드는 또 다른 예입니다. 그러나 이 코드는 lambda 함수가 익명 함수이기 때문에 이름을 사용하는 것이 좋지 않다는 이유로 좋은 코드가 아닙니다. 이것은 분명히 파이썬스러운 코드가 아닙니다. 다시 말해 이디오매틱하지 않은 코드입니다.
 
-재미있게도 functools.partial이나 익명 (람다) 함수를 사용하여 만든 부분 함수는 타입 힌트를 가지지 않습니다. 특히 부분 함수는 주석을 상속하지 않으며, 따라서 본래 부분화할 함수인 foo에 주석이 달린 경우에도 __annotations__ 속성이 비어 있습니다. 하지만 functools.partial(foo, ...)는 __annotations__ 속성을 전혀 갖지 않을 것입니다.
+재미있게도 functools.partial이나 익명 (람다) 함수를 사용하여 만든 부분 함수는 타입 힌트를 가지지 않습니다. 특히 부분 함수는 주석을 상속하지 않으며, 따라서 본래 부분화할 함수인 foo에 주석이 달린 경우에도 **annotations** 속성이 비어 있습니다. 하지만 functools.partial(foo, ...)는 **annotations** 속성을 전혀 갖지 않을 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 그래서 정적 체커는 왜 에러를 발생시키지 않을까요? 왜 부분 함수가 어노테이션이 없어도 인터페이스를 구현할 수 있을까요?
 
-이와 같은 상황에서 정적 분석 중에, mypy와 같은 타입 체커는 functools.partial 함수가 원본 함수를 어떻게 변경하는지 분석하여 타입을 추론합니다. 이러한 추론을 통해 mypy는 __annotations__ 속성이 없어도도 부분 객체에 원본 함수의 타입 힌트를 적용할 수 있습니다.
+이와 같은 상황에서 정적 분석 중에, mypy와 같은 타입 체커는 functools.partial 함수가 원본 함수를 어떻게 변경하는지 분석하여 타입을 추론합니다. 이러한 추론을 통해 mypy는 **annotations** 속성이 없어도도 부분 객체에 원본 함수의 타입 힌트를 적용할 수 있습니다.
 
-modelwrapper_lambda()에서도 비슷한 상황을 볼 수 있습니다: __annotations__ 속성이 있지만 비어 있습니다:
+modelwrapper_lambda()에서도 비슷한 상황을 볼 수 있습니다: **annotations** 속성이 있지만 비어 있습니다:
 
 ```js
 >>> modelwrapper_lambda = lambda x, y: model(x, y, 1, 1, 1)
->>> type(modelwrapper_lambda) 
+>>> type(modelwrapper_lambda)
 <class 'function'>
 >>> modelwrapper_lambda.__annotations__
 {}
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -783,12 +824,14 @@ modelwrapper_lambda()에서도 비슷한 상황을 볼 수 있습니다: __annot
 타입 힌트는 Python 3.5에서 PEP 484의 일부로 소개되었습니다. 그 이후로 Python 타입 힌트 시스템은 크게 개선되었으며, 각 새로운 Python 버전에서 타입 힌트에 중요한 변화가 도입되고 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -810,12 +853,14 @@ call_threefloats(1.1, 1.4, add)
 동적으로 이 코드는 완벽하게 작동할 것입니다. 왜냐하면 add() 함수가 func 인자의 인터페이스를 구현하기 때문입니다. 그러나 아래 코드 또한 동적으로 작동할 것입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -834,14 +879,15 @@ call_threefloats(1.1, 1.4, add_and_do_sth)
 
 # 결론
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -856,12 +902,14 @@ call_threefloats(1.1, 1.4, add_and_do_sth)
 이들이 어떻게 작동하는지 보여주는 것 외에도, 우리는 다음 질문에 대한 답변을 원했습니다: Python에서 함수 인터페이스를 정의하기 위해 타입 힌트를 사용해야 할까요, 아니면 타입 프로토콜을 사용해야 할까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -879,18 +927,19 @@ ThreeFloatCallable = Callable[[float, float], float]
 이 코드는 명확해요. 하지만 복잡한 인터페이스는 가독성이 떨어질 수 있어요. Python 문서에서 가져온 다음 예제를 살펴봅시다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Function Interfaces in Python](/assets/img/2024-07-09-FunctionInterfacesinPython_1.png)
+![Function Interfaces in Python](/TIL/assets/img/2024-07-09-FunctionInterfacesinPython_1.png)
 
 'broadcast_message()' 함수의 시그니처를 만들어봅시다. 이 시그니처는 broadcast_message()대신 사용될 함수들의 인터페이스 역할을 할 수 있습니다:
 
@@ -907,28 +956,27 @@ BroadCastFunction = Callable[[str, Sequence[Server]], None]
 
 또는, 타입 별칭을 사용하지 않는 경우:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 BroadCastFunction = Callable[
-    [str,
-     Sequence[tuple[tuple[str, int],
-              dict[str, str]]]],
-    None]
+[str,
+Sequence[tuple[tuple[str, int],
+dict[str, str]]]],
+None]
 ]
 
 Let’s see what it would look like when using typing.Protocol:
-
 
 from typing import Protocol, Sequence
 
@@ -937,25 +985,24 @@ Address = tuple[str, int]
 Server = tuple[Address, ConnectionOptions]
 
 class BroadcastMessage(Protocol):
-    def __call__(
-        self,
-        message: str,
-        servers: Sequence[Server]
-    ) -> None:
-        ...
-
+def **call**(
+self,
+message: str,
+servers: Sequence[Server]
+) -> None:
+...
 
 or
 
-
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -977,17 +1024,19 @@ class BroadcastMessage(Protocol):
 
 솔직히 말하자면, 이렇게 복잡한 유형의 경우에도 타입 힌트는 대응하는 typing 프로토콜보다는 더 간단한 인터페이스라고 생각해요. 그러나 양쪽 모두 타입 별칭을 사용하는 것이 차이를 만들어 냅니다.
 
-하지만 타입 힌트만으로는 충분하지 않은 상황도 있을 수 있어요. 그럴 경우 타이핑 프로토콜을 사용할 수밖에 없어요. 이렇게 되는 가장 일반적인 시나리오는 타입 힌트에 가변 위치 및 키워드 인수 (*args 및 **kwargs)를 포함해야 하는 경우에요. 이때 typing.Protocol을 사용해야 합니다. 왜냐하면 후자는 이러한 선택적 인수를 직접 지정할 수 없기 때문이에요.
+하지만 타입 힌트만으로는 충분하지 않은 상황도 있을 수 있어요. 그럴 경우 타이핑 프로토콜을 사용할 수밖에 없어요. 이렇게 되는 가장 일반적인 시나리오는 타입 힌트에 가변 위치 및 키워드 인수 (\*args 및 \*\*kwargs)를 포함해야 하는 경우에요. 이때 typing.Protocol을 사용해야 합니다. 왜냐하면 후자는 이러한 선택적 인수를 직접 지정할 수 없기 때문이에요.
 
 이것은 비교적 자주 발생하는 시나리오이지만, 타입 힌트를 사용할 수 없거나 (명확성을 위해서든지) 사용하고 싶지 않은 상황이 더 많을 수 있어요. 이러한 상황의 예시는 아래와 같아요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -1004,12 +1053,14 @@ class BroadcastMessage(Protocol):
 Python에서 함수 인터페이스는 함수를 일급 시민으로 다루기 시작할 때 특히 중요해집니다. 일반적으로 함수를 인수로 전달하거나 다른 함수에서 반환할 때 이렇게 합니다. 데코레이터 및 다른 클로저를 포함한 예가 있습니다. 그런 다음 함수 인터페이스가 중요해지는데, 이를 통해 함수의 입력 및 출력 값을 정확히 정의할 수 있습니다. 솔직히 말해서, 이러한 인터페이스는 함수의 동작을 정의하지 않고, 그렇게 하지 않아야 합니다. 그러나 이러한 함수를 호출하는 방법 및 반환 값 처리 방법을 명시하므로 함수 인터페이스가 정확히 지정해야 하는 내용입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,17 +1,16 @@
 ---
 title: "Nodejs 프로젝트에서 TypeScript 설정하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-07-TypeScriptsetupforNodejsproject_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-TypeScriptsetupforNodejsproject_0.png"
 date: 2024-07-07 12:58
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-TypeScriptsetupforNodejsproject_0.png
 tag: Tech
 originalTitle: "TypeScript setup for Node.js project"
 link: "https://medium.com/@aleksei_golubev/typescript-setup-for-node-js-project-28699ed3f6d0"
 ---
 
-
-![이미지](/assets/img/2024-07-07-TypeScriptsetupforNodejsproject_0.png)
+![이미지](/TIL/assets/img/2024-07-07-TypeScriptsetupforNodejsproject_0.png)
 
 지난 몇 년 동안 저는 Angular를 사용하여 프런트엔드 애플리케이션을 작성해 왔는데, 이 기간 동안 TypeScript가 일반 JavaScript보다 강력함을 느꼈습니다. Svelte 앱을 구현할 때 Node.js 기반의 TypeScript를 사용하여 작은 백엔드 서비스도 개발했습니다. 이 작은 기사에서는 코딩 프로세스를 간소화하는 데 도움이 된 구성에 대해 설명하고 싶습니다.
 
@@ -20,12 +19,14 @@ link: "https://medium.com/@aleksei_golubev/typescript-setup-for-node-js-project-
 ### 빌드
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/@aleksei_golubev/typescript-setup-for-node-js-project-
 TypeScript로 작성된 Node.js 애플리케이션을 실행하려면 ts-node 실행 엔진이 필요해요. 코드가 변경된 후 애플리케이션을 다시 빌드하기 위해 nodemon이 필요해요. 물론 TypeScript도 설치해야 하고 별칭을 사용하려면 tsconfig-paths도 추가해야 해요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -77,12 +80,14 @@ TypeScript로 작성된 Node.js 애플리케이션을 실행하려면 ts-node �
 의미 없는 부분은 건너뛰고 관련 있는 부분만 남겼습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -105,12 +110,14 @@ TypeScript 컴파일러를 사용할 때는 tsconfig.json 파일에서 특정 �
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -132,12 +139,14 @@ node -r tsconfig-paths/register -r ts-node/register main.ts
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -158,12 +167,14 @@ ts-node과 함께 사용된 nodemon이 더 명확해보였기 때문에 두 번�
 ## 어플리케이션을 초기화합니다
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -171,7 +182,7 @@ ts-node과 함께 사용된 nodemon이 더 명확해보였기 때문에 두 번�
 Express.js 위에 몇 가지 래퍼를 구현해 두었어요. 애플리케이션을 초기화하기 위해서는 main.ts에서 해당 클래스를 사용할 수 있습니다:
 
 ```js
-import { App } from '@app/app';
+import { App } from "@app/app";
 
 const app: App = new App();
 app.listen(8080);
@@ -182,12 +193,14 @@ app.listen(8080);
 Node.js 프로젝트에 적용할 수 있는 기본 설정을 설명했습니다. 이 설정에는 애플리케이션 자동 재시작, 단일 파일 빌드를 위한 간단한 구성, TypeScript 별칭 사용이 포함되어 있어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,18 +1,16 @@
 ---
 title: "Python으로 XGBoost를 사용한 모노토닉 시계열 예측 실습"
 description: ""
-coverImage: "/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_0.png"
 date: 2024-07-09 20:12
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_0.png
 tag: Tech
 originalTitle: "Hands On Monotonic Time Series Forecasting with XGBoost, using Python"
 link: "https://medium.com/towards-data-science/hands-on-monotonic-time-series-forecasting-with-xgboost-using-python-ebcd2c27f9e6"
 ---
 
-
-
-![이미지](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_0.png)
+![이미지](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_0.png)
 
 몇 달 전에 리서치 프로젝트를 진행하면서 시계열을 다루는 문제를 해결해야 했어요.
 
@@ -20,14 +18,15 @@ link: "https://medium.com/towards-data-science/hands-on-monotonic-time-series-fo
 
 Machine Learning 애호가들에게는 "Hello World"를 작성하는 것과 같은 느낌이죠. 이 문제는 "forecasting"이라는 이름으로 커뮤니티에서 매우 잘 알려진 문제입니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -40,34 +39,38 @@ Machine Learning 애호가들에게는 "Hello World"를 작성하는 것과 같�
 일련의 매개변수 X와 시간 단계 t가 있는 시계열 데이터가 있다고 가정해 봅시다.
 표준 시간 예측 문제는 다음과 같습니다:
 
-![image](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_1.png)
+![image](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 우리가 직면한 문제는 다음과 같습니다:
 
-![이미지](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_2.png)
+![이미지](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_2.png)
 
 따라서 입력 매개변수가 d 차원이라고 가정할 때, 저는 차원 1을 위한 함수가 단조적이 되기를 원합니다. 그렇다면 어떻게 처리해야 할까요? 어떻게 "단조적" 시계열을 예측할 수 있을까요? 이 문제에 대한 설명은 XGBoost를 사용할 것입니다.
 
 이 블로그 포스트의 구조는 다음과 같습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -86,37 +89,40 @@ XGBoost의 XG는 extreme gradient(부스팅)을 의미합니다.
 입력 행렬 X 및 해당 출력 y가 주어지면, 아이디어는 여러 예측자가 있습니다. 첫 번째 예측자는 입력 X로부터 직접 해당 출력 y를 찾으려고 합니다. 이야기의 끝. 아니요, 농담이에요 🤣
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 첫 번째 예측기는 “약한 예측기”라고 불리는 것을 목표로 합니다. 이는 예측된 y1과 실제 출력 y 사이에 무시할 수 없는 차이가 있는 것을 의미합니다. 두 번째 예측기는 첫 번째 예측의 오류를 보정하는 것을 목표로 하므로 X에서 y로 이동하는 것이 아니라 y2 = y-y1로 이동하는 것으로 훈련됩니다. 이 작업은 예측기의 수인 N번 반복되며, 아래 이미지에 나타난 바와 같습니다:
 
-![image](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_3.png)
+![image](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_3.png)
 
 각 예측기는 의사 결정 트리(decision tree)입니다. 의사 결정 트리에 대한 설명을 할 때마다, 나는 그것을 게임 “guess who”에 비유하여 설명합니다. 그 게임은 다음과 같이 진행됩니다.
 
 각 플레이어가 일부 캐릭터 얼굴로 가득 찬 게시판을 가진 “guess who”의 클래식 게임을 하는 상황을 상상해보세요. 각 캐릭터는 머리카락 색상, 눈동자 색상, 안경, 모자 등과 같은 구별 가능한 특징을 가지고 있습니다. 목표는 이러한 특징들에 대한 예/아니오 질문을 통해 상대방의 비밀 캐릭터를 추측하는 것입니다. 각 질문은 답변과 맞지 않는 후보를 없애줄 뿐 아니라, 가능성을 좁히며 마침내 확신을 갖고 비밀 캐릭터를 추측할 수 있도록 도와줍니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Hands on Monotonic Time Series Forecasting with XGBoost using Python](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_4.png)
+![Hands on Monotonic Time Series Forecasting with XGBoost using Python](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_4.png)
 
 As you can see, the structure resembles an upside-down tree, starting from the leaves (bottom) and extending to the root (top).
 
@@ -124,14 +130,15 @@ Each predictor corresponds to one of these trees. If you are pondering the diffe
 
 The XGBoost algorithm cleverly utilizes all these decision trees to "boost" the prediction of the preceding tree. It's called "extreme" because a plethora of intermediate optimization steps have been undertaken by the talented scientists who developed the algorithm, which you can explore [here](link).
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -148,31 +155,35 @@ The XGBoost algorithm cleverly utilizes all these decision trees to "boost" the 
 - 특정 특성에 대해 단조 함수로 응답을 하도록 선택할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 예를 들어, 다음과 같은 함수가 있다고 가정해 봅시다:
 
-![Alt text](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_5.png)
+![Alt text](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_5.png)
 
 이 함수는 x2에 대해 단조적입니다. x1과 x2가 주어졌을 때 XGBoost를 사용하여 f(x1, x2)의 결과를 예측하려고 한다고 상상해 봅니다. 이제 현실에서 f(x1, x2)는 알려지지 않았습니다 (그렇지 않으면 기계 학습을 하지 않고 휴가를 가기위해 플로리다로 비행을 갈 것입니다), 하지만 x2에 대해 단조적이라는 점을 알거나 원할 수 있습니다. 실제로 저는 다른 양과 관련하여 단조적임을 알고 있던 물리량이 있었던 적이 있습니다. XGBoost의 구조를 수정하여 해당 특징에 대한 요구 사항을 충족시킬 수 있습니다. 우리의 경우, x2에 대한 단조적 행동을 강제하는 예측을 할 수 있습니다.
 
 좋아요. 이제 이걸 버텨내셨으면 좋겠네요. 이제 재미있는 부분으로 넘어갑시다. 😅
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -186,17 +197,19 @@ The XGBoost algorithm cleverly utilizes all these decision trees to "boost" the 
 하지만 솔직히 이 코드는 굉장히 간단합니다. 그러니 더 이상 말이 필요 없이, 바로 시작해 봅시다. 두 가지 예제를 보여 드릴 건데, 첫 번째 예제는 1차원으로, 이 모든 것이 어떻게 작동하는지 설명하는 겁니다. 이것은 우리가 XGBoost를 사용해 예측하고자 하는 대상 함수 f입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![Image](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_6.png)
+![Image](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_6.png)
 
 이것이 플롯입니다.
 
@@ -205,12 +218,14 @@ The XGBoost algorithm cleverly utilizes all these decision trees to "boost" the 
 쉽죠. 이제 실제 테스트를 해봅시다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -227,36 +242,40 @@ The XGBoost algorithm cleverly utilizes all these decision trees to "boost" the 
 저는 델리 데이터의 데이터셋인 이 데이터셋을 사용했습니다. 이 데이터셋은 두 개의 csv 테이블 (DailyDelhiClimateTrain.csv와 DailyDelhiClimateTest.csv)으로 구성되어 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 Pandas를 사용하여 데이터를 가져와서 5개의 행을 표시했습니다. 날짜, 습도, 풍속, 평균 기압 및 평균 온도와 같이 5개의 열이 있습니다. 하나의 합리적인 문제는 다음과 같을 수 있습니다:
 
-그리고 이 문제에 대해 잘 다루는 블로그 포스트가 있습니다. 우리는 한 단계 더 나아가려고 합니다. 우리는 이 다른 열인 "City_Index"를 추가할 것입니다. 이 City_Index는 뉴델리보다 더 덥거나 더 추운 다른 도시가 있다는 사실을 모방할 것입니다. 세계의 다른 부분별로 도시 지수를 그룹화하는 것처럼*:
+그리고 이 문제에 대해 잘 다루는 블로그 포스트가 있습니다. 우리는 한 단계 더 나아가려고 합니다. 우리는 이 다른 열인 "City_Index"를 추가할 것입니다. 이 City_Index는 뉴델리보다 더 덥거나 더 추운 다른 도시가 있다는 사실을 모방할 것입니다. 세계의 다른 부분별로 도시 지수를 그룹화하는 것처럼\*:
 
-![이미지](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_7.png)
+![이미지](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_7.png)
 
 이제 City_Index=1이 mean_temp의 기본 값이 되도록 만들 것입니다. City_Index = 2는 목표 값으로 2*mean_temp를 가져오도록 만들 것이고, City_Index=9는 목표 값으로 9*mean_temp를 가져오도록 할 것입니다. 이는 다른 변수를 모두 고정시킨다면 City_Index가 단조 변수가 될 수 있다는 것을 의미합니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<img src="/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_8.png" />
+<img src="/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_8.png" />
 
 실제로 이것은 로스엔젤레스, 캘리포니아의 온도가 앵코리지, 알래스카의 온도보다 항상 높다는 것을 의미합니다 (알래스카에 있는 도시를 몰라서 구글링했어요).
 
@@ -265,12 +284,14 @@ Pandas를 사용하여 데이터를 가져와서 5개의 행을 표시했습니�
 이제 우리는 이를 할 것입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -283,15 +304,17 @@ Pandas를 사용하여 데이터를 가져와서 5개의 행을 표시했습니�
 
 그리고 이것이 우리의 예측 결과입니다:
 
-![image](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_9.png)
+![image](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_9.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -306,12 +329,14 @@ Pandas를 사용하여 데이터를 가져와서 5개의 행을 표시했습니�
 여기에서 우리가 한 작업을 요약해 드릴게요:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -325,12 +350,14 @@ Pandas를 사용하여 데이터를 가져와서 5개의 행을 표시했습니�
 - 기후변화 데이터를 사용하여 예보 연구를 수행했으며, 기본적인 예보 이상의 작업을 수행했습니다. 'City_Index'라는 새로운 특성에 단조적으로 증가하는 값을 부과함으로써, City_Index 특성에 대해 예측된 온도가 단조적이어야 한다는 가정에 기반하여 온도를 예측했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -341,15 +368,17 @@ Pandas를 사용하여 데이터를 가져와서 5개의 행을 표시했습니�
 
 내 이름은 Piero Paialunga이고 난 이 사람이야:
 
-![이미지](/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_10.png)
+![이미지](/TIL/assets/img/2024-07-09-HandsOnMonotonicTimeSeriesForecastingwithXGBoostusingPython_10.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

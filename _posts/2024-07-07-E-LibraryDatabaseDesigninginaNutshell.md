@@ -1,31 +1,32 @@
 ---
 title: "E-도서관 데이터베이스 설계, 핵심 요약"
 description: ""
-coverImage: "/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_0.png"
 date: 2024-07-07 21:44
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_0.png
 tag: Tech
 originalTitle: "E-Library Database Designing, in a Nutshell"
 link: "https://medium.com/@mesinketikrusak/e-library-database-designing-in-a-nutshell-2a1ff77ff0b6"
 ---
 
-
 내가 이것을 쓰기 전에, 팝컬쳐 특히 원피스에 너무 많은 선호를 준 것에 대해 죄송합니다. 강조해야 할 특정한 것이 하나 있거든요. 오하라 섬과 그 도서관에 관한 것입니다.
 
-![이미지](/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_0.png)
+![이미지](/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_0.png)
 
 여기서 무슨 일이 있었는지에 대해 너무 많이 이야기하고 싶지 않겠습니다. 이 기사의 초점은 책에 있습니다. 어떻게 디자인하고 관리하며 관련 정보를 수집하는지 등의 것이요. 그러나 이 기사에서는 컴퓨터의 도움을 받아서 이 작업을 잘 할 겁니다. 여전히 책들과 다루긴 하지만, 지난 큰 도서관과의 추악한 역사처럼 이번에는 이 책들이 쉽게 태울 수 없어요. 그러니 시작해봅시다.
 
 내 첫 인상은, 책을 두려워하지 마세요. 책은 어디서나 있어요. 만나본 모든 사람이 다르지 않나요? 네, 우리는 생동하는 책 자체예요. 심지어 당신의 책도 만나본 수많은 사람들에게 빌려주면 수천 권의 책으로 번지더라구요. 모든 것이 아직 기계적이었던 옛날, 도서관에 가는 것은 세계 여행하는 것과 같았어요, 그러나 최대한 싼 방법으로요. 우리가 와서 자신의 ID를 만들고, 원하는 책을 고르고, 빌리고, 그 책을 돌려주고, 그리고 되풀이했죠. 하지만 요즘엔 그렇지 않아요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -43,12 +44,14 @@ link: "https://medium.com/@mesinketikrusak/e-library-database-designing-in-a-nut
 - 사용자는 각 책의 가용성을 확인할 수 있어요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -61,21 +64,22 @@ link: "https://medium.com/@mesinketikrusak/e-library-database-designing-in-a-nut
 
 그리고 이후에 전자 도서관 시스템을 위한 표를 만들고, 주요 및 외래 키를 정의하여 그들의 관계를 확립할 수 있습니다. 아래 그림은 저가 만든 개체 관계 다이어그램(ERD)이며, 각 표에 대한 설명이 포함되어 있습니다. 전체로 10개의 표가 있습니다.
 
-![E-Library ERD](/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_1.png)
+![E-Library ERD](/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_1.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![Image](/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_2.png)
+![Image](/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_2.png)
 
 Libraries table
 
@@ -83,40 +87,43 @@ Libraries table
 
 Categories table
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ---
+
 이 표는 각 카테고리의 ID와 이름을 포함한 카테고리 정보를 담고 있습니다.
 
 작가 테이블
 
---- 
+---
 
 이 표는 각 작가의 ID와 이름을 포함한 작가 정보를 담고 있습니다.
 
 출판사 테이블
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
 
 — 이 테이블은 각 출판사의 ID와 이름을 포함한 출판사에 대한 정보가 포함되어 있습니다.
 
@@ -126,14 +133,15 @@ Books 테이블
 
 Library Collections 테이블
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -147,12 +155,14 @@ Library Collections 테이블
 사용자 테이블
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -166,12 +176,14 @@ Borrow 테이블
 Holds 테이블
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -186,31 +198,31 @@ Holds 테이블
 - 데이터베이스 생성
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
 CREATE TABLE library_collections
 (
-    library_collection_id SERIAL PRIMARY KEY,
-    library_id INTEGER NOT NULL,
-    books_id INTEGER NOT NULL,
-    quantity_available INTEGER NOT NULL CHECK(quantity_available >= 0),
-    CONSTRAINT fk_library_collections_lib
-        FOREIGN KEY(library_id)
-        REFERENCES libraries(library_id),
-    CONSTRAINT fk_library_collections_bk
-        FOREIGN KEY(books_id)
-        REFERENCES books(books_id)
+library_collection_id SERIAL PRIMARY KEY,
+library_id INTEGER NOT NULL,
+books_id INTEGER NOT NULL,
+quantity_available INTEGER NOT NULL CHECK(quantity_available >= 0),
+CONSTRAINT fk_library_collections_lib
+FOREIGN KEY(library_id)
+REFERENCES libraries(library_id),
+CONSTRAINT fk_library_collections_bk
+FOREIGN KEY(books_id)
+REFERENCES books(books_id)
 );
-
 
 위의 예시는 라이브러리 컬렉션 테이블 세트를 만드는 경우이며, 해당 외래 키로 제약 조건이 있는 테이블을 작성하는 방법을 보여줍니다. 각각의 외래 키는 자신이 참조하는 원본 테이블을 참조하며, 각 키는 자신이 참조하는 테이블의 기본 키입니다. 전체 문서에 대한 자세한 내용은 아래 링크를 클릭하십시오:
 
@@ -218,14 +230,15 @@ https://github.com/ziadbwdn/E-LibraryRDB
 
 ## 데이터베이스 생성
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -245,7 +258,7 @@ def create_libraries(library_name, library_address):
     Returns:
     - pd.DataFrame: 도서관 ID 및 도서관 이름과 같은 정보를 포함하는 DataFrame
     """
-    
+
     libraries = {
         "library_id": [i + 1 for i in range(len(library_name))],
         "library_name": library_name,
@@ -255,8 +268,8 @@ def create_libraries(library_name, library_address):
     libraries_df = pd.DataFrame(libraries)
     return libraries_df
 
-library_name = ["와칸다 도서관", 
-                "푸스타카 코노하", 
+library_name = ["와칸다 도서관",
+                "푸스타카 코노하",
                 "포헨 펜게타후안 풀라우 오하라",
                 "마이크로 라이브러리 와락 카유",
                 "C2O 도서관",
@@ -264,8 +277,8 @@ library_name = ["와칸다 도서관",
                 "바카 디 테벳",
                 "타만 바카 아민 페르푸스타카안 콘테이너",
                 ]
-    
-library_address = ["서라바야 자바 팀루 마르고무르 요 퍼마이 6-8 도메인 G 술라바야 자바 팀루", 
+
+library_address = ["서라바야 자바 팀루 마르고무르 요 퍼마이 6-8 도메인 G 술라바야 자바 팀루",
                    "자와 바랏 반둥 지엠 앙디리 34-38 번듕 자와 바랏",
                    "자카르타 디케이 아일란트 자카르타 끄븽나가 라야 25 풀로 게방 라야 25 자카르타 DKI 자카르타",
                    "메단 수마테라 우타라 마니아 라야 18-20 서라바야 자바 팀루",
@@ -296,10 +309,10 @@ def create_authors(n_authors):
             'author_id': fake.unique.random_int(min=1, max=9999),
             'author_name': fake.name()
         })
-    
+
     authors_df = pd.DataFrame(authors)
     return authors_df
-    
+
 # 저자 DataFrame 및 매핑 생성
 authors_table = create_authors(800)
 authors_table
@@ -308,12 +321,14 @@ authors_table
 사용할 라이브러리를 가져오는 첫 번째 단계는 다음과 같습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -333,12 +348,14 @@ fake = Faker('id_ID' or 'en_EN')
 이후에는 PostgreSQL에 가져오기 전에 더미 데이터를 얻기 위해 필요한 데이터를 실행할 수 있습니다. 만든 테이블 데이터프레임을 성공적으로 저장하기 위해 먼저 csv로 저장해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -358,12 +375,14 @@ https://github.com/ziadbwdn/E-LibraryRDB
 이제 가져오기 프로세스에 필요한 모든 데이터가 있는 경우 예를 들어 SQL 쿼리 도구에서 계속할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -387,12 +406,14 @@ CSV HEADER
 먼저, 각각의 도서관에서 가장 많고 가장 적은 책을 가지고 있는 도서관을 확인해보겠습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -409,26 +430,28 @@ ORDER BY total_book_collections DESC
 
 그리고 아래는 결과입니다:
 
-![이미지](/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_3.png)
+![이미지](/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_3.png)
 
 Baca Di Tebet은 책 수집량을 기준으로 하면 가장 많이 모은 도서관이며, Taman Baca Amin은 가장 작은 책 모음을 가진 1196 대비 1304개를 수집했습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-그리고 두 번째로, 우리는 가장 많은 책을 대출한 도서관 회원을 살펴보려고 해요. 
+그리고 두 번째로, 우리는 가장 많은 책을 대출한 도서관 회원을 살펴보려고 해요.
 
 ```js
 WITH frequent_borrower as (
- SELECT  
+ SELECT
   br.user_id,
   m.member_name,
   count (br.borrow_id) as amount_of_borrow,
@@ -448,15 +471,17 @@ order by amount_of_borrow desc limit 10
 
 그런 다음 우리가 결과물로 다음을 받았어요:
 
-<img src="/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_4.png" />
+<img src="/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_4.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -465,11 +490,9 @@ Hartika Narpati부터 Edward Prasetya까지는 도서 4권을 대출한 가장 �
 
 세 번째 단계에서는, 테이브이지를 다음과 같이 마크다운 형식으로 변경해주세요:
 
-
-| 책 제목 | 카테고리 이름 | 도서관 이름 | 이용 가능 수량 |
-|--------|-------------|----------|-------------|
+| 책 제목    | 카테고리 이름 | 도서관 이름  | 이용 가능 수량     |
+| ---------- | ------------- | ------------ | ------------------ |
 | book_title | category_name | library_name | quantity_available |
-
 
 예를 들어, 청소년 자매가 로맨스 소설을 찾고 있어서 도와달라고 요청하며, 특정 도서관(예: Pustaka Konoha)를 찾고 있다면 어떨까요? 아래 PostgreSQL 쿼리를 사용해볼까요?
 
@@ -477,8 +500,8 @@ Hartika Narpati부터 Edward Prasetya까지는 도서 4권을 대출한 가장 �
 WITH konoha_books as (
  SELECT b.book_title,
    c.category_name,
-   l.library_name, 
-   lc.quantity_available 
+   l.library_name,
+   lc.quantity_available
  FROM books as b
  join categories as c on b.category_id = c.category_id
  join library_collections as lc on b.books_id = lc.books_id
@@ -492,31 +515,35 @@ ORDER BY kb.quantity_available DESC
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 이후 다음이 결과로 나타납니다:
 
-![이미지](/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_5.png)
+![이미지](/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_5.png)
 
 푸스타카 코노하에는 카테고리 소설 - 로맨스에 속하는 131개의 컬렉션이 있습니다.
 
 성장을 위해 사회과학을 주전공으로 선택하셨고, 감독님으로부터 사회과학 주제의 참고 자료를 우선으로 찾아야 한다는 지시를 받았지만 수라바야에 있다는 한계가 있습니다. PostgreSQL 쿼리를 사용하십시오.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -527,7 +554,7 @@ WITH surabaya_books as (
    c.category_name,
    l.library_name,
    l.library_address,
-   lc.quantity_available 
+   lc.quantity_available
  FROM books as b
  join categories as c on b.category_id = c.category_id
  join library_collections as lc on b.books_id = lc.books_id
@@ -542,18 +569,19 @@ ORDER BY ab.quantity_available
 
 위 쿼리를 실행한 결과는 아래와 같습니다:
 
-![이미지](/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_6.png)
+![이미지](/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_6.png)
 
 위 결과를 보면, 수라바야에서 볼 수 있는 사회과학 분야의 도서 총 174권이 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -563,7 +591,7 @@ ORDER BY ab.quantity_available
 ```js
 WITH duration_borrower as (
  SELECT
-  EXTRACT (DAY FROM br.borrow_date) as days_of_borrow, 
+  EXTRACT (DAY FROM br.borrow_date) as days_of_borrow,
   EXTRACT (DAY FROM br.return_date) as days_of_return,
   br.user_id,
   br.borrow_id,
@@ -577,12 +605,12 @@ WITH duration_borrower as (
  GROUP BY 1,2,3,4,5,7
  )
 
-SELECT 
+SELECT
  dur_b.borrow_id,
  dur_b.member_name,
  ABS(dur_b.days_of_return - dur_b.days_of_borrow) as interval_days,
  dur_b.return_status
-  
+
 from duration_borrower as dur_b
 where return_status is false
 group by 1,2,3,4
@@ -592,15 +620,17 @@ limit 10
 
 그런 다음 다음을 결과로 받았습니다:
 
-<img src="/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_7.png" />
+<img src="/TIL/assets/img/2024-07-07-E-LibraryDatabaseDesigninginaNutshell_7.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -614,12 +644,14 @@ limit 10
 참고자료:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

@@ -1,17 +1,16 @@
 ---
 title: "당신의 Python 코드를 쉽게 개선할 수 있는 7가지 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-7SimpleWaysToDrasticallyImproveYourPythonCode_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-7SimpleWaysToDrasticallyImproveYourPythonCode_0.png"
 date: 2024-07-09 19:45
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-7SimpleWaysToDrasticallyImproveYourPythonCode_0.png
 tag: Tech
 originalTitle: "7 Simple Ways To Drastically Improve Your Python Code"
 link: "https://medium.com/chifi-media/7-simple-ways-to-drastically-improve-your-python-code-1cc544e2aa7b"
 ---
 
-
-<img src="/assets/img/2024-07-09-7SimpleWaysToDrasticallyImproveYourPythonCode_0.png" />
+<img src="/TIL/assets/img/2024-07-09-7SimpleWaysToDrasticallyImproveYourPythonCode_0.png" />
 
 ## 소개
 
@@ -20,12 +19,14 @@ link: "https://medium.com/chifi-media/7-simple-ways-to-drastically-improve-your-
 파이썬의 사용 편의성은 특히 데이터에 보다 집중하고 싶은 과학자들이나 구문에 덜 관심을 갖고 싶은 초보 프로그래머들을 위한 매력적인 선택지가 됩니다. 그러나 사용 편의성과 접근성과 함께 성능에 주목할 필요가 있습니다. 또한 파이썬 같은 스크립팅 언어는 일반적으로 방법을 잘못 사용하더라도 파악하지 못하거나 직면할 필요가 없는 공간을 훨씬 더 많이 제공하는 경향이 있습니다. 다행히도 새로운 파이썬 사용자들을 위해서 파이썬은 광범위한 기능을 도입하여 사용하기 쉽고 동적으로 타입이 지정된 스크립팅 언어의 단점을 완화할 수 있었습니다. 좋은 프로그래밍 관행과 함께 파이썬의 타입 시스템과 생태계를 효과적으로 활용함으로써 파이썬의 다양한 단점을 완화하고 해당 언어에서 훨씬 더 나은 코드를 작성할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/chifi-media/7-simple-ways-to-drastically-improve-your-
 프로그래머로서 들을 수 있는 일반적인 조언 중 하나는 "일반적인 함수를 작성하라"는 것입니다. 이 조언은 의미가 있습니다. 함수가 보다 일반적일수록 프로젝트에 최종적으로 들어가는 코드가 적어집니다. 이는 또한 사물이 파괴될 기회가 적어지고, 파괴된 경우에는 해결책을 형성하기 위해 한 곳만 살펴보면 되는 것을 의미합니다. 그러나 이 조언에서 종종 빠지는 중요한 부분은 일반적인 함수를 계층적 추상화 수준으로 설계해야 한다는 것입니다. 다시 말해, 우리는 모든 차량을 위해 함수를 작성하고, 필요한 경우에만 트럭을 위한 함수를 작성해야 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -71,12 +74,14 @@ the mystery machine has just honked at us in their green, flower-covered car
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -101,12 +106,14 @@ class Truck(Car):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -128,12 +135,14 @@ class Sedan(Car):
 훨씬 큰 사용 사례에서 추상화가 Python에서 훌륭한 코드를 작성하는 데 절대적으로 필요한 이유를 이해하기 쉽습니다. 다행히 이 기술은 사용하기 매우 쉽습니다, 그리고 제가 논의하고 싶은 다음 기술도 마찬가지입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -151,12 +160,14 @@ for x in range(1, 30):
 이것은 for 루프 방식으로, 이는 파이썬에서 반복 가능한 요소와 함께 작업하는 핵심적인 방법입니다. 이 접근 방식의 for 루프 버전은 리스트를 초기화하고 각 반복에서 해당 리스트에 새 요소를 추가하는 것을 요구합니다. 이 방식은 효율적이지만, 요소를 생성하는 데 제너레이터를 사용하는 것만큼 효과적이지는 않습니다. 후자는 더 간결할 뿐만 아니라 성능도 더 나아집니다. 위 예제의 코드는 간단한 리스트 표현식으로 한 줄로 변환됩니다. 제너레이터를 생성하려면 사실상 역방향 for 루프를 작성하고 리스트 구분 기호로 둘러싸면 됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -172,12 +183,14 @@ values = [x ** 2 for x in range(1, 30)]
 Python 코드를 극적으로 개선하는 다음 간단한 기술은 iterable의 요소들을 횡단하여 함수를 호출하는 조합인 람다와 맵을 사용하는 것입니다. 현재 Python의 가장 일반적인 응용 분야가 과학 컴퓨팅이라는 점을 고려하면, 람다와 맵은 놀라울 만큼 많이 사용되는 Python 기능입니다. 둘의 다양성은 많은 다른 도메인에서 함께 기능을 통해 뛰어나기 때문에, 이 기술은 확실히 알아두어야 할 가치가 있습니다. 특히 데이터 과학을 위해 Python 언어를 사용하는 사람들뿐만 아니라요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -200,12 +213,14 @@ m = map(f, values)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -232,12 +247,14 @@ squared = list(m)
 ## 추출
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -251,24 +268,24 @@ def quiz_user():
     x = input()
     print("2 + 2는 뭐에요?")
     answer = input()
-    
+
     if answer == "4":
         print("정답")
         correct.append(True)
     else:
         print("틀렸어요.")
         correct.append(False)
-    
+
     print("하늘의 색깔은 뭐에요?")
     answer = input()
-    
+
     if answer == "파란색":
         print("정답")
         correct.append(True)
     else:
         print("틀렸어요.")
         correct.append(False)
-    
+
     return correct
 ```
 
@@ -284,18 +301,18 @@ def ask_name():
 def question1():
     print("2 + 2는 뭐에요?")
     answer = input()
-    
+
     if answer == "4":
         print("정답")
         return True
     else:
         print("틀렸어요.")
         return False
-        
+
 def question2():
     print("하늘의 색깔은 뭐에요?")
     answer = input()
-    
+
     if answer == "파란색":
         print("정답")
         return True
@@ -311,12 +328,14 @@ def quiz_user():
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -332,12 +351,14 @@ del squared
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -363,12 +384,14 @@ newvalues
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -405,12 +428,14 @@ def turn_switch(has_power: bool):
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -446,12 +471,14 @@ def turn_switch(has_power: bool):
 또한 위의 경우에는 언젠가는 조건부 내부에서 사용되는 변수를 할당해야 할 것입니다. 이 값은 조건부 외부에서 사용할 계획이 있다면 함수의 비공개 범위에 유지하는 것이 훨씬 더 합리적입니다. 조건부 내부에서 변수를 새로 할당할 수 없으며, 조건부는 루프와 마찬가지로 다른 렉시컬 범위를 추가합니다. 이러한 점을 고려하면 이러한 범위를 설정하고 데이터를 전달하는 데 시간이 걸립니다. 몇몇 부적절한 조건부는 큰 문제를 일으키지 않을 수 있지만, 추가적인 중첩 및 더 많은 호출은 항상 성능을 저하시킵니다. 최적의 성능은 Python과 같은 언어에서 더욱 중요합니다. 우리는 Python의 속도 신뢰성이 C와 같은 것에 비하면 그리 높지 않기 때문에 실제 작성한 대부분의 Python 코드가 가능한 최적화되도록 하려고 할 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

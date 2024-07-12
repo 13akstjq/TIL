@@ -1,16 +1,14 @@
 ---
 title: "시계열 예측을 위한 범용 머신 러닝 프레임워크"
 description: ""
-coverImage: "/assets/img/2024-07-06-AGeneralizedMachineLearningFrameworkforTimeSeriesForecasting_0.png"
+coverImage: "/TIL/assets/img/2024-07-06-AGeneralizedMachineLearningFrameworkforTimeSeriesForecasting_0.png"
 date: 2024-07-06 02:23
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-06-AGeneralizedMachineLearningFrameworkforTimeSeriesForecasting_0.png
 tag: Tech
 originalTitle: "A Generalized Machine Learning Framework for Time Series Forecasting"
 link: "https://medium.com/towards-artificial-intelligence/a-generalized-machine-learning-framework-for-time-series-forecasting-54f839546d9e"
 ---
-
-
 
 /assets/img/2024-07-06-AGeneralizedMachineLearningFrameworkforTimeSeriesForecasting_0.png
 
@@ -20,14 +18,15 @@ link: "https://medium.com/towards-artificial-intelligence/a-generalized-machine-
 
 최근 게시한 글, '시계열 예측: SARIMAX, RNN, LSTM, Prophet, 그리고 Transformer의 비교 분석'에서 여러 시계열 예측 방법을 비교 분석했습니다. 기계 학습 접근 방법을 포함해야 했으나 글이 너무 길어졌습니다. 따라서 이 논문을 발표하여 그 갭을 해결하고자 합니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

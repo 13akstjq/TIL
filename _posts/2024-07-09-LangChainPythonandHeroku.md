@@ -1,17 +1,16 @@
 ---
 title: "2024년 최신 LangChain, Python, Heroku 사용 방법 실제 사용 사례와 팁"
 description: ""
-coverImage: "/assets/img/2024-07-09-LangChainPythonandHeroku_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-LangChainPythonandHeroku_0.png"
 date: 2024-07-09 20:59
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-LangChainPythonandHeroku_0.png
 tag: Tech
 originalTitle: "LangChain, Python, and Heroku"
 link: "https://medium.com/gitconnected/langchain-python-and-heroku-f87369a258dc"
 ---
 
-
-<img src="/assets/img/2024-07-09-LangChainPythonandHeroku_0.png" />
+<img src="/TIL/assets/img/2024-07-09-LangChainPythonandHeroku_0.png" />
 
 ## 커피숍에서 코딩하기
 
@@ -20,12 +19,14 @@ link: "https://medium.com/gitconnected/langchain-python-and-heroku-f87369a258dc"
 이러한 새로운 도구와 제품의 배경에 이어지는 다양한 도구들과 제품들에 대해 궁금한 적이 있나요? 또한 개발자와 최종 사용자 모두가 활용하는 이러한 도구들이 어떻게 운영되는지 궁금해할 수도 있습니다. 이러한 도구와 응용 프로그램 중 많은 경우, LangChain, Python 및 Heroku를 알 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -39,12 +40,14 @@ link: "https://medium.com/gitconnected/langchain-python-and-heroku-f87369a258dc"
 LangChain의 문서에는 다음과 같이 나와 있습니다: "LangChain은 언어 모델을 기반으로 한 애플리케이션을 개발할 수 있는 프레임워크입니다."
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -58,12 +61,14 @@ LangChain의 문서에는 다음과 같이 나와 있습니다: "LangChain은 �
 ## LangChain 탐구하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -81,12 +86,14 @@ LangChain 내에는 몇 가지 주요 구성 요소가 있습니다:
 LangChain은 인기 있는 AI 및 LLM 애플리케이션을 구축하기 위한 프레임워크이며, 그 이유를 쉽게 이해할 수 있습니다. LangChain은 제품을 끝까지 구축하고 배포하는 데 필요한 기능을 제공합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -100,12 +107,14 @@ Heroku를 통해 애플리케이션을 쉽게 배포할 수 있기 때문에 프
 # LangChain으로 빌드하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -122,12 +131,14 @@ LangChain을 사용하면 LLM 애플리케이션의 기본을 형성하는 프�
 이 예시에서는 OpenAI와 함께 작업하겠습니다. 프롬프트를 이렇게 작성해 보겠습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -136,21 +147,21 @@ LangChain을 사용하면 LLM 애플리케이션의 기본을 형성하는 프�
 
 Markdown 형식을 사용해 표를 만들어보세요:
 
-
-| 컬럼1 | 컬럼2 |
-|-------|-------|
+| 컬럼1   | 컬럼2   |
+| ------- | ------- |
 | 데이터1 | 데이터2 |
-
 
 그럼 좋은 하루 보내세요!
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -177,29 +188,31 @@ chain = my_prompt | llm
 이를 명령줄에서 사용하려면 다음 코드를 추가해야합니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-user_input = input("피트니스 목표와 관련된 질문을 하세요.\n")
+user_input = input("피트니스 목표와 관련된 질문을 하세요.\n");
 response = chain.invoke({
-  "input": user_input
-})
+  input: user_input,
+});
 
-print(response)
+print(response);
 ```
 
 위에서 코드블록을 보면 우리 애플리케이션을 명령줄에서 테스트할 수 있습니다.
 
 ```js
-(venv) $ OPENAI_API_KEY=insert-key-here python3 main.py 
+(venv) $ OPENAI_API_KEY=insert-key-here python3 main.py
 피트니스 목표와 관련된 질문을 하세요.
 60초 동안 플랭크를 유지하는 방법은 무엇인가요?
 content="60초 동안 플랭크를 유지하는 것은 좋은 목표입니다! 60초 동안 플랭크를 유지하기 위해선 올바른 자세로 시작하고 천천히 플랭크를 유지하는 시간을 늘려나가는 것이 중요합니다. 진행하는 데 도움이 될 몇 가지 팁을 드리겠습니다:\n\n1. 짧은 시간으로 시작하기: 자세를 잘 유지한 채로 플랭크를 유지할 수 있는 시간부터 시작해보세요. 몇 초만이라도 괜찮으니 강해지면서 시간을 늘려가세요.\n\n2. 올바른 자세에 집중하기: 머리부터 발끝까지 직선으로 몸을 유지하고 복부 근육을 사용하며 어깨를 팔꿈치 바로 위에 유지하세요.\n\n3. 꾸준히 연습하기: 매주 몇 번씩 플랭크를 운동 루틴에 포함시키도록 노력해보세요. 꾸준함이 힘과 인내를 키우는 데 중요합니다.\n\n4. 다양한 플랭크 도전하기: 사이드 플랭크나 다리를 들거나하는 등 다양한 플랭크 변형을 시도하여 다른 근육 꾸러미에 작용하고 운동을 도전스럽게 유지하세요.\n\n5. 몸의 신호를 듣기: 자신을 밀어내는 것도 중요하지만 자신의 한계를 알아야 합니다. 통증이나 불편함을 느낀다면 멈추고 휴식을 취하세요.\n\n기억하세요, 발전에는 시간과 인내가 필요합니다. 새로운 플랭크 기법을 마스터하거나 몇 초 더 플랭크를 유지한다든지하는 모든 단계를 축하하세요. 당신은 할 수 있어요!"
@@ -208,12 +221,14 @@ content="60초 동안 플랭크를 유지하는 것은 좋은 목표입니다! 6
 (가독성을 위해 위에서 줄 바꿈을 추가했습니다.)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -247,7 +262,7 @@ print(response)
 이제 명령행에서 우리의 애플리케이션이 이렇게 보일 거에요:
 
 ```js
-(venv) $ OPENAI_API_KEY=insert-key-here python3 main.py 
+(venv) $ OPENAI_API_KEY=insert-key-here python3 main.py
 당신의 피트니스 목표에 관한 질문을 해주세요.
 피스톨 스쿼트를 어떻게 배우나요?
 그것은 훌륭한 목표에요! 피스톨 스쿼트는 도전적일 수 있지만, 연습과 인내로 꼭 배울 수 있어요.
@@ -263,12 +278,14 @@ print(response)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -282,12 +299,14 @@ LLM 응담은 가독성을 향상시키기 위해 형식화되었습니다.
 # LangServe로 서비스 하기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -303,12 +322,14 @@ LangServe 문서에는 시작하는 방법에 대한 유용한 예제가 제공�
 이와 함께 기존 코드를 약간 수정해야합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -326,12 +347,14 @@ LangServe 문서에는 시작하는 방법에 대한 유용한 예제가 제공�
 우리의 최종 main.py 파일은 다음과 같습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -371,65 +394,68 @@ if __name__ == "__main__":
 이제 서버를 시작해 볼까요?
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+(venv) $ OPENAI_API_KEY=insert-key-here python3 main.py
 
-(venv) $ OPENAI_API_KEY=insert-key-here python3 main.py 
-
-INFO:     서버 프로세스 시작 [629848]
-INFO:     애플리케이션 시작을 기다리는 중.
+INFO: 서버 프로세스 시작 [629848]
+INFO: 애플리케이션 시작을 기다리는 중.
 
 LANGSERVE: "/" 경로의 Playground이 활성화되었습니다:
-LANGSERVE:  │
-LANGSERVE:  └──> /playground/
+LANGSERVE: │
+LANGSERVE: └──> /playground/
 LANGSERVE:
 LANGSERVE: 사용 가능한 모든 경로는 /docs/에서 확인할 수 있습니다.
 
-INFO:     애플리케이션 시작 완료.
-INFO:     Uvicorn이 http://localhost:8000에서 실행 중 (종료하려면 CTRL+C를 누르세요)
-
+INFO: 애플리케이션 시작 완료.
+INFO: Uvicorn이 http://localhost:8000에서 실행 중 (종료하려면 CTRL+C를 누르세요)
 
 와아... 멋져요!
 
 브라우저에서 http://localhost:8000/docs 로 이동할 수 있어요. 여기에서 확인할 수 있는 내용은:
 
-<img src="/assets/img/2024-07-09-LangChainPythonandHeroku_1.png" /> 
-
+<img src="/TIL/assets/img/2024-07-09-LangChainPythonandHeroku_1.png" />
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 LangServe는 Swagger UI를 사용하는 API 문서 페이지를 제공합니다! 이제 LangServe를 통해 사용 가능한 엔드포인트들이 있습니다. 우리는 invoke/ 엔드포인트로 POST 요청을 보낼 수 있습니다. 하지만 LangServe는 우리에게 chain을 직접 다룰 수 있는 웹 인터페이스가 있는 playground/ 엔드포인트도 제공합니다.
 
-![이미지](/assets/img/2024-07-09-LangChainPythonandHeroku_2.png)
+![이미지](/TIL/assets/img/2024-07-09-LangChainPythonandHeroku_2.png)
 
 우리는 입력을 제공하고 시작을 클릭합니다. 결과는 다음과 같습니다:
 
-![이미지](/assets/img/2024-07-09-LangChainPythonandHeroku_3.png)
+![이미지](/TIL/assets/img/2024-07-09-LangChainPythonandHeroku_3.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -443,12 +469,14 @@ LLM 애플리케이션의 실제 파워는 이전까지 설명한 복잡한 워�
 Heroku는 LLM 애플리케이션 구현의 중요한 마지막 부분입니다. 우리는 LangChain을 사용하여 워크플로를 조합하고 LangServe를 사용하여 유용한 REST API로 제공합니다. 이제 복잡한 자원을 수동으로 설정하여 트래픽을 호스팅하고 제공하는 대신, Heroku를 사용하여 애플리케이션을 간단히 배포할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -465,12 +493,14 @@ $ heroku create my-langchain-app
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -486,12 +516,14 @@ $ heroku config:set OPENAI_API_KEY=여러분의-openai-api-key로-대체하세�
 ## Python 애플리케이션 배포를 위한 설정 파일 만들기
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -509,12 +541,14 @@ $ echo 'web: uvicorn main:app --host=0.0.0.0 --port=${PORT}' > Procfile
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -530,12 +564,14 @@ $ pip freeze > requirements.txt
 마지막으로, runtime.txt에는 Python 3.11.8을 사용할 것입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -560,12 +596,14 @@ $ tree
 이 파일들을 모두 GitHub 저장소에 커밋합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -582,12 +620,14 @@ $ git push heroku main
 우리의 코드가 Heroku 원격으로 푸시되면, Heroku는 애플리케이션을 빌드하고 종속성을 설치한 다음 Procfile에서 지정된 명령을 실행합니다. git push 명령어의 최종 결과는 다음과 같습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -597,34 +637,36 @@ $ git push heroku main
 
 remote: -----> 프로세스 유형 검색 중
 remote:        Procfile이 다음 유형을 선언함 -> web
-remote: 
+remote:
 remote: -----> 압축 중...
 remote:        완료: 71.8M
 remote: -----> 배포 중...
 remote:        v4 버전이 릴리스됨
 remote:        https://my-langchain-app-ea95419b2750.herokuapp.com/ 에 배포됨
-remote: 
+remote:
 remote: 배포 확인... 완료.
 ```
 
 우리의 Heroku 앱 URL이 표시됩니다. 브라우저에서 https://my-langchain-app-ea95419b2750.herokuapp.com/playground을 방문해주세요.
 
-![이미지](/assets/img/2024-07-09-LangChainPythonandHeroku_4.png)
+![이미지](/TIL/assets/img/2024-07-09-LangChainPythonandHeroku_4.png)
 
 또한 Swagger UI 문서 페이지를 확인하려면 https://my-langchain-app-ea95419b2750.herokuapp.com/docs를 방문해주세요.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![이미지](/assets/img/2024-07-09-LangChainPythonandHeroku_5.png)
+![이미지](/TIL/assets/img/2024-07-09-LangChainPythonandHeroku_5.png)
 
 그리고 그렇게해서 우리는 시작했어요!
 
@@ -633,12 +675,14 @@ remote: 배포 확인... 완료.
 # 결론
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

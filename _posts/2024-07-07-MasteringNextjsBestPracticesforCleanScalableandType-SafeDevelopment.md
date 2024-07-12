@@ -1,31 +1,32 @@
 ---
 title: "Nextjs 마스터하기 깔끔하고 확장 가능하며 타입 안전한 개발을 위한 모범 사례"
 description: ""
-coverImage: "/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_0.png"
+coverImage: "/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_0.png"
 date: 2024-07-07 21:56
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_0.png
 tag: Tech
 originalTitle: "Mastering Next.js: Best Practices for Clean, Scalable, and Type-Safe Development"
 link: "https://medium.com/@iqbalpa/mastering-next-js-best-practices-for-clean-scalable-and-type-safe-development-2ee5693e73a9"
 ---
 
-
 현대 웹 개발에서 Next.js는 견고하고 동적인 웹 애플리케이션을 구축하는 강력한 프레임워크로 떠오르고 있습니다. 그 유연성과 서버 측 렌더링(SSR) 및 정적 사이트 생성(SSG)과 같은 기능들로 인해, 개발자들이 고성능 웹 사이트를 만드는 데 선택하는 주요 도구가 되었습니다. 그러나 Next.js의 최대 잠재력을 활용하려면, 코드 품질, 유지 보수성 및 확장성을 보장하는 최상의 사례에 따라야 합니다. 본 문서에서는 SOLID 원칙, TypeScript 지침 및 Next.js 특화 전략을 아우르는 포괄적인 최상의 사례를 탐구하여, Next.js 프로젝트를 탁월한 수준으로 발전시킬 수 있도록 돕겠습니다.
 
-![이미지](/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_0.png)
+![이미지](/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_0.png)
 
 ## 제 1장: Next.js 개발에서 객체 지향 원칙
 
 객체 지향 프로그래밍(OOP)은 "객체"라는 개념을 기반으로 하는 프로그래밍 패러다임으로, 이 객체는 필드(속성 또는 프로퍼티)에 데이터와 프로시저(메서드 또는 함수)에 코드를 포함할 수 있습니다. OOP 원칙을 준수하면 소프트웨어 시스템을 모듈식, 유연하고 유지보수하기 쉽게 설계하고 구현할 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -59,12 +60,14 @@ class Post {
 ## 추상화
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -92,12 +95,14 @@ class Post {
 - 이전 세대로부터 일부 특성과 특징을 상속받는 가족 계보를 상상해보십시오. 마찬가지로 OOP에서는 하위 클래스가 상위 클래스로부터 속성과 메서드를 상속받아 클래스 계층 구조를 형성합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -160,12 +165,14 @@ class Guest extends User {
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -181,12 +188,14 @@ class Guest extends User {
 - 다음은 Next.js에서 SRP를 적용하는 예시입니다. Card 컴포넌트를 만들고 싶다고 가정해봅시다. Card 폴더를 만들어 컴포넌트 자체와 필요한 상수들이 포함되도록 합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -198,16 +207,16 @@ import React from "react";
 import { CardProps } from "./constants";
 
 const Card: React.FC<CardProps> = ({ title, desc, color }) => {
- return (
-  <div
-   data-testid="card"
-   style={{ backgroundColor: `#${color}` }}
-   className="p-12 w-[348px] h-full lg:h-[438px] rounded-[30px] shadow-lg"
-  >
-   <h2 className="text-lg font-bold mb-3">{title}</h2>
-   <p>{desc}</p>
-  </div>
- );
+  return (
+    <div
+      data-testid="card"
+      style={{ backgroundColor: `#${color}` }}
+      className="p-12 w-[348px] h-full lg:h-[438px] rounded-[30px] shadow-lg"
+    >
+      <h2 className="text-lg font-bold mb-3">{title}</h2>
+      <p>{desc}</p>
+    </div>
+  );
 };
 
 export default Card;
@@ -217,19 +226,21 @@ export default Card;
 
 ```js
 export type CardProps = {
- title: string;
- desc: string;
- color: string;
+  title: string,
+  desc: string,
+  color: string,
 };
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -260,12 +271,14 @@ const Card: React.FC<CardProps> = ({title, desc}) => {
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -294,14 +307,15 @@ ExtendedCard 컴포넌트는 Card 컴포넌트에 새로운 요소를 추가하�
 - LSP는 슈퍼클래스의 객체가 서브클래스의 객체로 대체될 수 있어야하며 프로그램의 정확성에 영향을 주지 않아야한다고 명시합니다. 즉, 서브클래스는 에러를 발생시키지 않고 기본 클래스를 대체할 수 있어야 합니다.
 - 리모컨 자동차를 생각해보세요. 서로 다른 종류의 배터리를 교체할 수 있는 경우를 말합니다. 배터리가 맞고 필요한 전원을 제공한다면 어떤 브랜드나 종류의 배터리든 자동차의 작동에 영향을주지 않고 사용할 수 있습니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -367,12 +381,14 @@ export default Home;
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -405,12 +421,14 @@ type CardProps = TextCardProps | ImageCardProps | VideoCardProps;
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -461,12 +479,14 @@ export default Home;
 - 벽돌로 지어진 집을 생각해보세요. 각 벽돌이 아래 벽돌에 의존하는 대신, 모든 벽돌이 기초에 의존합니다. 기초가 튼튼하면 개별 벽돌을 교체해도 집은 안정적으로 유지됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -503,37 +523,39 @@ import BaseLayout from "../components/elements/layout/BaseLayout";
 import StoreProvider from "../providers/StoreProvider";
 
 export default function App({ Component, pageProps }: AppProps) {
- return (
-  <TranslateProvider>
-   <StoreProvider>
-    <BaseLayout>
-     <Component {...pageProps} />
-    </BaseLayout>
-   </StoreProvider>
-  </TranslateProvider>
- );
+  return (
+    <TranslateProvider>
+      <StoreProvider>
+        <BaseLayout>
+          <Component {...pageProps} />
+        </BaseLayout>
+      </StoreProvider>
+    </TranslateProvider>
+  );
 }
 ```
 
 ## SOLID 원칙의 구현 장점
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-Next.js 프로젝트에서 SOLID 원칙을 적용하면 여러 가지 이점을 누릴 수 있어요. 
+Next.js 프로젝트에서 SOLID 원칙을 적용하면 여러 가지 이점을 누릴 수 있어요.
 
-- 향상된 코드 품질: SOLID 원칙을 따르면 더 깨끗하고 조직화된 코드를 작성할 수 있어요. 이는 이해하기 쉽고 유지보수하기 쉬운 코드로 이어지며 버그가 적어지고 개발 주기가 빨라집니다. 
-- 더 나은 확장성: SOLID 원칙은 모듈화된 설계를 촉진하여 새로운 기능을 추가하거나 애플리케이션을 확장할 때 쉬워집니다. 기존 기능을 수정하지 않고 기능을 확장할 수 있어요. 이는 코드 재사용을 촉진하고 버그 발생 가능성을 줄입니다. 
-- 향상된 유지보수성: SOLID 원칙을 적용하면 각 구성 요소가 단일 책임을 가지게 되어 문제가 발생했을 때 이를 분리하고 수정하기 쉬워집니다. 이는 새로운 개발자가 코드베이스에 익숙해지고 이해하기 쉽게 만들어 줘요. 
-- 더 큰 유연성: SOLID 원칙을 따르면 Next.js 애플리케이션의 동작을 쉽게 변경하거나 확장할 수 있습니다. 이 유연성은 요구 사항의 변화에 적응하거나 새로운 기능을 통합하는 데 중요합니다. 
+- 향상된 코드 품질: SOLID 원칙을 따르면 더 깨끗하고 조직화된 코드를 작성할 수 있어요. 이는 이해하기 쉽고 유지보수하기 쉬운 코드로 이어지며 버그가 적어지고 개발 주기가 빨라집니다.
+- 더 나은 확장성: SOLID 원칙은 모듈화된 설계를 촉진하여 새로운 기능을 추가하거나 애플리케이션을 확장할 때 쉬워집니다. 기존 기능을 수정하지 않고 기능을 확장할 수 있어요. 이는 코드 재사용을 촉진하고 버그 발생 가능성을 줄입니다.
+- 향상된 유지보수성: SOLID 원칙을 적용하면 각 구성 요소가 단일 책임을 가지게 되어 문제가 발생했을 때 이를 분리하고 수정하기 쉬워집니다. 이는 새로운 개발자가 코드베이스에 익숙해지고 이해하기 쉽게 만들어 줘요.
+- 더 큰 유연성: SOLID 원칙을 따르면 Next.js 애플리케이션의 동작을 쉽게 변경하거나 확장할 수 있습니다. 이 유연성은 요구 사항의 변화에 적응하거나 새로운 기능을 통합하는 데 중요합니다.
 - 쉬운 테스트: SOLID 원칙은 격리된 환경에서 테스트하기 쉬운 코드를 촉진합니다. 이는 신뢰할 수 있는 테스트와 코드 정확성에 대한 더 높은 수준의 신뢰를 보장해 줍니다. 특히 Next.js 프로젝트에서는 구성 요소간 복잡한 상호작용으로 인해 테스트가 어려울 수 있습니다.
 
 요약하자면, Next.js 프로젝트에서 SOLID 원칙을 적용하면 더 견고하고 유지보수하기 쉬운 확장 가능한 애플리케이션으로 이끌어줍니다. 이는 개발 경험과 최종 제품의 품질을 향상시킵니다.
@@ -541,12 +563,14 @@ Next.js 프로젝트에서 SOLID 원칙을 적용하면 여러 가지 이점을 
 # 제 3장: Next.js 및 Typescript Best Practices
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -582,33 +606,35 @@ Next.js 프로젝트에서 SOLID 원칙을 적용하면 여러 가지 이점을 
 2. `Type Annotations for Props and State`. Next.js에서 TypeScript를 사용할 때, 컴포넌트의 props와 state에 대한 유형 주석을 제공하는 것이 중요합니다. 이는 컴포넌트로 흐르는 데이터의 올바른 유형을 보장하여 런타임 오류의 가능성을 줄입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+![Mastering Next.js: Best Practices for Clean, Scalable, and Type-Safe Development](/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_1.png)
 
-![Mastering Next.js: Best Practices for Clean, Scalable, and Type-Safe Development](/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_1.png)
-
-![Mastering Next.js: Best Practices for Clean, Scalable, and Type-Safe Development](/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_2.png)
+![Mastering Next.js: Best Practices for Clean, Scalable, and Type-Safe Development](/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_2.png)
 
 3. Leverage Functional Components and React Hooks. Functional components and React hooks are a powerful combination in Next.js. Functional components are easier to read and maintain, while hooks like useState and useEffect provide a cleaner way to manage state and side effects.
 
-![Mastering Next.js: Best Practices for Clean, Scalable, and Type-Safe Development](/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_3.png)
-
+![Mastering Next.js: Best Practices for Clean, Scalable, and Type-Safe Development](/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_3.png)
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -617,17 +643,19 @@ Next.js 프로젝트에서 SOLID 원칙을 적용하면 여러 가지 이점을 
 
 5. ESLint로 코드 서식 일관성 유지 설정하기. ESLint는 코드 서식 지원 도구로 프로젝트 전체에서 일관된 코드 스타일을 유지하는 데 도움을 줍니다. Next.js 프로젝트에 설정하면 코드가 일관되게 서식이 맞춰져 가독성과 유지보수가 쉬워집니다.
 
-![이미지](/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_4.png)
+![이미지](/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_4.png)
 
 6. "?"로 옵션으로 지정하기. TypeScript에서는 타입 정의에서 속성 이름 뒤에 "?"를 추가하여 속성을 옵션으로 표시할 수 있습니다. 이는 가끔 필요하지 않은 프롭스나 상태 속성이 있는 경우 유용합니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -637,36 +665,40 @@ Next.js 프로젝트에서 SOLID 원칙을 적용하면 여러 가지 이점을 
 8. Redux를 사용하여 전역 상태 관리 활성화하기. Redux는 React 및 Next.js 애플리케이션에 많이 사용되는 상태 관리 라이브러리입니다. Redux를 사용하면 전역 상태를 유지할 수 있어 어떤 컴포넌트에서든 액세스할 수 있으며, 컴포넌트 트리의 여러 수준을 통해 props를 전달할 필요가 없습니다 (state drilling).
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![이미지](/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_7.png)
+![이미지](/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_7.png)
 
 9. 타입 정의, 인터페이스 및 상수를 하나의 파일로 분리하세요. 타입 정의, 인터페이스 및 상수를 하나의 파일에 유지하면 깔끔하고 조직적인 프로젝트 구조를 유지할 수 있습니다. 이렇게 하면 프로젝트가 성장함에 따라 타입 정의를 찾고 관리하는 것이 쉬워집니다.
 
-![이미지](/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_8.png)
+![이미지](/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_8.png)
 
 10. 항목 목록을 만들고 배열을 반복하여 컴포넌트 목록을 만드세요. Next.js에서 항목 목록을 렌더링할 때 map 함수를 사용하여 배열을 반복하고 각 항목에 대해 컴포넌트를 렌더링할 수 있습니다. 이를 통해 기본 데이터가 변경될 때 자동으로 업데이트되는 동적 목록을 만들 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-![이미지](/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_9.png)
+![이미지](/TIL/assets/img/2024-07-07-MasteringNextjsBestPracticesforCleanScalableandType-SafeDevelopment_9.png)
 
 ## Next.js의 장점 - TypeScript Best Practice
 

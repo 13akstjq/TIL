@@ -1,17 +1,16 @@
 ---
 title: "PyFilesystem2 OpenCV로 캡처한 프레임을 메모리 파일 시스템에 저장하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-PyFilesystem2StoringFramesCapturedbyOpenCVinanIn-MemoryFilesystem_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-PyFilesystem2StoringFramesCapturedbyOpenCVinanIn-MemoryFilesystem_0.png"
 date: 2024-07-09 14:59
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-PyFilesystem2StoringFramesCapturedbyOpenCVinanIn-MemoryFilesystem_0.png
 tag: Tech
 originalTitle: "PyFilesystem2: Storing Frames Captured by OpenCV in an In-Memory Filesystem"
 link: "https://medium.com/@htayanloo/pyfilesystem2-storing-frames-captured-by-opencv-in-an-in-memory-filesystem-b2f5fc0f4838"
 ---
 
-
-<img src="/assets/img/2024-07-09-PyFilesystem2StoringFramesCapturedbyOpenCVinanIn-MemoryFilesystem_0.png" />
+<img src="/TIL/assets/img/2024-07-09-PyFilesystem2StoringFramesCapturedbyOpenCVinanIn-MemoryFilesystem_0.png" />
 
 소개
 PyFilesystem2은 Python에서 파일 시스템을 다루는 강력하고 유연한 라이브러리로, 개발자들이 파일과 디렉토리를 쉽게 관리할 수 있습니다. PyFilesystem2의 매력적인 기능 중 하나는 인메모리 파일 시스템을 지원한다는 점인데, 이는 테스트, 데이터 캐싱, 빠른 처리 등 다양한 목적에 유용할 수 있습니다. 본 문서에서는 OpenCV로 캡처된 비디오 프레임을 인메모리 파일 시스템에 저장하는 방법을 알아보겠습니다.
@@ -23,12 +22,14 @@ PyFilesystem2은 Python에서 파일 시스템을 다루는 강력하고 유연�
 먼저 인메모리 파일 시스템을 생성해야 합니다. 이 작업은 PyFilesystem2 라이브러리의 `MemoryFS` 클래스를 사용하여 수행할 수 있습니다. 아래는 인메모리 파일 시스템을 생성하고 그 안에 간단한 파일을 저장하는 예제입니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

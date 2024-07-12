@@ -1,19 +1,18 @@
 ---
 title: "랜덤 포레스트로 PCA와 특징 중요도 해제하는 방법"
 description: ""
-coverImage: "/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_0.png"
+coverImage: "/TIL/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_0.png"
 date: 2024-07-09 20:18
-ogImage: 
+ogImage:
   url: /assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_0.png
 tag: Tech
 originalTitle: "Unlocking Insights: Random Forests for PCA and Feature Importance"
 link: "https://medium.com/towards-data-science/unlocking-insights-random-forests-for-pca-and-feature-importance-2d0d1b4adb70"
 ---
 
+<img src="/TIL/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_0.png" />
 
-<img src="/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_0.png" />
-
-안녕하세요! 
+안녕하세요!
 
 요즘에는 생성 AI와 거대한 신경망에 많은 관심이 집중되어 있지만, 예전에 시험해본 기계 학습 알고리즘을 간과하기 쉽습니다 (사실 그렇게 오래된 것은 아닌데요...). 대부분의 비즈니스 상황에 대해 단순한 기계 학습 솔루션이 복잡한 AI 구현보다 더 나아질 수 있다고 주장할 정도로 나는 생각해냅니다. 기계 학습 알고리즘은 극도로 확장 가능하며, 모델 복잡성이 낮아서 (내 의견에 따르면) 대부분의 시나리오에서 우수하다고 생각합니다. 그리고 또한, 그런 기계 학습 솔루션의 성능을 추적하는 것이 훨씬 더 쉬웠습니다.
 
@@ -22,12 +21,14 @@ link: "https://medium.com/towards-data-science/unlocking-insights-random-forests
 저는 ML 프로젝트의 초기 단계를 전문적인 분위기에서 특히 중요하게 생각합니다. 이 프로젝트가 이길만한 가능성이 스테이크홀더들(계산서를 내는 사람들)로부터 승인받은 후에는, 그들은 투자에 대한 수읽성을 보고하길 원하게 될 것입니다. 이 가능성 논의의 일환으로 데이터의 상황에 대해 논의해야 할 것들이 있습니다: 충분한 데이터가 있는지, 데이터의 품질은 어떤가 등등. 몇 가지 초기 분석을 진행한 후에만 데이터의 분포 및 품질에 대한 일부 답을 할 수 있습니다. 여기서 제가 보여주는 기술은 초기 가능성 평가를 완료했다고 가정하고 다음 단계로 진행할 준비가 되었다고 가정합니다. 이 시점에서 스스로 물어봐야 할 주요 질문은: 모델 성능을 유지하면서 얼마나 많은 특성을 제거할 수 있을까요. 모델의 특성(차원)을 줄이는 것에는 많은 이점이 있습니다. 이 중에는 다음과 같은 것들이 포함되어 있지만 이에 한정되지 않습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -45,12 +46,14 @@ link: "https://medium.com/towards-data-science/unlocking-insights-random-forests
 시작해봅시다
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -64,12 +67,14 @@ link: "https://medium.com/towards-data-science/unlocking-insights-random-forests
 우리는 Kaggle로부터 데이터셋을 가져와서 시작할 것입니다. Kaggle 데이터셋을 가져올 때, 로그인 자격 증명이 컴퓨터의 이 위치에 저장되어 있는지 확인해야 합니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -78,7 +83,7 @@ link: "https://medium.com/towards-data-science/unlocking-insights-random-forests
 ~/.kaggle/kaggle.json
 ```
 
-kaggle.json 파일에는 API 키가 포함되어 있습니다. 처음부터 시작하는 경우에는 Kaggle에 등록하고 계정 설정에 접근하여 API 헤더로 이동한 다음 '새 토큰 생성'을 클릭하면 됩니다. 이렇게 하면 kaggle.json 파일이 다운로드 폴더에 저장됩니다. 올바른 위치로 이동하려면 CLI(저는 제 맥의 터미널을 사용하고 있습니다)를 열고 다음 명령을 입력하십시오: 
+kaggle.json 파일에는 API 키가 포함되어 있습니다. 처음부터 시작하는 경우에는 Kaggle에 등록하고 계정 설정에 접근하여 API 헤더로 이동한 다음 '새 토큰 생성'을 클릭하면 됩니다. 이렇게 하면 kaggle.json 파일이 다운로드 폴더에 저장됩니다. 올바른 위치로 이동하려면 CLI(저는 제 맥의 터미널을 사용하고 있습니다)를 열고 다음 명령을 입력하십시오:
 
 ```js
 mv ~/Downloads/kaggle.json ~/.kaggle/
@@ -87,12 +92,14 @@ mv ~/Downloads/kaggle.json ~/.kaggle/
 이 파일이 올바른 위치로 이동되었는지 확인할 수 있습니다. 입력하여 확인할 수 있습니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -118,12 +125,14 @@ from sklearn.metrics import mean_absolute_error
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -155,12 +164,14 @@ process_data(tst_df)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -168,9 +179,9 @@ process_data(tst_df)
 그럼 범주형, 연속 및 종속 변수를 식별할 것입니다 :
 
 ```js
-cats=["Sex","Embarked"]
-conts=['Age', 'SibSp', 'Parch', 'LogFare',"Pclass"]
-dep="Survived"
+cats = ["Sex", "Embarked"];
+conts = ["Age", "SibSp", "Parch", "LogFare", "Pclass"];
+dep = "Survived";
 ```
 
 그 다음, 데이터를 분할한 다음 범주형 변환을 적용해야 합니다:
@@ -183,12 +194,14 @@ val_df[cats] = val_df[cats].apply(lambda x: x.cat.codes)
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -204,7 +217,7 @@ trn_xs, trn_y = xs_y(trn_df)
 val_xs, val_y = xs_y(val_df)
 ```
 
-이제 sklearn의 RandomForestClassifier() 클래스를 사용하여 랜덤 포레스트를 맞추기 준비가 되었습니다. 이 클래스의 좋은 점은 feature_importances_라는 밑바닥 메소드가 있어서 특정 feature가 승객의 생존율에 미치는 영향을 식별하고 플롯할 수 있다는 것입니다. 또한 mean_absolute_error를 통해 모델의 성능을 평가할 수 있습니다:
+이제 sklearn의 RandomForestClassifier() 클래스를 사용하여 랜덤 포레스트를 맞추기 준비가 되었습니다. 이 클래스의 좋은 점은 feature*importances*라는 밑바닥 메소드가 있어서 특정 feature가 승객의 생존율에 미치는 영향을 식별하고 플롯할 수 있다는 것입니다. 또한 mean_absolute_error를 통해 모델의 성능을 평가할 수 있습니다:
 
 ```js
 rf = RandomForestClassifier(100, min_samples_leaf=5)
@@ -214,12 +227,14 @@ mean_absolute_error(val_y, rf.predict(val_xs))
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -227,20 +242,22 @@ mean_absolute_error(val_y, rf.predict(val_xs))
 우리 발견물을 그래프로 표현해 보겠습니다:
 
 ```js
-pd.DataFrame(dict(cols=trn_xs.columns, imp=rf.feature_importances_)).plot('cols', 'imp', 'barh');
+pd.DataFrame(dict((cols = trn_xs.columns), (imp = rf.feature_importances_))).plot("cols", "imp", "barh");
 ```
 
-<img src="/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_1.png" />
+<img src="/TIL/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_1.png" />
 
 여기서요. 생존 예측에서 성별이 가장 중요한 요소임을 알 수 있습니다. 이 단계에서는 다른 알고리즘을 실험하면서 현재 특성을 유지하거나, 랜덤 포레스트 모델을 성능 기준으로 활용할 수 있습니다. 또한, 모델의 예측 성능이 부족하다면, 더 많은 특성 엔지니어링을 수행할 수도 있습니다. 이 방법은 극히 작은 데이터셋으로만 실험했지만, 매우 효율적으로 확장할 수 있는 방법입니다. 1000개 이상의 특성이 있는 데이터셋이 있다고 상상해보세요. 이 방법을 사용하면 빠르게 상위 특성을 추출하여 프로젝트를 어떻게 가장 잘 진행할지 계획을 세울 수 있습니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -254,12 +271,14 @@ pd.DataFrame(dict(cols=trn_xs.columns, imp=rf.feature_importances_)).plot('cols'
 그룹 내 행의 유사성을 측정하기 위해 종속 변수의 표준 편차를 취할 것입니다. 표준 편차가 높을수록 행들 사이에 차이가 더 크다는 뜻입니다. 그런 다음 이 값을 행 수로 곱할 것입니다. 왜냐하면 값들이 더 큰 그룹이 더 작은 그룹보다 더 큰 영향을 미치기 때문입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -283,12 +302,14 @@ def score(col, y, split):
 0.5로 임계값을 설정하여 성별 열의 불순도 점수를 확인할 수 있습니다. 데이터 내에서 여성 승객은 0으로 표현되고, 남성은 1로 표현됩니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -312,12 +333,14 @@ interact(nm=conts, split=15.5)(iscore);
 이제 슬라이더를 사용해보세요. 연속 변수에만 적용했지만 범주형 변수에도 테스트할 수 있습니다. 모든 기능에 대해 이 작업을 수행하면 다소 시간이 소요됩니다. 열의 최적 분할점을 찾을 수 있는 함수를 작성해 봅시다. 해당 필드의 모든 가능한 분할점(해당 필드의 고유한 값) 목록을 만들고 score()가 가장 낮은 지점을 찾아야 합니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -351,12 +374,14 @@ cols = cats + conts
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -370,20 +395,22 @@ cols = cats + conts
 Sex 열을 제거하고 데이터를 분할합니다. 이것은 사실상 의사 결정 트리 내에서 첫 번째 이진 분할입니다.
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 ```js
-cols.remove("Sex")
-ismale = trn_df.Sex==1
-males,females = trn_df[ismale],trn_df[~ismale]
+cols.remove("Sex");
+ismale = trn_df.Sex == 1;
+males, (females = trn_df[ismale]), trn_df[~ismale];
 ```
 
 이제 우리는 남성들에 대한 최적의 분할을 찾습니다:
@@ -401,12 +428,14 @@ males,females = trn_df[ismale],trn_df[~ismale]
 그리고 여성들에 대한 최적의 분할:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -436,18 +465,19 @@ plt.show()
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-![image](/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_2.png)
+![image](/TIL/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_2.png)
 
 와우, 수동 분리 결과와 동일한 결과를 얻었네요. 이 모델의 성능을 측정해 봅시다:
 
@@ -458,14 +488,15 @@ mean_absolute_error(val_y, model.predict(val_xs))
 
 예상대로, 이 모델은 처음에 생성한 랜덤 포레스트 앙상블 모델보다 성능이 낮습니다. 다이어그램의 각 노드는 특정 규칙 집합과 일치하는 행/샘플이 몇 개인지 및 생존 또는 사망한 승객이 몇 명인지를 보여줍니다. Gini 점수는 이전에 만든 점수 기능과 매우 유사합니다. 다음과 같이 정의됩니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -475,20 +506,22 @@ def gini(cond):
     act = df.loc[cond, dep]
     return 1 - act.mean()**2 - (1-act).mean()**2
 ```
+
 이 함수는 조건에 따라 지니 불순도를 계산합니다. 여기서, 먼저 사용자가 선택한 두 행이 각각 "Survived" 결과가 같을 확률을 계산합니다. 그룹이 모두 같은 경우, 확률은 1.0입니다. 모두 다른 경우에는 0.0의 결과가 나옵니다.
 
 # 더 큰 의사 결정 트리…
 
 더 큰 의사 결정 트리를 만들어 성능에 어떤 영향을 미치는지 살펴봅시다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -500,7 +533,7 @@ plot_tree(model, feature_names=trn_xs.columns, filled=True, rounded=True, precis
 plt.show()
 ```
 
-![image](/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_3.png)
+![image](/TIL/assets/img/2024-07-09-UnlockingInsightsRandomForestsforPCAandFeatureImportance_3.png)
 
 이제 큰 모델의 성능을 측정해 보겠습니다:
 
@@ -510,12 +543,14 @@ mean_absolute_error(val_y, model.predict(val_xs))
 ```
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -529,12 +564,14 @@ mean_absolute_error(val_y, model.predict(val_xs))
 먼저, 데이터의 새로운 무작위 하위 집합에 대한 의사 결정 트리 생성을 다룹니다:
 
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -554,14 +591,15 @@ trees = [get_tree() for t in range(100)]
 
 이제 모든 트리의 평균 예측값을 얻습니다:
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -580,14 +618,15 @@ mean_absolute_error(val_y, avg_probs)
 
 요령이다. 데이터셋 내에서 가장 중요한 기능을 이해하는 데 도움이 되는 기본 요소를 다루었습니다. 이 방법론을 적용하여 데이터 과학 프로젝트에서 신속히 진전할 수 있기를 바라겠습니다. 앞서 말했듯이, 이 글에 소개된 각 모델의 성능 기준은 우리의 데이터셋이 매우 작았기 때문에 준중요하게 여겨야 합니다. 그럼에도 불구하고, 이 방법은 놀랍도록 잘 확장되며 설명 가능한 기준을 설정하는 좋은 방법입니다.
 
-
 <!-- TIL 수평 -->
+
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
