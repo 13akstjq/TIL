@@ -5,7 +5,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/TIL",
   async redirects() {
     return [
       {
