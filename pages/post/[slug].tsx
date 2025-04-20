@@ -64,19 +64,15 @@ export default function Post({ post, content }: Props) {
                   <div className={cx("textarea")}>
                     <span className={cx("writer")}>{AUTHOR}</span>
                     <span className={cx("info")}>
-                      <span className={cx("date")}>{`Posted On ${moment(post.date).format("MMM D, YYYY")}`}</span>
-                      <span className={cx("reading_time")}>{post.readingTime} min read</span>
+                      <span className={cx("date")}>{`Posted On ${moment(
+                        post.date
+                      ).format("MMM D, YYYY")}`}</span>
+                      <span className={cx("reading_time")}>
+                        {post.readingTime} min read
+                      </span>
                     </span>
                   </div>
                 </div>
-
-                <Image
-                  width={"50"}
-                  height={"50"}
-                  className={cx("view_badge")}
-                  src={`https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fallround-coder.github.io${router.asPath}&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=views&edge_flat=false`}
-                  alt=""
-                />
               </div>
 
               <article className={cx("post_content")}>
@@ -95,7 +91,11 @@ export default function Post({ post, content }: Props) {
 export function myRemarkPlugin() {
   return (tree: any) => {
     visit(tree, (node) => {
-      if (node.type === "textDirective" || node.type === "leafDirective" || node.type === "containerDirective") {
+      if (
+        node.type === "textDirective" ||
+        node.type === "leafDirective" ||
+        node.type === "containerDirective"
+      ) {
         if (node.name === "tip") {
           const data = node.data || (node.data = {});
           const tagName = node.type === "textDirective" ? "span" : "div";
