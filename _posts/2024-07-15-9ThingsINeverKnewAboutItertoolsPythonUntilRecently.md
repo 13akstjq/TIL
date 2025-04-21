@@ -3,16 +3,19 @@ title: "알고 나서 놀란 Itertools Python의 9가지 비밀"
 description: ""
 coverImage: "/TIL/assets/img/2024-07-15-9ThingsINeverKnewAboutItertoolsPythonUntilRecently_0.png"
 date: 2024-07-15 00:04
-ogImage:
+ogImage: 
   url: /TIL/assets/img/2024-07-15-9ThingsINeverKnewAboutItertoolsPythonUntilRecently_0.png
 tag: Tech
 originalTitle: "9 Things I Never Knew About Itertools Python Until Recently"
 link: "https://medium.com/gitconnected/9-things-i-never-knew-about-itertools-python-until-recently-b98fbed92d2f"
 ---
 
+
 이미지 태그를 아래와 같이 수정해주세요.
 
+
 ![image](/TIL/assets/img/2024-07-15-9ThingsINeverKnewAboutItertoolsPythonUntilRecently_0.png)
+
 
 비디오 콘텐츠 실험 64일차
 
@@ -21,14 +24,12 @@ link: "https://medium.com/gitconnected/9-things-i-never-knew-about-itertools-pyt
 itertools.batched 함수(파이썬 3.12 이상에서만 사용 가능)를 사용하면 이터러블을 일괄 처리하는 것이 쉬워집니다.
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -51,14 +52,12 @@ for i in itertools.batched('abcdefg', 3):
 itertools.pairwise 함수를 사용하면 iterable의 각 이웃하는 두 원소를 비교할 수 있습니다.
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -86,14 +85,12 @@ for i in itertools.pairwise('abcdefg'):
 # 3) Accumulate
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -122,14 +119,12 @@ abcdefg
 itertools.combinations(iterable, n) 함수를 사용하면 iterable의 요소들 중 길이 n인 모든 조합을 생성할 수 있습니다.
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -150,14 +145,12 @@ for i in itertools.permutations([1, 2, 3, 4], 2):
 ^ [1, 2, 3, 4]의 요소 중에서 길이가 2인 모든 순열을 찾으려면 — 여기에서 [1, 4]와 [4, 1]은 서로 다르게 간주되는 것을 주목해주세요.
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -168,7 +161,7 @@ import itertools
 for i in itertools.combinations([1, 2, 3, 4], 2):
     print(i, end=' ')
 
-# (1, 2) (1, 3) (1, 4) (2, 3) (2, 4) (3, 4)
+# (1, 2) (1, 3) (1, 4) (2, 3) (2, 4) (3, 4)                                                     
 ```
 
 ^ [1, 2, 3, 4] 요소의 길이가 2인 모든 조합을 찾습니다. [4, 1]은 [1, 4]와 동일하게 간주되어 존재하지 않음을 주목해 주세요.
@@ -194,19 +187,18 @@ for i in [1, 2]:
 ```
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 Markdown 형식으로 표 태그를 변경하려면 다음과 같이 하면 됩니다.
+
 
 ^ a triple nested for loop.
 
@@ -232,15 +224,14 @@ for i, j, k in product([1, 2], [3, 4], [5, 6]):
 
 # 6) Groupby
 
-<!-- TIL 수평 -->
 
+<!-- TIL 수평 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -248,7 +239,7 @@ for i, j, k in product([1, 2], [3, 4], [5, 6]):
 itertools.groupby 함수를 사용하면 함수를 통해 동시에 요소를 반복하고 그룹화할 수 있습니다.
 
 ```python
-import itertools
+import itertools 
 
 words = ['apple', 'ant', 'arm', 'boy', 'bee', 'cat', 'donkey']
 
@@ -269,7 +260,7 @@ d ['donkey']
 ^ 첫 글자를 기준으로 요소를 그룹화합니다 — 이를 수행하기 위해 사용자 정의 함수 condition을 전달합니다.
 
 ```python
-import itertools
+import itertools 
 
 words = ['apple', 'ant', 'arm', 'boy', 'bee', 'cat', 'donkey']
 for key, group in itertools.groupby(words, lambda x:x[0]):
@@ -284,14 +275,12 @@ d ['donkey']
 ```
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -319,14 +308,12 @@ a ['aa', 'ab']
 # 7) 압축
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -361,17 +348,16 @@ for i in itertools.compress('ABCD', [1,1,1,0]):
 ```
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
 
 ```js
 import itertools
@@ -388,7 +374,7 @@ import itertools
 for i in itertools.compress('ABCD', [1,0,1,0]):
     print(i, end=' ')
 
-# A C
+# A C 
 ```
 
 # 8) Zip_longest
@@ -401,15 +387,14 @@ for i,j,k in zip([1,2,3,4], [5,6,7,8], [9,10]):
 # 2 6 10
 ```
 
-<!-- TIL 수평 -->
 
+<!-- TIL 수평 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -433,14 +418,12 @@ for i, j, k in zip_longest([1, 2, 3, 4], [5, 6, 7, 8], [9, 10]):
 # 9) 반복 & 사이클
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -485,14 +468,12 @@ for i in itertools.cycle('ABC'):
 # 결론
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -508,14 +489,12 @@ for i in itertools.cycle('ABC'):
 - 당신에게 공감되는 부분을 강조합니다
 
 <!-- TIL 수평 -->
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4877378276818686"
      data-ad-slot="1549334788"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
