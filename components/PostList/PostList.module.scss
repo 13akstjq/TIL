@@ -49,6 +49,10 @@
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
+
+  @media (max-width: 674px) {
+    padding: 16px 0;
+  }
 }
 
 .profile_area {
