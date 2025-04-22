@@ -1,5 +1,5 @@
 ---
-title: "Next.js 14 2025년 최신 프로젝트 세팅 방법 완벽 가이드"
+title: "Next.js 14 2025년 최신 프로젝트 세팅 방법"
 description: ""
 coverImage: "/TIL/assets/img/nextjs.png"
 date: 2025-04-22 00:32

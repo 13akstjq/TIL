@@ -1,5 +1,5 @@
 ---
-title: "Nextjs 15에서 draftMode 기능 사용 방법"
+title: "Nextjs 15에서 draftMode 기능 사용하는 방법"
 description: ""
 coverImage: "/TIL/assets/img/nextjs.png"
 date: 2025-04-22 03:02

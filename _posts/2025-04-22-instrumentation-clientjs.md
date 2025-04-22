@@ -1,5 +1,5 @@
 ---
-title: "Next.js 15에서 instrumentation-client.js 로 웹사이트 분석 도구 사용하기"
+title: "Next.js 15에서 instrumentation-client.js 로 웹사이트 분석 도구 사용하기₩"
 description: ""
 coverImage: "/TIL/assets/img/nextjs.png"
 date: 2025-04-22 02:38
