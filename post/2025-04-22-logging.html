@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title>Nextjs15에서 로깅(logging) 설정하는 방법 | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-logging" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content="Nextjs15에서 로깅(logging) 설정하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:title" content="Nextjs15에서 로깅(logging) 설정하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-logging" data-gatsby-head="true"/><meta name="twitter:title" content="Nextjs15에서 로깅(logging) 설정하는 방법 | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 13:15" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/X4OrKfmLtU3-3BijwfHe6/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/X4OrKfmLtU3-3BijwfHe6/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx">Nextjs15에서 로깅(logging) 설정하는 방법</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt="Nextjs15에서 로깅(logging) 설정하는 방법" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">5<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>로깅(logging) 설정하기</h1>
+<h2>옵션(Options)</h2>
+<h3>정보 가져오기(Fetching)</h3>
+<p>Next.js를 개발 모드에서 실행할 때, 콘솔에 찍히는 로그의 수준(logging level)과 전체 URL이 출력될지 여부를 설정할 수 있어요.</p>
+<p>이 기능을 잘 활용하면 디버깅할 때 필요한 정보만 골라서 볼 수 있어서 개발 생산성이 쑥쑥 올라가죠!</p>
+<hr>
+<p>추가로 알아두면 좋은 점!</p>
+<ul>
+<li>로깅 레벨을 너무 자세하게 설정하면 로그가 너무 많아서 오히려 원하는 정보를 찾기 어려울 수 있어요.</li>
+<li>반대로 너무 적게 설정하면 중요한 디버깅 정보가 누락될 수 있으니 상황에 맞게 조절하는 게 좋아요.</li>
+<li>전체 URL 출력은 인증 토큰 같은 민감한 정보가 포함될 수 있으니, 실제 서비스 환경에서는 주의를 기울이는 게 좋습니다.</li>
+</ul>
+<p>Next.js에서는 보통 <code>next.config.js</code> 파일이나 환경변수를 통해 이런 로깅 설정을 편리하게 조절할 수 있습니다. 다음에 설정 방법도 한 번 정리해볼게요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>현재 로깅(logging) 기능은 fetch API를 사용한 데이터 가져오기(fetching)에만 적용되고 있어요. 즉, Next.js 내부에서 발생하는 다른 로그들은 아직 이 설정에 포함되지 않습니다.</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">logging</span>: {
+    <span class="hljs-attr">fetches</span>: {
+      <span class="hljs-attr">fullUrl</span>: <span class="hljs-literal">true</span>,
+    },
+  },
+}
+</code></pre>
+<p>위 설정을 추가하면 fetch 요청 시 전체 URL이 로그에 출력돼서, 어느 경로로 데이터를 요청했는지 더 명확하게 알 수 있어요.</p>
+<p>그리고 Next.js의 Server Components 기능에서 <strong>HMR(Hot Module Replacement)</strong> 캐시에서 복원된 fetch 요청들은 기본적으로는 로그에 찍히지 않습니다. 만약 이 부분도 로그로 보고 싶다면, 아래처럼 <code>hmrRefreshes</code> 옵션을 true로 설정하면 돼요.</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">logging</span>: {
+    <span class="hljs-attr">fetches</span>: {
+      <span class="hljs-attr">hmrRefreshes</span>: <span class="hljs-literal">true</span>,
+    },
+  },
+}
+</code></pre>
+<p>이렇게 하면 코드 변경 시 HMR로 인해 캐시된 fetch 요청들도 모두 로그로 확인할 수 있어서, 개발 중 네트워크 요청의 흐름을 더 잘 파악할 수 있답니다.</p>
+<hr>
+<p>💡 <strong>추가 팁!</strong></p>
+<ul>
+<li>로그 레벨 관리나 커스텀 로깅을 추가하고 싶으면, Next.js 자체 로깅이 아닌 별도의 로깅 라이브러리(winston, pino, loglevel 등)를 도입하는 것도 좋은 방법이에요.</li>
+<li>특히 서버 환경과 클라이언트 환경에서 각각 로그를 구분하는 게 필요할 때 유용하니 참고하세요!</li>
+<li>그리고 로그가 너무 많이 찍히면 개발 속도가 느려질 수 있으니, 필요한 부분만 선별적으로 켜는 게 좋아요.</li>
+</ul>
+<p>필요한 설정을 통해 fetch 요청에 대해 잘 관찰하면서, Next.js 프로젝트를 더 효율적으로 개발해봐요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>들어오는 요청( Incoming Requests ) 로그 관리하기</h3>
+<p>개발할 때 보통 콘솔 창에서 들어오는 요청들이 쭉 찍히는 걸 보신 적 있죠? 기본 설정은 그렇게 모든 요청을 다 로그로 남기도록 되어 있는데요, 이게 너무 많아서 중요한 로그가 묻히거나 콘솔이 지저분해질 때가 있어요.</p>
+<p>그래서 <code>incomingRequests</code> 옵션을 활용해서 어떤 요청은 로그에서 아예 빼버릴 수 있습니다. 참고로 이 옵션은 개발 환경에서만 작동하고, 실제 배포된 프로덕션 환경에는 영향이 없으니 걱정 말고 사용하시면 돼요!</p>
+<p>간단하게 예를 들어보면:</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">logging</span>: {
+    <span class="hljs-attr">incomingRequests</span>: {
+      <span class="hljs-attr">ignore</span>: [<span class="hljs-regexp">/\api\/v1\/health/</span>],
+    },
+  },
+}
+</code></pre>
+<p>위 설정은 API 내 건강 체크용 엔드포인트 <code>/api/v1/health</code>에 대한 요청만 콘솔 로그에서 무시하는 거예요. 보통 이런 헬스 체크는 너무 자주 호출되기 때문에 로그에 계속 찍히면 방해가 될 때가 많죠.</p>
+<p>그리고 만약 <strong>아예 모든 들어오는 요청 로그를 끄고 싶을 때</strong>는 이렇게 할 수 있어요:</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">logging</span>: {
+    <span class="hljs-attr">incomingRequests</span>: <span class="hljs-literal">false</span>,
+  },
+}
+</code></pre>
+<p>이렇게 하면 개발 중일 때도 요청 로그가 완전히 안 찍히니, 정말 필요 없을 때 과감히 꺼버리는 것도 방법이에요.</p>
+<hr>
+<blockquote>
+<p>TIP!<br>
+로그 정리는 개발 생산성을 크게 높여요. 너무 많은 불필요한 로그로 중요한 오류 메시지를 놓치지 않도록 필요한 것만 남겨두는 습관을 들여보세요~</p>
+</blockquote>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>JS 설정 파일에서 로그(logging)를 제어하는 방법에 대해 간단하게 정리해볼게요.</p>
+<hr>
+<h2>로그 끄기 설정하기</h2>
+<p>기본적으로 <code>logging</code> 옵션을 객체 형태로 설정해서 <code>incomingRequests</code> 같은 세부 로그 항목을 조절할 수 있어요. 예를 들어, 들어오는 요청에 대한 로그를 끄고 싶으면 이렇게 설정하죠:</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">logging</span>: {
+    <span class="hljs-attr">incomingRequests</span>: <span class="hljs-literal">false</span>,
+  },
+}
+</code></pre>
+<p>그런데 만약 개발 환경에서 아예 로그를 전부 끄고 싶다면, <code>logging</code>을 <code>false</code>로 바꾸면 돼요:</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">logging</span>: <span class="hljs-literal">false</span>,
+}
+</code></pre>
+<p>이렇게 하면 불필요한 로그가 쏟아지는 걸 막아서 콘솔이 깔끔해지고, 개발할 때 필요한 정보만 집중할 수 있답니다.</p>
+<hr>
+<h3>좀 더 알려드리자면</h3>
+<ul>
+<li>로그를 완전히 끄는 것보다 필요한 로그만 필터링해서 사용하는 게 보통 좋아요. 예를 들어 오류 로그만 켜두고, 디버그용 로그는 끄는 식으로요.</li>
+<li>로그는 개발할 때만 끄고, 배포 환경에서는 문제가 발생할 때 빠르게 원인을 찾을 수 있도록 적절히 켜두는 게 중요합니다.</li>
+<li>만약 로그가 너무 많아지면, 나중에 로그 분석 도구나 미들웨어를 써서 편리하게 관리해보는 것도 추천해요.</li>
+</ul>
+<hr>
+<p>아래는 정리한 로그 설정 예시입니다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>설정</th><th>설명</th></tr></thead><tbody><tr><td><code>{ logging: false }</code></td><td>모든 로그 끄기</td></tr><tr><td><code>{ logging: { incomingRequests: false } }</code></td><td>들어오는 요청 로그만 끄기</td></tr></tbody></table>
+<p>이렇게 간단하게 로그를 껐다 켰다 하면서 개발 편의성을 높여보세요!</p>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"Nextjs15에서 로깅(logging) 설정하는 방법","description":"","date":"2025-04-22 13:15","slug":"2025-04-22-logging","content":"\n\n# 로깅(logging) 설정하기\n\n## 옵션(Options)\n\n### 정보 가져오기(Fetching)\n\nNext.js를 개발 모드에서 실행할 때, 콘솔에 찍히는 로그의 수준(logging level)과 전체 URL이 출력될지 여부를 설정할 수 있어요.\n\n이 기능을 잘 활용하면 디버깅할 때 필요한 정보만 골라서 볼 수 있어서 개발 생산성이 쑥쑥 올라가죠!\n\n---\n\n추가로 알아두면 좋은 점!\n\n- 로깅 레벨을 너무 자세하게 설정하면 로그가 너무 많아서 오히려 원하는 정보를 찾기 어려울 수 있어요.\n- 반대로 너무 적게 설정하면 중요한 디버깅 정보가 누락될 수 있으니 상황에 맞게 조절하는 게 좋아요.\n- 전체 URL 출력은 인증 토큰 같은 민감한 정보가 포함될 수 있으니, 실제 서비스 환경에서는 주의를 기울이는 게 좋습니다.\n\nNext.js에서는 보통 `next.config.js` 파일이나 환경변수를 통해 이런 로깅 설정을 편리하게 조절할 수 있습니다. 다음에 설정 방법도 한 번 정리해볼게요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n현재 로깅(logging) 기능은 fetch API를 사용한 데이터 가져오기(fetching)에만 적용되고 있어요. 즉, Next.js 내부에서 발생하는 다른 로그들은 아직 이 설정에 포함되지 않습니다.\n\n```js\nmodule.exports = {\n  logging: {\n    fetches: {\n      fullUrl: true,\n    },\n  },\n}\n```\n위 설정을 추가하면 fetch 요청 시 전체 URL이 로그에 출력돼서, 어느 경로로 데이터를 요청했는지 더 명확하게 알 수 있어요.\n\n그리고 Next.js의 Server Components 기능에서 **HMR(Hot Module Replacement)** 캐시에서 복원된 fetch 요청들은 기본적으로는 로그에 찍히지 않습니다. 만약 이 부분도 로그로 보고 싶다면, 아래처럼 `hmrRefreshes` 옵션을 true로 설정하면 돼요.\n\n```js\nmodule.exports = {\n  logging: {\n    fetches: {\n      hmrRefreshes: true,\n    },\n  },\n}\n```\n\n이렇게 하면 코드 변경 시 HMR로 인해 캐시된 fetch 요청들도 모두 로그로 확인할 수 있어서, 개발 중 네트워크 요청의 흐름을 더 잘 파악할 수 있답니다.\n\n---\n\n💡 **추가 팁!**  \n- 로그 레벨 관리나 커스텀 로깅을 추가하고 싶으면, Next.js 자체 로깅이 아닌 별도의 로깅 라이브러리(winston, pino, loglevel 등)를 도입하는 것도 좋은 방법이에요.  \n- 특히 서버 환경과 클라이언트 환경에서 각각 로그를 구분하는 게 필요할 때 유용하니 참고하세요!  \n- 그리고 로그가 너무 많이 찍히면 개발 속도가 느려질 수 있으니, 필요한 부분만 선별적으로 켜는 게 좋아요.\n\n필요한 설정을 통해 fetch 요청에 대해 잘 관찰하면서, Next.js 프로젝트를 더 효율적으로 개발해봐요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### 들어오는 요청( Incoming Requests ) 로그 관리하기\n\n개발할 때 보통 콘솔 창에서 들어오는 요청들이 쭉 찍히는 걸 보신 적 있죠? 기본 설정은 그렇게 모든 요청을 다 로그로 남기도록 되어 있는데요, 이게 너무 많아서 중요한 로그가 묻히거나 콘솔이 지저분해질 때가 있어요.\n\n그래서 `incomingRequests` 옵션을 활용해서 어떤 요청은 로그에서 아예 빼버릴 수 있습니다. 참고로 이 옵션은 개발 환경에서만 작동하고, 실제 배포된 프로덕션 환경에는 영향이 없으니 걱정 말고 사용하시면 돼요!\n\n간단하게 예를 들어보면:\n\n```js\nmodule.exports = {\n  logging: {\n    incomingRequests: {\n      ignore: [/\\api\\/v1\\/health/],\n    },\n  },\n}\n```\n\n위 설정은 API 내 건강 체크용 엔드포인트 `/api/v1/health`에 대한 요청만 콘솔 로그에서 무시하는 거예요. 보통 이런 헬스 체크는 너무 자주 호출되기 때문에 로그에 계속 찍히면 방해가 될 때가 많죠.\n\n그리고 만약 **아예 모든 들어오는 요청 로그를 끄고 싶을 때**는 이렇게 할 수 있어요:\n\n```js\nmodule.exports = {\n  logging: {\n    incomingRequests: false,\n  },\n}\n```\n\n이렇게 하면 개발 중일 때도 요청 로그가 완전히 안 찍히니, 정말 필요 없을 때 과감히 꺼버리는 것도 방법이에요.\n\n---\n\n\u003e TIP!  \n\u003e 로그 정리는 개발 생산성을 크게 높여요. 너무 많은 불필요한 로그로 중요한 오류 메시지를 놓치지 않도록 필요한 것만 남겨두는 습관을 들여보세요~\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nJS 설정 파일에서 로그(logging)를 제어하는 방법에 대해 간단하게 정리해볼게요.\n\n---\n\n## 로그 끄기 설정하기\n\n기본적으로 `logging` 옵션을 객체 형태로 설정해서 `incomingRequests` 같은 세부 로그 항목을 조절할 수 있어요. 예를 들어, 들어오는 요청에 대한 로그를 끄고 싶으면 이렇게 설정하죠:\n\n```js\nmodule.exports = {\n  logging: {\n    incomingRequests: false,\n  },\n}\n```\n\n그런데 만약 개발 환경에서 아예 로그를 전부 끄고 싶다면, `logging`을 `false`로 바꾸면 돼요:\n\n```js\nmodule.exports = {\n  logging: false,\n}\n```\n\n이렇게 하면 불필요한 로그가 쏟아지는 걸 막아서 콘솔이 깔끔해지고, 개발할 때 필요한 정보만 집중할 수 있답니다.\n\n---\n\n### 좀 더 알려드리자면\n\n- 로그를 완전히 끄는 것보다 필요한 로그만 필터링해서 사용하는 게 보통 좋아요. 예를 들어 오류 로그만 켜두고, 디버그용 로그는 끄는 식으로요.\n- 로그는 개발할 때만 끄고, 배포 환경에서는 문제가 발생할 때 빠르게 원인을 찾을 수 있도록 적절히 켜두는 게 중요합니다.\n- 만약 로그가 너무 많아지면, 나중에 로그 분석 도구나 미들웨어를 써서 편리하게 관리해보는 것도 추천해요.\n\n---\n\n아래는 정리한 로그 설정 예시입니다.\n\n| 설정 | 설명                      |\n|-------|---------------------------|\n| `{ logging: false }` | 모든 로그 끄기            |\n| `{ logging: { incomingRequests: false } }` | 들어오는 요청 로그만 끄기 |\n\n이렇게 간단하게 로그를 껐다 켰다 하면서 개발 편의성을 높여보세요!","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":5},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003e로깅(logging) 설정하기\u003c/h1\u003e\n\u003ch2\u003e옵션(Options)\u003c/h2\u003e\n\u003ch3\u003e정보 가져오기(Fetching)\u003c/h3\u003e\n\u003cp\u003eNext.js를 개발 모드에서 실행할 때, 콘솔에 찍히는 로그의 수준(logging level)과 전체 URL이 출력될지 여부를 설정할 수 있어요.\u003c/p\u003e\n\u003cp\u003e이 기능을 잘 활용하면 디버깅할 때 필요한 정보만 골라서 볼 수 있어서 개발 생산성이 쑥쑥 올라가죠!\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e추가로 알아두면 좋은 점!\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e로깅 레벨을 너무 자세하게 설정하면 로그가 너무 많아서 오히려 원하는 정보를 찾기 어려울 수 있어요.\u003c/li\u003e\n\u003cli\u003e반대로 너무 적게 설정하면 중요한 디버깅 정보가 누락될 수 있으니 상황에 맞게 조절하는 게 좋아요.\u003c/li\u003e\n\u003cli\u003e전체 URL 출력은 인증 토큰 같은 민감한 정보가 포함될 수 있으니, 실제 서비스 환경에서는 주의를 기울이는 게 좋습니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNext.js에서는 보통 \u003ccode\u003enext.config.js\u003c/code\u003e 파일이나 환경변수를 통해 이런 로깅 설정을 편리하게 조절할 수 있습니다. 다음에 설정 방법도 한 번 정리해볼게요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e현재 로깅(logging) 기능은 fetch API를 사용한 데이터 가져오기(fetching)에만 적용되고 있어요. 즉, Next.js 내부에서 발생하는 다른 로그들은 아직 이 설정에 포함되지 않습니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003elogging\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003efetches\u003c/span\u003e: {\n      \u003cspan class=\"hljs-attr\"\u003efullUrl\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003etrue\u003c/span\u003e,\n    },\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e위 설정을 추가하면 fetch 요청 시 전체 URL이 로그에 출력돼서, 어느 경로로 데이터를 요청했는지 더 명확하게 알 수 있어요.\u003c/p\u003e\n\u003cp\u003e그리고 Next.js의 Server Components 기능에서 \u003cstrong\u003eHMR(Hot Module Replacement)\u003c/strong\u003e 캐시에서 복원된 fetch 요청들은 기본적으로는 로그에 찍히지 않습니다. 만약 이 부분도 로그로 보고 싶다면, 아래처럼 \u003ccode\u003ehmrRefreshes\u003c/code\u003e 옵션을 true로 설정하면 돼요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003elogging\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003efetches\u003c/span\u003e: {\n      \u003cspan class=\"hljs-attr\"\u003ehmrRefreshes\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003etrue\u003c/span\u003e,\n    },\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 코드 변경 시 HMR로 인해 캐시된 fetch 요청들도 모두 로그로 확인할 수 있어서, 개발 중 네트워크 요청의 흐름을 더 잘 파악할 수 있답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e💡 \u003cstrong\u003e추가 팁!\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e로그 레벨 관리나 커스텀 로깅을 추가하고 싶으면, Next.js 자체 로깅이 아닌 별도의 로깅 라이브러리(winston, pino, loglevel 등)를 도입하는 것도 좋은 방법이에요.\u003c/li\u003e\n\u003cli\u003e특히 서버 환경과 클라이언트 환경에서 각각 로그를 구분하는 게 필요할 때 유용하니 참고하세요!\u003c/li\u003e\n\u003cli\u003e그리고 로그가 너무 많이 찍히면 개발 속도가 느려질 수 있으니, 필요한 부분만 선별적으로 켜는 게 좋아요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e필요한 설정을 통해 fetch 요청에 대해 잘 관찰하면서, Next.js 프로젝트를 더 효율적으로 개발해봐요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003e들어오는 요청( Incoming Requests ) 로그 관리하기\u003c/h3\u003e\n\u003cp\u003e개발할 때 보통 콘솔 창에서 들어오는 요청들이 쭉 찍히는 걸 보신 적 있죠? 기본 설정은 그렇게 모든 요청을 다 로그로 남기도록 되어 있는데요, 이게 너무 많아서 중요한 로그가 묻히거나 콘솔이 지저분해질 때가 있어요.\u003c/p\u003e\n\u003cp\u003e그래서 \u003ccode\u003eincomingRequests\u003c/code\u003e 옵션을 활용해서 어떤 요청은 로그에서 아예 빼버릴 수 있습니다. 참고로 이 옵션은 개발 환경에서만 작동하고, 실제 배포된 프로덕션 환경에는 영향이 없으니 걱정 말고 사용하시면 돼요!\u003c/p\u003e\n\u003cp\u003e간단하게 예를 들어보면:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003elogging\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003eincomingRequests\u003c/span\u003e: {\n      \u003cspan class=\"hljs-attr\"\u003eignore\u003c/span\u003e: [\u003cspan class=\"hljs-regexp\"\u003e/\\api\\/v1\\/health/\u003c/span\u003e],\n    },\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e위 설정은 API 내 건강 체크용 엔드포인트 \u003ccode\u003e/api/v1/health\u003c/code\u003e에 대한 요청만 콘솔 로그에서 무시하는 거예요. 보통 이런 헬스 체크는 너무 자주 호출되기 때문에 로그에 계속 찍히면 방해가 될 때가 많죠.\u003c/p\u003e\n\u003cp\u003e그리고 만약 \u003cstrong\u003e아예 모든 들어오는 요청 로그를 끄고 싶을 때\u003c/strong\u003e는 이렇게 할 수 있어요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003elogging\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003eincomingRequests\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003efalse\u003c/span\u003e,\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 개발 중일 때도 요청 로그가 완전히 안 찍히니, 정말 필요 없을 때 과감히 꺼버리는 것도 방법이에요.\u003c/p\u003e\n\u003chr\u003e\n\u003cblockquote\u003e\n\u003cp\u003eTIP!\u003cbr\u003e\n로그 정리는 개발 생산성을 크게 높여요. 너무 많은 불필요한 로그로 중요한 오류 메시지를 놓치지 않도록 필요한 것만 남겨두는 습관을 들여보세요~\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eJS 설정 파일에서 로그(logging)를 제어하는 방법에 대해 간단하게 정리해볼게요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e로그 끄기 설정하기\u003c/h2\u003e\n\u003cp\u003e기본적으로 \u003ccode\u003elogging\u003c/code\u003e 옵션을 객체 형태로 설정해서 \u003ccode\u003eincomingRequests\u003c/code\u003e 같은 세부 로그 항목을 조절할 수 있어요. 예를 들어, 들어오는 요청에 대한 로그를 끄고 싶으면 이렇게 설정하죠:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003elogging\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003eincomingRequests\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003efalse\u003c/span\u003e,\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e그런데 만약 개발 환경에서 아예 로그를 전부 끄고 싶다면, \u003ccode\u003elogging\u003c/code\u003e을 \u003ccode\u003efalse\u003c/code\u003e로 바꾸면 돼요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003elogging\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003efalse\u003c/span\u003e,\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 불필요한 로그가 쏟아지는 걸 막아서 콘솔이 깔끔해지고, 개발할 때 필요한 정보만 집중할 수 있답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e좀 더 알려드리자면\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e로그를 완전히 끄는 것보다 필요한 로그만 필터링해서 사용하는 게 보통 좋아요. 예를 들어 오류 로그만 켜두고, 디버그용 로그는 끄는 식으로요.\u003c/li\u003e\n\u003cli\u003e로그는 개발할 때만 끄고, 배포 환경에서는 문제가 발생할 때 빠르게 원인을 찾을 수 있도록 적절히 켜두는 게 중요합니다.\u003c/li\u003e\n\u003cli\u003e만약 로그가 너무 많아지면, 나중에 로그 분석 도구나 미들웨어를 써서 편리하게 관리해보는 것도 추천해요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e아래는 정리한 로그 설정 예시입니다.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e설정\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e{ logging: false }\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e모든 로그 끄기\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e{ logging: { incomingRequests: false } }\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e들어오는 요청 로그만 끄기\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003e이렇게 간단하게 로그를 껐다 켰다 하면서 개발 편의성을 높여보세요!\u003c/p\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-logging"},"buildId":"X4OrKfmLtU3-3BijwfHe6","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>

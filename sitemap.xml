@@ -2043,7 +2043,17 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-CLI</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-Codemods</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-CustomNextjsCacheHandler</loc
+    >
   </url>
 
   <url>
@@ -2051,7 +2061,21 @@
   </url>
 
   <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-CustomWebpackConfig</loc
+    >
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-Debugging</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-ESLintPlugin</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-EdgeRuntime</loc>
   </url>
 
   <url>
@@ -2171,6 +2195,10 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-ImageResponse</loc>
+  </url>
+
+  <url>
     <loc
       >https://13akstjq.github.io/TIL/post/2025-04-22-IncrementalStaticRegenerationISR</loc
     >
@@ -2188,6 +2216,14 @@
     <loc
       >https://13akstjq.github.io/TIL/post/2025-04-22-MetadataFilesAPIReference</loc
     >
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-NextRequest</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-NextResponse</loc>
   </url>
 
   <url>
@@ -2223,7 +2259,31 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-ViewTransition</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-after</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-allowedDevOrigins</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-appDir</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-assetPrefix</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-authInterrupts</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-basePath</loc>
   </url>
 
   <url>
@@ -2239,6 +2299,10 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-compress</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-connection</loc>
   </url>
 
@@ -2247,7 +2311,27 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-create-next-app</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-crossOrigin</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-cssChunking</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-defaultjs</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-devIndicators</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-distDir</loc>
   </url>
 
   <url>
@@ -2255,7 +2339,27 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-dynamicIO</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-env</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-errorjs</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-eslint</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-expireTime</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-exportPathMap</loc>
   </url>
 
   <url>
@@ -2277,6 +2381,14 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-generateBuildId</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-generateEtags</loc>
+  </url>
+
+  <url>
     <loc
       >https://13akstjq.github.io/TIL/post/2025-04-22-generateImageMetadata</loc
     >
@@ -2284,6 +2396,46 @@
 
   <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-generateMetadata</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-generateSitemaps</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-generateStaticParams</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-generateViewport</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-github-ssh-multi-login</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-headers</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-htmlLimitedBots</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-httpAgentOptions</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-images</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-inlineCss</loc>
   </url>
 
   <url>
@@ -2305,6 +2457,10 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-logging</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-manifestjson</loc>
   </url>
 
@@ -2313,11 +2469,31 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-mdxRs</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-middlewarejs</loc>
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-nextCLI</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-nextconfigjs</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-not-foundjs</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-notFound</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-onDemandEntries</loc>
   </url>
 
   <url>
@@ -2327,7 +2503,73 @@
   </url>
 
   <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-optimizePackageImports</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-output</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-pageExtensions</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-pagejs</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-permanentRedirect</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-poweredByHeader</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-ppr</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-productionBrowserSourceMaps</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-reactCompiler</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-reactMaxHeadersLength</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-reactStrictMode</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-redirect</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-redirects</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-revalidatePath</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-revalidateTag</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-rewrites</loc>
   </url>
 
   <url>
@@ -2339,7 +2581,35 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-sassOptions</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-serverActions</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-serverComponentsHmrCache</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-serverExternalPackages</loc
+    >
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-sitemapxml</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-staleTimes</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-staticGeneration</loc>
   </url>
 
   <url>
@@ -2347,7 +2617,87 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-trailingSlash</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-transpilePackages</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-turbopack</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-typedRoutes</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-typescript</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-unauthorized</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-unauthorizedjs</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-unstable_cache</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-unstable_noStore</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-unstable_rethrow</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-urlImports</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-useLightningcss</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-useLinkStatus</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-useParams</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-usePathname</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-useReportWebVitals</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-useRouter</loc>
+  </url>
+
+  <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-useSearchParams</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-useSelectedLayoutSegment</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-useSelectedLayoutSegments</loc
+    >
   </url>
 
   <url>
@@ -2359,6 +2709,16 @@
   </url>
 
   <url>
+    <loc>https://13akstjq.github.io/TIL/post/2025-04-22-userAgent</loc>
+  </url>
+
+  <url>
     <loc>https://13akstjq.github.io/TIL/post/2025-04-22-useserver</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://13akstjq.github.io/TIL/post/2025-04-22-webVitalsAttribution</loc
+    >
   </url>
 </urlset>

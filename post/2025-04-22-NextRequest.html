@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title> Next.js 15에서 API 요청 쉽게 처리하는 방법(NextRequest) | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-NextRequest" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content=" Next.js 15에서 API 요청 쉽게 처리하는 방법(NextRequest) | TIL" data-gatsby-head="true"/><meta property="og:title" content=" Next.js 15에서 API 요청 쉽게 처리하는 방법(NextRequest) | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-NextRequest" data-gatsby-head="true"/><meta name="twitter:title" content=" Next.js 15에서 API 요청 쉽게 처리하는 방법(NextRequest) | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 12:41" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/X4OrKfmLtU3-3BijwfHe6/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/X4OrKfmLtU3-3BijwfHe6/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx"> Next.js 15에서 API 요청 쉽게 처리하는 방법(NextRequest)</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt=" Next.js 15에서 API 요청 쉽게 처리하는 방법(NextRequest)" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">11<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>NextRequest</h1>
+<p>NextRequest는 기존의 Web Request API를 확장해서 더 편리한 메서드들을 추가한 거예요.</p>
+<h2>cookies</h2>
+<p>Request의 Set-Cookie 헤더를 읽거나 수정할 수 있어요.</p>
+<hr>
+<p>여기서 NextRequest는 보통 웹에서 HTTP 요청을 다룰 때 기본적으로 제공하는 Request 객체보다 좀 더 쓰기 편하게 기능을 확장한 거라고 생각하면 돼요. 특히 쿠키 같은 걸 다룰 때 번거로운 부분이 있는데, NextRequest는 그런 부분을 깔끔하게 처리해줘서 개발할 때 훨씬 편리하답니다.</p>
+<p>예를 들어, 서버에서 특정 쿠키 값을 쉽게 읽거나, 새 쿠키를 설정할 때 도움이 되죠. 서버 사이드 렌더링(SSR)이 많아지는 요즘, 이런 유틸리티가 있으면 작업 속도가 확실히 빨라져요.</p>
+<p>쿠키를 직접 다룰 때 주의할 점도 하나 말씀드리자면, 보안 설정(예: HttpOnly, Secure, SameSite 등)을 꼼꼼히 관리해야 해요. NextRequest 같은 툴로 쿠키를 다룰 때도 이런 설정을 신경 써줘야 보안 사고를 미연에 방지할 수 있으니 참고하세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>set(name, value)</h3>
+<p>이 함수는 특정 이름(name)과 값(value)을 받아서 요청(request)에 해당하는 쿠키를 설정해줘요.</p>
+<p>예를 들어, 사용자가 <code>/home</code> 페이지에 들어왔을 때 배너를 숨기고 싶다면 이렇게 작성할 수 있죠:</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /home 페이지에 들어온 요청에서</span>
+<span class="hljs-comment">// 'show-banner'라는 쿠키를 'false'로 설정해서 배너를 숨겨요</span>
+<span class="hljs-comment">// 이 요청은 'Set-Cookie: show-banner=false; path=/home' 헤더를 가지게 돼요</span>
+request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">set</span>(<span class="hljs-string">'show-banner'</span>, <span class="hljs-string">'false'</span>)
+</code></pre>
+<p>즉, 브라우저가 다음 번에 <code>/home</code> 경로에 요청을 보낼 때 <code>show-banner=false</code>라는 쿠키를 함께 보내게 됩니다.</p>
+<hr>
+<h3>get(name)</h3>
+<p>다음으로 <code>get(name)</code>은 설정된 쿠키 중에서 특정 이름을 가진 쿠키의 값을 가져오는 함수예요.</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// 예를 들어 쿠키 중 'show-banner'의 값을 가져와서</span>
+<span class="hljs-comment">// 그 값에 따라 배너를 보이거나 숨길 수 있어요</span>
+<span class="hljs-keyword">const</span> bannerStatus = request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">'show-banner'</span>)
+<span class="hljs-keyword">if</span> (bannerStatus === <span class="hljs-string">'false'</span>) {
+  <span class="hljs-comment">// 배너 숨기기 로직</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-comment">// 배너 보여주기 로직</span>
+}
+</code></pre>
+<p>이렇게 <code>get</code>을 사용하면 쿠키에 저장된 상태 정보를 쉽게 읽어서 사용자 경험을 맞춤화할 수 있답니다.</p>
+<hr>
+<p>쿠키를 다룰 때는 보안도 중요해요! 예를 들어,</p>
+<ul>
+<li><strong>HttpOnly</strong> 속성을 사용하는 경우 자바스크립트에서는 쿠키를 읽지 못하도록 할 수 있어요.</li>
+<li><strong>Secure</strong> 속성을 추가하면 HTTPS 연결에서만 쿠키가 전송돼요.</li>
+<li><strong>SameSite</strong> 옵션으로 다른 사이트에서 쿠키를 보내는 걸 제한할 수도 있고요.</li>
+</ul>
+<p>이런 옵션들도 필요에 따라 같이 설정하는 게 좋아요.</p>
+<p>쿠키를 효과적으로 활용해서 사용자 경험을 개선해보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>쿠키 관련 작업을 할 때, 특정 쿠키의 값을 가져오거나 모든 쿠키를 확인하고 싶을 때가 많죠. 여기서는 두 가지 유용한 메서드에 대해 이야기해볼게요: <code>get()</code>과 <code>getAll()</code>입니다.</p>
+<h3>get(cookieName)</h3>
+<ul>
+<li>주어진 쿠키 이름에 해당하는 쿠키 값을 반환해요.</li>
+<li>만약 동일한 이름의 쿠키가 여러 개 있으면, 가장 먼저 찾은 쿠키 값을 반환합니다.</li>
+<li>쿠키가 없으면 <code>undefined</code>를 반환해요.</li>
+</ul>
+<p>예시를 들어볼게요.</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// 요청이 /home 경로로 들어왔다고 가정</span>
+<span class="hljs-comment">// 쿠키 중에 { name: 'show-banner', value: 'false', Path: '/home' } 가 있다고 할 때</span>
+<span class="hljs-keyword">const</span> bannerValue = request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">'show-banner'</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(bannerValue); <span class="hljs-comment">// 'false'</span>
+</code></pre>
+<p>여기서 기억할 점은, 도메인이나 경로와 같은 쿠키 속성 때문에 같은 이름의 쿠키가 여러 개 존재할 수 있다는 거예요. <code>get()</code>은 처음 발견한 값만 준다는 점도 참고하세요.</p>
+<hr>
+<h3>getAll(cookieName)</h3>
+<ul>
+<li>특정 쿠키 이름을 주면, 그 이름을 가진 <strong>모든</strong> 쿠키 값을 배열로 반환합니다.</li>
+<li>만약 이름 없이 호출하면, 요청에 포함된 모든 쿠키를 반환해요.</li>
+</ul>
+<p>예를 들어:</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// 예를 들어 여러 개의 'theme' 쿠키가 있을 수 있어요</span>
+<span class="hljs-keyword">const</span> themes = request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">getAll</span>(<span class="hljs-string">'theme'</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(themes); <span class="hljs-comment">// ['dark', 'light']</span>
+
+<span class="hljs-comment">// 이름 없이 호출하면 모든 쿠키를 배열로 받아요</span>
+<span class="hljs-keyword">const</span> allCookies = request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">getAll</span>();
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(allCookies);
+<span class="hljs-comment">// [ { name: 'show-banner', value: 'false' }, { name: 'theme', value: 'dark' }, ... ]</span>
+</code></pre>
+<hr>
+<h3>팁!</h3>
+<ul>
+<li>쿠키 이름은 보통 유니크해야 하지만, Path나 Domain 때문에 중복 있을 수 있어요. 그래서 꼭 필요할 때 <code>getAll()</code>을 이용해 여러 쿠키 값을 한 번에 알아보면 유용합니다.</li>
+<li>쿠키 값은 문자열로 전달되니, JSON 형태 같은 데이터를 저장할 땐 <code>JSON.stringify</code>와 <code>JSON.parse</code>를 꼭 활용하세요.</li>
+</ul>
+<hr>
+<p>이렇게 <code>get()</code>과 <code>getAll()</code>만 잘 활용해도 쿠키를 다루는 데 훨씬 편해질 거예요! 도움이 되셨나요? 궁금한 점 있으면 언제든 질문 주세요~</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>자, 오늘은 JavaScript에서 요청(request) 객체 내 쿠키를 다루는 방법에 대해 살펴볼게요. 쿠키를 읽고, 여러 개를 가져오고, 삭제하는 방법까지 간단하게 정리해볼게요.</p>
+<hr>
+<h3>쿠키 여러 개 가져오기</h3>
+<p>요청에 담긴 쿠키가 여러 개일 때 특정 이름을 가진 쿠키들 또는 모든 쿠키들을 가져오고 싶을 때가 있죠? <code>request.cookies.getAll()</code> 메서드를 사용하면 돼요.</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// 예를 들어 /home 경로에 이런 쿠키가 있을 때</span>
+[
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">'experiments'</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">'new-pricing-page'</span>, <span class="hljs-title class_">Path</span>: <span class="hljs-string">'/home'</span> },
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">'experiments'</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">'winter-launch'</span>, <span class="hljs-title class_">Path</span>: <span class="hljs-string">'/home'</span> },
+]
+
+<span class="hljs-comment">// 특정 이름 'experiments' 쿠키 모두 가져오기</span>
+request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">getAll</span>(<span class="hljs-string">'experiments'</span>)
+
+<span class="hljs-comment">// 아니면 그냥 모든 쿠키 가져오기</span>
+request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">getAll</span>()
+</code></pre>
+<p>이렇게 하면 해당 이름을 가진 모든 쿠키값 배열을 받을 수 있어서, 실험 기능 활성화 여부 등을 여러 개 동시 관리할 때 유용해요.</p>
+<hr>
+<h3>쿠키 삭제하기</h3>
+<p>쿠키를 없애고 싶을 때는 <code>delete(name)</code> 메서드를 사용하면 됩니다. 삭제 성공 여부도 boolean 형태로 알려줘서 관리하기 좋아요.</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// 'experiments' 쿠키를 삭제하려고 시도</span>
+<span class="hljs-keyword">const</span> deleted = request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">delete</span>(<span class="hljs-string">'experiments'</span>)
+<span class="hljs-keyword">if</span>(deleted) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'쿠키가 정상적으로 삭제됐어요!'</span>)
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'해당 이름의 쿠키가 없어서 삭제하지 못했어요.'</span>)
+}
+</code></pre>
+<p>여기서 주의할 점! 쿠키 삭제는 클라이언트에서 관리되는 쿠키를 서버 사이드에서 다룰 때 잘 동작하는 경우가 많으니, 프론트엔드와 백엔드 쿠키 경로와 옵션이 일치하는지 확인하는 게 좋아요.</p>
+<hr>
+<h3>추가 팁: 쿠키 관리 시 체크할 점</h3>
+<ul>
+<li>쿠키 이름은 중복될 수 있으니 <code>getAll()</code>로 모두 가져오고 원하는 것을 필터링하는 게 안전합니다.</li>
+<li><code>Path</code>, <code>Domain</code> 같은 속성이 다르면 동일 이름 쿠키 복수 존재 가능하니, 특정 경로나 조건을 꼭 확인하세요.</li>
+<li>보안 설정(<code>HttpOnly</code>, <code>Secure</code>) 때문에 클라이언트에서 못 읽는 쿠키도 있으니 상황에 따라 백엔드에서만 처리할 수도 있답니다.</li>
+</ul>
+<hr>
+<p>쿠키는 사용자 경험을 향상시키기 위한 중요한 도구인데요, 이렇게 JavaScript에서 요청 내 쿠키를 자유자재로 불러오고, 삭제할 수 있으면 훨씬 유연한 웹 서비스 운영이 가능해져요! 필요할 때 바로 꺼내 쓰는 방법, 오늘 꼭 알아가세요~</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>has(name)</h3>
+<p><code>has(name)</code>는 요청(request) 안에 특정 이름의 쿠키가 있는지 확인할 때 사용해요. 만약 해당 이름의 쿠키가 있으면 <code>true</code>를, 없으면 <code>false</code>를 반환하죠.</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// 'experiments'라는 이름의 쿠키가 요청에 있으면 true, 없으면 false 반환</span>
+request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">has</span>(<span class="hljs-string">'experiments'</span>)
+</code></pre>
+<p>예를 들어 사용자 인증이나 실험 기능 토글 같은 상황에서 쿠키 존재 여부를 확인할 때 유용해요.</p>
+<hr>
+<h3>clear()</h3>
+<p><code>clear()</code> 메서드는 요청에 포함된 모든 쿠키를 한 번에 삭제해버릴 때 사용해요.</p>
+<p>이걸 쓰면 브라우저에 저장된 쿠키가 싹 사라지는 건 아니고, 현재 요청에서 다루는 쿠키 세트를 비우는 효과라고 보면 됩니다. 서버에서 받은 요청과 관련된 쿠키 데이터를 초기화할 때 좋죠.</p>
+<hr>
+<h4>참고로!</h4>
+<p>쿠키는 HTTP 요청/응답의 중요한 부분이라서, 프론트엔드든 백엔드든 잘 다뤄야 해요. 예를 들어 보안 목적으로 HttpOnly, Secure, SameSite 속성을 잘 설정하거나, 쿠키 저장 용량과 만료 시간도 신경 써야 하죠.</p>
+<p>마크다운에서 표로 쿠키 관련 주요 메서드 간단히 정리해봤어요.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>메서드</th><th>설명</th><th>반환값</th></tr></thead><tbody><tr><td><code>has(name)</code></td><td>요청에 특정 이름의 쿠키가 있는지 확인</td><td><code>true</code> or <code>false</code></td></tr><tr><td><code>clear()</code></td><td>요청에 포함된 모든 쿠키 정보를 초기화</td><td>없음</td></tr></tbody></table>
+<p>이렇게 쿠키는 사용법이 간단해 보여도, 프로젝트에 따라 꼭 필요한 보안과 정책을 꼼꼼히 챙기는 게 중요해요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>요청(request)에서 Set-Cookie 헤더를 제거하고 싶을 때, 보통 클라이언트 측에서는 Set-Cookie를 직접 수정할 수 없어요. 왜냐하면 Set-Cookie는 서버에서 응답(response)에 포함하는 헤더라서, 요청(request)에서는 일반적으로 존재하지 않거든요.</p>
+<p>하지만, 만약 요청에 포함된 쿠키들을 깔끔하게 초기화하거나 지우고 싶다면, <code>request.cookies.clear()</code> 같은 메서드를 사용할 수 있어요. 이 방법은 Next.js 13에서 도입된 새로운 서버 컴포넌트 혹은 API Route 핸들링에서 사용되는 쿠키 객체에 적용되는 방식입니다.</p>
+<p>정리하면,</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>작업</th><th>설명</th></tr></thead><tbody><tr><td><code>request.cookies.clear()</code></td><td>요청에 포함된 모든 쿠키들을 지웁니다.</td></tr><tr><td>Set-Cookie 헤더 변경</td><td>Set-Cookie 헤더는 서버가 응답 시 설정하는 쿠키이므로, 요청에서 직접 제거 불가</td></tr></tbody></table>
+<p>또한, <code>nextUrl</code> 객체는 기본 URL API를 확장한 것으로, Next.js에서 유용하게 쓸 수 있는 여러 확장 기능이 포함되어 있어요. 예를 들어 URL의 쿼리 파라미터를 쉽게 다루거나, Next.js 라우팅에 특화된 프로퍼티들이 있죠.</p>
+<p>간단하게 사용 예시를 보여드리자면:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">middleware</span>(<span class="hljs-params">request</span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(request.<span class="hljs-property">nextUrl</span>.<span class="hljs-property">pathname</span>) <span class="hljs-comment">// 현재 요청 경로</span>
+  request.<span class="hljs-property">cookies</span>.<span class="hljs-title function_">clear</span>() <span class="hljs-comment">// 쿠키 초기화</span>
+}
+</code></pre>
+<p>참고로, <code>request.cookies</code>는 immutable 한 객체라서 바로 수정이 안 될 수도 있는데, Next.js에서는 이 부분을 직접 제어할 수 있도록 API를 제공합니다. 요청 쿠키를 다뤄야 할 때는 꼭 Next.js 문서를 참고해서 정확한 방법을 확인하는 것이 좋아요.</p>
+<p>필요하시면 더 자세한 쿠키 다루기 방법이나 <code>nextUrl</code> 활용법도 알려드릴게요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /home 경로로 요청 시 pathname은 /home</span>
+request.<span class="hljs-property">nextUrl</span>.<span class="hljs-property">pathname</span>
+<span class="hljs-comment">// /home?name=lee 로 요청 시 searchParams는 { 'name': 'lee' }</span>
+request.<span class="hljs-property">nextUrl</span>.<span class="hljs-property">searchParams</span>
+</code></pre>
+<p>아래는 <code>request.nextUrl</code>에서 사용할 수 있는 주요 옵션들입니다:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>속성</th><th>타입</th><th>설명</th></tr></thead><tbody><tr><td><code>basePath</code></td><td><code>string</code></td><td>URL의 <a href="https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath" rel="nofollow" target="_blank">base path</a>입니다.</td></tr><tr><td><code>buildId</code></td><td><code>string</code> | <code>undefined</code></td><td>Next.js 앱의 빌드 식별자입니다. <a href="https://nextjs.org/docs/app/api-reference/config/next-config-js/generateBuildId" rel="nofollow" target="_blank">커스터마이징</a>도 가능합니다.</td></tr><tr><td><code>pathname</code></td><td><code>string</code></td><td>URL의 경로 부분입니다.</td></tr><tr><td><code>searchParams</code></td><td><code>Object</code></td><td>URL의 쿼리 파라미터들을 담고 있는 객체입니다.</td></tr></tbody></table>
+<blockquote>
+<p>참고) 페이지 라우터(Pages Router)에서 제공하던 국제화(i18n) 관련 속성들은 앱 라우터(App Router)에서는 사용할 수 없으니 참고하세요. 앱 라우터에서의 국제화는 <a href="https://nextjs.org/docs/app/building-your-application/routing/internationalization" rel="nofollow" target="_blank">앱 라우터 문서</a>에서 더 자세히 확인할 수 있습니다.</p>
+</blockquote>
+<hr>
+<p>덧붙이자면, <code>request.nextUrl.searchParams</code> 는 <code>URLSearchParams</code> 인터페이스를 기반으로 하므로, <code>.get()</code>, <code>.has()</code>, <code>.getAll()</code> 같은 메서드를 통해 쿼리 파라미터를 손쉽게 다룰 수 있다는 장점이 있어요. 예를 들어:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> name = request.<span class="hljs-property">nextUrl</span>.<span class="hljs-property">searchParams</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">'name'</span>)
+</code></pre>
+<p>이렇게 하면 쿼리에서 'name' 값만 간단히 얻을 수 있으니 참고하세요! 😊</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h2>버전 히스토리</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>버전</th><th>변경 사항</th></tr></thead><tbody><tr><td><code>v15.0.0</code></td><td><code>ip</code>와 <code>geo</code> 기능이 제거됨</td></tr></tbody></table>
+<hr>
+<p>여기서 <code>ip</code>와 <code>geo</code>가 뭔지 궁금할 수 있는데요, 보통 <code>ip</code>는 IP 주소 관련 기능, <code>geo</code>는 지리 정보 관련 기능을 뜻해요. 그래서 이번 버전(v15.0.0)부터는 이 두 가지 기능이 빠졌다는 뜻이죠. 만약 프로젝트에서 IP나 위치 기반 기능을 쓴다면, 이번 업데이트 전후로 영향이 있는지 꼭 확인해보는 게 좋아요! 업데이트 후에는 이 기능들을 대신할 다른 라이브러리나 API를 찾아보는 것도 방법일 수 있겠네요.</p>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":" Next.js 15에서 API 요청 쉽게 처리하는 방법(NextRequest)","description":"","date":"2025-04-22 12:41","slug":"2025-04-22-NextRequest","content":"\n\n# NextRequest\n\nNextRequest는 기존의 Web Request API를 확장해서 더 편리한 메서드들을 추가한 거예요.\n\n## cookies\n\nRequest의 Set-Cookie 헤더를 읽거나 수정할 수 있어요.\n\n---\n\n여기서 NextRequest는 보통 웹에서 HTTP 요청을 다룰 때 기본적으로 제공하는 Request 객체보다 좀 더 쓰기 편하게 기능을 확장한 거라고 생각하면 돼요. 특히 쿠키 같은 걸 다룰 때 번거로운 부분이 있는데, NextRequest는 그런 부분을 깔끔하게 처리해줘서 개발할 때 훨씬 편리하답니다.\n\n예를 들어, 서버에서 특정 쿠키 값을 쉽게 읽거나, 새 쿠키를 설정할 때 도움이 되죠. 서버 사이드 렌더링(SSR)이 많아지는 요즘, 이런 유틸리티가 있으면 작업 속도가 확실히 빨라져요.\n\n쿠키를 직접 다룰 때 주의할 점도 하나 말씀드리자면, 보안 설정(예: HttpOnly, Secure, SameSite 등)을 꼼꼼히 관리해야 해요. NextRequest 같은 툴로 쿠키를 다룰 때도 이런 설정을 신경 써줘야 보안 사고를 미연에 방지할 수 있으니 참고하세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### set(name, value)\n\n이 함수는 특정 이름(name)과 값(value)을 받아서 요청(request)에 해당하는 쿠키를 설정해줘요.\n\n예를 들어, 사용자가 `/home` 페이지에 들어왔을 때 배너를 숨기고 싶다면 이렇게 작성할 수 있죠:\n\n```js\n// /home 페이지에 들어온 요청에서\n// 'show-banner'라는 쿠키를 'false'로 설정해서 배너를 숨겨요\n// 이 요청은 'Set-Cookie: show-banner=false; path=/home' 헤더를 가지게 돼요\nrequest.cookies.set('show-banner', 'false')\n```\n\n즉, 브라우저가 다음 번에 `/home` 경로에 요청을 보낼 때 `show-banner=false`라는 쿠키를 함께 보내게 됩니다.\n\n---\n\n### get(name)\n\n다음으로 `get(name)`은 설정된 쿠키 중에서 특정 이름을 가진 쿠키의 값을 가져오는 함수예요.\n\n```js\n// 예를 들어 쿠키 중 'show-banner'의 값을 가져와서\n// 그 값에 따라 배너를 보이거나 숨길 수 있어요\nconst bannerStatus = request.cookies.get('show-banner')\nif (bannerStatus === 'false') {\n  // 배너 숨기기 로직\n} else {\n  // 배너 보여주기 로직\n}\n```\n\n이렇게 `get`을 사용하면 쿠키에 저장된 상태 정보를 쉽게 읽어서 사용자 경험을 맞춤화할 수 있답니다.\n\n---\n\n쿠키를 다룰 때는 보안도 중요해요! 예를 들어,\n\n- **HttpOnly** 속성을 사용하는 경우 자바스크립트에서는 쿠키를 읽지 못하도록 할 수 있어요.\n- **Secure** 속성을 추가하면 HTTPS 연결에서만 쿠키가 전송돼요.\n- **SameSite** 옵션으로 다른 사이트에서 쿠키를 보내는 걸 제한할 수도 있고요.\n\n이런 옵션들도 필요에 따라 같이 설정하는 게 좋아요.\n\n쿠키를 효과적으로 활용해서 사용자 경험을 개선해보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n쿠키 관련 작업을 할 때, 특정 쿠키의 값을 가져오거나 모든 쿠키를 확인하고 싶을 때가 많죠. 여기서는 두 가지 유용한 메서드에 대해 이야기해볼게요: `get()`과 `getAll()`입니다.\n\n### get(cookieName)\n\n- 주어진 쿠키 이름에 해당하는 쿠키 값을 반환해요.\n- 만약 동일한 이름의 쿠키가 여러 개 있으면, 가장 먼저 찾은 쿠키 값을 반환합니다.\n- 쿠키가 없으면 `undefined`를 반환해요.\n\n예시를 들어볼게요.\n\n```js\n// 요청이 /home 경로로 들어왔다고 가정\n// 쿠키 중에 { name: 'show-banner', value: 'false', Path: '/home' } 가 있다고 할 때\nconst bannerValue = request.cookies.get('show-banner');\nconsole.log(bannerValue); // 'false'\n```\n\n여기서 기억할 점은, 도메인이나 경로와 같은 쿠키 속성 때문에 같은 이름의 쿠키가 여러 개 존재할 수 있다는 거예요. `get()`은 처음 발견한 값만 준다는 점도 참고하세요.\n\n---\n\n### getAll(cookieName)\n\n- 특정 쿠키 이름을 주면, 그 이름을 가진 **모든** 쿠키 값을 배열로 반환합니다.\n- 만약 이름 없이 호출하면, 요청에 포함된 모든 쿠키를 반환해요.\n\n예를 들어:\n\n```js\n// 예를 들어 여러 개의 'theme' 쿠키가 있을 수 있어요\nconst themes = request.cookies.getAll('theme');\nconsole.log(themes); // ['dark', 'light']\n\n// 이름 없이 호출하면 모든 쿠키를 배열로 받아요\nconst allCookies = request.cookies.getAll();\nconsole.log(allCookies);\n// [ { name: 'show-banner', value: 'false' }, { name: 'theme', value: 'dark' }, ... ]\n```\n\n---\n\n### 팁!\n\n- 쿠키 이름은 보통 유니크해야 하지만, Path나 Domain 때문에 중복 있을 수 있어요. 그래서 꼭 필요할 때 `getAll()`을 이용해 여러 쿠키 값을 한 번에 알아보면 유용합니다.\n- 쿠키 값은 문자열로 전달되니, JSON 형태 같은 데이터를 저장할 땐 `JSON.stringify`와 `JSON.parse`를 꼭 활용하세요.\n\n---\n\n이렇게 `get()`과 `getAll()`만 잘 활용해도 쿠키를 다루는 데 훨씬 편해질 거예요! 도움이 되셨나요? 궁금한 점 있으면 언제든 질문 주세요~\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n자, 오늘은 JavaScript에서 요청(request) 객체 내 쿠키를 다루는 방법에 대해 살펴볼게요. 쿠키를 읽고, 여러 개를 가져오고, 삭제하는 방법까지 간단하게 정리해볼게요.\n\n---\n\n### 쿠키 여러 개 가져오기\n\n요청에 담긴 쿠키가 여러 개일 때 특정 이름을 가진 쿠키들 또는 모든 쿠키들을 가져오고 싶을 때가 있죠? `request.cookies.getAll()` 메서드를 사용하면 돼요.\n\n```js\n// 예를 들어 /home 경로에 이런 쿠키가 있을 때\n[\n  { name: 'experiments', value: 'new-pricing-page', Path: '/home' },\n  { name: 'experiments', value: 'winter-launch', Path: '/home' },\n]\n\n// 특정 이름 'experiments' 쿠키 모두 가져오기\nrequest.cookies.getAll('experiments')\n\n// 아니면 그냥 모든 쿠키 가져오기\nrequest.cookies.getAll()\n```\n\n이렇게 하면 해당 이름을 가진 모든 쿠키값 배열을 받을 수 있어서, 실험 기능 활성화 여부 등을 여러 개 동시 관리할 때 유용해요.\n\n---\n\n### 쿠키 삭제하기\n\n쿠키를 없애고 싶을 때는 `delete(name)` 메서드를 사용하면 됩니다. 삭제 성공 여부도 boolean 형태로 알려줘서 관리하기 좋아요.\n\n```js\n// 'experiments' 쿠키를 삭제하려고 시도\nconst deleted = request.cookies.delete('experiments')\nif(deleted) {\n  console.log('쿠키가 정상적으로 삭제됐어요!')\n} else {\n  console.log('해당 이름의 쿠키가 없어서 삭제하지 못했어요.')\n}\n```\n\n여기서 주의할 점! 쿠키 삭제는 클라이언트에서 관리되는 쿠키를 서버 사이드에서 다룰 때 잘 동작하는 경우가 많으니, 프론트엔드와 백엔드 쿠키 경로와 옵션이 일치하는지 확인하는 게 좋아요.\n\n---\n\n### 추가 팁: 쿠키 관리 시 체크할 점\n\n- 쿠키 이름은 중복될 수 있으니 `getAll()`로 모두 가져오고 원하는 것을 필터링하는 게 안전합니다.\n- `Path`, `Domain` 같은 속성이 다르면 동일 이름 쿠키 복수 존재 가능하니, 특정 경로나 조건을 꼭 확인하세요.\n- 보안 설정(`HttpOnly`, `Secure`) 때문에 클라이언트에서 못 읽는 쿠키도 있으니 상황에 따라 백엔드에서만 처리할 수도 있답니다.\n\n---\n\n쿠키는 사용자 경험을 향상시키기 위한 중요한 도구인데요, 이렇게 JavaScript에서 요청 내 쿠키를 자유자재로 불러오고, 삭제할 수 있으면 훨씬 유연한 웹 서비스 운영이 가능해져요! 필요할 때 바로 꺼내 쓰는 방법, 오늘 꼭 알아가세요~\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### has(name)\n\n`has(name)`는 요청(request) 안에 특정 이름의 쿠키가 있는지 확인할 때 사용해요. 만약 해당 이름의 쿠키가 있으면 `true`를, 없으면 `false`를 반환하죠.\n\n```js\n// 'experiments'라는 이름의 쿠키가 요청에 있으면 true, 없으면 false 반환\nrequest.cookies.has('experiments')\n```\n\n예를 들어 사용자 인증이나 실험 기능 토글 같은 상황에서 쿠키 존재 여부를 확인할 때 유용해요.\n\n---\n\n### clear()\n\n`clear()` 메서드는 요청에 포함된 모든 쿠키를 한 번에 삭제해버릴 때 사용해요. \n\n이걸 쓰면 브라우저에 저장된 쿠키가 싹 사라지는 건 아니고, 현재 요청에서 다루는 쿠키 세트를 비우는 효과라고 보면 됩니다. 서버에서 받은 요청과 관련된 쿠키 데이터를 초기화할 때 좋죠.\n\n---\n\n#### 참고로!\n\n쿠키는 HTTP 요청/응답의 중요한 부분이라서, 프론트엔드든 백엔드든 잘 다뤄야 해요. 예를 들어 보안 목적으로 HttpOnly, Secure, SameSite 속성을 잘 설정하거나, 쿠키 저장 용량과 만료 시간도 신경 써야 하죠.\n\n마크다운에서 표로 쿠키 관련 주요 메서드 간단히 정리해봤어요.\n\n| 메서드          | 설명                                          | 반환값            |\n|-----------------|----------------------------------------------|-------------------|\n| `has(name)`     | 요청에 특정 이름의 쿠키가 있는지 확인        | `true` or `false` |\n| `clear()`       | 요청에 포함된 모든 쿠키 정보를 초기화         | 없음              |\n\n이렇게 쿠키는 사용법이 간단해 보여도, 프로젝트에 따라 꼭 필요한 보안과 정책을 꼼꼼히 챙기는 게 중요해요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n요청(request)에서 Set-Cookie 헤더를 제거하고 싶을 때, 보통 클라이언트 측에서는 Set-Cookie를 직접 수정할 수 없어요. 왜냐하면 Set-Cookie는 서버에서 응답(response)에 포함하는 헤더라서, 요청(request)에서는 일반적으로 존재하지 않거든요.\n\n하지만, 만약 요청에 포함된 쿠키들을 깔끔하게 초기화하거나 지우고 싶다면, `request.cookies.clear()` 같은 메서드를 사용할 수 있어요. 이 방법은 Next.js 13에서 도입된 새로운 서버 컴포넌트 혹은 API Route 핸들링에서 사용되는 쿠키 객체에 적용되는 방식입니다.\n\n정리하면,\n\n| 작업                  | 설명                                      |\n|----------------------|-----------------------------------------|\n| `request.cookies.clear()` | 요청에 포함된 모든 쿠키들을 지웁니다.           |\n| Set-Cookie 헤더 변경     | Set-Cookie 헤더는 서버가 응답 시 설정하는 쿠키이므로, 요청에서 직접 제거 불가 |\n\n또한, `nextUrl` 객체는 기본 URL API를 확장한 것으로, Next.js에서 유용하게 쓸 수 있는 여러 확장 기능이 포함되어 있어요. 예를 들어 URL의 쿼리 파라미터를 쉽게 다루거나, Next.js 라우팅에 특화된 프로퍼티들이 있죠.\n\n간단하게 사용 예시를 보여드리자면:\n\n```js\nexport function middleware(request) {\n  console.log(request.nextUrl.pathname) // 현재 요청 경로\n  request.cookies.clear() // 쿠키 초기화\n}\n```\n\n참고로, `request.cookies`는 immutable 한 객체라서 바로 수정이 안 될 수도 있는데, Next.js에서는 이 부분을 직접 제어할 수 있도록 API를 제공합니다. 요청 쿠키를 다뤄야 할 때는 꼭 Next.js 문서를 참고해서 정확한 방법을 확인하는 것이 좋아요.\n\n필요하시면 더 자세한 쿠키 다루기 방법이나 `nextUrl` 활용법도 알려드릴게요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n```js\n// /home 경로로 요청 시 pathname은 /home\nrequest.nextUrl.pathname\n// /home?name=lee 로 요청 시 searchParams는 { 'name': 'lee' }\nrequest.nextUrl.searchParams\n```\n\n아래는 `request.nextUrl`에서 사용할 수 있는 주요 옵션들입니다:\n\n| 속성           | 타입                     | 설명                                                                                  |\n| -------------- | ------------------------ | ------------------------------------------------------------------------------------- |\n| `basePath`     | `string`                 | URL의 [base path](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath)입니다.                     |\n| `buildId`      | `string` \\| `undefined`  | Next.js 앱의 빌드 식별자입니다. [커스터마이징](https://nextjs.org/docs/app/api-reference/config/next-config-js/generateBuildId)도 가능합니다. |\n| `pathname`     | `string`                 | URL의 경로 부분입니다.                                                                |\n| `searchParams` | `Object`                 | URL의 쿼리 파라미터들을 담고 있는 객체입니다.                                         |\n\n\u003e 참고) 페이지 라우터(Pages Router)에서 제공하던 국제화(i18n) 관련 속성들은 앱 라우터(App Router)에서는 사용할 수 없으니 참고하세요. 앱 라우터에서의 국제화는 [앱 라우터 문서](https://nextjs.org/docs/app/building-your-application/routing/internationalization)에서 더 자세히 확인할 수 있습니다.\n\n---\n\n덧붙이자면, `request.nextUrl.searchParams` 는 `URLSearchParams` 인터페이스를 기반으로 하므로, `.get()`, `.has()`, `.getAll()` 같은 메서드를 통해 쿼리 파라미터를 손쉽게 다룰 수 있다는 장점이 있어요. 예를 들어:\n\n```js\nconst name = request.nextUrl.searchParams.get('name')\n```\n\n이렇게 하면 쿼리에서 'name' 값만 간단히 얻을 수 있으니 참고하세요! 😊\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n## 버전 히스토리\n\n| 버전      | 변경 사항                  |\n|-----------|---------------------------|\n| `v15.0.0` | `ip`와 `geo` 기능이 제거됨 |\n\n---\n\n여기서 `ip`와 `geo`가 뭔지 궁금할 수 있는데요, 보통 `ip`는 IP 주소 관련 기능, `geo`는 지리 정보 관련 기능을 뜻해요. 그래서 이번 버전(v15.0.0)부터는 이 두 가지 기능이 빠졌다는 뜻이죠. 만약 프로젝트에서 IP나 위치 기반 기능을 쓴다면, 이번 업데이트 전후로 영향이 있는지 꼭 확인해보는 게 좋아요! 업데이트 후에는 이 기능들을 대신할 다른 라이브러리나 API를 찾아보는 것도 방법일 수 있겠네요.","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":11},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003eNextRequest\u003c/h1\u003e\n\u003cp\u003eNextRequest는 기존의 Web Request API를 확장해서 더 편리한 메서드들을 추가한 거예요.\u003c/p\u003e\n\u003ch2\u003ecookies\u003c/h2\u003e\n\u003cp\u003eRequest의 Set-Cookie 헤더를 읽거나 수정할 수 있어요.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e여기서 NextRequest는 보통 웹에서 HTTP 요청을 다룰 때 기본적으로 제공하는 Request 객체보다 좀 더 쓰기 편하게 기능을 확장한 거라고 생각하면 돼요. 특히 쿠키 같은 걸 다룰 때 번거로운 부분이 있는데, NextRequest는 그런 부분을 깔끔하게 처리해줘서 개발할 때 훨씬 편리하답니다.\u003c/p\u003e\n\u003cp\u003e예를 들어, 서버에서 특정 쿠키 값을 쉽게 읽거나, 새 쿠키를 설정할 때 도움이 되죠. 서버 사이드 렌더링(SSR)이 많아지는 요즘, 이런 유틸리티가 있으면 작업 속도가 확실히 빨라져요.\u003c/p\u003e\n\u003cp\u003e쿠키를 직접 다룰 때 주의할 점도 하나 말씀드리자면, 보안 설정(예: HttpOnly, Secure, SameSite 등)을 꼼꼼히 관리해야 해요. NextRequest 같은 툴로 쿠키를 다룰 때도 이런 설정을 신경 써줘야 보안 사고를 미연에 방지할 수 있으니 참고하세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003eset(name, value)\u003c/h3\u003e\n\u003cp\u003e이 함수는 특정 이름(name)과 값(value)을 받아서 요청(request)에 해당하는 쿠키를 설정해줘요.\u003c/p\u003e\n\u003cp\u003e예를 들어, 사용자가 \u003ccode\u003e/home\u003c/code\u003e 페이지에 들어왔을 때 배너를 숨기고 싶다면 이렇게 작성할 수 있죠:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// /home 페이지에 들어온 요청에서\u003c/span\u003e\n\u003cspan class=\"hljs-comment\"\u003e// 'show-banner'라는 쿠키를 'false'로 설정해서 배너를 숨겨요\u003c/span\u003e\n\u003cspan class=\"hljs-comment\"\u003e// 이 요청은 'Set-Cookie: show-banner=false; path=/home' 헤더를 가지게 돼요\u003c/span\u003e\nrequest.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003eset\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'show-banner'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'false'\u003c/span\u003e)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e즉, 브라우저가 다음 번에 \u003ccode\u003e/home\u003c/code\u003e 경로에 요청을 보낼 때 \u003ccode\u003eshow-banner=false\u003c/code\u003e라는 쿠키를 함께 보내게 됩니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003eget(name)\u003c/h3\u003e\n\u003cp\u003e다음으로 \u003ccode\u003eget(name)\u003c/code\u003e은 설정된 쿠키 중에서 특정 이름을 가진 쿠키의 값을 가져오는 함수예요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// 예를 들어 쿠키 중 'show-banner'의 값을 가져와서\u003c/span\u003e\n\u003cspan class=\"hljs-comment\"\u003e// 그 값에 따라 배너를 보이거나 숨길 수 있어요\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e bannerStatus = request.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003eget\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'show-banner'\u003c/span\u003e)\n\u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (bannerStatus === \u003cspan class=\"hljs-string\"\u003e'false'\u003c/span\u003e) {\n  \u003cspan class=\"hljs-comment\"\u003e// 배너 숨기기 로직\u003c/span\u003e\n} \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n  \u003cspan class=\"hljs-comment\"\u003e// 배너 보여주기 로직\u003c/span\u003e\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 \u003ccode\u003eget\u003c/code\u003e을 사용하면 쿠키에 저장된 상태 정보를 쉽게 읽어서 사용자 경험을 맞춤화할 수 있답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e쿠키를 다룰 때는 보안도 중요해요! 예를 들어,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eHttpOnly\u003c/strong\u003e 속성을 사용하는 경우 자바스크립트에서는 쿠키를 읽지 못하도록 할 수 있어요.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSecure\u003c/strong\u003e 속성을 추가하면 HTTPS 연결에서만 쿠키가 전송돼요.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSameSite\u003c/strong\u003e 옵션으로 다른 사이트에서 쿠키를 보내는 걸 제한할 수도 있고요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이런 옵션들도 필요에 따라 같이 설정하는 게 좋아요.\u003c/p\u003e\n\u003cp\u003e쿠키를 효과적으로 활용해서 사용자 경험을 개선해보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e쿠키 관련 작업을 할 때, 특정 쿠키의 값을 가져오거나 모든 쿠키를 확인하고 싶을 때가 많죠. 여기서는 두 가지 유용한 메서드에 대해 이야기해볼게요: \u003ccode\u003eget()\u003c/code\u003e과 \u003ccode\u003egetAll()\u003c/code\u003e입니다.\u003c/p\u003e\n\u003ch3\u003eget(cookieName)\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e주어진 쿠키 이름에 해당하는 쿠키 값을 반환해요.\u003c/li\u003e\n\u003cli\u003e만약 동일한 이름의 쿠키가 여러 개 있으면, 가장 먼저 찾은 쿠키 값을 반환합니다.\u003c/li\u003e\n\u003cli\u003e쿠키가 없으면 \u003ccode\u003eundefined\u003c/code\u003e를 반환해요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e예시를 들어볼게요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// 요청이 /home 경로로 들어왔다고 가정\u003c/span\u003e\n\u003cspan class=\"hljs-comment\"\u003e// 쿠키 중에 { name: 'show-banner', value: 'false', Path: '/home' } 가 있다고 할 때\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e bannerValue = request.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003eget\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'show-banner'\u003c/span\u003e);\n\u003cspan class=\"hljs-variable language_\"\u003econsole\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003elog\u003c/span\u003e(bannerValue); \u003cspan class=\"hljs-comment\"\u003e// 'false'\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 기억할 점은, 도메인이나 경로와 같은 쿠키 속성 때문에 같은 이름의 쿠키가 여러 개 존재할 수 있다는 거예요. \u003ccode\u003eget()\u003c/code\u003e은 처음 발견한 값만 준다는 점도 참고하세요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003egetAll(cookieName)\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e특정 쿠키 이름을 주면, 그 이름을 가진 \u003cstrong\u003e모든\u003c/strong\u003e 쿠키 값을 배열로 반환합니다.\u003c/li\u003e\n\u003cli\u003e만약 이름 없이 호출하면, 요청에 포함된 모든 쿠키를 반환해요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e예를 들어:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// 예를 들어 여러 개의 'theme' 쿠키가 있을 수 있어요\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e themes = request.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003egetAll\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'theme'\u003c/span\u003e);\n\u003cspan class=\"hljs-variable language_\"\u003econsole\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003elog\u003c/span\u003e(themes); \u003cspan class=\"hljs-comment\"\u003e// ['dark', 'light']\u003c/span\u003e\n\n\u003cspan class=\"hljs-comment\"\u003e// 이름 없이 호출하면 모든 쿠키를 배열로 받아요\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e allCookies = request.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003egetAll\u003c/span\u003e();\n\u003cspan class=\"hljs-variable language_\"\u003econsole\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003elog\u003c/span\u003e(allCookies);\n\u003cspan class=\"hljs-comment\"\u003e// [ { name: 'show-banner', value: 'false' }, { name: 'theme', value: 'dark' }, ... ]\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e팁!\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e쿠키 이름은 보통 유니크해야 하지만, Path나 Domain 때문에 중복 있을 수 있어요. 그래서 꼭 필요할 때 \u003ccode\u003egetAll()\u003c/code\u003e을 이용해 여러 쿠키 값을 한 번에 알아보면 유용합니다.\u003c/li\u003e\n\u003cli\u003e쿠키 값은 문자열로 전달되니, JSON 형태 같은 데이터를 저장할 땐 \u003ccode\u003eJSON.stringify\u003c/code\u003e와 \u003ccode\u003eJSON.parse\u003c/code\u003e를 꼭 활용하세요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e이렇게 \u003ccode\u003eget()\u003c/code\u003e과 \u003ccode\u003egetAll()\u003c/code\u003e만 잘 활용해도 쿠키를 다루는 데 훨씬 편해질 거예요! 도움이 되셨나요? 궁금한 점 있으면 언제든 질문 주세요~\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e자, 오늘은 JavaScript에서 요청(request) 객체 내 쿠키를 다루는 방법에 대해 살펴볼게요. 쿠키를 읽고, 여러 개를 가져오고, 삭제하는 방법까지 간단하게 정리해볼게요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e쿠키 여러 개 가져오기\u003c/h3\u003e\n\u003cp\u003e요청에 담긴 쿠키가 여러 개일 때 특정 이름을 가진 쿠키들 또는 모든 쿠키들을 가져오고 싶을 때가 있죠? \u003ccode\u003erequest.cookies.getAll()\u003c/code\u003e 메서드를 사용하면 돼요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// 예를 들어 /home 경로에 이런 쿠키가 있을 때\u003c/span\u003e\n[\n  { \u003cspan class=\"hljs-attr\"\u003ename\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'experiments'\u003c/span\u003e, \u003cspan class=\"hljs-attr\"\u003evalue\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'new-pricing-page'\u003c/span\u003e, \u003cspan class=\"hljs-title class_\"\u003ePath\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'/home'\u003c/span\u003e },\n  { \u003cspan class=\"hljs-attr\"\u003ename\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'experiments'\u003c/span\u003e, \u003cspan class=\"hljs-attr\"\u003evalue\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'winter-launch'\u003c/span\u003e, \u003cspan class=\"hljs-title class_\"\u003ePath\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'/home'\u003c/span\u003e },\n]\n\n\u003cspan class=\"hljs-comment\"\u003e// 특정 이름 'experiments' 쿠키 모두 가져오기\u003c/span\u003e\nrequest.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003egetAll\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'experiments'\u003c/span\u003e)\n\n\u003cspan class=\"hljs-comment\"\u003e// 아니면 그냥 모든 쿠키 가져오기\u003c/span\u003e\nrequest.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003egetAll\u003c/span\u003e()\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 해당 이름을 가진 모든 쿠키값 배열을 받을 수 있어서, 실험 기능 활성화 여부 등을 여러 개 동시 관리할 때 유용해요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e쿠키 삭제하기\u003c/h3\u003e\n\u003cp\u003e쿠키를 없애고 싶을 때는 \u003ccode\u003edelete(name)\u003c/code\u003e 메서드를 사용하면 됩니다. 삭제 성공 여부도 boolean 형태로 알려줘서 관리하기 좋아요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// 'experiments' 쿠키를 삭제하려고 시도\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e deleted = request.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003edelete\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'experiments'\u003c/span\u003e)\n\u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e(deleted) {\n  \u003cspan class=\"hljs-variable language_\"\u003econsole\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003elog\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'쿠키가 정상적으로 삭제됐어요!'\u003c/span\u003e)\n} \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n  \u003cspan class=\"hljs-variable language_\"\u003econsole\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003elog\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'해당 이름의 쿠키가 없어서 삭제하지 못했어요.'\u003c/span\u003e)\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 주의할 점! 쿠키 삭제는 클라이언트에서 관리되는 쿠키를 서버 사이드에서 다룰 때 잘 동작하는 경우가 많으니, 프론트엔드와 백엔드 쿠키 경로와 옵션이 일치하는지 확인하는 게 좋아요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e추가 팁: 쿠키 관리 시 체크할 점\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e쿠키 이름은 중복될 수 있으니 \u003ccode\u003egetAll()\u003c/code\u003e로 모두 가져오고 원하는 것을 필터링하는 게 안전합니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ePath\u003c/code\u003e, \u003ccode\u003eDomain\u003c/code\u003e 같은 속성이 다르면 동일 이름 쿠키 복수 존재 가능하니, 특정 경로나 조건을 꼭 확인하세요.\u003c/li\u003e\n\u003cli\u003e보안 설정(\u003ccode\u003eHttpOnly\u003c/code\u003e, \u003ccode\u003eSecure\u003c/code\u003e) 때문에 클라이언트에서 못 읽는 쿠키도 있으니 상황에 따라 백엔드에서만 처리할 수도 있답니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e쿠키는 사용자 경험을 향상시키기 위한 중요한 도구인데요, 이렇게 JavaScript에서 요청 내 쿠키를 자유자재로 불러오고, 삭제할 수 있으면 훨씬 유연한 웹 서비스 운영이 가능해져요! 필요할 때 바로 꺼내 쓰는 방법, 오늘 꼭 알아가세요~\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003ehas(name)\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003ehas(name)\u003c/code\u003e는 요청(request) 안에 특정 이름의 쿠키가 있는지 확인할 때 사용해요. 만약 해당 이름의 쿠키가 있으면 \u003ccode\u003etrue\u003c/code\u003e를, 없으면 \u003ccode\u003efalse\u003c/code\u003e를 반환하죠.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// 'experiments'라는 이름의 쿠키가 요청에 있으면 true, 없으면 false 반환\u003c/span\u003e\nrequest.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003ehas\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'experiments'\u003c/span\u003e)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e예를 들어 사용자 인증이나 실험 기능 토글 같은 상황에서 쿠키 존재 여부를 확인할 때 유용해요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003eclear()\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eclear()\u003c/code\u003e 메서드는 요청에 포함된 모든 쿠키를 한 번에 삭제해버릴 때 사용해요.\u003c/p\u003e\n\u003cp\u003e이걸 쓰면 브라우저에 저장된 쿠키가 싹 사라지는 건 아니고, 현재 요청에서 다루는 쿠키 세트를 비우는 효과라고 보면 됩니다. 서버에서 받은 요청과 관련된 쿠키 데이터를 초기화할 때 좋죠.\u003c/p\u003e\n\u003chr\u003e\n\u003ch4\u003e참고로!\u003c/h4\u003e\n\u003cp\u003e쿠키는 HTTP 요청/응답의 중요한 부분이라서, 프론트엔드든 백엔드든 잘 다뤄야 해요. 예를 들어 보안 목적으로 HttpOnly, Secure, SameSite 속성을 잘 설정하거나, 쿠키 저장 용량과 만료 시간도 신경 써야 하죠.\u003c/p\u003e\n\u003cp\u003e마크다운에서 표로 쿠키 관련 주요 메서드 간단히 정리해봤어요.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e메서드\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003cth\u003e반환값\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ehas(name)\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e요청에 특정 이름의 쿠키가 있는지 확인\u003c/td\u003e\u003ctd\u003e\u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003eclear()\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e요청에 포함된 모든 쿠키 정보를 초기화\u003c/td\u003e\u003ctd\u003e없음\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003e이렇게 쿠키는 사용법이 간단해 보여도, 프로젝트에 따라 꼭 필요한 보안과 정책을 꼼꼼히 챙기는 게 중요해요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e요청(request)에서 Set-Cookie 헤더를 제거하고 싶을 때, 보통 클라이언트 측에서는 Set-Cookie를 직접 수정할 수 없어요. 왜냐하면 Set-Cookie는 서버에서 응답(response)에 포함하는 헤더라서, 요청(request)에서는 일반적으로 존재하지 않거든요.\u003c/p\u003e\n\u003cp\u003e하지만, 만약 요청에 포함된 쿠키들을 깔끔하게 초기화하거나 지우고 싶다면, \u003ccode\u003erequest.cookies.clear()\u003c/code\u003e 같은 메서드를 사용할 수 있어요. 이 방법은 Next.js 13에서 도입된 새로운 서버 컴포넌트 혹은 API Route 핸들링에서 사용되는 쿠키 객체에 적용되는 방식입니다.\u003c/p\u003e\n\u003cp\u003e정리하면,\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e작업\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003erequest.cookies.clear()\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e요청에 포함된 모든 쿠키들을 지웁니다.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eSet-Cookie 헤더 변경\u003c/td\u003e\u003ctd\u003eSet-Cookie 헤더는 서버가 응답 시 설정하는 쿠키이므로, 요청에서 직접 제거 불가\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003e또한, \u003ccode\u003enextUrl\u003c/code\u003e 객체는 기본 URL API를 확장한 것으로, Next.js에서 유용하게 쓸 수 있는 여러 확장 기능이 포함되어 있어요. 예를 들어 URL의 쿼리 파라미터를 쉽게 다루거나, Next.js 라우팅에 특화된 프로퍼티들이 있죠.\u003c/p\u003e\n\u003cp\u003e간단하게 사용 예시를 보여드리자면:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003emiddleware\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003erequest\u003c/span\u003e) {\n  \u003cspan class=\"hljs-variable language_\"\u003econsole\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003elog\u003c/span\u003e(request.\u003cspan class=\"hljs-property\"\u003enextUrl\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003epathname\u003c/span\u003e) \u003cspan class=\"hljs-comment\"\u003e// 현재 요청 경로\u003c/span\u003e\n  request.\u003cspan class=\"hljs-property\"\u003ecookies\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003eclear\u003c/span\u003e() \u003cspan class=\"hljs-comment\"\u003e// 쿠키 초기화\u003c/span\u003e\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e참고로, \u003ccode\u003erequest.cookies\u003c/code\u003e는 immutable 한 객체라서 바로 수정이 안 될 수도 있는데, Next.js에서는 이 부분을 직접 제어할 수 있도록 API를 제공합니다. 요청 쿠키를 다뤄야 할 때는 꼭 Next.js 문서를 참고해서 정확한 방법을 확인하는 것이 좋아요.\u003c/p\u003e\n\u003cp\u003e필요하시면 더 자세한 쿠키 다루기 방법이나 \u003ccode\u003enextUrl\u003c/code\u003e 활용법도 알려드릴게요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// /home 경로로 요청 시 pathname은 /home\u003c/span\u003e\nrequest.\u003cspan class=\"hljs-property\"\u003enextUrl\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003epathname\u003c/span\u003e\n\u003cspan class=\"hljs-comment\"\u003e// /home?name=lee 로 요청 시 searchParams는 { 'name': 'lee' }\u003c/span\u003e\nrequest.\u003cspan class=\"hljs-property\"\u003enextUrl\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003esearchParams\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e아래는 \u003ccode\u003erequest.nextUrl\u003c/code\u003e에서 사용할 수 있는 주요 옵션들입니다:\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e속성\u003c/th\u003e\u003cth\u003e타입\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ebasePath\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eURL의 \u003ca href=\"https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath\" rel=\"nofollow\" target=\"_blank\"\u003ebase path\u003c/a\u003e입니다.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ebuildId\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e | \u003ccode\u003eundefined\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eNext.js 앱의 빌드 식별자입니다. \u003ca href=\"https://nextjs.org/docs/app/api-reference/config/next-config-js/generateBuildId\" rel=\"nofollow\" target=\"_blank\"\u003e커스터마이징\u003c/a\u003e도 가능합니다.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003epathname\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eURL의 경로 부분입니다.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003esearchParams\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003eObject\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eURL의 쿼리 파라미터들을 담고 있는 객체입니다.\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고) 페이지 라우터(Pages Router)에서 제공하던 국제화(i18n) 관련 속성들은 앱 라우터(App Router)에서는 사용할 수 없으니 참고하세요. 앱 라우터에서의 국제화는 \u003ca href=\"https://nextjs.org/docs/app/building-your-application/routing/internationalization\" rel=\"nofollow\" target=\"_blank\"\u003e앱 라우터 문서\u003c/a\u003e에서 더 자세히 확인할 수 있습니다.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003chr\u003e\n\u003cp\u003e덧붙이자면, \u003ccode\u003erequest.nextUrl.searchParams\u003c/code\u003e 는 \u003ccode\u003eURLSearchParams\u003c/code\u003e 인터페이스를 기반으로 하므로, \u003ccode\u003e.get()\u003c/code\u003e, \u003ccode\u003e.has()\u003c/code\u003e, \u003ccode\u003e.getAll()\u003c/code\u003e 같은 메서드를 통해 쿼리 파라미터를 손쉽게 다룰 수 있다는 장점이 있어요. 예를 들어:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e name = request.\u003cspan class=\"hljs-property\"\u003enextUrl\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003esearchParams\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003eget\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'name'\u003c/span\u003e)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 쿼리에서 'name' 값만 간단히 얻을 수 있으니 참고하세요! 😊\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch2\u003e버전 히스토리\u003c/h2\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e버전\u003c/th\u003e\u003cth\u003e변경 사항\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ev15.0.0\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003eip\u003c/code\u003e와 \u003ccode\u003egeo\u003c/code\u003e 기능이 제거됨\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003cp\u003e여기서 \u003ccode\u003eip\u003c/code\u003e와 \u003ccode\u003egeo\u003c/code\u003e가 뭔지 궁금할 수 있는데요, 보통 \u003ccode\u003eip\u003c/code\u003e는 IP 주소 관련 기능, \u003ccode\u003egeo\u003c/code\u003e는 지리 정보 관련 기능을 뜻해요. 그래서 이번 버전(v15.0.0)부터는 이 두 가지 기능이 빠졌다는 뜻이죠. 만약 프로젝트에서 IP나 위치 기반 기능을 쓴다면, 이번 업데이트 전후로 영향이 있는지 꼭 확인해보는 게 좋아요! 업데이트 후에는 이 기능들을 대신할 다른 라이브러리나 API를 찾아보는 것도 방법일 수 있겠네요.\u003c/p\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-NextRequest"},"buildId":"X4OrKfmLtU3-3BijwfHe6","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>

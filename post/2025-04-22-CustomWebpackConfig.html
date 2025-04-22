@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title>2025년 Next.js 15 맞춤형 Webpack 설정하는 방법 | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-CustomWebpackConfig" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content="2025년 Next.js 15 맞춤형 Webpack 설정하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:title" content="2025년 Next.js 15 맞춤형 Webpack 설정하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-CustomWebpackConfig" data-gatsby-head="true"/><meta name="twitter:title" content="2025년 Next.js 15 맞춤형 Webpack 설정하는 방법 | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 13:33" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/X4OrKfmLtU3-3BijwfHe6/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/X4OrKfmLtU3-3BijwfHe6/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx">2025년 Next.js 15 맞춤형 Webpack 설정하는 방법</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt="2025년 Next.js 15 맞춤형 Webpack 설정하는 방법" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">6<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>커스텀 Webpack 설정하기</h1>
+<blockquote>
+<p>참고할 점: Webpack 설정을 변경하는 건 버전 규칙(semver)에 포함되지 않으니, 변경 시에 신중하게 진행하세요!</p>
+</blockquote>
+<p>Next.js에 커스텀 Webpack 설정을 추가하기 전에, 먼저 Next.js가 이미 여러분의 요구사항을 기본적으로 지원하고 있는지 확인해보는 게 좋아요. 기본적으로 다음 기능들은 Next.js에서 지원하고 있습니다:</p>
+<ul>
+<li>CSS 가져오기 (CSS imports)</li>
+<li>CSS 모듈 (CSS modules)</li>
+<li>Sass/SCSS 가져오기 (Sass/SCSS imports)</li>
+<li>Sass/SCSS 모듈 (Sass/SCSS modules)</li>
+</ul>
+<p>이 기능들은 Next.js에서 별도의 설정 없이도 바로 사용할 수 있어서, 간단한 스타일링 작업이라면 따로 Webpack 설정을 건드릴 필요가 없답니다.</p>
+<p>만약 여러분이 좀 더 특별한 설정이 필요하거나, Next.js가 기본적으로 지원하지 않는 로더(loader)나 플러그인(plugin)을 추가하려는 경우에만 커스텀 Webpack 설정 작업을 하시면 돼요.</p>
+<p>그러니, Webpack 설정을 건드리기 전에 항상 공식 문서나 Next.js의 최신 지원사항을 꼭 먼저 살펴보세요! 그래야 불필요한 고민과 에러를 줄일 수 있습니다.</p>
+<p>추가로, Webpack 설정을 수정할 때는 프로젝트 전체 빌드에 영향을 주기 때문에 꼭 변경사항을 잘 테스트하고, 빌드 속도가 느려지는 부분도 체크해보시는 걸 추천드려요.</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>웹 개발할 때 자주 요청받는 기능들은 플러그인 형태로 제공되는 게 많아요. 예를 들어,</p>
+<ul>
+<li><code>@next/mdx</code> : MDX 파일을 Next.js에서 바로 사용할 수 있게 해줍니다. (즉, Markdown과 JSX를 결합해서 쓸 수 있죠)</li>
+<li><code>@next/bundle-analyzer</code> : 번들 크기를 시각화해줘서 성능 최적화에 도움을 줘요.</li>
+</ul>
+<p>그리고 Next.js에서 기본적으로 쓰는 webpack 설정을 내가 원하는 대로 바꾸고 싶다면, <code>next.config.js</code> 파일 안에 webpack 설정 확장 함수를 넣으면 돼요. 아래처럼요:</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">webpack</span>: <span class="hljs-function">(<span class="hljs-params">
+    config,
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
+  </span>) =></span> {
+    <span class="hljs-comment">// 여기서 config를 원하는 대로 수정하세요</span>
+
+    <span class="hljs-comment">// 수정한 config를 꼭 리턴해줘야 합니다.</span>
+    <span class="hljs-keyword">return</span> config
+  },
+}
+</code></pre>
+<p>위 함수에서 <code>config</code>는 현재의 webpack 설정 객체고, 두 번째 인자에는 빌드 과정에 유용한 여러 정보가 담겨 있어요. 예를 들어 개발 모드인지 <code>dev</code>를 통해 알 수 있고, 서버사이드인지 <code>isServer</code>로 구분할 수도 있죠.</p>
+<p>실제로 확장할 때 흔히 하는 작업 예를 들면:</p>
+<ul>
+<li>특정 로더 추가하기 (예: 이미지, 스타일 등)</li>
+<li>플러그인 추가하거나 교체하기</li>
+<li>프로덕션 빌드에서 코드 압축 설정 변경하기 등</li>
+</ul>
+<p>꼭 기억할 점은, 함수 마지막에 수정한 config를 반환해야만 원하는 대로 적용된다는 점이에요. 안 그러면 변경 사항이 무시됩니다.</p>
+<p>이 부분만 잘 활용해도 Next.js의 번들링 과정을 유연하게 제어할 수 있으니 기회가 되면 한번 시도해보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>webpack 함수는 총 세 번 실행돼요. 서버 쪽에서 두 번(하나는 Node.js, 다른 하나는 Edge 런타임용), 그리고 클라이언트 쪽에서 한 번 이렇게요. 덕분에 isServer 속성을 활용해서 클라이언트와 서버용 webpack 설정을 쉽게 구분할 수 있답니다.</p>
+<p>webpack 함수에 전달되는 두 번째 인자는 여러 정보들을 담은 객체인데, 주요 속성은 다음과 같아요:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>속성명</th><th>타입</th><th>설명</th></tr></thead><tbody><tr><td>buildId</td><td>String</td><td>빌드 간 고유 식별자로 사용돼요.</td></tr><tr><td>dev</td><td>Boolean</td><td>현재 개발 모드인지 여부를 나타내요. (true면 개발 모드)</td></tr><tr><td>isServer</td><td>Boolean</td><td>서버 사이드 컴파일일 경우 true, 클라이언트 사이드 컴파일일 경우 false에요.</td></tr><tr><td>nextRuntime</td><td>String | undefined</td><td>서버 사이드 컴파일에서의 타겟 런타임 - "edge" 또는 "nodejs". 클라이언트 컴파일일 경우 undefined에요.</td></tr><tr><td>defaultLoaders</td><td>Object</td><td>Next.js가 내부적으로 사용하는 기본 로더 설정입니다.</td></tr></tbody></table>
+<p>특히 defaultLoaders에는 babel 설정 같은 필수 로더들이 들어있어서, 커스텀 환경에서도 Next.js 기본 로더 구성을 참고하면서 손쉽게 webpack 구성을 변경할 수 있어요.</p>
+<p>예를 들어, defaultLoaders.babel을 이렇게 사용할 수 있죠:</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-title function_">webpack</span>(<span class="hljs-params">config, { defaultLoaders }</span>) {
+    config.<span class="hljs-property">module</span>.<span class="hljs-property">rules</span>.<span class="hljs-title function_">push</span>({
+      <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.js$/</span>,
+      <span class="hljs-attr">use</span>: [
+        defaultLoaders.<span class="hljs-property">babel</span>, <span class="hljs-comment">// 기본 babel-loader 설정을 이용</span>
+        {
+          <span class="hljs-attr">loader</span>: <span class="hljs-string">'my-custom-loader'</span>,
+          <span class="hljs-attr">options</span>: { <span class="hljs-comment">/* ... */</span> },
+        },
+      ],
+    });
+    <span class="hljs-keyword">return</span> config;
+  },
+};
+</code></pre>
+<p>이처럼 Next.js의 기본 babel 설정을 활용하면, 직접 설정을 완전히 새로 만드는 것보다 훨씬 편리하고 안정적으로 빌드 구성을 확장할 수 있어요. 꼭 필요한 부분만 덧붙이면서 성능도 챙겨보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>자, 이번에는 Next.js에서 MDX 파일을 처리하기 위한 웹팩 설정 예제를 한번 살펴볼게요. 원본 코드는 @next/mdx 플러그인에서 따온 건데, MDX를 바벨로더와 함께 사용하는 예시입니다.</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// babel-loader에 의존하는 로더를 추가하는 예시 설정</span>
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">webpack</span>: <span class="hljs-function">(<span class="hljs-params">config, options</span>) =></span> {
+    config.<span class="hljs-property">module</span>.<span class="hljs-property">rules</span>.<span class="hljs-title function_">push</span>({
+      <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.mdx/</span>,  <span class="hljs-comment">// .mdx 확장자를 가진 파일에 적용할 로더</span>
+      <span class="hljs-attr">use</span>: [
+        options.<span class="hljs-property">defaultLoaders</span>.<span class="hljs-property">babel</span>,  <span class="hljs-comment">// Next.js의 기본 babel 로더 사용</span>
+        {
+          <span class="hljs-attr">loader</span>: <span class="hljs-string">'@mdx-js/loader'</span>,    <span class="hljs-comment">// MDX 변환 로더 추가</span>
+          <span class="hljs-attr">options</span>: pluginOptions.<span class="hljs-property">options</span>,  <span class="hljs-comment">// 추가 옵션 지정 가능</span>
+        },
+      ],
+    });
+
+    <span class="hljs-keyword">return</span> config;
+  },
+};
+</code></pre>
+<p>여기서 중요한 점은, MDX 파일을 먼저 babel-loader가 변환하고, 그 다음에 @mdx-js/loader가 MDX 문법을 React 컴포넌트 코드로 바꾼다는 거예요.</p>
+<blockquote>
+<p>참고로 <code>pluginOptions.options</code> 부분이 빠져 있다면, 직접 옵션을 지정하거나 빈 객체 <code>{}</code>로 대체해도 됩니다. 환경에 따라 다르니까 참고하세요.</p>
+</blockquote>
+<hr>
+<h4>nextRuntime과 isServer 플래그 관련 팁</h4>
+<p>그리고 문서 하단에 나온 <code>nextRuntime</code>에 관한 내용도 알아둬야 해요.</p>
+<ul>
+<li><code>nextRuntime</code>이 <code>"edge"</code>나 <code>"nodejs"</code>일 때 <code>isServer</code>가 항상 <code>true</code>로 설정돼요.</li>
+<li><code>"edge"</code> 런타임은 현재 미들웨어와 서버 컴포넌트(React Server Components)를 엣지 환경에서만 실행할 때 사용합니다.</li>
+<li>이 부분은 Next.js가 런타임 환경을 구분해서 코드 실행 위치를 판단할 때 중요해요.</li>
+</ul>
+<p>실제로 <code>"edge"</code> 환경은 지리적으로 가까운 서버에서 빠르게 응답하는 데 강점이 있으니, 미들웨어나 서버 컴포넌트 성능 최적화를 할 때 참고하시면 좋겠죠.</p>
+<hr>
+<h3>추가로 알려주는 팁!</h3>
+<p>Next.js 웹팩 설정 수정할 때는 종종 <code>.mdx</code>뿐만 아니라 <code>.md</code> 파일도 함께 처리할 일이 많아요. 만약 그런 경우라면 <code>test</code> 항목을 <code>/\.mdx?$/</code> 식으로 정규식 수정해서 한번에 처리하는 것도 추천합니다. 그리고 MDX를 쓸 때는 <code>@mdx-js/react</code> 패키지를 이용해서 MDX 내에서 React 컴포넌트를 자연스럽게 사용할 수 있으니, 프로젝트 요구에 맞춰 한번 적용해보세요.</p>
+<hr>
+<p>필요하면 더 자세한 설정이나 MDX 활용법도 알려줄 수 있으니, 언제든 질문해 주세요!</p>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"2025년 Next.js 15 맞춤형 Webpack 설정하는 방법","description":"","date":"2025-04-22 13:33","slug":"2025-04-22-CustomWebpackConfig","content":"\n\n# 커스텀 Webpack 설정하기\n\n\u003e 참고할 점: Webpack 설정을 변경하는 건 버전 규칙(semver)에 포함되지 않으니, 변경 시에 신중하게 진행하세요!\n\nNext.js에 커스텀 Webpack 설정을 추가하기 전에, 먼저 Next.js가 이미 여러분의 요구사항을 기본적으로 지원하고 있는지 확인해보는 게 좋아요. 기본적으로 다음 기능들은 Next.js에서 지원하고 있습니다:\n\n- CSS 가져오기 (CSS imports)\n- CSS 모듈 (CSS modules)\n- Sass/SCSS 가져오기 (Sass/SCSS imports)\n- Sass/SCSS 모듈 (Sass/SCSS modules)\n\n이 기능들은 Next.js에서 별도의 설정 없이도 바로 사용할 수 있어서, 간단한 스타일링 작업이라면 따로 Webpack 설정을 건드릴 필요가 없답니다.\n\n만약 여러분이 좀 더 특별한 설정이 필요하거나, Next.js가 기본적으로 지원하지 않는 로더(loader)나 플러그인(plugin)을 추가하려는 경우에만 커스텀 Webpack 설정 작업을 하시면 돼요.  \n\n그러니, Webpack 설정을 건드리기 전에 항상 공식 문서나 Next.js의 최신 지원사항을 꼭 먼저 살펴보세요! 그래야 불필요한 고민과 에러를 줄일 수 있습니다.  \n\n추가로, Webpack 설정을 수정할 때는 프로젝트 전체 빌드에 영향을 주기 때문에 꼭 변경사항을 잘 테스트하고, 빌드 속도가 느려지는 부분도 체크해보시는 걸 추천드려요.\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n웹 개발할 때 자주 요청받는 기능들은 플러그인 형태로 제공되는 게 많아요. 예를 들어,\n\n- `@next/mdx` : MDX 파일을 Next.js에서 바로 사용할 수 있게 해줍니다. (즉, Markdown과 JSX를 결합해서 쓸 수 있죠)\n- `@next/bundle-analyzer` : 번들 크기를 시각화해줘서 성능 최적화에 도움을 줘요.\n\n그리고 Next.js에서 기본적으로 쓰는 webpack 설정을 내가 원하는 대로 바꾸고 싶다면, `next.config.js` 파일 안에 webpack 설정 확장 함수를 넣으면 돼요. 아래처럼요:\n\n```js\nmodule.exports = {\n  webpack: (\n    config,\n    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }\n  ) =\u003e {\n    // 여기서 config를 원하는 대로 수정하세요\n\n    // 수정한 config를 꼭 리턴해줘야 합니다.\n    return config\n  },\n}\n```\n\n위 함수에서 `config`는 현재의 webpack 설정 객체고, 두 번째 인자에는 빌드 과정에 유용한 여러 정보가 담겨 있어요. 예를 들어 개발 모드인지 `dev`를 통해 알 수 있고, 서버사이드인지 `isServer`로 구분할 수도 있죠.\n\n실제로 확장할 때 흔히 하는 작업 예를 들면:\n\n- 특정 로더 추가하기 (예: 이미지, 스타일 등)\n- 플러그인 추가하거나 교체하기\n- 프로덕션 빌드에서 코드 압축 설정 변경하기 등\n\n꼭 기억할 점은, 함수 마지막에 수정한 config를 반환해야만 원하는 대로 적용된다는 점이에요. 안 그러면 변경 사항이 무시됩니다.\n\n이 부분만 잘 활용해도 Next.js의 번들링 과정을 유연하게 제어할 수 있으니 기회가 되면 한번 시도해보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nwebpack 함수는 총 세 번 실행돼요. 서버 쪽에서 두 번(하나는 Node.js, 다른 하나는 Edge 런타임용), 그리고 클라이언트 쪽에서 한 번 이렇게요. 덕분에 isServer 속성을 활용해서 클라이언트와 서버용 webpack 설정을 쉽게 구분할 수 있답니다.\n\nwebpack 함수에 전달되는 두 번째 인자는 여러 정보들을 담은 객체인데, 주요 속성은 다음과 같아요:\n\n| 속성명         | 타입                 | 설명                                                         |\n| -------------- | -------------------- | ------------------------------------------------------------ |\n| buildId        | String               | 빌드 간 고유 식별자로 사용돼요.                              |\n| dev            | Boolean              | 현재 개발 모드인지 여부를 나타내요. (true면 개발 모드)         |\n| isServer       | Boolean              | 서버 사이드 컴파일일 경우 true, 클라이언트 사이드 컴파일일 경우 false에요. |\n| nextRuntime    | String \\| undefined  | 서버 사이드 컴파일에서의 타겟 런타임 - \"edge\" 또는 \"nodejs\". 클라이언트 컴파일일 경우 undefined에요. |\n| defaultLoaders | Object               | Next.js가 내부적으로 사용하는 기본 로더 설정입니다.          |\n\n특히 defaultLoaders에는 babel 설정 같은 필수 로더들이 들어있어서, 커스텀 환경에서도 Next.js 기본 로더 구성을 참고하면서 손쉽게 webpack 구성을 변경할 수 있어요.\n\n예를 들어, defaultLoaders.babel을 이렇게 사용할 수 있죠:\n\n```js\nmodule.exports = {\n  webpack(config, { defaultLoaders }) {\n    config.module.rules.push({\n      test: /\\.js$/,\n      use: [\n        defaultLoaders.babel, // 기본 babel-loader 설정을 이용\n        {\n          loader: 'my-custom-loader',\n          options: { /* ... */ },\n        },\n      ],\n    });\n    return config;\n  },\n};\n```\n\n이처럼 Next.js의 기본 babel 설정을 활용하면, 직접 설정을 완전히 새로 만드는 것보다 훨씬 편리하고 안정적으로 빌드 구성을 확장할 수 있어요. 꼭 필요한 부분만 덧붙이면서 성능도 챙겨보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n자, 이번에는 Next.js에서 MDX 파일을 처리하기 위한 웹팩 설정 예제를 한번 살펴볼게요. 원본 코드는 @next/mdx 플러그인에서 따온 건데, MDX를 바벨로더와 함께 사용하는 예시입니다.\n\n```js\n// babel-loader에 의존하는 로더를 추가하는 예시 설정\nmodule.exports = {\n  webpack: (config, options) =\u003e {\n    config.module.rules.push({\n      test: /\\.mdx/,  // .mdx 확장자를 가진 파일에 적용할 로더\n      use: [\n        options.defaultLoaders.babel,  // Next.js의 기본 babel 로더 사용\n        {\n          loader: '@mdx-js/loader',    // MDX 변환 로더 추가\n          options: pluginOptions.options,  // 추가 옵션 지정 가능\n        },\n      ],\n    });\n\n    return config;\n  },\n};\n```\n\n여기서 중요한 점은, MDX 파일을 먼저 babel-loader가 변환하고, 그 다음에 @mdx-js/loader가 MDX 문법을 React 컴포넌트 코드로 바꾼다는 거예요.\n\n\u003e 참고로 `pluginOptions.options` 부분이 빠져 있다면, 직접 옵션을 지정하거나 빈 객체 `{}`로 대체해도 됩니다. 환경에 따라 다르니까 참고하세요.\n\n---\n\n#### nextRuntime과 isServer 플래그 관련 팁\n\n그리고 문서 하단에 나온 `nextRuntime`에 관한 내용도 알아둬야 해요.\n\n- `nextRuntime`이 `\"edge\"`나 `\"nodejs\"`일 때 `isServer`가 항상 `true`로 설정돼요.\n- `\"edge\"` 런타임은 현재 미들웨어와 서버 컴포넌트(React Server Components)를 엣지 환경에서만 실행할 때 사용합니다.\n- 이 부분은 Next.js가 런타임 환경을 구분해서 코드 실행 위치를 판단할 때 중요해요.\n\n실제로 `\"edge\"` 환경은 지리적으로 가까운 서버에서 빠르게 응답하는 데 강점이 있으니, 미들웨어나 서버 컴포넌트 성능 최적화를 할 때 참고하시면 좋겠죠.\n\n---\n\n### 추가로 알려주는 팁!\n\nNext.js 웹팩 설정 수정할 때는 종종 `.mdx`뿐만 아니라 `.md` 파일도 함께 처리할 일이 많아요. 만약 그런 경우라면 `test` 항목을 `/\\.mdx?$/` 식으로 정규식 수정해서 한번에 처리하는 것도 추천합니다. 그리고 MDX를 쓸 때는 `@mdx-js/react` 패키지를 이용해서 MDX 내에서 React 컴포넌트를 자연스럽게 사용할 수 있으니, 프로젝트 요구에 맞춰 한번 적용해보세요.\n\n---\n\n필요하면 더 자세한 설정이나 MDX 활용법도 알려줄 수 있으니, 언제든 질문해 주세요!","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":6},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003e커스텀 Webpack 설정하기\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고할 점: Webpack 설정을 변경하는 건 버전 규칙(semver)에 포함되지 않으니, 변경 시에 신중하게 진행하세요!\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eNext.js에 커스텀 Webpack 설정을 추가하기 전에, 먼저 Next.js가 이미 여러분의 요구사항을 기본적으로 지원하고 있는지 확인해보는 게 좋아요. 기본적으로 다음 기능들은 Next.js에서 지원하고 있습니다:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCSS 가져오기 (CSS imports)\u003c/li\u003e\n\u003cli\u003eCSS 모듈 (CSS modules)\u003c/li\u003e\n\u003cli\u003eSass/SCSS 가져오기 (Sass/SCSS imports)\u003c/li\u003e\n\u003cli\u003eSass/SCSS 모듈 (Sass/SCSS modules)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이 기능들은 Next.js에서 별도의 설정 없이도 바로 사용할 수 있어서, 간단한 스타일링 작업이라면 따로 Webpack 설정을 건드릴 필요가 없답니다.\u003c/p\u003e\n\u003cp\u003e만약 여러분이 좀 더 특별한 설정이 필요하거나, Next.js가 기본적으로 지원하지 않는 로더(loader)나 플러그인(plugin)을 추가하려는 경우에만 커스텀 Webpack 설정 작업을 하시면 돼요.\u003c/p\u003e\n\u003cp\u003e그러니, Webpack 설정을 건드리기 전에 항상 공식 문서나 Next.js의 최신 지원사항을 꼭 먼저 살펴보세요! 그래야 불필요한 고민과 에러를 줄일 수 있습니다.\u003c/p\u003e\n\u003cp\u003e추가로, Webpack 설정을 수정할 때는 프로젝트 전체 빌드에 영향을 주기 때문에 꼭 변경사항을 잘 테스트하고, 빌드 속도가 느려지는 부분도 체크해보시는 걸 추천드려요.\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e웹 개발할 때 자주 요청받는 기능들은 플러그인 형태로 제공되는 게 많아요. 예를 들어,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003e@next/mdx\u003c/code\u003e : MDX 파일을 Next.js에서 바로 사용할 수 있게 해줍니다. (즉, Markdown과 JSX를 결합해서 쓸 수 있죠)\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e@next/bundle-analyzer\u003c/code\u003e : 번들 크기를 시각화해줘서 성능 최적화에 도움을 줘요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e그리고 Next.js에서 기본적으로 쓰는 webpack 설정을 내가 원하는 대로 바꾸고 싶다면, \u003ccode\u003enext.config.js\u003c/code\u003e 파일 안에 webpack 설정 확장 함수를 넣으면 돼요. 아래처럼요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003ewebpack\u003c/span\u003e: \u003cspan class=\"hljs-function\"\u003e(\u003cspan class=\"hljs-params\"\u003e\n    config,\n    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }\n  \u003c/span\u003e) =\u003e\u003c/span\u003e {\n    \u003cspan class=\"hljs-comment\"\u003e// 여기서 config를 원하는 대로 수정하세요\u003c/span\u003e\n\n    \u003cspan class=\"hljs-comment\"\u003e// 수정한 config를 꼭 리턴해줘야 합니다.\u003c/span\u003e\n    \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e config\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e위 함수에서 \u003ccode\u003econfig\u003c/code\u003e는 현재의 webpack 설정 객체고, 두 번째 인자에는 빌드 과정에 유용한 여러 정보가 담겨 있어요. 예를 들어 개발 모드인지 \u003ccode\u003edev\u003c/code\u003e를 통해 알 수 있고, 서버사이드인지 \u003ccode\u003eisServer\u003c/code\u003e로 구분할 수도 있죠.\u003c/p\u003e\n\u003cp\u003e실제로 확장할 때 흔히 하는 작업 예를 들면:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e특정 로더 추가하기 (예: 이미지, 스타일 등)\u003c/li\u003e\n\u003cli\u003e플러그인 추가하거나 교체하기\u003c/li\u003e\n\u003cli\u003e프로덕션 빌드에서 코드 압축 설정 변경하기 등\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e꼭 기억할 점은, 함수 마지막에 수정한 config를 반환해야만 원하는 대로 적용된다는 점이에요. 안 그러면 변경 사항이 무시됩니다.\u003c/p\u003e\n\u003cp\u003e이 부분만 잘 활용해도 Next.js의 번들링 과정을 유연하게 제어할 수 있으니 기회가 되면 한번 시도해보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003ewebpack 함수는 총 세 번 실행돼요. 서버 쪽에서 두 번(하나는 Node.js, 다른 하나는 Edge 런타임용), 그리고 클라이언트 쪽에서 한 번 이렇게요. 덕분에 isServer 속성을 활용해서 클라이언트와 서버용 webpack 설정을 쉽게 구분할 수 있답니다.\u003c/p\u003e\n\u003cp\u003ewebpack 함수에 전달되는 두 번째 인자는 여러 정보들을 담은 객체인데, 주요 속성은 다음과 같아요:\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e속성명\u003c/th\u003e\u003cth\u003e타입\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ebuildId\u003c/td\u003e\u003ctd\u003eString\u003c/td\u003e\u003ctd\u003e빌드 간 고유 식별자로 사용돼요.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003edev\u003c/td\u003e\u003ctd\u003eBoolean\u003c/td\u003e\u003ctd\u003e현재 개발 모드인지 여부를 나타내요. (true면 개발 모드)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eisServer\u003c/td\u003e\u003ctd\u003eBoolean\u003c/td\u003e\u003ctd\u003e서버 사이드 컴파일일 경우 true, 클라이언트 사이드 컴파일일 경우 false에요.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003enextRuntime\u003c/td\u003e\u003ctd\u003eString | undefined\u003c/td\u003e\u003ctd\u003e서버 사이드 컴파일에서의 타겟 런타임 - \"edge\" 또는 \"nodejs\". 클라이언트 컴파일일 경우 undefined에요.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003edefaultLoaders\u003c/td\u003e\u003ctd\u003eObject\u003c/td\u003e\u003ctd\u003eNext.js가 내부적으로 사용하는 기본 로더 설정입니다.\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003e특히 defaultLoaders에는 babel 설정 같은 필수 로더들이 들어있어서, 커스텀 환경에서도 Next.js 기본 로더 구성을 참고하면서 손쉽게 webpack 구성을 변경할 수 있어요.\u003c/p\u003e\n\u003cp\u003e예를 들어, defaultLoaders.babel을 이렇게 사용할 수 있죠:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-title function_\"\u003ewebpack\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003econfig, { defaultLoaders }\u003c/span\u003e) {\n    config.\u003cspan class=\"hljs-property\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003erules\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003epush\u003c/span\u003e({\n      \u003cspan class=\"hljs-attr\"\u003etest\u003c/span\u003e: \u003cspan class=\"hljs-regexp\"\u003e/\\.js$/\u003c/span\u003e,\n      \u003cspan class=\"hljs-attr\"\u003euse\u003c/span\u003e: [\n        defaultLoaders.\u003cspan class=\"hljs-property\"\u003ebabel\u003c/span\u003e, \u003cspan class=\"hljs-comment\"\u003e// 기본 babel-loader 설정을 이용\u003c/span\u003e\n        {\n          \u003cspan class=\"hljs-attr\"\u003eloader\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'my-custom-loader'\u003c/span\u003e,\n          \u003cspan class=\"hljs-attr\"\u003eoptions\u003c/span\u003e: { \u003cspan class=\"hljs-comment\"\u003e/* ... */\u003c/span\u003e },\n        },\n      ],\n    });\n    \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e config;\n  },\n};\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이처럼 Next.js의 기본 babel 설정을 활용하면, 직접 설정을 완전히 새로 만드는 것보다 훨씬 편리하고 안정적으로 빌드 구성을 확장할 수 있어요. 꼭 필요한 부분만 덧붙이면서 성능도 챙겨보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e자, 이번에는 Next.js에서 MDX 파일을 처리하기 위한 웹팩 설정 예제를 한번 살펴볼게요. 원본 코드는 @next/mdx 플러그인에서 따온 건데, MDX를 바벨로더와 함께 사용하는 예시입니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e// babel-loader에 의존하는 로더를 추가하는 예시 설정\u003c/span\u003e\n\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003ewebpack\u003c/span\u003e: \u003cspan class=\"hljs-function\"\u003e(\u003cspan class=\"hljs-params\"\u003econfig, options\u003c/span\u003e) =\u003e\u003c/span\u003e {\n    config.\u003cspan class=\"hljs-property\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003erules\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003epush\u003c/span\u003e({\n      \u003cspan class=\"hljs-attr\"\u003etest\u003c/span\u003e: \u003cspan class=\"hljs-regexp\"\u003e/\\.mdx/\u003c/span\u003e,  \u003cspan class=\"hljs-comment\"\u003e// .mdx 확장자를 가진 파일에 적용할 로더\u003c/span\u003e\n      \u003cspan class=\"hljs-attr\"\u003euse\u003c/span\u003e: [\n        options.\u003cspan class=\"hljs-property\"\u003edefaultLoaders\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003ebabel\u003c/span\u003e,  \u003cspan class=\"hljs-comment\"\u003e// Next.js의 기본 babel 로더 사용\u003c/span\u003e\n        {\n          \u003cspan class=\"hljs-attr\"\u003eloader\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'@mdx-js/loader'\u003c/span\u003e,    \u003cspan class=\"hljs-comment\"\u003e// MDX 변환 로더 추가\u003c/span\u003e\n          \u003cspan class=\"hljs-attr\"\u003eoptions\u003c/span\u003e: pluginOptions.\u003cspan class=\"hljs-property\"\u003eoptions\u003c/span\u003e,  \u003cspan class=\"hljs-comment\"\u003e// 추가 옵션 지정 가능\u003c/span\u003e\n        },\n      ],\n    });\n\n    \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e config;\n  },\n};\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 중요한 점은, MDX 파일을 먼저 babel-loader가 변환하고, 그 다음에 @mdx-js/loader가 MDX 문법을 React 컴포넌트 코드로 바꾼다는 거예요.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고로 \u003ccode\u003epluginOptions.options\u003c/code\u003e 부분이 빠져 있다면, 직접 옵션을 지정하거나 빈 객체 \u003ccode\u003e{}\u003c/code\u003e로 대체해도 됩니다. 환경에 따라 다르니까 참고하세요.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003chr\u003e\n\u003ch4\u003enextRuntime과 isServer 플래그 관련 팁\u003c/h4\u003e\n\u003cp\u003e그리고 문서 하단에 나온 \u003ccode\u003enextRuntime\u003c/code\u003e에 관한 내용도 알아둬야 해요.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003enextRuntime\u003c/code\u003e이 \u003ccode\u003e\"edge\"\u003c/code\u003e나 \u003ccode\u003e\"nodejs\"\u003c/code\u003e일 때 \u003ccode\u003eisServer\u003c/code\u003e가 항상 \u003ccode\u003etrue\u003c/code\u003e로 설정돼요.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e\"edge\"\u003c/code\u003e 런타임은 현재 미들웨어와 서버 컴포넌트(React Server Components)를 엣지 환경에서만 실행할 때 사용합니다.\u003c/li\u003e\n\u003cli\u003e이 부분은 Next.js가 런타임 환경을 구분해서 코드 실행 위치를 판단할 때 중요해요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e실제로 \u003ccode\u003e\"edge\"\u003c/code\u003e 환경은 지리적으로 가까운 서버에서 빠르게 응답하는 데 강점이 있으니, 미들웨어나 서버 컴포넌트 성능 최적화를 할 때 참고하시면 좋겠죠.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e추가로 알려주는 팁!\u003c/h3\u003e\n\u003cp\u003eNext.js 웹팩 설정 수정할 때는 종종 \u003ccode\u003e.mdx\u003c/code\u003e뿐만 아니라 \u003ccode\u003e.md\u003c/code\u003e 파일도 함께 처리할 일이 많아요. 만약 그런 경우라면 \u003ccode\u003etest\u003c/code\u003e 항목을 \u003ccode\u003e/\\.mdx?$/\u003c/code\u003e 식으로 정규식 수정해서 한번에 처리하는 것도 추천합니다. 그리고 MDX를 쓸 때는 \u003ccode\u003e@mdx-js/react\u003c/code\u003e 패키지를 이용해서 MDX 내에서 React 컴포넌트를 자연스럽게 사용할 수 있으니, 프로젝트 요구에 맞춰 한번 적용해보세요.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e필요하면 더 자세한 설정이나 MDX 활용법도 알려줄 수 있으니, 언제든 질문해 주세요!\u003c/p\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-CustomWebpackConfig"},"buildId":"X4OrKfmLtU3-3BijwfHe6","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>

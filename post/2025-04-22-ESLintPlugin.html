@@ -1,0 +1,658 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title>Next.js와 React 프로젝트에 ESLint Plugin 추가하는 방법 | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-ESLintPlugin" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content="Next.js와 React 프로젝트에 ESLint Plugin 추가하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:title" content="Next.js와 React 프로젝트에 ESLint Plugin 추가하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-ESLintPlugin" data-gatsby-head="true"/><meta name="twitter:title" content="Next.js와 React 프로젝트에 ESLint Plugin 추가하는 방법 | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 13:36" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/X4OrKfmLtU3-3BijwfHe6/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/X4OrKfmLtU3-3BijwfHe6/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx">Next.js와 React 프로젝트에 ESLint Plugin 추가하는 방법</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt="Next.js와 React 프로젝트에 ESLint Plugin 추가하는 방법" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">25<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>ESLint 플러그인</h1>
+<p>Next.js에는 이미 기본 설정에 포함되어 있는 <code>eslint-plugin-next</code>라는 ESLint 플러그인이 있어요. 이 플러그인은 Next.js 애플리케이션을 개발할 때 자주 발생하는 문제나 실수를 미리 잡아내도록 도와줍니다. 덕분에 더 깔끔하고 버그 없는 코드를 작성할 수 있죠.</p>
+<h2>참고 자료</h2>
+<p><code>eslint-config-next</code> 안에는 아래에 소개하는 여러 ESLint 플러그인들을 추천 규칙 세트로 포함하고 있어요. 그러니까 Next.js를 쓰면 별도의 복잡한 설정 없이도 좋은 코드 품질을 유지할 수 있다는 뜻이죠.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ESLint Plugin</th><th>설명</th></tr></thead><tbody><tr><td>eslint-plugin-react</td><td>React 코드에서 발생할 수 있는 문제를 잡아냄</td></tr><tr><td>eslint-plugin-jsx-a11y</td><td>웹 접근성 관련 규칙을 적용해 좀 더 접근성 좋은 UI 작성 지원</td></tr><tr><td>eslint-plugin-import</td><td>모듈 임포트 관련 문제를 방지</td></tr></tbody></table>
+<p>Next.js 개발할 때는 이런 기본 설정들이 이미 잘 갖춰져 있으니, 너무 ESLint 설정에만 신경 쓰지 말고 개발에 집중해도 되겠죠? 물론 필요하다면 플러그인이나 규칙을 추가로 조정해서 내 스타일에 맞게 커스터마이징하는 것도 가능해요.</p>
+<p>추가로, ESLint와 prettier 같은 코드 스타일링 도구를 함께 사용하면 코드 품질 유지와 팀 협업이 훨씬 수월해진다는 점도 기억해두면 좋겠네요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<ul>
+<li>eslint-plugin-react</li>
+<li>eslint-plugin-react-hooks</li>
+<li>eslint-plugin-next</li>
+</ul>
+<p>이 설정들은 next.config.js에 있는 설정보다 우선 적용됩니다.</p>
+<h3>규칙 (Rules)</h3>
+<p>전체 규칙 목록은 다음과 같습니다:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>규칙 이름</th><th>설명</th></tr></thead><tbody><tr><td>eslint-plugin-react</td><td>React 관련 코딩 스타일과 규칙을 관리하는 플러그인</td></tr><tr><td>eslint-plugin-react-hooks</td><td>React Hooks 관련 규칙을 강화해주는 플러그인</td></tr><tr><td>eslint-plugin-next</td><td>Next.js 특화 규칙을 포함하는 플러그인</td></tr></tbody></table>
+<p>ESLint 플러그인들은 프로젝트의 코드 품질과 일관성을 유지하는 데 정말 유용해요. Next.js 프로젝트를 할 때 이런 플러그인들을 쓰면 Hooks를 잘못 쓰거나, React 컴포넌트에서 흔히 발생하는 실수를 미리 잡아낼 수 있어서 개발할 때 시간도 절약되고 오류도 줄일 수 있답니다.</p>
+<p>특히, <code>eslint-plugin-next</code>는 Next.js를 사용할 때만 적용되는 특수 규칙들(예: 이미지 최적화, 링크 태그 사용 등)을 포함하고 있어서 Next.js 프로젝트에 최적화된 코드를 작성하는 데 도움을 줍니다. 그런데 <code>next.config.js</code>의 설정보다 이 플러그인 설정이 우선한다는 점, 꼭 기억하세요!</p>
+<p>이 아래에 구체적인 각 규칙 셋을 보시면, 어떤 규칙들이 있고 각각 어떻게 동작하는지 더 자세히 알 수 있을 거예요. 궁금한 점 있으면 언제든 물어보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>아래는 Next.js에서 권장하는 ESLint 규칙들 목록입니다. 나열된 규칙들은 기본 권장 설정에 활성화되어 있고, 각각 어떤 역할을 하는지 간단히 설명되어 있어요. 참고하면 코드 작성 시 품질을 높이는데 큰 도움이 됩니다!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="center">권장 설정에 활성화됨</th><th align="left">규칙</th><th align="left">설명</th></tr></thead><tbody><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/google-font-display" rel="nofollow" target="_blank">@next/next/google-font-display</a></td><td align="left">Google Fonts 사용 시 <code>font-display</code> 속성 강제 적용</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/google-font-preconnect" rel="nofollow" target="_blank">@next/next/google-font-preconnect</a></td><td align="left">Google Fonts에 대해 <code>preconnect</code> 태그 사용 권장</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/inline-script-id" rel="nofollow" target="_blank">@next/next/inline-script-id</a></td><td align="left">인라인 스크립트가 포함된 <code>next/script</code> 컴포넌트에 <code>id</code> 속성 필요</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/next-script-for-ga" rel="nofollow" target="_blank">@next/next/next-script-for-ga</a></td><td align="left">구글 애널리틱스 인라인 스크립트 사용 시 <code>next/script</code> 컴포넌트를 선호</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-assign-module-variable" rel="nofollow" target="_blank">@next/next/no-assign-module-variable</a></td><td align="left"><code>module</code> 변수에 할당하는 행위 방지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-async-client-component" rel="nofollow" target="_blank">@next/next/no-async-client-component</a></td><td align="left">클라이언트 컴포넌트를 async 함수로 작성하는 것을 방지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-before-interactive-script-outside-document" rel="nofollow" target="_blank">@next/next/no-before-interactive-script-outside-document</a></td><td align="left"><code>next/script</code>의 <code>beforeInteractive</code> 옵션은 <code>pages/_document.js</code>에서만 허용</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-css-tags" rel="nofollow" target="_blank">@next/next/no-css-tags</a></td><td align="left">수동 스타일 시트 태그 방지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-document-import-in-page" rel="nofollow" target="_blank">@next/next/no-document-import-in-page</a></td><td align="left"><code>next/document</code>를 <code>pages/_document.js</code> 외부에서 임포트 금지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-duplicate-head" rel="nofollow" target="_blank">@next/next/no-duplicate-head</a></td><td align="left"><code>pages/_document.js</code> 내에서 <code>&#x3C;Head></code> 중복 사용 방지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-head-element" rel="nofollow" target="_blank">@next/next/no-head-element</a></td><td align="left"><code>&#x3C;head></code> 요소 사용 방지 (Next.js에서는 <code>&#x3C;Head></code> 컴포넌트 사용 권장)</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-head-import-in-document" rel="nofollow" target="_blank">@next/next/no-head-import-in-document</a></td><td align="left"><code>pages/_document.js</code>에서 <code>next/head</code> 임포트 금지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-html-link-for-pages" rel="nofollow" target="_blank">@next/next/no-html-link-for-pages</a></td><td align="left">내부 페이지 이동 시 <code>&#x3C;a></code> 대신 Next.js의 <code>&#x3C;Link></code> 컴포넌트 사용 권장</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-img-element" rel="nofollow" target="_blank">@next/next/no-img-element</a></td><td align="left">LCP (Largest Contentful Paint) 성능 저하와 높은 대역폭 문제 때문에 <code>&#x3C;img></code> 대신 Next.js <code>Image</code> 컴포넌트 사용 권장</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-page-custom-font" rel="nofollow" target="_blank">@next/next/no-page-custom-font</a></td><td align="left">페이지 단독 사용자 지정 폰트 사용 방지 (글로벌로 적용 권장)</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-script-component-in-head" rel="nofollow" target="_blank">@next/next/no-script-component-in-head</a></td><td align="left"><code>next/head</code> 컴포넌트에 <code>next/script</code> 사용 금지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-styled-jsx-in-document" rel="nofollow" target="_blank">@next/next/no-styled-jsx-in-document</a></td><td align="left"><code>pages/_document.js</code> 내 styled-jsx 사용 금지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-sync-scripts" rel="nofollow" target="_blank">@next/next/no-sync-scripts</a></td><td align="left">동기 방식 스크립트 사용 방지</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-title-in-document-head" rel="nofollow" target="_blank">@next/next/no-title-in-document-head</a></td><td align="left"><code>next/document</code>에서 <code>Head</code> 컴포넌트 안에 <code>&#x3C;title></code> 사용 금지</td></tr><tr><td align="center">✅</td><td align="left">@next/next/no-typos</td><td align="left">Next.js 데이터 패칭 함수에서 흔히 하는 오타 방지 (<code>getStaticProps</code> 등)</td></tr><tr><td align="center">✅</td><td align="left"><a href="https://nextjs.org/docs/messages/no-unwanted-polyfillio" rel="nofollow" target="_blank">@next/next/no-unwanted-polyfillio</a></td><td align="left">Polyfill.io의 중복 폴리필 방지</td></tr></tbody></table>
+<hr>
+<h3>추가 팁!</h3>
+<ul>
+<li>위 리스트의 많은 규칙들은 Next.js에서 권장하는 최적화 및 구조적 일관성을 지키도록 도와줍니다.</li>
+<li>예를 들어, 내부 페이지 이동 시 <code>&#x3C;Link></code> 컴포넌트를 쓰는 이유는 클라이언트 사이드 네비게이션 활성화와 빠른 페이지 전환을 가능하게 하기 때문입니다.</li>
+<li>그리고 이미지 최적화를 위해 Next.js의 <code>Image</code> 컴포넌트를 사용하는 것이 페이지 로딩 속도 향상과 대역폭 절약에 크게 유리해요.</li>
+<li><code>next/script</code> 컴포넌트는 스크립트 로딩 시점 및 우선순위를 조절하여 성능 최적화를 돕는데, 특히 Google Analytics 같은 외부 스크립트는 꼭 규칙대로 적용하는 게 좋습니다.</li>
+</ul>
+<hr>
+<h3>에디터에서 경고와 오류를 바로 확인하려면?</h3>
+<p>이런 ESLint 규칙들은 혼자 일일이 체크하기 어려운데요, VSCode 같은 편집기에서 Next.js ESLint 플러그인을 사용하면 개발 중 곧바로 문제점을 확인할 수 있어서 훨씬 편리합니다!</p>
+<hr>
+<h2>예시: 커스텀 디렉토리 및 파일에 Lint 적용하기</h2>
+<pre><code class="hljs language-bash">npx next lint --<span class="hljs-built_in">dir</span>=app,components --files=**/*.ts,**/*.tsx
+</code></pre>
+<p>이렇게 하면 기본 <code>pages</code> 디렉토리 외에 <code>app</code>, <code>components</code> 폴더도 lint 검사를 할 수 있어요. 실제 프로젝트에 맞게 잘 활용해 보세요!</p>
+<hr>
+<p>Next.js 개발하면서 꼭 알아두면 좋은 필수 ESLint 규칙들!</p>
+<p>꾸준히 규칙을 지키면서 개발하면 유지보수가 훨씬 쉬워지고, 코드 품질도 자연스럽게 올라가니까 꼭 적용해 보세요 :)</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Next.js는 기본적으로 pages/, app/, components/, lib/, src/ 디렉터리 안에 있는 모든 파일들에 대해 ESLint를 실행해줘요. 근데 프로덕션 빌드할 때는 어떤 디렉터리만 검사할지 next.config.js 파일 안에 eslint 옵션의 dirs 배열로 지정할 수도 있답니다.</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">eslint</span>: {
+    <span class="hljs-attr">dirs</span>: [<span class="hljs-string">'pages'</span>, <span class="hljs-string">'utils'</span>], <span class="hljs-comment">// next build 시에 'pages'와 'utils' 폴더만 ESLint 검사 대상이 됩니다.</span>
+  },
+}
+</code></pre>
+<p>그리고 커맨드 라인에서 직접 ESLint를 실행할 때는 <code>next lint</code> 다음에 <code>--dir</code>이나 <code>--file</code> 플래그를 붙여 특정 디렉터리나 파일만 검사할 수도 있어요.</p>
+<pre><code class="hljs language-bash">next lint --<span class="hljs-built_in">dir</span> pages --<span class="hljs-built_in">dir</span> utils --file bar.js
+</code></pre>
+<p>이렇게 하면 pages와 utils 폴더, 그리고 bar.js 파일만 ESLint 검사를 하게 돼서, 검사 범위를 좁혀서 속도를 개선하거나 원하는 부분만 빠르게 체크할 때 유용해요.</p>
+<p>추가로 팁을 드리자면, 대규모 프로젝트에서는 불필요한 파일까지 ESLint가 검사하지 않도록 dirs 옵션을 잘 설정해두는 게 빌드 시간을 줄이는 데 꽤 도움이 돼요. 프로젝트가 커질수록 이런 세세한 설정이 실제 개발 효율에도 큰 차이를 만들어낸답니다!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>모노레포(monorepo)에서 루트 디렉터리 지정하기</h3>
+<p>안녕하세요! 오늘은 Next.js 프로젝트를 모노레포 구조로 관리할 때, <code>eslint-plugin-next</code>가 Next.js 애플리케이션이 어디 있는지 잘 찾게 만드는 방법에 대해 이야기해볼게요.</p>
+<p>보통 Next.js 프로젝트를 루트 디렉터리에 둔다면 별다른 설정 없이 잘 작동하는데요, 모노레포처럼 여러 패키지가 서브디렉터리에 있을 경우엔 <code>eslint-plugin-next</code>가 어디서 Next.js 일을 처리해야 할지 모를 수 있어요. 그래서 <code>.eslintrc</code> 파일(또는 설정 파일)에서 <code>settings</code> 속성 안에 <code>next.rootDir</code> 옵션을 지정해주는 거죠.</p>
+<p>즉, ESLint 설정을 조금 손봐서 Next.js 앱 경로를 정확히 알려주는 방법을 사용할 수 있습니다. 예제를 볼게요:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">FlatCompat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@eslint/eslintrc'</span>
+
+<span class="hljs-keyword">const</span> compat = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlatCompat</span>({
+  <span class="hljs-comment">// import.meta.dirname는 Node.js v20.11.0 이상에서 사용 가능해요</span>
+  <span class="hljs-attr">baseDirectory</span>: <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">dirname</span>,
+})
+
+<span class="hljs-keyword">const</span> eslintConfig = [
+  ...compat.<span class="hljs-title function_">config</span>({
+    <span class="hljs-attr">extends</span>: [<span class="hljs-string">'next'</span>],
+    <span class="hljs-attr">settings</span>: {
+      <span class="hljs-attr">next</span>: {
+        <span class="hljs-attr">rootDir</span>: <span class="hljs-string">'packages/my-app/'</span>,  <span class="hljs-comment">// 여기에 Next.js 앱 폴더 경로를 넣어주세요</span>
+      },
+    },
+  }),
+]
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eslintConfig
+</code></pre>
+<p>여기서 좀 더 보충설명을 하자면,</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>설정</th><th>설명</th></tr></thead><tbody><tr><td><code>rootDir</code></td><td>Next.js가 위치한 경로 (상대경로나 절대경로 모두 가능)</td></tr><tr><td>glob 패턴</td><td>여러 애플리케이션이 있는 경우 <code>"packages/*/"</code> 같은 glob 패턴도 쓸 수 있어요</td></tr><tr><td>배열 사용</td><td>여러 개 경로(또는 glob)를 배열로 묶어서 지정하는 것도 가능합니다</td></tr></tbody></table>
+<p>예를 들어, 여러 앱이 있을 때는 이렇게 할 수도 있죠:</p>
+<pre><code class="hljs language-js"><span class="hljs-attr">settings</span>: {
+  <span class="hljs-attr">next</span>: {
+    <span class="hljs-attr">rootDir</span>: [<span class="hljs-string">'packages/app1/'</span>, <span class="hljs-string">'packages/app2/'</span>, <span class="hljs-string">'packages/*/'</span>],
+  },
+}
+</code></pre>
+<p>이 설정 덕분에 ESLint가 Next.js 프로젝트 내 규칙을 제대로 이해하고 검사할 수 있어, 잘못된 코드 패턴이나 Next.js 특화된 규칙 위반을 정확히 잡아줍니다.</p>
+<hr>
+<p><strong>참고로</strong> <code>import.meta.dirname</code>는 Node.js v20.11.0부터 지원하니, 이 버전 이하를 사용 중이라면 다른 방법(예: <code>__dirname</code> 또는 경로 모듈 활용)을 써야 해요.</p>
+<hr>
+<h3>정리하자면</h3>
+<ul>
+<li>모노레포에서 각 Next.js 앱 위치를 알려줘야 ESLint가 제대로 동작한다.</li>
+<li><code>.eslintrc</code> 혹은 ESLint 설정 파일의 <code>settings.next.rootDir</code>에 앱 경로 또는 glob 패턴을 지정하면 된다.</li>
+<li>여러 앱이 있으면 배열로 여러 경로를 지정할 수도 있다.</li>
+</ul>
+<p>monorepo 나눠서 관리하는 분들은 이렇게 한번 설정해두면 ESLint도 Next.js도 모두 스트레스 없이 사용할 수 있으니 꼭 참고해보세요! :)</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>캐시 비활성화하기</h3>
+<p>ESLint는 기본적으로 처리한 파일들의 정보를 캐시해서 성능을 높여줘요. 이 캐시는 보통 <code>.next/cache</code> 폴더나 여러분이 설정한 빌드 디렉토리에 저장됩니다.</p>
+<p>그런데 만약 ESLint 규칙 중에 한 소스 파일의 내용뿐만 아니라 다른 상태나 파일에 의존하는 규칙을 사용할 때는 캐시가 문제를 일으킬 수 있거든요. 이런 경우 캐시를 끄고 싶다면 <code>next lint</code> 명령어에 <code>--no-cache</code> 플래그를 붙여주면 돼요.</p>
+<pre><code class="hljs language-bash">next lint --no-cache
+</code></pre>
+<p>이렇게 하면, ESLint가 이전에 저장해둔 캐시를 무시하고 항상 새로 검사하기 때문에 캐시로 인한 이상 동작을 방지할 수 있습니다.</p>
+<hr>
+<h3>ESLint 규칙 비활성화하기</h3>
+<p>ESLint 룰을 상황에 따라 꺼야 할 때가 있어요. 프로젝트 전체에서 특정 룰을 끌 수도 있고, 특정 파일이나 코드 일부에만 룰을 무시하도록 설정할 수 있죠. 다음에는 ESLint 규칙 비활성화 방법에 대해서도 차근차근 알려드릴게요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>안녕하세요, 개발자 여러분! 오늘은 Next.js, React, 그리고 React Hooks 플러그인에서 제공하는 ESLint 규칙들을 어떻게 수정하거나 비활성화할 수 있는지 알려드리려고 해요. 특히 <code>.eslintrc</code> 설정 파일에서 <code>rules</code> 프로퍼티를 직접 변경하는 방법에 대해 다뤄볼게요.</p>
+<p>먼저, Next.js에서는 ESLint 설정 방식이 조금 바뀌었는데요, 새로운 <code>@eslint/eslintrc</code> 패키지를 활용해서 호환성을 유지하고 설정을 쉽게 변경할 수 있어요. 아래 예시 코드를 통해 이해해볼게요.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">FlatCompat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@eslint/eslintrc'</span>
+
+<span class="hljs-keyword">const</span> compat = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlatCompat</span>({
+  <span class="hljs-comment">// import.meta.dirname은 Node.js v20.11.0 이상부터 사용 가능합니다.</span>
+  <span class="hljs-attr">baseDirectory</span>: <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">dirname</span>,
+})
+
+<span class="hljs-keyword">const</span> eslintConfig = [
+  ...compat.<span class="hljs-title function_">config</span>({
+    <span class="hljs-attr">extends</span>: [<span class="hljs-string">'next'</span>],
+    <span class="hljs-attr">rules</span>: {
+      <span class="hljs-comment">// react 컴포넌트 내에서 escape 처리되지 않은 엔티티 사용 경고를 끕니다.</span>
+      <span class="hljs-string">'react/no-unescaped-entities'</span>: <span class="hljs-string">'off'</span>,
+      <span class="hljs-comment">// Next.js 페이지에서 custom font 사용을 금지하는 규칙을 끕니다.</span>
+      <span class="hljs-string">'@next/next/no-page-custom-font'</span>: <span class="hljs-string">'off'</span>,
+    },
+  }),
+]
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eslintConfig
+</code></pre>
+<h3>설명을 조금 더 살짝 덧붙여볼게요</h3>
+<ul>
+<li><code>FlatCompat</code>는 Next.js 최신 ESLint 설정이 기본적으로 <code>flat</code> config 방식을 사용하면서 발생하는 호환성 문제를 해결해 줍니다.</li>
+<li><code>baseDirectory</code>는 현재 설정 파일의 경로 기준으로 확장과 규칙을 찾도록 해 줍니다.</li>
+<li><code>extends</code>에 <code>'next'</code>를 명시하면 기본적으로 Next.js에서 추천하는 ESLint 규칙 세트를 사용하겠다는 뜻입니다.</li>
+<li>여기서 <code>rules</code> 안에 원하는 규칙을 <code>off</code>나 다른 심각도 수준(<code>warn</code>, <code>error</code>)으로 직접 조정할 수 있어요.</li>
+</ul>
+<hr>
+<h3>Core Web Vitals 관련 팁!</h3>
+<p>Next.js에서 <code>next lint</code> 명령어를 처음 실행할 때, <code>strict</code> 옵션을 선택하면 <code>next/core-web-vitals</code>라는 별도의 규칙 세트가 자동으로 활성화돼요. 이 규칙들은 웹 성능과 사용자 경험에 큰 영향을 미치는 Core Web Vitals 지표 개선에 도움을 준답니다. 따라서 엄격한 품질 관리가 필요한 프로젝트에서는 이 옵션을 적극 권장드려요.</p>
+<hr>
+<p>요즘 ESLint 설정 방법이 조금 바뀌었지만 위 방법처럼 하면 이전보다 훨씬 유연하고 깔끔하게 원하는 규칙을 커스터마이징할 수 있습니다. 혹시 더 궁금한 점 있으면 편하게 알려주세요! 개발자 여러분, 행복한 코딩 하세요! 🚀</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>이번 글에서는 Next.js 프로젝트에서 ESLint 설정을 할 때 자주 쓰이는 <code>next/core-web-vitals</code> 확장 설정을 Flat ESLint 설정 방식과 함께 사용하는 방법을 소개할게요. 실무에서 꼭 알아두면 좋은 내용이니, 재미있게 읽어주세요!</p>
+<hr>
+<h2><code>next/core-web-vitals</code>란?</h2>
+<p>Next.js에서 제공하는 <code>next/core-web-vitals</code>는 Core Web Vitals(사용자 경험과 성능지표에 중요한 요소들)를 기준으로 ESLint 규칙들을 강화한 설정입니다. 기본적으로 경고(warning)로 표시되던 규칙 중 사용자 경험에 치명적인 부분에 대해서는 에러(error)로 올려줍니다. 이 덕분에 웹 앱 성능과 접근성을 더 신경 쓸 수 있죠.</p>
+<h3>유용한 점</h3>
+<ul>
+<li>Create Next App으로 새 프로젝트 만들면 자동으로 포함돼 있어요.</li>
+<li>Core Web Vitals에 영향을 주는 코드에 대한 검사 강화</li>
+<li>런타임 성능과 SEO, 사용자 경험 개선에 도움</li>
+</ul>
+<hr>
+<h2>Flat ESLint 설정에서는 이렇게 써요</h2>
+<p>ESLint 8버전부터는 구성 파일이 Flat Config라는 새로운 방식도 지원합니다. 기존 <code>.eslintrc.js</code> 대신 <code>eslint.config.js</code> 같은 파일에 설정을 배열 형태로 쓴다고 생각하면 쉬워요.</p>
+<p><code>@eslint/eslintrc</code> 패키지의 <code>FlatCompat</code> 도구를 이용하면 이전 <code>.eslintrc</code> 형식을 Flat Config으로 변환해 쓸 수 있어서, 그 점을 활용한 코드가 바로 아래 예시입니다.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">FlatCompat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@eslint/eslintrc'</span>
+
+<span class="hljs-keyword">const</span> compat = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlatCompat</span>({
+  <span class="hljs-comment">// import.meta.dirname은 Node.js v20.11.0 이후 버전에서 사용 가능해요.</span>
+  <span class="hljs-attr">baseDirectory</span>: <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">dirname</span>,
+})
+
+<span class="hljs-keyword">const</span> eslintConfig = [
+  ...compat.<span class="hljs-title function_">config</span>({
+    <span class="hljs-attr">extends</span>: [<span class="hljs-string">'next/core-web-vitals'</span>],
+  }),
+]
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eslintConfig
+</code></pre>
+<ul>
+<li><code>FlatCompat</code>에 프로젝트 경로를 넘겨준 후,</li>
+<li><code>compat.config()</code> 메서드에서 <code>extends</code> 배열에 <code>next/core-web-vitals</code>를 추가해줘요.</li>
+<li>결과물을 그대로 export하면 ESLint가 Flat Config 방식으로 인식합니다.</li>
+</ul>
+<hr>
+<h2>TypeScript 프로젝트에서 쓸 땐?</h2>
+<p>TypeScript에서도 마찬가지로 위 방식을 사용할 수 있는데요, 보통 <code>@typescript-eslint</code> 플러그인도 같이 사용하므로 아래처럼 작성합니다.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">FlatCompat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@eslint/eslintrc'</span>
+
+<span class="hljs-keyword">const</span> compat = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlatCompat</span>({
+  <span class="hljs-attr">baseDirectory</span>: <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">dirname</span>,
+})
+
+<span class="hljs-keyword">const</span> eslintConfig = [
+  ...compat.<span class="hljs-title function_">config</span>({
+    <span class="hljs-attr">extends</span>: [
+      <span class="hljs-string">'next/core-web-vitals'</span>,
+      <span class="hljs-string">'plugin:@typescript-eslint/recommended'</span>, <span class="hljs-comment">// TypeScript 권장 설정</span>
+    ],
+  }),
+]
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eslintConfig
+</code></pre>
+<p>TypeScript와 Next.js 둘다 쓰는 프로젝트라면, 이렇게 병합해서 설정해주시면 끝!</p>
+<hr>
+<h2>마지막으로 팁 하나!</h2>
+<p>Next.js 최신 버전은 기본적으로 <code>next/core-web-vitals</code>를 포함하는 경우가 많지만, 기존 프로젝트나 수동으로 구성하는 경우 유용해요. ESLint 오류가 너무 많아 부담된다면 한두 가지 규칙만 선택적으로 켜서 점진적으로 적용해보길 추천합니다.</p>
+<p>또, Node.js 버전이 <code>import.meta.dirname</code>을 지원하지 않는다면, <code>path</code> 모듈과 <code>import.meta.url</code>을 활용해서 경로를 추출하는 코드도 함께 작성해야 해요.</p>
+<hr>
+<p>오늘은 Next.js 프로젝트에서 Core Web Vitals에 맞춘 ESLint 설정 방법과 Flat Config 적용법에 대해 간단히 다뤄봤어요. 다음에도 실무에 바로 써먹는 팁으로 돌아올게요!</p>
+<p>궁금한 점 있으면 댓글로 물어봐 주세요 :)</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Next.js를 사용하면서 ESLint 설정할 때, create-next-app --typescript 옵션을 쓰면 기본적으로 Next.js ESLint 규칙 뿐만 아니라 TypeScript에 특화된 lint 규칙도 함께 추가해줘요. next/typescript라는 규칙셋을 통해서요.</p>
+<p>아래 코드를 보면 FlatCompat라는 도구를 써서 'next/core-web-vitals'와 'next/typescript' 두 규칙셋을 extends 하고 있죠.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">FlatCompat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@eslint/eslintrc'</span>
+
+<span class="hljs-keyword">const</span> compat = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlatCompat</span>({
+  <span class="hljs-comment">// import.meta.dirname는 Node.js v20.11.0 이상에서 사용 가능해요</span>
+  <span class="hljs-attr">baseDirectory</span>: <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">dirname</span>,
+})
+
+<span class="hljs-keyword">const</span> eslintConfig = [
+  ...compat.<span class="hljs-title function_">config</span>({
+    <span class="hljs-attr">extends</span>: [<span class="hljs-string">'next/core-web-vitals'</span>, <span class="hljs-string">'next/typescript'</span>],
+  }),
+]
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eslintConfig
+</code></pre>
+<p>여기서 next/typescript 규칙들은 사실 <code>plugin:@typescript-eslint/recommended</code> 기반이에요. 즉, TypeScript 코드를 더 엄격하고 깔끔하게 만들어주는 다양한 룰들을 포함하고 있다는 뜻이죠. 더 자세한 내용은 <a href="https://typescript-eslint.io/linting/configs/" rel="nofollow" target="_blank">typescript-eslint 공식 문서</a>를 참고하면 좋아요.</p>
+<h3>Prettier와 함께 쓰기</h3>
+<p>ESLint와 함께 Prettier를 같이 사용하고 싶다면, 서로 충돌하는 규칙들을 조정해 줘야 해요. 특히 코드 스타일 관련 룰들은 Prettier가 담당하고, ESLint는 코드 품질과 오류 확인 위주로 역할 분담하는 게 일반적이죠.</p>
+<p>이럴 땐 <code>eslint-config-prettier</code>를 추가하고, extends에 <code>prettier</code>를 마지막에 넣어줘서 Prettier와 충돌하는 ESLint 룰을 끄는 방식을 씁니다. 예를 들면 이렇게:</p>
+<pre><code class="hljs language-js">...compat.<span class="hljs-title function_">config</span>({
+  <span class="hljs-attr">extends</span>: [<span class="hljs-string">'next/core-web-vitals'</span>, <span class="hljs-string">'next/typescript'</span>, <span class="hljs-string">'prettier'</span>],
+}),
+</code></pre>
+<p>그리고 Prettier 설정 파일(.prettierrc)을 잘 만들어 두면, VS Code 같은 편집기도 자동으로 스타일을 맞춰줘서 코딩하기 훨씬 편해져요!</p>
+<hr>
+<p><strong>한마디 정리</strong><br>
+create-next-app --typescript를 통해 만들어진 ESLint 설정은 Next.js 공식 규칙 + TypeScript 추천 룰들의 조합이에요. 여기에 Prettier를 더해서 코딩 스타일도 자동으로 맞춰주면, 팀 프로젝트나 개인 개발 모두 훨씬 깔끔하고 효율적이랍니다!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>ESLint에는 코드 포맷팅 규칙도 포함되어 있어서, 기존에 사용 중인 Prettier 설정과 충돌이 발생할 수 있어요. 그래서 ESLint와 Prettier가 서로 잘 협업할 수 있도록 <code>eslint-config-prettier</code>라는 설정을 추가하는 걸 추천해드립니다.</p>
+<p>먼저, <code>eslint-config-prettier</code> 패키지를 설치해야 해요. 사용하는 패키지 매니저에 따라 아래 명령어 중 하나를 실행하면 됩니다:</p>
+<pre><code class="hljs language-bash">npm install --save-dev eslint-config-prettier
+
+yarn add --dev eslint-config-prettier
+
+pnpm add --save-dev eslint-config-prettier
+
+bun add --dev eslint-config-prettier
+</code></pre>
+<p>설치가 끝났으면, 이제 ESLint 설정 파일(<code>.eslintrc.js</code>나 <code>.eslintrc.json</code> 등)에 <code>prettier</code>를 extends에 추가해줘야 해요. 예를 들어 <code>.eslintrc.js</code> 파일이라면 이렇게 작성할 수 있습니다:</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">extends</span>: [
+    <span class="hljs-comment">// 기존 확장 설정들</span>
+    <span class="hljs-string">"eslint:recommended"</span>,
+    <span class="hljs-string">"plugin:react/recommended"</span>,
+    <span class="hljs-comment">// prettier 관련 설정은 항상 가장 마지막에 추가하는 게 좋아요</span>
+    <span class="hljs-string">"prettier"</span>
+  ],
+  <span class="hljs-comment">// 그 외 다른 ESLint 설정들</span>
+};
+</code></pre>
+<p><code>eslint-config-prettier</code>는 ESLint의 포맷팅 관련 규칙을 끄면서, Prettier가 원하는 대로 포맷팅을 할 수 있게 도와줘요. 이렇게 해 놓으면 ESLint가 포맷팅 문제로 에러를 내는 경우가 줄어들고, 두 도구가 충돌 없이 함께 동작합니다.</p>
+<p>참고로, 만약 <code>eslint-plugin-prettier</code>도 사용하고 있다면, <code>plugin:prettier/recommended</code>를 extends에 추가하는 방식도 고려해볼 수 있어요. 이 방법을 사용하면 Prettier가 제안하는 포맷팅 규칙을 ESLint가 직접 체크해서 에러로 보여주게 되니, 편리합니다.</p>
+<p>사용자마다 설정 환경이 다를 수 있으니, 본인 프로젝트에 맞게 조절하면서 써보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>JS로 작성된 ESLint 설정과 함께, lint-staged와 Next.js lint를 함께 사용하는 방법에 대해 살펴볼게요.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">FlatCompat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@eslint/eslintrc'</span>
+
+<span class="hljs-keyword">const</span> compat = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlatCompat</span>({
+  <span class="hljs-comment">// import.meta.dirname은 Node.js v20.11.0 이후부터 사용 가능해요</span>
+  <span class="hljs-attr">baseDirectory</span>: <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">dirname</span>,
+})
+
+<span class="hljs-keyword">const</span> eslintConfig = [
+  ...compat.<span class="hljs-title function_">config</span>({
+    <span class="hljs-attr">extends</span>: [<span class="hljs-string">'next'</span>, <span class="hljs-string">'prettier'</span>], <span class="hljs-comment">// next.js 기본 규칙과 prettier 규칙을 확장해서 사용</span>
+  }),
+]
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eslintConfig
+</code></pre>
+<p>여기서 <code>FlatCompat</code>은 ESLint가 새롭게 Flat Config 방식을 지원하면서, 기존의 extends 규칙을 쉽게 호환시켜 주는 도구예요. Node.js 환경에서 <code>import.meta.dirname</code>을 쓰려면 최소 버전이 20.11.0 이상이어야 하니 버전 확인 꼭 해보세요!</p>
+<hr>
+<h3>스테이지 된 파일만 린트 돌리기 (lint-staged)</h3>
+<p>git에 커밋 전에 변경된 파일들만 린트 돌리면서 자동 수정까지 하고 싶다면 <code>lint-staged</code>를 쓸 수 있어요. 그런데 Next.js의 <code>next lint</code> 명령어는 기본적으로 특정 파일만 지정해서 검사하려면 <code>--file</code> 플래그를 써야 하거든요.</p>
+<p>그래서 <code>.lintstagedrc.js</code>에 아래처럼 설정해 주면,</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">buildEslintCommand</span> = (<span class="hljs-params">filenames</span>) =>
+  <span class="hljs-string">`next lint --fix --file <span class="hljs-subst">${filenames
+    .map((f) => path.relative(process.cwd(), f))
+    .join(<span class="hljs-string">' --file '</span>)}</span>`</span>
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-string">'*.{js,jsx,ts,tsx}'</span>: [buildEslintCommand],
+}
+</code></pre>
+<ul>
+<li><code>filenames</code>에 있는 파일들 각각을 상대 경로로 바꿔서 <code>--file</code> 플래그와 함께 넘겨줘요.</li>
+<li><code>--fix</code> 옵션 덕분에 린트 에러가 안 잡히는 부분은 자동으로 고쳐줘서 편리하답니다.</li>
+</ul>
+<hr>
+<h3>덧붙임: next lint와 lint-staged 활용 팁</h3>
+<ul>
+<li><strong>commit hook에 연결</strong>: 보통 <code>husky</code> 같은 git 훅 관리 도구와 함께 써서 커밋 전에 자동으로 린트가 실행되도록 많이 설정해요.</li>
+<li><strong>속도 개선</strong>: 어떤 프로젝트는 린트 검사 시간이 오래 걸릴 수 있는데, lint-staged는 변경된 파일만 검사하니까 훨씬 빠릅니다.</li>
+<li><strong>eslint 설정 최신화</strong>: <code>FlatCompat</code>을 쓰지 않고 공식 Flat Config 방식으로 마이그레이션을 고민중이라면, eslint 공식 문서도 꾸준히 참고하세요.</li>
+</ul>
+<p>실제 프로젝트에 위 설정을 적용해서 깔끔한 코드 유지에 도움이 되길 바라요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h2>프로덕션 빌드 시 린트(lint) 비활성화하기</h2>
+<p>Next.js에서 프로덕션 빌드를 할 때 ESLint가 실행되는 걸 원하지 않는다면, <code>next.config.js</code> 파일에 <code>eslint.ignoreDuringBuilds</code> 옵션을 <code>true</code>로 설정하면 됩니다.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> type { <span class="hljs-title class_">NextConfig</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'next'</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-attr">nextConfig</span>: <span class="hljs-title class_">NextConfig</span> = {
+  <span class="hljs-attr">eslint</span>: {
+    <span class="hljs-comment">// 주의! 이 설정을 사용하면 ESLint 에러가 있어도 프로덕션 빌드가 정상적으로 완료됩니다.</span>
+    <span class="hljs-attr">ignoreDuringBuilds</span>: <span class="hljs-literal">true</span>,
+  },
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> nextConfig
+</code></pre>
+<p>이 옵션을 활성화하면, 빌드 과정에서 ESLint 에러가 있어도 빌드가 중단되지 않기 때문에 빠르게 배포할 수 있다는 장점이 있지만, 반대로 코드 품질 문제를 간과할 위험도 있으니 주의하는 게 좋아요.</p>
+<h3>기존 설정 마이그레이션하기</h3>
+<p>만약 기존에 ESLint 설정을 다른 방식(예: 스크립트 또는 별도 플러그인 등)으로 관리하고 있었다면, 이제는 Next.js의 공식적인 설정 방식에 맞춰 <code>next.config.js</code> 내부에 위처럼 <code>eslint.ignoreDuringBuilds</code> 옵션만 추가해주면 됩니다.</p>
+<p>간단히 말해:</p>
+<ul>
+<li>기존에 빌드 시 <code>eslint</code> 검사를 별도로 돌리고 있었다면 이 옵션을 켜면 빌드 속도가 빨라짐</li>
+<li>하지만 배포 전에 꼭 별도로 린팅하거나 CI/CD 파이프라인에서 린트를 수행하는 게 중요!</li>
+</ul>
+<hr>
+<p>개발할 때는 린트를 꼭 켜두고, 프로덕션 빌드시간을 빠르게 하고 싶을 때만 이 옵션을 사용하는 게 가장 스마트한 방법입니다. 린트는 코드 품질 유지에 아주 중요한 역할을 하니까요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>이미 애플리케이션에 ESLint가 설정되어 있다면, 특별한 몇 가지 조건이 아니면 eslint-config-next를 포함하기보다는 이 플러그인을 직접 확장하는 걸 추천해요.</p>
+<h4>추천 플러그인 룰셋</h4>
+<p>다음 조건들이 모두 맞으면 이 방법이 좋아요:</p>
+<ul>
+<li>아래 플러그인 중 하나 이상을 이미 설치했을 때 (별도로 설치했거나 airbnb, react-app 같은 다른 설정을 이용해서 포함된 경우):
+<ul>
+<li>react</li>
+<li>react-hooks</li>
+<li>jsx-a11y</li>
+<li>import</li>
+</ul>
+</li>
+<li>그리고 Next.js 내에서 Babel이 기본 설정된 방식과 다른 parserOptions를 직접 정의한 경우 (이건 보통 권장되지 않는 방법이에요. Babel 설정을 커스터마이징한 경우에만 해당돼요)</li>
+<li>eslint-plugin-import를 사용 중이고, Node.js 및/또는 TypeScript resolver가 import를 제대로 처리하도록 설정한 경우</li>
+</ul>
+<hr>
+<p>요약하자면, 이미 React 관련 플러그인들이 잘 구성되어 있거나, Babel과 import 처리 방식에 변화를 줬을 때는 eslint-config-next를 포함하기보단 플러그인을 직접 확장하는 게 더 깔끔하고 충돌도 적답니다.</p>
+<p>참고로, Next.js는 자체적으로 ESLint를 지원해주지만 프로젝트 상황에 따라 세밀하게 조정해야 할 때가 있으니 이런 점을 미리 체크해보는 게 좋아요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Next.js 프로젝트에서 ESLint 설정을 할 때, 직접 설정을 추가하기보다는 Next.js에서 권장하는 ESLint 플러그인을 사용하는 게 훨씬 편하고 관리하기 좋습니다. 그래서 기존에 직접 설정해둔 부분이 있다면, 그것을 없애거나 Next.js가 제공하는 플러그인으로 바로 확장하는 걸 추천해요.</p>
+<p>설정은 이렇게 간단합니다:</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">extends</span>: [
+    <span class="hljs-comment">// 기존 설정들...</span>
+    <span class="hljs-string">'plugin:@next/next/recommended'</span>,
+  ],
+}
+</code></pre>
+<p>이렇게 하면 Next.js에서 권장하는 ESLint 규칙들이 자동으로 적용돼서, 코드 품질도 높아지고 Next.js의 최신 가이드라인도 쉽게 따라갈 수 있죠.</p>
+<p>그리고 이 플러그인은 프로젝트에 별도로 설치해줘야 하는데, <code>next lint</code> 명령어를 굳이 실행하지 않아도 됩니다. 설치는 각각의 패키지 매니저에 맞게 아래 명령어 중 하나를 사용하면 돼요:</p>
+<pre><code class="hljs language-bash">npm install --save-dev @next/eslint-plugin-next
+</code></pre>
+<pre><code class="hljs language-bash">yarn add --dev @next/eslint-plugin-next
+</code></pre>
+<pre><code class="hljs language-bash">pnpm add --save-dev @next/eslint-plugin-next
+</code></pre>
+<pre><code class="hljs language-bash">bun add --dev @next/eslint-plugin-next
+</code></pre>
+<hr>
+<h3>추가 팁!</h3>
+<ul>
+<li>이 플러그인은 Next.js의 최적화 코드 스타일, 성능, 접근성 관련 규칙도 포함하고 있어서 프로젝트 전반의 품질 관리에 큰 도움이 됩니다.</li>
+<li>ESLint 설정 변경 후에는 꼭 에디터를 재시작하거나 ESLint 프로세스를 재시작해서 변경 사항이 잘 반영되는지 확인해 보세요.</li>
+<li>가끔 규칙이 너무 엄격하거나 불필요하다고 느껴지면, <code>.eslintrc.js</code>에서 개별 규칙을 오버라이드해서 조정할 수도 있어요.</li>
+</ul>
+<p>이제 Next.js 공식 방식을 활용해서 더 깔끔하고 효율적인 개발 환경을 만들어보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>겹치는 플러그인이나 파서를 여러 설정 파일에서 불러와 생길 수 있는 충돌이나 오류 걱정 없이 안전하게 사용할 수 있는 방법이에요.</p>
+<h3>추가 설정 방법</h3>
+<p>만약 이미 따로 ESLint 설정을 사용 중인데, 거기에 <code>eslint-config-next</code>를 포함시키고 싶다면, 다른 설정들 뒤에 마지막으로 <code>next</code> 설정이 확장되도록 해야 합니다. 예를 들면 아래처럼요:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> js <span class="hljs-keyword">from</span> <span class="hljs-string">'@eslint/js'</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">FlatCompat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@eslint/eslintrc'</span>
+
+<span class="hljs-keyword">const</span> compat = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlatCompat</span>({
+  <span class="hljs-comment">// import.meta.dirname는 Node.js v20.11.0 이후부터 사용할 수 있어요</span>
+  <span class="hljs-attr">baseDirectory</span>: <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">dirname</span>,
+  <span class="hljs-attr">recommendedConfig</span>: js.<span class="hljs-property">configs</span>.<span class="hljs-property">recommended</span>,
+})
+
+<span class="hljs-keyword">const</span> eslintConfig = [
+  ...compat.<span class="hljs-title function_">config</span>({
+    <span class="hljs-attr">extends</span>: [<span class="hljs-string">'eslint:recommended'</span>, <span class="hljs-string">'next'</span>],
+  }),
+]
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eslintConfig
+</code></pre>
+<p>여기서 핵심은 <code>FlatCompat</code>를 사용해 기존의 ESLint 설정(예: <code>eslint:recommended</code>)과 <code>next</code> 설정을 안전하게 병합하는 거예요. 이렇게 하면 <code>next</code>의 설정이 나중에 적용돼서 우선순위도 제대로 조절되고, 설정 충돌을 미연에 방지할 수 있죠.</p>
+<p>참고로, <code>import.meta.dirname</code>은 상대 경로 같은 디렉토리 정보를 제공하는데, 이 기능을 사용하려면 Node.js가 v20.11.0 이상이어야 한다는 점 기억해 주세요!</p>
+<p>이 방법을 활용하면 Next.js 프로젝트나 여러 ESLint 설정을 동시에 관리하는 환경에서 훨씬 깔끔하고 효율적으로 ESLint 구성을 유지할 수 있습니다.</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>다음 설정(next configuration)은 parser, plugins, settings 속성에 대한 기본값을 이미 잘 처리해주고 있어요. 그러니 특별히 다른 설정이 필요하지 않은 한, 이 속성들을 다시 선언할 필요는 없답니다.</p>
+<p>만약 다른 공유 가능한 설정(shareable configuration)을 포함한다면, 이 속성들이 덮어쓰거나 수정되지 않도록 잘 관리해줘야 해요. 그렇지 않으면, 기본적으로 next 설정과 겹치는 부분이 있을 수 있어서 혼란이 생길 수 있거든요.</p>
+<p>간단하게 정리하면, 가능하면 next 설정과 중복되는 다른 설정들은 빼고, 필요하다면 Next.js ESLint 플러그인에서 직접 확장하는 게 가장 깔끔한 방법이에요.</p>
+<p>개발하다 보면 설정이 꼬일 때가 있는데, 이렇게 기본값을 잘 활용하면 깔끔하고 유지보수하기 편한 ESLint 설정을 만들 수 있으니 참고하세요!</p>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"Next.js와 React 프로젝트에 ESLint Plugin 추가하는 방법","description":"","date":"2025-04-22 13:36","slug":"2025-04-22-ESLintPlugin","content":"\n\n# ESLint 플러그인\n\nNext.js에는 이미 기본 설정에 포함되어 있는 `eslint-plugin-next`라는 ESLint 플러그인이 있어요. 이 플러그인은 Next.js 애플리케이션을 개발할 때 자주 발생하는 문제나 실수를 미리 잡아내도록 도와줍니다. 덕분에 더 깔끔하고 버그 없는 코드를 작성할 수 있죠.\n\n## 참고 자료\n\n`eslint-config-next` 안에는 아래에 소개하는 여러 ESLint 플러그인들을 추천 규칙 세트로 포함하고 있어요. 그러니까 Next.js를 쓰면 별도의 복잡한 설정 없이도 좋은 코드 품질을 유지할 수 있다는 뜻이죠.\n\n| ESLint Plugin           | 설명                                         |\n|------------------------|--------------------------------------------|\n| eslint-plugin-react    | React 코드에서 발생할 수 있는 문제를 잡아냄         |\n| eslint-plugin-jsx-a11y | 웹 접근성 관련 규칙을 적용해 좀 더 접근성 좋은 UI 작성 지원 |\n| eslint-plugin-import   | 모듈 임포트 관련 문제를 방지                      |\n\nNext.js 개발할 때는 이런 기본 설정들이 이미 잘 갖춰져 있으니, 너무 ESLint 설정에만 신경 쓰지 말고 개발에 집중해도 되겠죠? 물론 필요하다면 플러그인이나 규칙을 추가로 조정해서 내 스타일에 맞게 커스터마이징하는 것도 가능해요.\n\n추가로, ESLint와 prettier 같은 코드 스타일링 도구를 함께 사용하면 코드 품질 유지와 팀 협업이 훨씬 수월해진다는 점도 기억해두면 좋겠네요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n- eslint-plugin-react  \n- eslint-plugin-react-hooks  \n- eslint-plugin-next  \n\n이 설정들은 next.config.js에 있는 설정보다 우선 적용됩니다.\n\n### 규칙 (Rules)\n\n전체 규칙 목록은 다음과 같습니다:  \n\n| 규칙 이름                | 설명                                          |\n|-------------------------|---------------------------------------------|\n| eslint-plugin-react      | React 관련 코딩 스타일과 규칙을 관리하는 플러그인  |\n| eslint-plugin-react-hooks| React Hooks 관련 규칙을 강화해주는 플러그인         |\n| eslint-plugin-next      | Next.js 특화 규칙을 포함하는 플러그인               |\n\nESLint 플러그인들은 프로젝트의 코드 품질과 일관성을 유지하는 데 정말 유용해요. Next.js 프로젝트를 할 때 이런 플러그인들을 쓰면 Hooks를 잘못 쓰거나, React 컴포넌트에서 흔히 발생하는 실수를 미리 잡아낼 수 있어서 개발할 때 시간도 절약되고 오류도 줄일 수 있답니다.  \n\n특히, `eslint-plugin-next`는 Next.js를 사용할 때만 적용되는 특수 규칙들(예: 이미지 최적화, 링크 태그 사용 등)을 포함하고 있어서 Next.js 프로젝트에 최적화된 코드를 작성하는 데 도움을 줍니다. 그런데 `next.config.js`의 설정보다 이 플러그인 설정이 우선한다는 점, 꼭 기억하세요!  \n\n이 아래에 구체적인 각 규칙 셋을 보시면, 어떤 규칙들이 있고 각각 어떻게 동작하는지 더 자세히 알 수 있을 거예요. 궁금한 점 있으면 언제든 물어보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n아래는 Next.js에서 권장하는 ESLint 규칙들 목록입니다. 나열된 규칙들은 기본 권장 설정에 활성화되어 있고, 각각 어떤 역할을 하는지 간단히 설명되어 있어요. 참고하면 코드 작성 시 품질을 높이는데 큰 도움이 됩니다!\n\n| 권장 설정에 활성화됨 | 규칙 | 설명 |\n|:------------------:|:----------------------------|:---------------------------------------------------------|\n| ✅ | [@next/next/google-font-display](https://nextjs.org/docs/messages/google-font-display) | Google Fonts 사용 시 `font-display` 속성 강제 적용 |\n| ✅ | [@next/next/google-font-preconnect](https://nextjs.org/docs/messages/google-font-preconnect) | Google Fonts에 대해 `preconnect` 태그 사용 권장 |\n| ✅ | [@next/next/inline-script-id](https://nextjs.org/docs/messages/inline-script-id) | 인라인 스크립트가 포함된 `next/script` 컴포넌트에 `id` 속성 필요 |\n| ✅ | [@next/next/next-script-for-ga](https://nextjs.org/docs/messages/next-script-for-ga) | 구글 애널리틱스 인라인 스크립트 사용 시 `next/script` 컴포넌트를 선호 |\n| ✅ | [@next/next/no-assign-module-variable](https://nextjs.org/docs/messages/no-assign-module-variable) | `module` 변수에 할당하는 행위 방지 |\n| ✅ | [@next/next/no-async-client-component](https://nextjs.org/docs/messages/no-async-client-component) | 클라이언트 컴포넌트를 async 함수로 작성하는 것을 방지 |\n| ✅ | [@next/next/no-before-interactive-script-outside-document](https://nextjs.org/docs/messages/no-before-interactive-script-outside-document) | `next/script`의 `beforeInteractive` 옵션은 `pages/_document.js`에서만 허용 |\n| ✅ | [@next/next/no-css-tags](https://nextjs.org/docs/messages/no-css-tags) | 수동 스타일 시트 태그 방지 |\n| ✅ | [@next/next/no-document-import-in-page](https://nextjs.org/docs/messages/no-document-import-in-page) | `next/document`를 `pages/_document.js` 외부에서 임포트 금지 |\n| ✅ | [@next/next/no-duplicate-head](https://nextjs.org/docs/messages/no-duplicate-head) | `pages/_document.js` 내에서 `\u003cHead\u003e` 중복 사용 방지 |\n| ✅ | [@next/next/no-head-element](https://nextjs.org/docs/messages/no-head-element) | `\u003chead\u003e` 요소 사용 방지 (Next.js에서는 `\u003cHead\u003e` 컴포넌트 사용 권장) |\n| ✅ | [@next/next/no-head-import-in-document](https://nextjs.org/docs/messages/no-head-import-in-document) | `pages/_document.js`에서 `next/head` 임포트 금지 |\n| ✅ | [@next/next/no-html-link-for-pages](https://nextjs.org/docs/messages/no-html-link-for-pages) | 내부 페이지 이동 시 `\u003ca\u003e` 대신 Next.js의 `\u003cLink\u003e` 컴포넌트 사용 권장 |\n| ✅ | [@next/next/no-img-element](https://nextjs.org/docs/messages/no-img-element) | LCP (Largest Contentful Paint) 성능 저하와 높은 대역폭 문제 때문에 `\u003cimg\u003e` 대신 Next.js `Image` 컴포넌트 사용 권장 |\n| ✅ | [@next/next/no-page-custom-font](https://nextjs.org/docs/messages/no-page-custom-font) | 페이지 단독 사용자 지정 폰트 사용 방지 (글로벌로 적용 권장) |\n| ✅ | [@next/next/no-script-component-in-head](https://nextjs.org/docs/messages/no-script-component-in-head) | `next/head` 컴포넌트에 `next/script` 사용 금지 |\n| ✅ | [@next/next/no-styled-jsx-in-document](https://nextjs.org/docs/messages/no-styled-jsx-in-document) | `pages/_document.js` 내 styled-jsx 사용 금지 |\n| ✅ | [@next/next/no-sync-scripts](https://nextjs.org/docs/messages/no-sync-scripts) | 동기 방식 스크립트 사용 방지 |\n| ✅ | [@next/next/no-title-in-document-head](https://nextjs.org/docs/messages/no-title-in-document-head) | `next/document`에서 `Head` 컴포넌트 안에 `\u003ctitle\u003e` 사용 금지 |\n| ✅ | @next/next/no-typos | Next.js 데이터 패칭 함수에서 흔히 하는 오타 방지 (`getStaticProps` 등) |\n| ✅ | [@next/next/no-unwanted-polyfillio](https://nextjs.org/docs/messages/no-unwanted-polyfillio) | Polyfill.io의 중복 폴리필 방지 |\n\n---\n\n### 추가 팁!\n\n- 위 리스트의 많은 규칙들은 Next.js에서 권장하는 최적화 및 구조적 일관성을 지키도록 도와줍니다.\n- 예를 들어, 내부 페이지 이동 시 `\u003cLink\u003e` 컴포넌트를 쓰는 이유는 클라이언트 사이드 네비게이션 활성화와 빠른 페이지 전환을 가능하게 하기 때문입니다.\n- 그리고 이미지 최적화를 위해 Next.js의 `Image` 컴포넌트를 사용하는 것이 페이지 로딩 속도 향상과 대역폭 절약에 크게 유리해요.\n- `next/script` 컴포넌트는 스크립트 로딩 시점 및 우선순위를 조절하여 성능 최적화를 돕는데, 특히 Google Analytics 같은 외부 스크립트는 꼭 규칙대로 적용하는 게 좋습니다.\n\n---\n\n### 에디터에서 경고와 오류를 바로 확인하려면?\n\n이런 ESLint 규칙들은 혼자 일일이 체크하기 어려운데요, VSCode 같은 편집기에서 Next.js ESLint 플러그인을 사용하면 개발 중 곧바로 문제점을 확인할 수 있어서 훨씬 편리합니다!\n\n---\n\n## 예시: 커스텀 디렉토리 및 파일에 Lint 적용하기\n\n```bash\nnpx next lint --dir=app,components --files=**/*.ts,**/*.tsx\n```\n\n이렇게 하면 기본 `pages` 디렉토리 외에 `app`, `components` 폴더도 lint 검사를 할 수 있어요. 실제 프로젝트에 맞게 잘 활용해 보세요!\n\n---\n\nNext.js 개발하면서 꼭 알아두면 좋은 필수 ESLint 규칙들!\n\n꾸준히 규칙을 지키면서 개발하면 유지보수가 훨씬 쉬워지고, 코드 품질도 자연스럽게 올라가니까 꼭 적용해 보세요 :)\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nNext.js는 기본적으로 pages/, app/, components/, lib/, src/ 디렉터리 안에 있는 모든 파일들에 대해 ESLint를 실행해줘요. 근데 프로덕션 빌드할 때는 어떤 디렉터리만 검사할지 next.config.js 파일 안에 eslint 옵션의 dirs 배열로 지정할 수도 있답니다.\n\n```js\nmodule.exports = {\n  eslint: {\n    dirs: ['pages', 'utils'], // next build 시에 'pages'와 'utils' 폴더만 ESLint 검사 대상이 됩니다.\n  },\n}\n```\n\n그리고 커맨드 라인에서 직접 ESLint를 실행할 때는 `next lint` 다음에 `--dir`이나 `--file` 플래그를 붙여 특정 디렉터리나 파일만 검사할 수도 있어요.\n\n```bash\nnext lint --dir pages --dir utils --file bar.js\n```\n\n이렇게 하면 pages와 utils 폴더, 그리고 bar.js 파일만 ESLint 검사를 하게 돼서, 검사 범위를 좁혀서 속도를 개선하거나 원하는 부분만 빠르게 체크할 때 유용해요.\n\n추가로 팁을 드리자면, 대규모 프로젝트에서는 불필요한 파일까지 ESLint가 검사하지 않도록 dirs 옵션을 잘 설정해두는 게 빌드 시간을 줄이는 데 꽤 도움이 돼요. 프로젝트가 커질수록 이런 세세한 설정이 실제 개발 효율에도 큰 차이를 만들어낸답니다!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### 모노레포(monorepo)에서 루트 디렉터리 지정하기\n\n안녕하세요! 오늘은 Next.js 프로젝트를 모노레포 구조로 관리할 때, `eslint-plugin-next`가 Next.js 애플리케이션이 어디 있는지 잘 찾게 만드는 방법에 대해 이야기해볼게요.\n\n보통 Next.js 프로젝트를 루트 디렉터리에 둔다면 별다른 설정 없이 잘 작동하는데요, 모노레포처럼 여러 패키지가 서브디렉터리에 있을 경우엔 `eslint-plugin-next`가 어디서 Next.js 일을 처리해야 할지 모를 수 있어요. 그래서 `.eslintrc` 파일(또는 설정 파일)에서 `settings` 속성 안에 `next.rootDir` 옵션을 지정해주는 거죠.\n\n즉, ESLint 설정을 조금 손봐서 Next.js 앱 경로를 정확히 알려주는 방법을 사용할 수 있습니다. 예제를 볼게요:\n\n```js\nimport { FlatCompat } from '@eslint/eslintrc'\n\nconst compat = new FlatCompat({\n  // import.meta.dirname는 Node.js v20.11.0 이상에서 사용 가능해요\n  baseDirectory: import.meta.dirname,\n})\n\nconst eslintConfig = [\n  ...compat.config({\n    extends: ['next'],\n    settings: {\n      next: {\n        rootDir: 'packages/my-app/',  // 여기에 Next.js 앱 폴더 경로를 넣어주세요\n      },\n    },\n  }),\n]\n\nexport default eslintConfig\n```\n\n여기서 좀 더 보충설명을 하자면,\n\n| 설정 | 설명 |\n|-------|------|\n| `rootDir` | Next.js가 위치한 경로 (상대경로나 절대경로 모두 가능) |\n| glob 패턴 | 여러 애플리케이션이 있는 경우 `\"packages/*/\"` 같은 glob 패턴도 쓸 수 있어요 |\n| 배열 사용 | 여러 개 경로(또는 glob)를 배열로 묶어서 지정하는 것도 가능합니다 |\n\n예를 들어, 여러 앱이 있을 때는 이렇게 할 수도 있죠:\n\n```js\nsettings: {\n  next: {\n    rootDir: ['packages/app1/', 'packages/app2/', 'packages/*/'],\n  },\n}\n```\n\n이 설정 덕분에 ESLint가 Next.js 프로젝트 내 규칙을 제대로 이해하고 검사할 수 있어, 잘못된 코드 패턴이나 Next.js 특화된 규칙 위반을 정확히 잡아줍니다.\n\n---\n\n**참고로** `import.meta.dirname`는 Node.js v20.11.0부터 지원하니, 이 버전 이하를 사용 중이라면 다른 방법(예: `__dirname` 또는 경로 모듈 활용)을 써야 해요.\n\n---\n\n### 정리하자면\n\n- 모노레포에서 각 Next.js 앱 위치를 알려줘야 ESLint가 제대로 동작한다.\n- `.eslintrc` 혹은 ESLint 설정 파일의 `settings.next.rootDir`에 앱 경로 또는 glob 패턴을 지정하면 된다.\n- 여러 앱이 있으면 배열로 여러 경로를 지정할 수도 있다.\n\nmonorepo 나눠서 관리하는 분들은 이렇게 한번 설정해두면 ESLint도 Next.js도 모두 스트레스 없이 사용할 수 있으니 꼭 참고해보세요! :)\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### 캐시 비활성화하기\n\nESLint는 기본적으로 처리한 파일들의 정보를 캐시해서 성능을 높여줘요. 이 캐시는 보통 `.next/cache` 폴더나 여러분이 설정한 빌드 디렉토리에 저장됩니다. \n\n그런데 만약 ESLint 규칙 중에 한 소스 파일의 내용뿐만 아니라 다른 상태나 파일에 의존하는 규칙을 사용할 때는 캐시가 문제를 일으킬 수 있거든요. 이런 경우 캐시를 끄고 싶다면 `next lint` 명령어에 `--no-cache` 플래그를 붙여주면 돼요.\n\n```bash\nnext lint --no-cache\n```\n\n이렇게 하면, ESLint가 이전에 저장해둔 캐시를 무시하고 항상 새로 검사하기 때문에 캐시로 인한 이상 동작을 방지할 수 있습니다.\n\n---\n\n### ESLint 규칙 비활성화하기\n\nESLint 룰을 상황에 따라 꺼야 할 때가 있어요. 프로젝트 전체에서 특정 룰을 끌 수도 있고, 특정 파일이나 코드 일부에만 룰을 무시하도록 설정할 수 있죠. 다음에는 ESLint 규칙 비활성화 방법에 대해서도 차근차근 알려드릴게요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n안녕하세요, 개발자 여러분! 오늘은 Next.js, React, 그리고 React Hooks 플러그인에서 제공하는 ESLint 규칙들을 어떻게 수정하거나 비활성화할 수 있는지 알려드리려고 해요. 특히 `.eslintrc` 설정 파일에서 `rules` 프로퍼티를 직접 변경하는 방법에 대해 다뤄볼게요.\n\n먼저, Next.js에서는 ESLint 설정 방식이 조금 바뀌었는데요, 새로운 `@eslint/eslintrc` 패키지를 활용해서 호환성을 유지하고 설정을 쉽게 변경할 수 있어요. 아래 예시 코드를 통해 이해해볼게요.\n\n```js\nimport { FlatCompat } from '@eslint/eslintrc'\n\nconst compat = new FlatCompat({\n  // import.meta.dirname은 Node.js v20.11.0 이상부터 사용 가능합니다.\n  baseDirectory: import.meta.dirname,\n})\n\nconst eslintConfig = [\n  ...compat.config({\n    extends: ['next'],\n    rules: {\n      // react 컴포넌트 내에서 escape 처리되지 않은 엔티티 사용 경고를 끕니다.\n      'react/no-unescaped-entities': 'off',\n      // Next.js 페이지에서 custom font 사용을 금지하는 규칙을 끕니다.\n      '@next/next/no-page-custom-font': 'off',\n    },\n  }),\n]\n\nexport default eslintConfig\n```\n\n### 설명을 조금 더 살짝 덧붙여볼게요\n\n- `FlatCompat`는 Next.js 최신 ESLint 설정이 기본적으로 `flat` config 방식을 사용하면서 발생하는 호환성 문제를 해결해 줍니다.\n- `baseDirectory`는 현재 설정 파일의 경로 기준으로 확장과 규칙을 찾도록 해 줍니다.\n- `extends`에 `'next'`를 명시하면 기본적으로 Next.js에서 추천하는 ESLint 규칙 세트를 사용하겠다는 뜻입니다.\n- 여기서 `rules` 안에 원하는 규칙을 `off`나 다른 심각도 수준(`warn`, `error`)으로 직접 조정할 수 있어요.\n\n---\n\n### Core Web Vitals 관련 팁!\n\nNext.js에서 `next lint` 명령어를 처음 실행할 때, `strict` 옵션을 선택하면 `next/core-web-vitals`라는 별도의 규칙 세트가 자동으로 활성화돼요. 이 규칙들은 웹 성능과 사용자 경험에 큰 영향을 미치는 Core Web Vitals 지표 개선에 도움을 준답니다. 따라서 엄격한 품질 관리가 필요한 프로젝트에서는 이 옵션을 적극 권장드려요.\n\n---\n\n요즘 ESLint 설정 방법이 조금 바뀌었지만 위 방법처럼 하면 이전보다 훨씬 유연하고 깔끔하게 원하는 규칙을 커스터마이징할 수 있습니다. 혹시 더 궁금한 점 있으면 편하게 알려주세요! 개발자 여러분, 행복한 코딩 하세요! 🚀\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n이번 글에서는 Next.js 프로젝트에서 ESLint 설정을 할 때 자주 쓰이는 `next/core-web-vitals` 확장 설정을 Flat ESLint 설정 방식과 함께 사용하는 방법을 소개할게요. 실무에서 꼭 알아두면 좋은 내용이니, 재미있게 읽어주세요!\n\n---\n\n## `next/core-web-vitals`란?\n\nNext.js에서 제공하는 `next/core-web-vitals`는 Core Web Vitals(사용자 경험과 성능지표에 중요한 요소들)를 기준으로 ESLint 규칙들을 강화한 설정입니다. 기본적으로 경고(warning)로 표시되던 규칙 중 사용자 경험에 치명적인 부분에 대해서는 에러(error)로 올려줍니다. 이 덕분에 웹 앱 성능과 접근성을 더 신경 쓸 수 있죠.\n\n### 유용한 점\n- Create Next App으로 새 프로젝트 만들면 자동으로 포함돼 있어요.\n- Core Web Vitals에 영향을 주는 코드에 대한 검사 강화\n- 런타임 성능과 SEO, 사용자 경험 개선에 도움\n\n---\n\n## Flat ESLint 설정에서는 이렇게 써요\n\nESLint 8버전부터는 구성 파일이 Flat Config라는 새로운 방식도 지원합니다. 기존 `.eslintrc.js` 대신 `eslint.config.js` 같은 파일에 설정을 배열 형태로 쓴다고 생각하면 쉬워요.\n\n`@eslint/eslintrc` 패키지의 `FlatCompat` 도구를 이용하면 이전 `.eslintrc` 형식을 Flat Config으로 변환해 쓸 수 있어서, 그 점을 활용한 코드가 바로 아래 예시입니다.\n\n```js\nimport { FlatCompat } from '@eslint/eslintrc'\n\nconst compat = new FlatCompat({\n  // import.meta.dirname은 Node.js v20.11.0 이후 버전에서 사용 가능해요.\n  baseDirectory: import.meta.dirname,\n})\n\nconst eslintConfig = [\n  ...compat.config({\n    extends: ['next/core-web-vitals'],\n  }),\n]\n\nexport default eslintConfig\n```\n\n- `FlatCompat`에 프로젝트 경로를 넘겨준 후,\n- `compat.config()` 메서드에서 `extends` 배열에 `next/core-web-vitals`를 추가해줘요.\n- 결과물을 그대로 export하면 ESLint가 Flat Config 방식으로 인식합니다.\n\n---\n\n## TypeScript 프로젝트에서 쓸 땐?\n\nTypeScript에서도 마찬가지로 위 방식을 사용할 수 있는데요, 보통 `@typescript-eslint` 플러그인도 같이 사용하므로 아래처럼 작성합니다.\n\n```js\nimport { FlatCompat } from '@eslint/eslintrc'\n\nconst compat = new FlatCompat({\n  baseDirectory: import.meta.dirname,\n})\n\nconst eslintConfig = [\n  ...compat.config({\n    extends: [\n      'next/core-web-vitals',\n      'plugin:@typescript-eslint/recommended', // TypeScript 권장 설정\n    ],\n  }),\n]\n\nexport default eslintConfig\n```\n\nTypeScript와 Next.js 둘다 쓰는 프로젝트라면, 이렇게 병합해서 설정해주시면 끝!\n\n---\n\n## 마지막으로 팁 하나!\n\nNext.js 최신 버전은 기본적으로 `next/core-web-vitals`를 포함하는 경우가 많지만, 기존 프로젝트나 수동으로 구성하는 경우 유용해요. ESLint 오류가 너무 많아 부담된다면 한두 가지 규칙만 선택적으로 켜서 점진적으로 적용해보길 추천합니다.\n\n또, Node.js 버전이 `import.meta.dirname`을 지원하지 않는다면, `path` 모듈과 `import.meta.url`을 활용해서 경로를 추출하는 코드도 함께 작성해야 해요.\n\n---\n\n오늘은 Next.js 프로젝트에서 Core Web Vitals에 맞춘 ESLint 설정 방법과 Flat Config 적용법에 대해 간단히 다뤄봤어요. 다음에도 실무에 바로 써먹는 팁으로 돌아올게요!\n\n궁금한 점 있으면 댓글로 물어봐 주세요 :)\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nNext.js를 사용하면서 ESLint 설정할 때, create-next-app --typescript 옵션을 쓰면 기본적으로 Next.js ESLint 규칙 뿐만 아니라 TypeScript에 특화된 lint 규칙도 함께 추가해줘요. next/typescript라는 규칙셋을 통해서요.\n\n아래 코드를 보면 FlatCompat라는 도구를 써서 'next/core-web-vitals'와 'next/typescript' 두 규칙셋을 extends 하고 있죠.\n\n```js\nimport { FlatCompat } from '@eslint/eslintrc'\n\nconst compat = new FlatCompat({\n  // import.meta.dirname는 Node.js v20.11.0 이상에서 사용 가능해요\n  baseDirectory: import.meta.dirname,\n})\n\nconst eslintConfig = [\n  ...compat.config({\n    extends: ['next/core-web-vitals', 'next/typescript'],\n  }),\n]\n\nexport default eslintConfig\n```\n\n여기서 next/typescript 규칙들은 사실 `plugin:@typescript-eslint/recommended` 기반이에요. 즉, TypeScript 코드를 더 엄격하고 깔끔하게 만들어주는 다양한 룰들을 포함하고 있다는 뜻이죠. 더 자세한 내용은 [typescript-eslint 공식 문서](https://typescript-eslint.io/linting/configs/)를 참고하면 좋아요.\n\n### Prettier와 함께 쓰기\n\nESLint와 함께 Prettier를 같이 사용하고 싶다면, 서로 충돌하는 규칙들을 조정해 줘야 해요. 특히 코드 스타일 관련 룰들은 Prettier가 담당하고, ESLint는 코드 품질과 오류 확인 위주로 역할 분담하는 게 일반적이죠.\n\n이럴 땐 `eslint-config-prettier`를 추가하고, extends에 `prettier`를 마지막에 넣어줘서 Prettier와 충돌하는 ESLint 룰을 끄는 방식을 씁니다. 예를 들면 이렇게:\n\n```js\n...compat.config({\n  extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],\n}),\n```\n\n그리고 Prettier 설정 파일(.prettierrc)을 잘 만들어 두면, VS Code 같은 편집기도 자동으로 스타일을 맞춰줘서 코딩하기 훨씬 편해져요!\n\n---\n\n**한마디 정리**  \ncreate-next-app --typescript를 통해 만들어진 ESLint 설정은 Next.js 공식 규칙 + TypeScript 추천 룰들의 조합이에요. 여기에 Prettier를 더해서 코딩 스타일도 자동으로 맞춰주면, 팀 프로젝트나 개인 개발 모두 훨씬 깔끔하고 효율적이랍니다!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nESLint에는 코드 포맷팅 규칙도 포함되어 있어서, 기존에 사용 중인 Prettier 설정과 충돌이 발생할 수 있어요. 그래서 ESLint와 Prettier가 서로 잘 협업할 수 있도록 `eslint-config-prettier`라는 설정을 추가하는 걸 추천해드립니다.\n\n먼저, `eslint-config-prettier` 패키지를 설치해야 해요. 사용하는 패키지 매니저에 따라 아래 명령어 중 하나를 실행하면 됩니다:\n\n```bash\nnpm install --save-dev eslint-config-prettier\n\nyarn add --dev eslint-config-prettier\n\npnpm add --save-dev eslint-config-prettier\n\nbun add --dev eslint-config-prettier\n```\n\n설치가 끝났으면, 이제 ESLint 설정 파일(`.eslintrc.js`나 `.eslintrc.json` 등)에 `prettier`를 extends에 추가해줘야 해요. 예를 들어 `.eslintrc.js` 파일이라면 이렇게 작성할 수 있습니다:\n\n```js\nmodule.exports = {\n  extends: [\n    // 기존 확장 설정들\n    \"eslint:recommended\",\n    \"plugin:react/recommended\",\n    // prettier 관련 설정은 항상 가장 마지막에 추가하는 게 좋아요\n    \"prettier\"\n  ],\n  // 그 외 다른 ESLint 설정들\n};\n```\n\n`eslint-config-prettier`는 ESLint의 포맷팅 관련 규칙을 끄면서, Prettier가 원하는 대로 포맷팅을 할 수 있게 도와줘요. 이렇게 해 놓으면 ESLint가 포맷팅 문제로 에러를 내는 경우가 줄어들고, 두 도구가 충돌 없이 함께 동작합니다.\n\n참고로, 만약 `eslint-plugin-prettier`도 사용하고 있다면, `plugin:prettier/recommended`를 extends에 추가하는 방식도 고려해볼 수 있어요. 이 방법을 사용하면 Prettier가 제안하는 포맷팅 규칙을 ESLint가 직접 체크해서 에러로 보여주게 되니, 편리합니다.\n\n사용자마다 설정 환경이 다를 수 있으니, 본인 프로젝트에 맞게 조절하면서 써보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nJS로 작성된 ESLint 설정과 함께, lint-staged와 Next.js lint를 함께 사용하는 방법에 대해 살펴볼게요.\n\n```js\nimport { FlatCompat } from '@eslint/eslintrc'\n\nconst compat = new FlatCompat({\n  // import.meta.dirname은 Node.js v20.11.0 이후부터 사용 가능해요\n  baseDirectory: import.meta.dirname,\n})\n\nconst eslintConfig = [\n  ...compat.config({\n    extends: ['next', 'prettier'], // next.js 기본 규칙과 prettier 규칙을 확장해서 사용\n  }),\n]\n\nexport default eslintConfig\n```\n\n여기서 `FlatCompat`은 ESLint가 새롭게 Flat Config 방식을 지원하면서, 기존의 extends 규칙을 쉽게 호환시켜 주는 도구예요. Node.js 환경에서 `import.meta.dirname`을 쓰려면 최소 버전이 20.11.0 이상이어야 하니 버전 확인 꼭 해보세요!\n\n---\n\n### 스테이지 된 파일만 린트 돌리기 (lint-staged)\n\ngit에 커밋 전에 변경된 파일들만 린트 돌리면서 자동 수정까지 하고 싶다면 `lint-staged`를 쓸 수 있어요. 그런데 Next.js의 `next lint` 명령어는 기본적으로 특정 파일만 지정해서 검사하려면 `--file` 플래그를 써야 하거든요.\n\n그래서 `.lintstagedrc.js`에 아래처럼 설정해 주면,\n\n```js\nconst path = require('path')\n\nconst buildEslintCommand = (filenames) =\u003e\n  `next lint --fix --file ${filenames\n    .map((f) =\u003e path.relative(process.cwd(), f))\n    .join(' --file ')}`\n\nmodule.exports = {\n  '*.{js,jsx,ts,tsx}': [buildEslintCommand],\n}\n```\n\n- `filenames`에 있는 파일들 각각을 상대 경로로 바꿔서 `--file` 플래그와 함께 넘겨줘요.\n- `--fix` 옵션 덕분에 린트 에러가 안 잡히는 부분은 자동으로 고쳐줘서 편리하답니다.\n\n---\n\n### 덧붙임: next lint와 lint-staged 활용 팁\n\n- **commit hook에 연결**: 보통 `husky` 같은 git 훅 관리 도구와 함께 써서 커밋 전에 자동으로 린트가 실행되도록 많이 설정해요.\n- **속도 개선**: 어떤 프로젝트는 린트 검사 시간이 오래 걸릴 수 있는데, lint-staged는 변경된 파일만 검사하니까 훨씬 빠릅니다.\n- **eslint 설정 최신화**: `FlatCompat`을 쓰지 않고 공식 Flat Config 방식으로 마이그레이션을 고민중이라면, eslint 공식 문서도 꾸준히 참고하세요.\n\n실제 프로젝트에 위 설정을 적용해서 깔끔한 코드 유지에 도움이 되길 바라요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n## 프로덕션 빌드 시 린트(lint) 비활성화하기\n\nNext.js에서 프로덕션 빌드를 할 때 ESLint가 실행되는 걸 원하지 않는다면, `next.config.js` 파일에 `eslint.ignoreDuringBuilds` 옵션을 `true`로 설정하면 됩니다.\n\n```js\nimport type { NextConfig } from 'next'\n\nconst nextConfig: NextConfig = {\n  eslint: {\n    // 주의! 이 설정을 사용하면 ESLint 에러가 있어도 프로덕션 빌드가 정상적으로 완료됩니다.\n    ignoreDuringBuilds: true,\n  },\n}\n\nexport default nextConfig\n```\n\n이 옵션을 활성화하면, 빌드 과정에서 ESLint 에러가 있어도 빌드가 중단되지 않기 때문에 빠르게 배포할 수 있다는 장점이 있지만, 반대로 코드 품질 문제를 간과할 위험도 있으니 주의하는 게 좋아요.\n\n### 기존 설정 마이그레이션하기\n\n만약 기존에 ESLint 설정을 다른 방식(예: 스크립트 또는 별도 플러그인 등)으로 관리하고 있었다면, 이제는 Next.js의 공식적인 설정 방식에 맞춰 `next.config.js` 내부에 위처럼 `eslint.ignoreDuringBuilds` 옵션만 추가해주면 됩니다.\n\n간단히 말해:\n\n- 기존에 빌드 시 `eslint` 검사를 별도로 돌리고 있었다면 이 옵션을 켜면 빌드 속도가 빨라짐\n- 하지만 배포 전에 꼭 별도로 린팅하거나 CI/CD 파이프라인에서 린트를 수행하는 게 중요!\n\n---\n\n개발할 때는 린트를 꼭 켜두고, 프로덕션 빌드시간을 빠르게 하고 싶을 때만 이 옵션을 사용하는 게 가장 스마트한 방법입니다. 린트는 코드 품질 유지에 아주 중요한 역할을 하니까요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n이미 애플리케이션에 ESLint가 설정되어 있다면, 특별한 몇 가지 조건이 아니면 eslint-config-next를 포함하기보다는 이 플러그인을 직접 확장하는 걸 추천해요.\n\n#### 추천 플러그인 룰셋\n\n다음 조건들이 모두 맞으면 이 방법이 좋아요:\n\n- 아래 플러그인 중 하나 이상을 이미 설치했을 때 (별도로 설치했거나 airbnb, react-app 같은 다른 설정을 이용해서 포함된 경우):\n  - react\n  - react-hooks\n  - jsx-a11y\n  - import\n- 그리고 Next.js 내에서 Babel이 기본 설정된 방식과 다른 parserOptions를 직접 정의한 경우 (이건 보통 권장되지 않는 방법이에요. Babel 설정을 커스터마이징한 경우에만 해당돼요)\n- eslint-plugin-import를 사용 중이고, Node.js 및/또는 TypeScript resolver가 import를 제대로 처리하도록 설정한 경우\n\n---\n\n요약하자면, 이미 React 관련 플러그인들이 잘 구성되어 있거나, Babel과 import 처리 방식에 변화를 줬을 때는 eslint-config-next를 포함하기보단 플러그인을 직접 확장하는 게 더 깔끔하고 충돌도 적답니다.\n\n참고로, Next.js는 자체적으로 ESLint를 지원해주지만 프로젝트 상황에 따라 세밀하게 조정해야 할 때가 있으니 이런 점을 미리 체크해보는 게 좋아요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nNext.js 프로젝트에서 ESLint 설정을 할 때, 직접 설정을 추가하기보다는 Next.js에서 권장하는 ESLint 플러그인을 사용하는 게 훨씬 편하고 관리하기 좋습니다. 그래서 기존에 직접 설정해둔 부분이 있다면, 그것을 없애거나 Next.js가 제공하는 플러그인으로 바로 확장하는 걸 추천해요.\n\n설정은 이렇게 간단합니다:\n\n```js\nmodule.exports = {\n  extends: [\n    // 기존 설정들...\n    'plugin:@next/next/recommended',\n  ],\n}\n```\n\n이렇게 하면 Next.js에서 권장하는 ESLint 규칙들이 자동으로 적용돼서, 코드 품질도 높아지고 Next.js의 최신 가이드라인도 쉽게 따라갈 수 있죠.\n\n그리고 이 플러그인은 프로젝트에 별도로 설치해줘야 하는데, `next lint` 명령어를 굳이 실행하지 않아도 됩니다. 설치는 각각의 패키지 매니저에 맞게 아래 명령어 중 하나를 사용하면 돼요:\n\n```bash\nnpm install --save-dev @next/eslint-plugin-next\n```\n\n```bash\nyarn add --dev @next/eslint-plugin-next\n```\n\n```bash\npnpm add --save-dev @next/eslint-plugin-next\n```\n\n```bash\nbun add --dev @next/eslint-plugin-next\n```\n\n---\n\n### 추가 팁!\n\n- 이 플러그인은 Next.js의 최적화 코드 스타일, 성능, 접근성 관련 규칙도 포함하고 있어서 프로젝트 전반의 품질 관리에 큰 도움이 됩니다.\n- ESLint 설정 변경 후에는 꼭 에디터를 재시작하거나 ESLint 프로세스를 재시작해서 변경 사항이 잘 반영되는지 확인해 보세요.\n- 가끔 규칙이 너무 엄격하거나 불필요하다고 느껴지면, `.eslintrc.js`에서 개별 규칙을 오버라이드해서 조정할 수도 있어요.\n\n이제 Next.js 공식 방식을 활용해서 더 깔끔하고 효율적인 개발 환경을 만들어보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n겹치는 플러그인이나 파서를 여러 설정 파일에서 불러와 생길 수 있는 충돌이나 오류 걱정 없이 안전하게 사용할 수 있는 방법이에요.\n\n### 추가 설정 방법\n\n만약 이미 따로 ESLint 설정을 사용 중인데, 거기에 `eslint-config-next`를 포함시키고 싶다면, 다른 설정들 뒤에 마지막으로 `next` 설정이 확장되도록 해야 합니다. 예를 들면 아래처럼요:\n\n```js\nimport js from '@eslint/js'\nimport { FlatCompat } from '@eslint/eslintrc'\n\nconst compat = new FlatCompat({\n  // import.meta.dirname는 Node.js v20.11.0 이후부터 사용할 수 있어요\n  baseDirectory: import.meta.dirname,\n  recommendedConfig: js.configs.recommended,\n})\n\nconst eslintConfig = [\n  ...compat.config({\n    extends: ['eslint:recommended', 'next'],\n  }),\n]\n\nexport default eslintConfig\n```\n\n여기서 핵심은 `FlatCompat`를 사용해 기존의 ESLint 설정(예: `eslint:recommended`)과 `next` 설정을 안전하게 병합하는 거예요. 이렇게 하면 `next`의 설정이 나중에 적용돼서 우선순위도 제대로 조절되고, 설정 충돌을 미연에 방지할 수 있죠.\n\n참고로, `import.meta.dirname`은 상대 경로 같은 디렉토리 정보를 제공하는데, 이 기능을 사용하려면 Node.js가 v20.11.0 이상이어야 한다는 점 기억해 주세요!\n\n이 방법을 활용하면 Next.js 프로젝트나 여러 ESLint 설정을 동시에 관리하는 환경에서 훨씬 깔끔하고 효율적으로 ESLint 구성을 유지할 수 있습니다.\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n다음 설정(next configuration)은 parser, plugins, settings 속성에 대한 기본값을 이미 잘 처리해주고 있어요. 그러니 특별히 다른 설정이 필요하지 않은 한, 이 속성들을 다시 선언할 필요는 없답니다.\n\n만약 다른 공유 가능한 설정(shareable configuration)을 포함한다면, 이 속성들이 덮어쓰거나 수정되지 않도록 잘 관리해줘야 해요. 그렇지 않으면, 기본적으로 next 설정과 겹치는 부분이 있을 수 있어서 혼란이 생길 수 있거든요.\n\n간단하게 정리하면, 가능하면 next 설정과 중복되는 다른 설정들은 빼고, 필요하다면 Next.js ESLint 플러그인에서 직접 확장하는 게 가장 깔끔한 방법이에요.\n\n개발하다 보면 설정이 꼬일 때가 있는데, 이렇게 기본값을 잘 활용하면 깔끔하고 유지보수하기 편한 ESLint 설정을 만들 수 있으니 참고하세요!","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":25},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003eESLint 플러그인\u003c/h1\u003e\n\u003cp\u003eNext.js에는 이미 기본 설정에 포함되어 있는 \u003ccode\u003eeslint-plugin-next\u003c/code\u003e라는 ESLint 플러그인이 있어요. 이 플러그인은 Next.js 애플리케이션을 개발할 때 자주 발생하는 문제나 실수를 미리 잡아내도록 도와줍니다. 덕분에 더 깔끔하고 버그 없는 코드를 작성할 수 있죠.\u003c/p\u003e\n\u003ch2\u003e참고 자료\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eeslint-config-next\u003c/code\u003e 안에는 아래에 소개하는 여러 ESLint 플러그인들을 추천 규칙 세트로 포함하고 있어요. 그러니까 Next.js를 쓰면 별도의 복잡한 설정 없이도 좋은 코드 품질을 유지할 수 있다는 뜻이죠.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003eESLint Plugin\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eeslint-plugin-react\u003c/td\u003e\u003ctd\u003eReact 코드에서 발생할 수 있는 문제를 잡아냄\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eeslint-plugin-jsx-a11y\u003c/td\u003e\u003ctd\u003e웹 접근성 관련 규칙을 적용해 좀 더 접근성 좋은 UI 작성 지원\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eeslint-plugin-import\u003c/td\u003e\u003ctd\u003e모듈 임포트 관련 문제를 방지\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003eNext.js 개발할 때는 이런 기본 설정들이 이미 잘 갖춰져 있으니, 너무 ESLint 설정에만 신경 쓰지 말고 개발에 집중해도 되겠죠? 물론 필요하다면 플러그인이나 규칙을 추가로 조정해서 내 스타일에 맞게 커스터마이징하는 것도 가능해요.\u003c/p\u003e\n\u003cp\u003e추가로, ESLint와 prettier 같은 코드 스타일링 도구를 함께 사용하면 코드 품질 유지와 팀 협업이 훨씬 수월해진다는 점도 기억해두면 좋겠네요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cul\u003e\n\u003cli\u003eeslint-plugin-react\u003c/li\u003e\n\u003cli\u003eeslint-plugin-react-hooks\u003c/li\u003e\n\u003cli\u003eeslint-plugin-next\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이 설정들은 next.config.js에 있는 설정보다 우선 적용됩니다.\u003c/p\u003e\n\u003ch3\u003e규칙 (Rules)\u003c/h3\u003e\n\u003cp\u003e전체 규칙 목록은 다음과 같습니다:\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e규칙 이름\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eeslint-plugin-react\u003c/td\u003e\u003ctd\u003eReact 관련 코딩 스타일과 규칙을 관리하는 플러그인\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eeslint-plugin-react-hooks\u003c/td\u003e\u003ctd\u003eReact Hooks 관련 규칙을 강화해주는 플러그인\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eeslint-plugin-next\u003c/td\u003e\u003ctd\u003eNext.js 특화 규칙을 포함하는 플러그인\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003eESLint 플러그인들은 프로젝트의 코드 품질과 일관성을 유지하는 데 정말 유용해요. Next.js 프로젝트를 할 때 이런 플러그인들을 쓰면 Hooks를 잘못 쓰거나, React 컴포넌트에서 흔히 발생하는 실수를 미리 잡아낼 수 있어서 개발할 때 시간도 절약되고 오류도 줄일 수 있답니다.\u003c/p\u003e\n\u003cp\u003e특히, \u003ccode\u003eeslint-plugin-next\u003c/code\u003e는 Next.js를 사용할 때만 적용되는 특수 규칙들(예: 이미지 최적화, 링크 태그 사용 등)을 포함하고 있어서 Next.js 프로젝트에 최적화된 코드를 작성하는 데 도움을 줍니다. 그런데 \u003ccode\u003enext.config.js\u003c/code\u003e의 설정보다 이 플러그인 설정이 우선한다는 점, 꼭 기억하세요!\u003c/p\u003e\n\u003cp\u003e이 아래에 구체적인 각 규칙 셋을 보시면, 어떤 규칙들이 있고 각각 어떻게 동작하는지 더 자세히 알 수 있을 거예요. 궁금한 점 있으면 언제든 물어보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e아래는 Next.js에서 권장하는 ESLint 규칙들 목록입니다. 나열된 규칙들은 기본 권장 설정에 활성화되어 있고, 각각 어떤 역할을 하는지 간단히 설명되어 있어요. 참고하면 코드 작성 시 품질을 높이는데 큰 도움이 됩니다!\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth align=\"center\"\u003e권장 설정에 활성화됨\u003c/th\u003e\u003cth align=\"left\"\u003e규칙\u003c/th\u003e\u003cth align=\"left\"\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/google-font-display\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/google-font-display\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003eGoogle Fonts 사용 시 \u003ccode\u003efont-display\u003c/code\u003e 속성 강제 적용\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/google-font-preconnect\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/google-font-preconnect\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003eGoogle Fonts에 대해 \u003ccode\u003epreconnect\u003c/code\u003e 태그 사용 권장\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/inline-script-id\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/inline-script-id\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e인라인 스크립트가 포함된 \u003ccode\u003enext/script\u003c/code\u003e 컴포넌트에 \u003ccode\u003eid\u003c/code\u003e 속성 필요\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/next-script-for-ga\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/next-script-for-ga\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e구글 애널리틱스 인라인 스크립트 사용 시 \u003ccode\u003enext/script\u003c/code\u003e 컴포넌트를 선호\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-assign-module-variable\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-assign-module-variable\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003emodule\u003c/code\u003e 변수에 할당하는 행위 방지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-async-client-component\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-async-client-component\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e클라이언트 컴포넌트를 async 함수로 작성하는 것을 방지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-before-interactive-script-outside-document\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-before-interactive-script-outside-document\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003enext/script\u003c/code\u003e의 \u003ccode\u003ebeforeInteractive\u003c/code\u003e 옵션은 \u003ccode\u003epages/_document.js\u003c/code\u003e에서만 허용\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-css-tags\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-css-tags\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e수동 스타일 시트 태그 방지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-document-import-in-page\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-document-import-in-page\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003enext/document\u003c/code\u003e를 \u003ccode\u003epages/_document.js\u003c/code\u003e 외부에서 임포트 금지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-duplicate-head\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-duplicate-head\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003epages/_document.js\u003c/code\u003e 내에서 \u003ccode\u003e\u0026#x3C;Head\u003e\u003c/code\u003e 중복 사용 방지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-head-element\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-head-element\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003e\u0026#x3C;head\u003e\u003c/code\u003e 요소 사용 방지 (Next.js에서는 \u003ccode\u003e\u0026#x3C;Head\u003e\u003c/code\u003e 컴포넌트 사용 권장)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-head-import-in-document\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-head-import-in-document\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003epages/_document.js\u003c/code\u003e에서 \u003ccode\u003enext/head\u003c/code\u003e 임포트 금지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-html-link-for-pages\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-html-link-for-pages\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e내부 페이지 이동 시 \u003ccode\u003e\u0026#x3C;a\u003e\u003c/code\u003e 대신 Next.js의 \u003ccode\u003e\u0026#x3C;Link\u003e\u003c/code\u003e 컴포넌트 사용 권장\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-img-element\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-img-element\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003eLCP (Largest Contentful Paint) 성능 저하와 높은 대역폭 문제 때문에 \u003ccode\u003e\u0026#x3C;img\u003e\u003c/code\u003e 대신 Next.js \u003ccode\u003eImage\u003c/code\u003e 컴포넌트 사용 권장\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-page-custom-font\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-page-custom-font\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e페이지 단독 사용자 지정 폰트 사용 방지 (글로벌로 적용 권장)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-script-component-in-head\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-script-component-in-head\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003enext/head\u003c/code\u003e 컴포넌트에 \u003ccode\u003enext/script\u003c/code\u003e 사용 금지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-styled-jsx-in-document\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-styled-jsx-in-document\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003epages/_document.js\u003c/code\u003e 내 styled-jsx 사용 금지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-sync-scripts\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-sync-scripts\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e동기 방식 스크립트 사용 방지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-title-in-document-head\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-title-in-document-head\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ccode\u003enext/document\u003c/code\u003e에서 \u003ccode\u003eHead\u003c/code\u003e 컴포넌트 안에 \u003ccode\u003e\u0026#x3C;title\u003e\u003c/code\u003e 사용 금지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e@next/next/no-typos\u003c/td\u003e\u003ctd align=\"left\"\u003eNext.js 데이터 패칭 함수에서 흔히 하는 오타 방지 (\u003ccode\u003egetStaticProps\u003c/code\u003e 등)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd align=\"center\"\u003e✅\u003c/td\u003e\u003ctd align=\"left\"\u003e\u003ca href=\"https://nextjs.org/docs/messages/no-unwanted-polyfillio\" rel=\"nofollow\" target=\"_blank\"\u003e@next/next/no-unwanted-polyfillio\u003c/a\u003e\u003c/td\u003e\u003ctd align=\"left\"\u003ePolyfill.io의 중복 폴리필 방지\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch3\u003e추가 팁!\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e위 리스트의 많은 규칙들은 Next.js에서 권장하는 최적화 및 구조적 일관성을 지키도록 도와줍니다.\u003c/li\u003e\n\u003cli\u003e예를 들어, 내부 페이지 이동 시 \u003ccode\u003e\u0026#x3C;Link\u003e\u003c/code\u003e 컴포넌트를 쓰는 이유는 클라이언트 사이드 네비게이션 활성화와 빠른 페이지 전환을 가능하게 하기 때문입니다.\u003c/li\u003e\n\u003cli\u003e그리고 이미지 최적화를 위해 Next.js의 \u003ccode\u003eImage\u003c/code\u003e 컴포넌트를 사용하는 것이 페이지 로딩 속도 향상과 대역폭 절약에 크게 유리해요.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003enext/script\u003c/code\u003e 컴포넌트는 스크립트 로딩 시점 및 우선순위를 조절하여 성능 최적화를 돕는데, 특히 Google Analytics 같은 외부 스크립트는 꼭 규칙대로 적용하는 게 좋습니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e에디터에서 경고와 오류를 바로 확인하려면?\u003c/h3\u003e\n\u003cp\u003e이런 ESLint 규칙들은 혼자 일일이 체크하기 어려운데요, VSCode 같은 편집기에서 Next.js ESLint 플러그인을 사용하면 개발 중 곧바로 문제점을 확인할 수 있어서 훨씬 편리합니다!\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e예시: 커스텀 디렉토리 및 파일에 Lint 적용하기\u003c/h2\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003enpx next lint --\u003cspan class=\"hljs-built_in\"\u003edir\u003c/span\u003e=app,components --files=**/*.ts,**/*.tsx\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 기본 \u003ccode\u003epages\u003c/code\u003e 디렉토리 외에 \u003ccode\u003eapp\u003c/code\u003e, \u003ccode\u003ecomponents\u003c/code\u003e 폴더도 lint 검사를 할 수 있어요. 실제 프로젝트에 맞게 잘 활용해 보세요!\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003eNext.js 개발하면서 꼭 알아두면 좋은 필수 ESLint 규칙들!\u003c/p\u003e\n\u003cp\u003e꾸준히 규칙을 지키면서 개발하면 유지보수가 훨씬 쉬워지고, 코드 품질도 자연스럽게 올라가니까 꼭 적용해 보세요 :)\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eNext.js는 기본적으로 pages/, app/, components/, lib/, src/ 디렉터리 안에 있는 모든 파일들에 대해 ESLint를 실행해줘요. 근데 프로덕션 빌드할 때는 어떤 디렉터리만 검사할지 next.config.js 파일 안에 eslint 옵션의 dirs 배열로 지정할 수도 있답니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003eeslint\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003edirs\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'pages'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'utils'\u003c/span\u003e], \u003cspan class=\"hljs-comment\"\u003e// next build 시에 'pages'와 'utils' 폴더만 ESLint 검사 대상이 됩니다.\u003c/span\u003e\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e그리고 커맨드 라인에서 직접 ESLint를 실행할 때는 \u003ccode\u003enext lint\u003c/code\u003e 다음에 \u003ccode\u003e--dir\u003c/code\u003e이나 \u003ccode\u003e--file\u003c/code\u003e 플래그를 붙여 특정 디렉터리나 파일만 검사할 수도 있어요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003enext lint --\u003cspan class=\"hljs-built_in\"\u003edir\u003c/span\u003e pages --\u003cspan class=\"hljs-built_in\"\u003edir\u003c/span\u003e utils --file bar.js\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 pages와 utils 폴더, 그리고 bar.js 파일만 ESLint 검사를 하게 돼서, 검사 범위를 좁혀서 속도를 개선하거나 원하는 부분만 빠르게 체크할 때 유용해요.\u003c/p\u003e\n\u003cp\u003e추가로 팁을 드리자면, 대규모 프로젝트에서는 불필요한 파일까지 ESLint가 검사하지 않도록 dirs 옵션을 잘 설정해두는 게 빌드 시간을 줄이는 데 꽤 도움이 돼요. 프로젝트가 커질수록 이런 세세한 설정이 실제 개발 효율에도 큰 차이를 만들어낸답니다!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003e모노레포(monorepo)에서 루트 디렉터리 지정하기\u003c/h3\u003e\n\u003cp\u003e안녕하세요! 오늘은 Next.js 프로젝트를 모노레포 구조로 관리할 때, \u003ccode\u003eeslint-plugin-next\u003c/code\u003e가 Next.js 애플리케이션이 어디 있는지 잘 찾게 만드는 방법에 대해 이야기해볼게요.\u003c/p\u003e\n\u003cp\u003e보통 Next.js 프로젝트를 루트 디렉터리에 둔다면 별다른 설정 없이 잘 작동하는데요, 모노레포처럼 여러 패키지가 서브디렉터리에 있을 경우엔 \u003ccode\u003eeslint-plugin-next\u003c/code\u003e가 어디서 Next.js 일을 처리해야 할지 모를 수 있어요. 그래서 \u003ccode\u003e.eslintrc\u003c/code\u003e 파일(또는 설정 파일)에서 \u003ccode\u003esettings\u003c/code\u003e 속성 안에 \u003ccode\u003enext.rootDir\u003c/code\u003e 옵션을 지정해주는 거죠.\u003c/p\u003e\n\u003cp\u003e즉, ESLint 설정을 조금 손봐서 Next.js 앱 경로를 정확히 알려주는 방법을 사용할 수 있습니다. 예제를 볼게요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'@eslint/eslintrc'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e compat = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e({\n  \u003cspan class=\"hljs-comment\"\u003e// import.meta.dirname는 Node.js v20.11.0 이상에서 사용 가능해요\u003c/span\u003e\n  \u003cspan class=\"hljs-attr\"\u003ebaseDirectory\u003c/span\u003e: \u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003emeta\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003edirname\u003c/span\u003e,\n})\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e eslintConfig = [\n  ...compat.\u003cspan class=\"hljs-title function_\"\u003econfig\u003c/span\u003e({\n    \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'next'\u003c/span\u003e],\n    \u003cspan class=\"hljs-attr\"\u003esettings\u003c/span\u003e: {\n      \u003cspan class=\"hljs-attr\"\u003enext\u003c/span\u003e: {\n        \u003cspan class=\"hljs-attr\"\u003erootDir\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'packages/my-app/'\u003c/span\u003e,  \u003cspan class=\"hljs-comment\"\u003e// 여기에 Next.js 앱 폴더 경로를 넣어주세요\u003c/span\u003e\n      },\n    },\n  }),\n]\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e eslintConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 좀 더 보충설명을 하자면,\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e설정\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003erootDir\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eNext.js가 위치한 경로 (상대경로나 절대경로 모두 가능)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eglob 패턴\u003c/td\u003e\u003ctd\u003e여러 애플리케이션이 있는 경우 \u003ccode\u003e\"packages/*/\"\u003c/code\u003e 같은 glob 패턴도 쓸 수 있어요\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e배열 사용\u003c/td\u003e\u003ctd\u003e여러 개 경로(또는 glob)를 배열로 묶어서 지정하는 것도 가능합니다\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003e예를 들어, 여러 앱이 있을 때는 이렇게 할 수도 있죠:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-attr\"\u003esettings\u003c/span\u003e: {\n  \u003cspan class=\"hljs-attr\"\u003enext\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003erootDir\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'packages/app1/'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'packages/app2/'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'packages/*/'\u003c/span\u003e],\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이 설정 덕분에 ESLint가 Next.js 프로젝트 내 규칙을 제대로 이해하고 검사할 수 있어, 잘못된 코드 패턴이나 Next.js 특화된 규칙 위반을 정확히 잡아줍니다.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003e참고로\u003c/strong\u003e \u003ccode\u003eimport.meta.dirname\u003c/code\u003e는 Node.js v20.11.0부터 지원하니, 이 버전 이하를 사용 중이라면 다른 방법(예: \u003ccode\u003e__dirname\u003c/code\u003e 또는 경로 모듈 활용)을 써야 해요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e정리하자면\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e모노레포에서 각 Next.js 앱 위치를 알려줘야 ESLint가 제대로 동작한다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e.eslintrc\u003c/code\u003e 혹은 ESLint 설정 파일의 \u003ccode\u003esettings.next.rootDir\u003c/code\u003e에 앱 경로 또는 glob 패턴을 지정하면 된다.\u003c/li\u003e\n\u003cli\u003e여러 앱이 있으면 배열로 여러 경로를 지정할 수도 있다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003emonorepo 나눠서 관리하는 분들은 이렇게 한번 설정해두면 ESLint도 Next.js도 모두 스트레스 없이 사용할 수 있으니 꼭 참고해보세요! :)\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003e캐시 비활성화하기\u003c/h3\u003e\n\u003cp\u003eESLint는 기본적으로 처리한 파일들의 정보를 캐시해서 성능을 높여줘요. 이 캐시는 보통 \u003ccode\u003e.next/cache\u003c/code\u003e 폴더나 여러분이 설정한 빌드 디렉토리에 저장됩니다.\u003c/p\u003e\n\u003cp\u003e그런데 만약 ESLint 규칙 중에 한 소스 파일의 내용뿐만 아니라 다른 상태나 파일에 의존하는 규칙을 사용할 때는 캐시가 문제를 일으킬 수 있거든요. 이런 경우 캐시를 끄고 싶다면 \u003ccode\u003enext lint\u003c/code\u003e 명령어에 \u003ccode\u003e--no-cache\u003c/code\u003e 플래그를 붙여주면 돼요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003enext lint --no-cache\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면, ESLint가 이전에 저장해둔 캐시를 무시하고 항상 새로 검사하기 때문에 캐시로 인한 이상 동작을 방지할 수 있습니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003eESLint 규칙 비활성화하기\u003c/h3\u003e\n\u003cp\u003eESLint 룰을 상황에 따라 꺼야 할 때가 있어요. 프로젝트 전체에서 특정 룰을 끌 수도 있고, 특정 파일이나 코드 일부에만 룰을 무시하도록 설정할 수 있죠. 다음에는 ESLint 규칙 비활성화 방법에 대해서도 차근차근 알려드릴게요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e안녕하세요, 개발자 여러분! 오늘은 Next.js, React, 그리고 React Hooks 플러그인에서 제공하는 ESLint 규칙들을 어떻게 수정하거나 비활성화할 수 있는지 알려드리려고 해요. 특히 \u003ccode\u003e.eslintrc\u003c/code\u003e 설정 파일에서 \u003ccode\u003erules\u003c/code\u003e 프로퍼티를 직접 변경하는 방법에 대해 다뤄볼게요.\u003c/p\u003e\n\u003cp\u003e먼저, Next.js에서는 ESLint 설정 방식이 조금 바뀌었는데요, 새로운 \u003ccode\u003e@eslint/eslintrc\u003c/code\u003e 패키지를 활용해서 호환성을 유지하고 설정을 쉽게 변경할 수 있어요. 아래 예시 코드를 통해 이해해볼게요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'@eslint/eslintrc'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e compat = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e({\n  \u003cspan class=\"hljs-comment\"\u003e// import.meta.dirname은 Node.js v20.11.0 이상부터 사용 가능합니다.\u003c/span\u003e\n  \u003cspan class=\"hljs-attr\"\u003ebaseDirectory\u003c/span\u003e: \u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003emeta\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003edirname\u003c/span\u003e,\n})\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e eslintConfig = [\n  ...compat.\u003cspan class=\"hljs-title function_\"\u003econfig\u003c/span\u003e({\n    \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'next'\u003c/span\u003e],\n    \u003cspan class=\"hljs-attr\"\u003erules\u003c/span\u003e: {\n      \u003cspan class=\"hljs-comment\"\u003e// react 컴포넌트 내에서 escape 처리되지 않은 엔티티 사용 경고를 끕니다.\u003c/span\u003e\n      \u003cspan class=\"hljs-string\"\u003e'react/no-unescaped-entities'\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'off'\u003c/span\u003e,\n      \u003cspan class=\"hljs-comment\"\u003e// Next.js 페이지에서 custom font 사용을 금지하는 규칙을 끕니다.\u003c/span\u003e\n      \u003cspan class=\"hljs-string\"\u003e'@next/next/no-page-custom-font'\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'off'\u003c/span\u003e,\n    },\n  }),\n]\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e eslintConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e설명을 조금 더 살짝 덧붙여볼게요\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eFlatCompat\u003c/code\u003e는 Next.js 최신 ESLint 설정이 기본적으로 \u003ccode\u003eflat\u003c/code\u003e config 방식을 사용하면서 발생하는 호환성 문제를 해결해 줍니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ebaseDirectory\u003c/code\u003e는 현재 설정 파일의 경로 기준으로 확장과 규칙을 찾도록 해 줍니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eextends\u003c/code\u003e에 \u003ccode\u003e'next'\u003c/code\u003e를 명시하면 기본적으로 Next.js에서 추천하는 ESLint 규칙 세트를 사용하겠다는 뜻입니다.\u003c/li\u003e\n\u003cli\u003e여기서 \u003ccode\u003erules\u003c/code\u003e 안에 원하는 규칙을 \u003ccode\u003eoff\u003c/code\u003e나 다른 심각도 수준(\u003ccode\u003ewarn\u003c/code\u003e, \u003ccode\u003eerror\u003c/code\u003e)으로 직접 조정할 수 있어요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003eCore Web Vitals 관련 팁!\u003c/h3\u003e\n\u003cp\u003eNext.js에서 \u003ccode\u003enext lint\u003c/code\u003e 명령어를 처음 실행할 때, \u003ccode\u003estrict\u003c/code\u003e 옵션을 선택하면 \u003ccode\u003enext/core-web-vitals\u003c/code\u003e라는 별도의 규칙 세트가 자동으로 활성화돼요. 이 규칙들은 웹 성능과 사용자 경험에 큰 영향을 미치는 Core Web Vitals 지표 개선에 도움을 준답니다. 따라서 엄격한 품질 관리가 필요한 프로젝트에서는 이 옵션을 적극 권장드려요.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e요즘 ESLint 설정 방법이 조금 바뀌었지만 위 방법처럼 하면 이전보다 훨씬 유연하고 깔끔하게 원하는 규칙을 커스터마이징할 수 있습니다. 혹시 더 궁금한 점 있으면 편하게 알려주세요! 개발자 여러분, 행복한 코딩 하세요! 🚀\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e이번 글에서는 Next.js 프로젝트에서 ESLint 설정을 할 때 자주 쓰이는 \u003ccode\u003enext/core-web-vitals\u003c/code\u003e 확장 설정을 Flat ESLint 설정 방식과 함께 사용하는 방법을 소개할게요. 실무에서 꼭 알아두면 좋은 내용이니, 재미있게 읽어주세요!\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ccode\u003enext/core-web-vitals\u003c/code\u003e란?\u003c/h2\u003e\n\u003cp\u003eNext.js에서 제공하는 \u003ccode\u003enext/core-web-vitals\u003c/code\u003e는 Core Web Vitals(사용자 경험과 성능지표에 중요한 요소들)를 기준으로 ESLint 규칙들을 강화한 설정입니다. 기본적으로 경고(warning)로 표시되던 규칙 중 사용자 경험에 치명적인 부분에 대해서는 에러(error)로 올려줍니다. 이 덕분에 웹 앱 성능과 접근성을 더 신경 쓸 수 있죠.\u003c/p\u003e\n\u003ch3\u003e유용한 점\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eCreate Next App으로 새 프로젝트 만들면 자동으로 포함돼 있어요.\u003c/li\u003e\n\u003cli\u003eCore Web Vitals에 영향을 주는 코드에 대한 검사 강화\u003c/li\u003e\n\u003cli\u003e런타임 성능과 SEO, 사용자 경험 개선에 도움\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2\u003eFlat ESLint 설정에서는 이렇게 써요\u003c/h2\u003e\n\u003cp\u003eESLint 8버전부터는 구성 파일이 Flat Config라는 새로운 방식도 지원합니다. 기존 \u003ccode\u003e.eslintrc.js\u003c/code\u003e 대신 \u003ccode\u003eeslint.config.js\u003c/code\u003e 같은 파일에 설정을 배열 형태로 쓴다고 생각하면 쉬워요.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e@eslint/eslintrc\u003c/code\u003e 패키지의 \u003ccode\u003eFlatCompat\u003c/code\u003e 도구를 이용하면 이전 \u003ccode\u003e.eslintrc\u003c/code\u003e 형식을 Flat Config으로 변환해 쓸 수 있어서, 그 점을 활용한 코드가 바로 아래 예시입니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'@eslint/eslintrc'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e compat = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e({\n  \u003cspan class=\"hljs-comment\"\u003e// import.meta.dirname은 Node.js v20.11.0 이후 버전에서 사용 가능해요.\u003c/span\u003e\n  \u003cspan class=\"hljs-attr\"\u003ebaseDirectory\u003c/span\u003e: \u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003emeta\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003edirname\u003c/span\u003e,\n})\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e eslintConfig = [\n  ...compat.\u003cspan class=\"hljs-title function_\"\u003econfig\u003c/span\u003e({\n    \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'next/core-web-vitals'\u003c/span\u003e],\n  }),\n]\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e eslintConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eFlatCompat\u003c/code\u003e에 프로젝트 경로를 넘겨준 후,\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecompat.config()\u003c/code\u003e 메서드에서 \u003ccode\u003eextends\u003c/code\u003e 배열에 \u003ccode\u003enext/core-web-vitals\u003c/code\u003e를 추가해줘요.\u003c/li\u003e\n\u003cli\u003e결과물을 그대로 export하면 ESLint가 Flat Config 방식으로 인식합니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2\u003eTypeScript 프로젝트에서 쓸 땐?\u003c/h2\u003e\n\u003cp\u003eTypeScript에서도 마찬가지로 위 방식을 사용할 수 있는데요, 보통 \u003ccode\u003e@typescript-eslint\u003c/code\u003e 플러그인도 같이 사용하므로 아래처럼 작성합니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'@eslint/eslintrc'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e compat = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e({\n  \u003cspan class=\"hljs-attr\"\u003ebaseDirectory\u003c/span\u003e: \u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003emeta\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003edirname\u003c/span\u003e,\n})\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e eslintConfig = [\n  ...compat.\u003cspan class=\"hljs-title function_\"\u003econfig\u003c/span\u003e({\n    \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\n      \u003cspan class=\"hljs-string\"\u003e'next/core-web-vitals'\u003c/span\u003e,\n      \u003cspan class=\"hljs-string\"\u003e'plugin:@typescript-eslint/recommended'\u003c/span\u003e, \u003cspan class=\"hljs-comment\"\u003e// TypeScript 권장 설정\u003c/span\u003e\n    ],\n  }),\n]\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e eslintConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTypeScript와 Next.js 둘다 쓰는 프로젝트라면, 이렇게 병합해서 설정해주시면 끝!\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e마지막으로 팁 하나!\u003c/h2\u003e\n\u003cp\u003eNext.js 최신 버전은 기본적으로 \u003ccode\u003enext/core-web-vitals\u003c/code\u003e를 포함하는 경우가 많지만, 기존 프로젝트나 수동으로 구성하는 경우 유용해요. ESLint 오류가 너무 많아 부담된다면 한두 가지 규칙만 선택적으로 켜서 점진적으로 적용해보길 추천합니다.\u003c/p\u003e\n\u003cp\u003e또, Node.js 버전이 \u003ccode\u003eimport.meta.dirname\u003c/code\u003e을 지원하지 않는다면, \u003ccode\u003epath\u003c/code\u003e 모듈과 \u003ccode\u003eimport.meta.url\u003c/code\u003e을 활용해서 경로를 추출하는 코드도 함께 작성해야 해요.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e오늘은 Next.js 프로젝트에서 Core Web Vitals에 맞춘 ESLint 설정 방법과 Flat Config 적용법에 대해 간단히 다뤄봤어요. 다음에도 실무에 바로 써먹는 팁으로 돌아올게요!\u003c/p\u003e\n\u003cp\u003e궁금한 점 있으면 댓글로 물어봐 주세요 :)\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eNext.js를 사용하면서 ESLint 설정할 때, create-next-app --typescript 옵션을 쓰면 기본적으로 Next.js ESLint 규칙 뿐만 아니라 TypeScript에 특화된 lint 규칙도 함께 추가해줘요. next/typescript라는 규칙셋을 통해서요.\u003c/p\u003e\n\u003cp\u003e아래 코드를 보면 FlatCompat라는 도구를 써서 'next/core-web-vitals'와 'next/typescript' 두 규칙셋을 extends 하고 있죠.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'@eslint/eslintrc'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e compat = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e({\n  \u003cspan class=\"hljs-comment\"\u003e// import.meta.dirname는 Node.js v20.11.0 이상에서 사용 가능해요\u003c/span\u003e\n  \u003cspan class=\"hljs-attr\"\u003ebaseDirectory\u003c/span\u003e: \u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003emeta\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003edirname\u003c/span\u003e,\n})\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e eslintConfig = [\n  ...compat.\u003cspan class=\"hljs-title function_\"\u003econfig\u003c/span\u003e({\n    \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'next/core-web-vitals'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'next/typescript'\u003c/span\u003e],\n  }),\n]\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e eslintConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 next/typescript 규칙들은 사실 \u003ccode\u003eplugin:@typescript-eslint/recommended\u003c/code\u003e 기반이에요. 즉, TypeScript 코드를 더 엄격하고 깔끔하게 만들어주는 다양한 룰들을 포함하고 있다는 뜻이죠. 더 자세한 내용은 \u003ca href=\"https://typescript-eslint.io/linting/configs/\" rel=\"nofollow\" target=\"_blank\"\u003etypescript-eslint 공식 문서\u003c/a\u003e를 참고하면 좋아요.\u003c/p\u003e\n\u003ch3\u003ePrettier와 함께 쓰기\u003c/h3\u003e\n\u003cp\u003eESLint와 함께 Prettier를 같이 사용하고 싶다면, 서로 충돌하는 규칙들을 조정해 줘야 해요. 특히 코드 스타일 관련 룰들은 Prettier가 담당하고, ESLint는 코드 품질과 오류 확인 위주로 역할 분담하는 게 일반적이죠.\u003c/p\u003e\n\u003cp\u003e이럴 땐 \u003ccode\u003eeslint-config-prettier\u003c/code\u003e를 추가하고, extends에 \u003ccode\u003eprettier\u003c/code\u003e를 마지막에 넣어줘서 Prettier와 충돌하는 ESLint 룰을 끄는 방식을 씁니다. 예를 들면 이렇게:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e...compat.\u003cspan class=\"hljs-title function_\"\u003econfig\u003c/span\u003e({\n  \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'next/core-web-vitals'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'next/typescript'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'prettier'\u003c/span\u003e],\n}),\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e그리고 Prettier 설정 파일(.prettierrc)을 잘 만들어 두면, VS Code 같은 편집기도 자동으로 스타일을 맞춰줘서 코딩하기 훨씬 편해져요!\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003e한마디 정리\u003c/strong\u003e\u003cbr\u003e\ncreate-next-app --typescript를 통해 만들어진 ESLint 설정은 Next.js 공식 규칙 + TypeScript 추천 룰들의 조합이에요. 여기에 Prettier를 더해서 코딩 스타일도 자동으로 맞춰주면, 팀 프로젝트나 개인 개발 모두 훨씬 깔끔하고 효율적이랍니다!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eESLint에는 코드 포맷팅 규칙도 포함되어 있어서, 기존에 사용 중인 Prettier 설정과 충돌이 발생할 수 있어요. 그래서 ESLint와 Prettier가 서로 잘 협업할 수 있도록 \u003ccode\u003eeslint-config-prettier\u003c/code\u003e라는 설정을 추가하는 걸 추천해드립니다.\u003c/p\u003e\n\u003cp\u003e먼저, \u003ccode\u003eeslint-config-prettier\u003c/code\u003e 패키지를 설치해야 해요. 사용하는 패키지 매니저에 따라 아래 명령어 중 하나를 실행하면 됩니다:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003enpm install --save-dev eslint-config-prettier\n\nyarn add --dev eslint-config-prettier\n\npnpm add --save-dev eslint-config-prettier\n\nbun add --dev eslint-config-prettier\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e설치가 끝났으면, 이제 ESLint 설정 파일(\u003ccode\u003e.eslintrc.js\u003c/code\u003e나 \u003ccode\u003e.eslintrc.json\u003c/code\u003e 등)에 \u003ccode\u003eprettier\u003c/code\u003e를 extends에 추가해줘야 해요. 예를 들어 \u003ccode\u003e.eslintrc.js\u003c/code\u003e 파일이라면 이렇게 작성할 수 있습니다:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\n    \u003cspan class=\"hljs-comment\"\u003e// 기존 확장 설정들\u003c/span\u003e\n    \u003cspan class=\"hljs-string\"\u003e\"eslint:recommended\"\u003c/span\u003e,\n    \u003cspan class=\"hljs-string\"\u003e\"plugin:react/recommended\"\u003c/span\u003e,\n    \u003cspan class=\"hljs-comment\"\u003e// prettier 관련 설정은 항상 가장 마지막에 추가하는 게 좋아요\u003c/span\u003e\n    \u003cspan class=\"hljs-string\"\u003e\"prettier\"\u003c/span\u003e\n  ],\n  \u003cspan class=\"hljs-comment\"\u003e// 그 외 다른 ESLint 설정들\u003c/span\u003e\n};\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eeslint-config-prettier\u003c/code\u003e는 ESLint의 포맷팅 관련 규칙을 끄면서, Prettier가 원하는 대로 포맷팅을 할 수 있게 도와줘요. 이렇게 해 놓으면 ESLint가 포맷팅 문제로 에러를 내는 경우가 줄어들고, 두 도구가 충돌 없이 함께 동작합니다.\u003c/p\u003e\n\u003cp\u003e참고로, 만약 \u003ccode\u003eeslint-plugin-prettier\u003c/code\u003e도 사용하고 있다면, \u003ccode\u003eplugin:prettier/recommended\u003c/code\u003e를 extends에 추가하는 방식도 고려해볼 수 있어요. 이 방법을 사용하면 Prettier가 제안하는 포맷팅 규칙을 ESLint가 직접 체크해서 에러로 보여주게 되니, 편리합니다.\u003c/p\u003e\n\u003cp\u003e사용자마다 설정 환경이 다를 수 있으니, 본인 프로젝트에 맞게 조절하면서 써보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eJS로 작성된 ESLint 설정과 함께, lint-staged와 Next.js lint를 함께 사용하는 방법에 대해 살펴볼게요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'@eslint/eslintrc'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e compat = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e({\n  \u003cspan class=\"hljs-comment\"\u003e// import.meta.dirname은 Node.js v20.11.0 이후부터 사용 가능해요\u003c/span\u003e\n  \u003cspan class=\"hljs-attr\"\u003ebaseDirectory\u003c/span\u003e: \u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003emeta\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003edirname\u003c/span\u003e,\n})\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e eslintConfig = [\n  ...compat.\u003cspan class=\"hljs-title function_\"\u003econfig\u003c/span\u003e({\n    \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'next'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'prettier'\u003c/span\u003e], \u003cspan class=\"hljs-comment\"\u003e// next.js 기본 규칙과 prettier 규칙을 확장해서 사용\u003c/span\u003e\n  }),\n]\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e eslintConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 \u003ccode\u003eFlatCompat\u003c/code\u003e은 ESLint가 새롭게 Flat Config 방식을 지원하면서, 기존의 extends 규칙을 쉽게 호환시켜 주는 도구예요. Node.js 환경에서 \u003ccode\u003eimport.meta.dirname\u003c/code\u003e을 쓰려면 최소 버전이 20.11.0 이상이어야 하니 버전 확인 꼭 해보세요!\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e스테이지 된 파일만 린트 돌리기 (lint-staged)\u003c/h3\u003e\n\u003cp\u003egit에 커밋 전에 변경된 파일들만 린트 돌리면서 자동 수정까지 하고 싶다면 \u003ccode\u003elint-staged\u003c/code\u003e를 쓸 수 있어요. 그런데 Next.js의 \u003ccode\u003enext lint\u003c/code\u003e 명령어는 기본적으로 특정 파일만 지정해서 검사하려면 \u003ccode\u003e--file\u003c/code\u003e 플래그를 써야 하거든요.\u003c/p\u003e\n\u003cp\u003e그래서 \u003ccode\u003e.lintstagedrc.js\u003c/code\u003e에 아래처럼 설정해 주면,\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e path = \u003cspan class=\"hljs-built_in\"\u003erequire\u003c/span\u003e(\u003cspan class=\"hljs-string\"\u003e'path'\u003c/span\u003e)\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003ebuildEslintCommand\u003c/span\u003e = (\u003cspan class=\"hljs-params\"\u003efilenames\u003c/span\u003e) =\u003e\n  \u003cspan class=\"hljs-string\"\u003e`next lint --fix --file \u003cspan class=\"hljs-subst\"\u003e${filenames\n    .map((f) =\u003e path.relative(process.cwd(), f))\n    .join(\u003cspan class=\"hljs-string\"\u003e' --file '\u003c/span\u003e)}\u003c/span\u003e`\u003c/span\u003e\n\n\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-string\"\u003e'*.{js,jsx,ts,tsx}'\u003c/span\u003e: [buildEslintCommand],\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003efilenames\u003c/code\u003e에 있는 파일들 각각을 상대 경로로 바꿔서 \u003ccode\u003e--file\u003c/code\u003e 플래그와 함께 넘겨줘요.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e--fix\u003c/code\u003e 옵션 덕분에 린트 에러가 안 잡히는 부분은 자동으로 고쳐줘서 편리하답니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e덧붙임: next lint와 lint-staged 활용 팁\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003ecommit hook에 연결\u003c/strong\u003e: 보통 \u003ccode\u003ehusky\u003c/code\u003e 같은 git 훅 관리 도구와 함께 써서 커밋 전에 자동으로 린트가 실행되도록 많이 설정해요.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e속도 개선\u003c/strong\u003e: 어떤 프로젝트는 린트 검사 시간이 오래 걸릴 수 있는데, lint-staged는 변경된 파일만 검사하니까 훨씬 빠릅니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eeslint 설정 최신화\u003c/strong\u003e: \u003ccode\u003eFlatCompat\u003c/code\u003e을 쓰지 않고 공식 Flat Config 방식으로 마이그레이션을 고민중이라면, eslint 공식 문서도 꾸준히 참고하세요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e실제 프로젝트에 위 설정을 적용해서 깔끔한 코드 유지에 도움이 되길 바라요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch2\u003e프로덕션 빌드 시 린트(lint) 비활성화하기\u003c/h2\u003e\n\u003cp\u003eNext.js에서 프로덕션 빌드를 할 때 ESLint가 실행되는 걸 원하지 않는다면, \u003ccode\u003enext.config.js\u003c/code\u003e 파일에 \u003ccode\u003eeslint.ignoreDuringBuilds\u003c/code\u003e 옵션을 \u003ccode\u003etrue\u003c/code\u003e로 설정하면 됩니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e type { \u003cspan class=\"hljs-title class_\"\u003eNextConfig\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'next'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003enextConfig\u003c/span\u003e: \u003cspan class=\"hljs-title class_\"\u003eNextConfig\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003eeslint\u003c/span\u003e: {\n    \u003cspan class=\"hljs-comment\"\u003e// 주의! 이 설정을 사용하면 ESLint 에러가 있어도 프로덕션 빌드가 정상적으로 완료됩니다.\u003c/span\u003e\n    \u003cspan class=\"hljs-attr\"\u003eignoreDuringBuilds\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003etrue\u003c/span\u003e,\n  },\n}\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e nextConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이 옵션을 활성화하면, 빌드 과정에서 ESLint 에러가 있어도 빌드가 중단되지 않기 때문에 빠르게 배포할 수 있다는 장점이 있지만, 반대로 코드 품질 문제를 간과할 위험도 있으니 주의하는 게 좋아요.\u003c/p\u003e\n\u003ch3\u003e기존 설정 마이그레이션하기\u003c/h3\u003e\n\u003cp\u003e만약 기존에 ESLint 설정을 다른 방식(예: 스크립트 또는 별도 플러그인 등)으로 관리하고 있었다면, 이제는 Next.js의 공식적인 설정 방식에 맞춰 \u003ccode\u003enext.config.js\u003c/code\u003e 내부에 위처럼 \u003ccode\u003eeslint.ignoreDuringBuilds\u003c/code\u003e 옵션만 추가해주면 됩니다.\u003c/p\u003e\n\u003cp\u003e간단히 말해:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e기존에 빌드 시 \u003ccode\u003eeslint\u003c/code\u003e 검사를 별도로 돌리고 있었다면 이 옵션을 켜면 빌드 속도가 빨라짐\u003c/li\u003e\n\u003cli\u003e하지만 배포 전에 꼭 별도로 린팅하거나 CI/CD 파이프라인에서 린트를 수행하는 게 중요!\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e개발할 때는 린트를 꼭 켜두고, 프로덕션 빌드시간을 빠르게 하고 싶을 때만 이 옵션을 사용하는 게 가장 스마트한 방법입니다. 린트는 코드 품질 유지에 아주 중요한 역할을 하니까요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e이미 애플리케이션에 ESLint가 설정되어 있다면, 특별한 몇 가지 조건이 아니면 eslint-config-next를 포함하기보다는 이 플러그인을 직접 확장하는 걸 추천해요.\u003c/p\u003e\n\u003ch4\u003e추천 플러그인 룰셋\u003c/h4\u003e\n\u003cp\u003e다음 조건들이 모두 맞으면 이 방법이 좋아요:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e아래 플러그인 중 하나 이상을 이미 설치했을 때 (별도로 설치했거나 airbnb, react-app 같은 다른 설정을 이용해서 포함된 경우):\n\u003cul\u003e\n\u003cli\u003ereact\u003c/li\u003e\n\u003cli\u003ereact-hooks\u003c/li\u003e\n\u003cli\u003ejsx-a11y\u003c/li\u003e\n\u003cli\u003eimport\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e그리고 Next.js 내에서 Babel이 기본 설정된 방식과 다른 parserOptions를 직접 정의한 경우 (이건 보통 권장되지 않는 방법이에요. Babel 설정을 커스터마이징한 경우에만 해당돼요)\u003c/li\u003e\n\u003cli\u003eeslint-plugin-import를 사용 중이고, Node.js 및/또는 TypeScript resolver가 import를 제대로 처리하도록 설정한 경우\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e요약하자면, 이미 React 관련 플러그인들이 잘 구성되어 있거나, Babel과 import 처리 방식에 변화를 줬을 때는 eslint-config-next를 포함하기보단 플러그인을 직접 확장하는 게 더 깔끔하고 충돌도 적답니다.\u003c/p\u003e\n\u003cp\u003e참고로, Next.js는 자체적으로 ESLint를 지원해주지만 프로젝트 상황에 따라 세밀하게 조정해야 할 때가 있으니 이런 점을 미리 체크해보는 게 좋아요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eNext.js 프로젝트에서 ESLint 설정을 할 때, 직접 설정을 추가하기보다는 Next.js에서 권장하는 ESLint 플러그인을 사용하는 게 훨씬 편하고 관리하기 좋습니다. 그래서 기존에 직접 설정해둔 부분이 있다면, 그것을 없애거나 Next.js가 제공하는 플러그인으로 바로 확장하는 걸 추천해요.\u003c/p\u003e\n\u003cp\u003e설정은 이렇게 간단합니다:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\n    \u003cspan class=\"hljs-comment\"\u003e// 기존 설정들...\u003c/span\u003e\n    \u003cspan class=\"hljs-string\"\u003e'plugin:@next/next/recommended'\u003c/span\u003e,\n  ],\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 Next.js에서 권장하는 ESLint 규칙들이 자동으로 적용돼서, 코드 품질도 높아지고 Next.js의 최신 가이드라인도 쉽게 따라갈 수 있죠.\u003c/p\u003e\n\u003cp\u003e그리고 이 플러그인은 프로젝트에 별도로 설치해줘야 하는데, \u003ccode\u003enext lint\u003c/code\u003e 명령어를 굳이 실행하지 않아도 됩니다. 설치는 각각의 패키지 매니저에 맞게 아래 명령어 중 하나를 사용하면 돼요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003enpm install --save-dev @next/eslint-plugin-next\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003eyarn add --dev @next/eslint-plugin-next\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003epnpm add --save-dev @next/eslint-plugin-next\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003ebun add --dev @next/eslint-plugin-next\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e추가 팁!\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e이 플러그인은 Next.js의 최적화 코드 스타일, 성능, 접근성 관련 규칙도 포함하고 있어서 프로젝트 전반의 품질 관리에 큰 도움이 됩니다.\u003c/li\u003e\n\u003cli\u003eESLint 설정 변경 후에는 꼭 에디터를 재시작하거나 ESLint 프로세스를 재시작해서 변경 사항이 잘 반영되는지 확인해 보세요.\u003c/li\u003e\n\u003cli\u003e가끔 규칙이 너무 엄격하거나 불필요하다고 느껴지면, \u003ccode\u003e.eslintrc.js\u003c/code\u003e에서 개별 규칙을 오버라이드해서 조정할 수도 있어요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이제 Next.js 공식 방식을 활용해서 더 깔끔하고 효율적인 개발 환경을 만들어보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e겹치는 플러그인이나 파서를 여러 설정 파일에서 불러와 생길 수 있는 충돌이나 오류 걱정 없이 안전하게 사용할 수 있는 방법이에요.\u003c/p\u003e\n\u003ch3\u003e추가 설정 방법\u003c/h3\u003e\n\u003cp\u003e만약 이미 따로 ESLint 설정을 사용 중인데, 거기에 \u003ccode\u003eeslint-config-next\u003c/code\u003e를 포함시키고 싶다면, 다른 설정들 뒤에 마지막으로 \u003ccode\u003enext\u003c/code\u003e 설정이 확장되도록 해야 합니다. 예를 들면 아래처럼요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e js \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'@eslint/js'\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'@eslint/eslintrc'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e compat = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eFlatCompat\u003c/span\u003e({\n  \u003cspan class=\"hljs-comment\"\u003e// import.meta.dirname는 Node.js v20.11.0 이후부터 사용할 수 있어요\u003c/span\u003e\n  \u003cspan class=\"hljs-attr\"\u003ebaseDirectory\u003c/span\u003e: \u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003emeta\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003edirname\u003c/span\u003e,\n  \u003cspan class=\"hljs-attr\"\u003erecommendedConfig\u003c/span\u003e: js.\u003cspan class=\"hljs-property\"\u003econfigs\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003erecommended\u003c/span\u003e,\n})\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e eslintConfig = [\n  ...compat.\u003cspan class=\"hljs-title function_\"\u003econfig\u003c/span\u003e({\n    \u003cspan class=\"hljs-attr\"\u003eextends\u003c/span\u003e: [\u003cspan class=\"hljs-string\"\u003e'eslint:recommended'\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e'next'\u003c/span\u003e],\n  }),\n]\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e eslintConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 핵심은 \u003ccode\u003eFlatCompat\u003c/code\u003e를 사용해 기존의 ESLint 설정(예: \u003ccode\u003eeslint:recommended\u003c/code\u003e)과 \u003ccode\u003enext\u003c/code\u003e 설정을 안전하게 병합하는 거예요. 이렇게 하면 \u003ccode\u003enext\u003c/code\u003e의 설정이 나중에 적용돼서 우선순위도 제대로 조절되고, 설정 충돌을 미연에 방지할 수 있죠.\u003c/p\u003e\n\u003cp\u003e참고로, \u003ccode\u003eimport.meta.dirname\u003c/code\u003e은 상대 경로 같은 디렉토리 정보를 제공하는데, 이 기능을 사용하려면 Node.js가 v20.11.0 이상이어야 한다는 점 기억해 주세요!\u003c/p\u003e\n\u003cp\u003e이 방법을 활용하면 Next.js 프로젝트나 여러 ESLint 설정을 동시에 관리하는 환경에서 훨씬 깔끔하고 효율적으로 ESLint 구성을 유지할 수 있습니다.\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e다음 설정(next configuration)은 parser, plugins, settings 속성에 대한 기본값을 이미 잘 처리해주고 있어요. 그러니 특별히 다른 설정이 필요하지 않은 한, 이 속성들을 다시 선언할 필요는 없답니다.\u003c/p\u003e\n\u003cp\u003e만약 다른 공유 가능한 설정(shareable configuration)을 포함한다면, 이 속성들이 덮어쓰거나 수정되지 않도록 잘 관리해줘야 해요. 그렇지 않으면, 기본적으로 next 설정과 겹치는 부분이 있을 수 있어서 혼란이 생길 수 있거든요.\u003c/p\u003e\n\u003cp\u003e간단하게 정리하면, 가능하면 next 설정과 중복되는 다른 설정들은 빼고, 필요하다면 Next.js ESLint 플러그인에서 직접 확장하는 게 가장 깔끔한 방법이에요.\u003c/p\u003e\n\u003cp\u003e개발하다 보면 설정이 꼬일 때가 있는데, 이렇게 기본값을 잘 활용하면 깔끔하고 유지보수하기 편한 ESLint 설정을 만들 수 있으니 참고하세요!\u003c/p\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-ESLintPlugin"},"buildId":"X4OrKfmLtU3-3BijwfHe6","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>
