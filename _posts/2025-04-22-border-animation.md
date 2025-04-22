@@ -2,7 +2,7 @@
 title: "linear-gradient를 활용한 border 애니메이션 5가지 만들기"
 description: "linear-gradient, conic-gradient 등을 활용해 border 애니메이션을 만드는 방법에 대해서 공유합니다"
 coverImage: ""
-date: 2025-04-22 16:52
+date: 2025-04-22 00:01
 ogImage:
   url:
 tag: Tech
@@ -146,10 +146,12 @@ border: 1px dotted #333;
 
 ```css
 .dotted_box {
-  background: linear-gradient(90deg, #333 50%, transparent 50%) 0 0 / 4px 1px repeat-x,
-    /* 상 */ linear-gradient(90deg, #333 50%, transparent 50%) 0 100% / 4px 1px repeat-x,
-    /* 하 */ linear-gradient(0, #333 50%, transparent 50%) 0 0 / 1px 4px repeat-y,
-    /* 좌 */ linear-gradient(0, #333 50%, transparent 50%) 100% 0 / 1px 4px repeat-y; /* 우 */
+  background: linear-gradient(90deg, #333 50%, transparent 50%) 0 0 / 4px 1px repeat-x, /* 상 */ linear-gradient(
+        90deg,
+        #333 50%,
+        transparent 50%
+      ) 0 100% / 4px 1px repeat-x, /* 하 */ linear-gradient(0, #333 50%, transparent 50%) 0 0 / 1px 4px repeat-y, /* 좌 */
+      linear-gradient(0, #333 50%, transparent 50%) 100% 0 / 1px 4px repeat-y; /* 우 */
 }
 ```
 
@@ -239,10 +241,10 @@ border 속성으로는 지원하지 않지만 `linear-gradient`로 아래와 같
     background-repeat: no-repeat;
     background-size: 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#399953, #399953), linear-gradient(
-        #fbb300,
-        #fbb300
-      ), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+    background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(
+        #d53e33,
+        #d53e33
+      ), linear-gradient(#377af5, #377af5);
     animation: rotate 3s linear infinite;
   }
 }
@@ -283,10 +285,10 @@ border 속성으로는 지원하지 않지만 `linear-gradient`로 아래와 같
     background-repeat: no-repeat;
     background-size: 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#399953, #399953), linear-gradient(
-        #fbb300,
-        #fbb300
-      ), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+    background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(
+        #d53e33,
+        #d53e33
+      ), linear-gradient(#377af5, #377af5);
     animation: rotate 3s linear infinite;
   }
 }
@@ -339,11 +341,7 @@ border 속성으로는 지원하지 않지만 `linear-gradient`로 아래와 같
     top: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(
-      transparent,
-      rgba(168, 239, 255, 1),
-      transparent 30%
-    );
+    background: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
   }
 }
 ```
