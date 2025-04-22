@@ -1,5 +1,5 @@
 ---
-title: "Next.js 15에서 generateEtags 기능 완벽 활용법 효율적인 캐시 관리 방법"
+title: "Next.js 15에서 generateEtags로 효율적인 캐시 관리 방법"
 description: ""
 coverImage: "/TIL/assets/img/nextjs.png"
 date: 2025-04-22 13:08
