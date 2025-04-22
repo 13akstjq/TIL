@@ -1,0 +1,693 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title>2025년 ReactJS와 Next.js에서 CSS를 가장 쉽게 사용하는 방법 | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-HowtouseCSSinyourapplication" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content="2025년 ReactJS와 Next.js에서 CSS를 가장 쉽게 사용하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:title" content="2025년 ReactJS와 Next.js에서 CSS를 가장 쉽게 사용하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-HowtouseCSSinyourapplication" data-gatsby-head="true"/><meta name="twitter:title" content="2025년 ReactJS와 Next.js에서 CSS를 가장 쉽게 사용하는 방법 | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 01:08" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx">2025년 ReactJS와 Next.js에서 CSS를 가장 쉽게 사용하는 방법</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt="2025년 ReactJS와 Next.js에서 CSS를 가장 쉽게 사용하는 방법" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">25<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>애플리케이션에서 CSS 사용법 알아보기</h1>
+<p>Next.js에서는 CSS를 사용하는 여러 가지 방법을 제공하는데요, 대표적으로 다음과 같은 방식들이 있어요:</p>
+<ul>
+<li>CSS 모듈(CSS Modules)</li>
+<li>글로벌 CSS(Global CSS)</li>
+<li>Tailwind CSS</li>
+<li>Sass</li>
+<li>CSS-in-JS</li>
+<li>외부 스타일시트(External Stylesheets)</li>
+</ul>
+<p>이 글에서는 각각의 방법을 어떻게 사용하는지 차근차근 알려드릴게요. 앞으로 여러분 프로젝트에 어떤 방식이 가장 잘 맞을지 선택하는 데 도움이 되길 바랍니다!</p>
+<p>다양한 스타일링 옵션을 활용하면 코드 관리도 쉽고, 유지보수도 편해지니까 꼭 익혀두세요.</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h2>CSS Modules</h2>
+<p>CSS Modules는 CSS 클래스 이름을 고유하게 만들어서, 같은 이름의 클래스를 여러 파일에서 마음껏 사용할 수 있게 도와주는 방법이에요. 덕분에 클래스 이름 충돌 걱정 없이 스타일을 관리할 수 있죠.</p>
+<p>사용 방법도 간단해요! 스타일 파일을 <code>.module.css</code> 확장자로 만들고, 이걸 필요한 컴포넌트에서 import하기만 하면 돼요. 예를 들어:</p>
+<pre><code class="hljs language-css"><span class="hljs-comment">/* blog.module.css */</span>
+<span class="hljs-selector-class">.blog</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">24px</span>;
+}
+</code></pre>
+<p>그리고 컴포넌트에서는 이렇게 불러와서 사용하면 돼요:</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">import</span> styles <span class="hljs-keyword">from</span> <span class="hljs-string">'./blog.module.css'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Blog</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{styles.blog}</span>></span>안녕하세요, 블로그입니다!<span class="hljs-tag">&#x3C;/<span class="hljs-name">div</span>></span></span>;
+}
+</code></pre>
+<p>여기서 중요한 점! 일반 CSS 파일과는 달리, CSS Modules에서는 클래스를 사용할 때 항상 import한 <code>styles</code> 객체를 통해 접근해 주어야 해요. 이렇게 하면 자동으로 클래스 이름이 고유한 문자열로 변환돼서, 다른 컴포넌트의 같은 클래스 이름과 충돌하지 않도록 막아줍니다.</p>
+<p>그리고 혹시 CSS Modules가 조금 낯설게 느껴질 수도 있지만, 최근에는 React를 비롯한 여러 프론트엔드 프레임워크에서 기본 지원하거나 쉽게 설정할 수 있어서 많이 쓰이는 추세에요. 특히 프로젝트가 커질수록 스타일 관리가 훨씬 편해지니, 개인 프로젝트나 회사 프로젝트 모두에서 강력 추천합니다!</p>
+<p>덧붙여서, CSS Modules는 전역 네임스페이스 오염 없이 컴포넌트 단위 스타일링이 가능해서, 스타일을 쓰면서 발생하는 버그도 줄여준답니다. 다른 방법으로는 styled-components 같은 CSS-in-JS도 있으니, 용도와 선호도에 따라 선택하면 좋아요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> styles <span class="hljs-keyword">from</span> <span class="hljs-string">'./styles.module.css'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Page</span>(<span class="hljs-params">{ children }: { children: React.ReactNode }</span>) {
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">main</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{styles.blog}</span>></span>{children}<span class="hljs-tag">&#x3C;/<span class="hljs-name">main</span>></span></span>
+}
+</code></pre>
+<h2>글로벌 CSS(Global CSS)</h2>
+<p>애플리케이션 전체에 스타일을 적용하고 싶을 때는 글로벌 CSS를 사용하면 편리해요.</p>
+<p>예를 들어, <code>app/global.css</code> 파일을 만들어서 스타일을 작성하고, 이 파일을 루트 레이아웃(root layout) 파일에 import 하면 애플리케이션의 모든 경로(route)에 글로벌 스타일이 적용돼요.</p>
+<pre><code class="hljs language-css"><span class="hljs-comment">/* app/global.css 예시 */</span>
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Segoe UI'</span>, Tahoma, Geneva, Verdana, sans-serif;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f9f9f9</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#333</span>;
+}
+</code></pre>
+<p>그리고 루트 레이아웃 파일에서는 이렇게 import 해주세요.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> <span class="hljs-string">'./global.css'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">RootLayout</span>(<span class="hljs-params">{ children }</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">html</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">body</span>></span>{children}<span class="hljs-tag">&#x3C;/<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">html</span>></span></span>
+  );
+}
+</code></pre>
+<blockquote>
+<p>참고로, 글로벌 CSS는 보통 전체적인 기본 스타일(Reset, 폰트, 배경 등)을 적용할 때 사용하고, 각 컴포넌트별 스타일은 CSS 모듈이나 styled-components 같은 방식을 병행해 쓰는 게 유지보수에 좋아요.</p>
+</blockquote>
+<p>추가로 Next.js에서는 글로벌 CSS가 한 번만 import 되어야 하니, 루트 레이아웃이나 앱 컴포넌트에 넣는 걸 추천합니다!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>이번에는 Next.js에서 글로벌 스타일과 Tailwind CSS에 대해 간단히 살펴볼게요.</p>
+<p>우선, CSS에서 <code>body</code> 태그에 아래와 같은 스타일을 적용한 예시가 있어요:</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span> <span class="hljs-number">20px</span> <span class="hljs-number">60px</span>;
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">680px</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+}
+</code></pre>
+<p>이 스타일은 <code>body</code>에 패딩을 줘서 콘텐츠 주변에 공간을 만들고, 최대 너비를 680px로 제한해주고, 좌우 여백은 자동으로 가운데 정렬하는 역할을 하죠.</p>
+<p>그리고 Next.js 앱에서는 이렇게 글로벌 CSS를 가져와서 모든 페이지에 적용할 수 있어요:</p>
+<pre><code class="hljs language-tsx"><span class="hljs-comment">// 이 파일은 루트 레이아웃 컴포넌트입니다.</span>
+<span class="hljs-comment">// 전체 앱에 글로벌 스타일이 적용되도록 설정해요.</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'./global.css'</span>
+ 
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">RootLayout</span>(<span class="hljs-params">{
+  children,
+}: {
+  children: React.ReactNode
+}</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">body</span>></span>{children}<span class="hljs-tag">&#x3C;/<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">html</span>></span></span>
+  )
+}
+</code></pre>
+<p>여기서 <code>import './global.css'</code> 부분이 바로 앱 전체에 영향을 주는 글로벌 스타일을 불러오는 부분입니다.</p>
+<h3>알아두면 좋은 점</h3>
+<p>Next.js는 React의 스타일 시트 지원 기능과 Suspense를 활용해서 스타일 관리를 하는데요, 문제가 되는 부분은 "라우트 간 이동 시 스타일 시트가 자동으로 제거되지 않아 충돌(conflicts)이 날 수 있다"는 거예요.</p>
+<p>그래서 권장하는 방법은,</p>
+<ul>
+<li>정말 앱 전체에 적용되어야 하는 스타일만 글로벌 CSS로 작성하세요.</li>
+<li>페이지별, 컴포넌트별로 독립된 스타일이 필요하다면 CSS 모듈(CSS Modules)을 사용하세요.</li>
+</ul>
+<p>이렇게 하면 스타일 충돌을 막을 수 있고 관리도 더 쉬워집니다.</p>
+<hr>
+<h2>Tailwind CSS 이야기</h2>
+<p>그럼 Tailwind CSS는 어떻게 Next.js와 쓰일까요? Tailwind CSS는 유틸리티 클래스 기반 CSS 프레임워크로, 복잡한 CSS를 손쉽게 작성할 수 있게 도와줘요.</p>
+<p>예를 들어, 위에서 했던 <code>body</code> 스타일을 Tailwind로 표현하고 싶다면, 다음과 같이 할 수 있죠:</p>
+<pre><code class="hljs language-tsx">&#x3C;body className=<span class="hljs-string">"p-5 pb-15 max-w-xl mx-auto"</span>>
+  {children}
+&#x3C;/body>
+</code></pre>
+<ul>
+<li><code>p-5</code>는 padding 20px (Tailwind 기본 spacing scale에서 대략 1.25rem) 정도를 줍니다.</li>
+<li><code>pb-15</code>은 padding-bottom 60px 정도를 줘요.</li>
+<li><code>max-w-xl</code> 은 최대 너비 약 680px에 해당합니다.</li>
+<li><code>mx-auto</code>는 좌우 마진 자동으로 가운데 정렬을 의미합니다.</li>
+</ul>
+<p>Tailwind를 활용하면 CSS 파일을 따로 관리하지 않아도 되고, 클래스만 잘 조합해서 손쉽게 반응형 및 스타일 변화를 줄 수 있죠.</p>
+<hr>
+<h3>참고</h3>
+<p>Tailwind CSS도 Next.js에서 쉽게 통합할 수 있으니 관심 있으면 더 자세히 알려드릴게요!<br>
+그리고 CSS Modules와 같이 쓰면 좀 더 컴포넌트 단위로 깔끔한 스타일링도 가능합니다.</p>
+<hr>
+<p>요약하자면,</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>내용</th><th>설명</th></tr></thead><tbody><tr><td>글로벌 CSS</td><td>앱 전체에 적용되는 기본 스타일, 충돌 주의 필요</td></tr><tr><td>CSS Modules</td><td>컴포넌트별 국소 스타일링, 충돌 적음</td></tr><tr><td>Tailwind CSS</td><td>유틸리티 클래스 기반, 빠른 스타일링 가능</td></tr></tbody></table>
+<p>필요에 따라 적절한 방법을 골라서 쓰면 되겠습니다!</p>
+<p>다음에는 Tailwind CSS 설정법과 활용 팁을 공유할게요. 질문 있으면 부담 없이 알려주세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Tailwind CSS는 Next.js와 찰떡같이 잘 어울리는 유틸리티 퍼스트(Utility-First) CSS 프레임워크에요. 쉽게 말해, 미리 만들어진 클래스를 조합해서 빠르고 효율적으로 스타일을 입힐 수 있죠.</p>
+<h3>Tailwind 설치하기</h3>
+<p>Tailwind를 바로 써보고 싶다면, 아래 명령어로 필요한 패키지들을 설치하세요:</p>
+<pre><code class="hljs language-bash">npm install tailwindcss @tailwindcss/postcss postcss
+</code></pre>
+<p>여기서 <code>tailwindcss</code>는 본체이고, <code>@tailwindcss/postcss</code>랑 <code>postcss</code>는 Tailwind 스타일을 빌드할 때 필요한 도구들이에요. Next.js 프로젝트에서 스타일링할 때 필수라고 생각하면 됩니다.</p>
+<p>참고로, 요즘 Next.js 최신 버전에서는 위 패키지 설치 후에 <code>npx tailwindcss init</code>으로 설정 파일을 생성해서 Tailwind 설정을 좀 더 커스터마이징할 수 있어요. 스타일을 내가 원하는 대로 바꾸고 싶다면 꼭 해보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>Tailwind 설정하기</h3>
+<p>프로젝트 루트에 <code>postcss.config.mjs</code> 파일을 만들어서 PostCSS 설정에 <code>@tailwindcss/postcss</code> 플러그인을 추가해보세요! 간단한 설정 하나로 Tailwind CSS의 모든 유틸리티 클래스를 마음껏 사용할 수 있게 됩니다.</p>
+<p>예를 들면, <code>postcss.config.mjs</code> 파일에 아래처럼 설정을 추가할 수 있어요:</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">/** <span class="hljs-doctag">@type</span> {<span class="hljs-type">import('tailwindcss').Config</span>} */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">plugins</span>: {
+    <span class="hljs-string">'@tailwindcss/postcss'</span>: {},
+  },
+}
+</code></pre>
+<blockquote>
+<p>참고로 Tailwind 설정 파일은 <code>tailwind.config.js</code> 혹은 <code>tailwind.config.mjs</code>로 따로 만들어져 있어야 합니다. 만약 아직 없다면 기본 설정부터 만들어 놓는 걸 추천드려요. 잘 설정해두면 테마, 색상, 폰트 등 자유롭게 커스터마이징하기도 훨씬 수월합니다.</p>
+</blockquote>
+<h3>Tailwind 사용하기</h3>
+<p>Tailwind를 프로젝트에 제대로 설정했다면, HTML이나 JSX 파일에서 바로 클래스명을 쓰기만 하면 돼요!</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&#x3C;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bg-blue-500 text-white font-bold py-2 px-4 rounded"</span>></span>
+  클릭해봐요!
+<span class="hljs-tag">&#x3C;/<span class="hljs-name">button</span>></span>
+</code></pre>
+<p>이렇게 쓰면 버튼에 파란 배경, 하얀 글자, 굵은 글꼴, 약간의 패딩과 둥근 모서리가 한 번에 적용됩니다. 기존 CSS 작성하느라 헷갈릴 필요 없이, 클래스 이름으로 직관적인 스타일링 가능!</p>
+<blockquote>
+<p>팁 하나 더! 개발 중에 변경사항이 잘 반영되지 않으면, PostCSS 빌드 프로세스를 재시작하거나 캐시를 지우는 것도 한번 시도해보세요. Tailwind는 JIT(Just-In-Time) 컴파일 기능 덕분에 빠르게 스타일을 적용할 수 있지만 간혹 환경마다 캐시 문제로 반영이 늦을 수 있거든요.</p>
+</blockquote>
+<p>필요한 만큼 쉽고 빠르게 스타일을 적용할 수 있으니 꼭 한번 써보세요! Tailwind는 커뮤니티도 활발해서 다양한 플러그인과 자료들이 많답니다. 앞으로도 더 재미있는 Tailwind 팁들 공유할게요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Tailwind CSS를 Next.js 프로젝트에 적용하려면, 먼저 글로벌 스타일시트에 Tailwind 지시어를 추가해야 해요. 이렇게 하면 Tailwind의 기본 스타일과 유틸리티 클래스들이 전역에서 적용됩니다.</p>
+<pre><code class="hljs language-css"><span class="hljs-keyword">@import</span> <span class="hljs-string">'tailwindcss'</span>;
+</code></pre>
+<p>위 코드를 <code>globals.css</code> 같은 전역 스타일 파일에 넣어주세요.</p>
+<p>그리고 Next.js 프로젝트의 최상위 레이아웃 파일에서 이 스타일시트를 불러와야 해요. 보통 <code>app/layout.tsx</code>나 <code>app/layout.js</code>에 아래처럼 <code>globals.css</code>를 임포트합니다:</p>
+<pre><code class="hljs language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { <span class="hljs-title class_">Metadata</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'next'</span>;
+<span class="hljs-comment">// 이 스타일들은 애플리케이션의 모든 라우트에 적용됩니다.</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'./globals.css'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">metadata</span>: <span class="hljs-title class_">Metadata</span> = {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Create Next App'</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">'Generated by create next app'</span>,
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">RootLayout</span>(<span class="hljs-params">{
+  children,
+}: {
+  children: React.ReactNode;
+}</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">body</span>></span>{children}<span class="hljs-tag">&#x3C;/<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">html</span>></span></span>
+  );
+}
+</code></pre>
+<hr>
+<h3>조금 더 알아보기</h3>
+<ul>
+<li>이 <code>@import 'tailwindcss';</code>는 Tailwind가 필요한 기본 스타일과 유틸리티 클래스를 불러오는 역할을 해요.</li>
+<li>만약 더 세부적으로 <code>@tailwind base;</code>, <code>@tailwind components;</code>, <code>@tailwind utilities;</code> 같은 지시어를 커스텀 스타일시트에 넣는 경우도 있는데, 기본적으로 <code>@import 'tailwindcss';</code> 하나로 필요한 부분을 다 가져와요.</li>
+<li>그리고 글로벌 스타일을 한 번 적용하면, 각 페이지 컴포넌트에서는 따로 스타일을 임포트할 필요가 없어서 편리하답니다.</li>
+<li>Tailwind를 제대로 적용했는지 확인하려면, 애플리케이션을 실행 후 개발자 도구에서 클래스들이 잘 붙는지 보고, Tailwind 유틸리티 클래스를 적용해 스타일이 변하는지 테스트해보세요!</li>
+</ul>
+<p>이제 Tailwind 스타일이 Next.js 프로젝트 전체에 적용됐으니, 마음껏 유틸리티 클래스를 활용해서 빠르게 스타일링해 보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>그럼 이제부터 여러분이 개발하는 애플리케이션에 Tailwind의 유틸리티 클래스를 본격적으로 적용할 수 있어요.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Page</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"text-3xl font-bold underline"</span>></span>Hello, Next.js!<span class="hljs-tag">&#x3C;/<span class="hljs-name">h1</span>></span></span>
+}
+</code></pre>
+<p>위 예제처럼 클래스 이름만 쭉 써주면 스타일이 깔끔하게 적용되니 정말 편리하답니다.</p>
+<hr>
+<h2>Sass 사용하기</h2>
+<p>Next.js는 Sass와 아주 잘 통합돼 있어서 <code>.scss</code>, <code>.sass</code> 확장자 둘 다 자유롭게 사용할 수 있어요.</p>
+<p>Sass는 CSS를 더 효율적이고 구조적으로 관리할 수 있게 해주는 CSS 전처리기인데요, 변수, 중첩, 믹스인 같은 강력한 기능 덕분에 코드 작성이 훨씬 편해진답니다.</p>
+<p>Next.js 프로젝트에서 Sass를 사용하려면 일단 <code>sass</code> 패키지를 설치해주고 (<code>npm install sass</code>), 그다음에 <code>.scss</code>나 <code>.sass</code> 파일을 임포트해서 바로 스타일을 적용할 수 있어요.</p>
+<p>예를 들어,</p>
+<pre><code class="hljs language-scss"><span class="hljs-comment">// styles.module.scss</span>
+<span class="hljs-variable">$primary-color</span>: <span class="hljs-number">#4f46e5</span>;
+
+<span class="hljs-selector-class">.title</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$primary-color</span>;
+  <span class="hljs-attribute">font-weight</span>: bold;
+}
+</code></pre>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> styles <span class="hljs-keyword">from</span> <span class="hljs-string">'./styles.module.scss'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Page</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{styles.title}</span>></span>Hello, Next.js with Sass!<span class="hljs-tag">&#x3C;/<span class="hljs-name">h1</span>></span></span>;
+}
+</code></pre>
+<p>이렇게 작성하면 Sass가 제공하는 변수 기능도 자연스럽게 쓸 수 있답니다.</p>
+<hr>
+<blockquote>
+<p>참고로, Sass를 사용하면 CSS 유지보수가 더 쉬워지고, 규모가 큰 프로젝트에서는 특히 효과적이에요. 만약 Tailwind와 Sass 둘 다 같이 쓴다면, Tailwind로 기본 스타일을 빠르게 구성하고, Sass로 좀 더 복잡한 커스텀 스타일을 관리하는 식으로 활용할 수도 있겠죠!</p>
+</blockquote>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Sass를 컴포넌트 단위로도 사용할 수 있어요. CSS Modules와 함께 <code>.module.scss</code>나 <code>.module.sass</code> 확장자를 사용하면 되죠. 덕분에 스타일의 범위를 컴포넌트 내부로 한정할 수 있어서, 다른 부분에 영향 주지 않고 스타일을 관리하기 정말 편해집니다.</p>
+<h3>Sass 설치 방법</h3>
+<p>Sass를 프로젝트에서 바로 사용하려면 <code>sass</code> 패키지를 설치해줘야 해요. 터미널에 아래 명령어만 입력하면 끝!</p>
+<pre><code class="hljs language-bash">npm install --save-dev sass
+</code></pre>
+<p>이렇게 하면 <code>node-sass</code> 대신 더 빠르고 최신 버전인 <code>sass</code>가 설치됩니다. 요즘은 대부분 이 패키지를 추천하고 있으니 꼭 참고하세요!</p>
+<p>그리고 Sass를 쓰다 보면 <code>.scss</code>와 <code>.sass</code> 확장자의 차이가 궁금할 수도 있는데, 간단히 말하면 <code>.scss</code>는 CSS 문법과 거의 비슷해서 배우기 쉽고, <code>.sass</code>는 들여쓰기를 기반으로 한 문법이에요. 보통 <code>.scss</code>를 더 많이 사용한답니다.</p>
+<p>만약 Create React App 같은 환경에선 위 설치만 해도 바로 Sass를 쓸 준비가 된 거예요! 컴포넌트별 Sass를 적용하려면 스타일 파일 이름을 <code>ComponentName.module.scss</code>처럼 지으면 되고, 이렇게 하면 CSS가 자동으로 모듈화돼서 충돌 없이 안정적입니다.</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>Sass 옵션 커스터마이징하기</h3>
+<p>Next.js에서 Sass 옵션을 설정하고 싶을 때는 <code>next.config.js</code> 파일 내에 <code>sassOptions</code>를 사용하면 돼요. 예를 들어, 모든 Sass 파일에 공통으로 사용할 변수를 선언하고 싶다면 <code>additionalData</code> 옵션을 활용할 수 있어요.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> type { <span class="hljs-title class_">NextConfig</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'next'</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-attr">nextConfig</span>: <span class="hljs-title class_">NextConfig</span> = {
+  <span class="hljs-attr">sassOptions</span>: {
+    <span class="hljs-attr">additionalData</span>: <span class="hljs-string">`$var: red;`</span>,
+  },
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> nextConfig
+</code></pre>
+<p>위 예제에서는 Sass 변수 <code>$var</code>에 빨간색(<code>red</code>) 값을 기본으로 넣어두었어요. 이렇게 설정하면 모든 Sass 파일에서 별도의 선언 없이 <code>$var</code> 변수를 바로 사용할 수 있답니다. 덕분에 공통 변수나 믹스인 등을 간편하게 적용할 수 있어요.</p>
+<blockquote>
+<p>팁!<br>
+<code>additionalData</code>는 파일마다 자동으로 추가되는 코드라서, 여러 변수나 스타일 믹스인들을 등록하면 훨씬 효율적으로 Sass를 관리할 수 있어요.<br>
+예를 들어, 공통 색상 팔레트나 폰트 스타일을 미리 정의해두는 식이죠.</p>
+</blockquote>
+<hr>
+<h2>CSS-in-JS</h2>
+<p>(여기서부터 CSS-in-JS에 대해 다룰 예정인데, 추가로 궁금한 부분이 있으면 말씀해 주세요!)</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>React Server Components(RSC)를 사용하다 보면 한 가지 주의할 점이 있어요. 바로 <strong>런타임 시 자바스크립트가 필요한 CSS-in-JS 라이브러리들은 현재 React Server Components에서 지원되지 않는다</strong>는 거죠.</p>
+<h3>왜 이런 제한이 생길까?</h3>
+<p>React Server Components는 서버에서 미리 렌더링하고 클라이언트에서는 최소한의 자바스크립트만 실행하는 방식을 취하기 때문에,
+런타임에 자바스크립트가 꼭 필요한 스타일링 라이브러리들은 당장 호환되기 힘든 상황이에요.</p>
+<h3>그렇다면 어떤 CSS-in-JS 라이브러리는 지금 앱 디렉토리의 Client Components에서 쓸 수 있을까?</h3>
+<p>아래는 현재 지원되는 라이브러리 목록입니다. (알파벳순)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>지원 라이브러리</th></tr></thead><tbody><tr><td>ant-design</td></tr><tr><td>chakra-ui</td></tr><tr><td>@fluentui/react-components</td></tr><tr><td>kuma-ui</td></tr><tr><td>@mui/material</td></tr><tr><td>@mui/joy</td></tr><tr><td>pandacss</td></tr><tr><td>styled-jsx</td></tr><tr><td>styled-components</td></tr><tr><td>stylex</td></tr><tr><td>tamagui</td></tr><tr><td>tss-react</td></tr><tr><td>vanilla-extract</td></tr></tbody></table>
+<h3>지원 관련 고민 중인 라이브러리도 있다!</h3>
+<p>현재 React 최신 버전에 맞춰 Server Components와 Streaming 지원을 준비 중인 라이브러리들도 있으니, 앞으로 더 확대될 가능성이 높습니다.</p>
+<h3>추가 팁</h3>
+<ul>
+<li>만약 CSS-in-JS를 꼭 써야 한다면, Server Component가 아닌 Client Component에서만 해당 라이브러리를 사용하도록 분리하는 방법을 추천해요.</li>
+<li>스타일링을 아예 CSS 모듈 또는 vanilla CSS로 관리하거나, <code>styled-jsx</code>같이 별도 런타임이 필요 없는 라이트한 스타일러를 고려하는 것도 좋아요.</li>
+</ul>
+<hr>
+<p>React 개발하면서 최신 기능들을 써보고 싶은데 스타일링 라이브러리 때문에 고민이라면,
+이 리스트와 팁을 참고해서 내 프로젝트에 맞게 잘 조합해보시길 바라요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<ul>
+<li>emotion</li>
+</ul>
+<p>서버 컴포넌트(Server Components)에 스타일을 입히고 싶다면, CSS 파일을 생성하는 CSS Modules나 Tailwind CSS 같은 솔루션을 사용하는 것을 추천해요. 이 방법들이 서버 컴포넌트와 잘 맞고, 성능 측면에서도 유리하답니다.</p>
+<h3>CSS-in-JS 설정하기</h3>
+<p>만약 CSS-in-JS를 사용하고 싶다면, 다음과 같은 설정이 필요해요:</p>
+<p>(여기서는 emotion 같은 CSS-in-JS 라이브러리를 예로 들 수 있겠죠.)</p>
+<p>추가로, CSS-in-JS를 사용할 때는 클라이언트 컴포넌트 내에서 스타일 적용이 이뤄지는 경우가 많아서, 서버 컴포넌트에서는 권장되지 않는다는 점을 기억하세요. 상황에 따라 적절한 방식을 선택하는 게 중요해요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>style-jsx를 Next.js 같은 React 환경에서 사용할 때 스타일을 깔끔하게 적용하고 수집하는 방법에 대해 알려드릴게요. 보통 SSR(서버 사이드 렌더링)을 하게 되면 스타일이 제대로 적용되는 시점이 중요하거든요. 그래서 스타일을 한 군데 모아 관리하고, 렌더 전에 HTML에 스타일을 주입하는 코드를 작성합니다.</p>
+<p>아래는 주요 포인트와 예시 코드입니다.</p>
+<hr>
+<h3>스타일 레지스트리 만들기</h3>
+<ul>
+<li><code>createStyleRegistry()</code>를 이용해 스타일을 모으는 레지스트리를 만듭니다.</li>
+<li>컴포넌트가 처음 렌더될 때 한 번만 생성되도록 <code>useState</code>의 lazy initializer 패턴을 씁니다.</li>
+</ul>
+<h3>스타일을 HTML에 주입하기</h3>
+<ul>
+<li><code>useServerInsertedHTML</code> 훅을 사용해서 서버에서 렌더링 직전에 스타일 태그를 HTML에 넣어줍니다.</li>
+<li>이러면 나중에 페이지가 로드될 때 스타일이 깜빡이거나 지연 없이 바로 적용돼요.</li>
+</ul>
+<h3>클라이언트 컴포넌트에서 래핑하기</h3>
+<ul>
+<li>앱의 최상위 컴포넌트를 스타일 레지스트리로 감싸서 SSR 초기 렌더링할 때 스타일 관리를 집중시킵니다.</li>
+</ul>
+<hr>
+<h3>Styled-jsx 적용 예시</h3>
+<pre><code class="hljs language-jsx"><span class="hljs-string">'use client'</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { useServerInsertedHTML } <span class="hljs-keyword">from</span> <span class="hljs-string">'next/navigation'</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">StyleRegistry</span>, createStyleRegistry } <span class="hljs-keyword">from</span> <span class="hljs-string">'styled-jsx'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">StyledJsxRegistry</span>(<span class="hljs-params">{
+  children,
+}: {
+  children: React.ReactNode
+}</span>) {
+  <span class="hljs-comment">// 스타일시트를 한 번만 생성 (lazy init)</span>
+  <span class="hljs-keyword">const</span> [jsxStyleRegistry] = <span class="hljs-title function_">useState</span>(<span class="hljs-function">() =></span> <span class="hljs-title function_">createStyleRegistry</span>())
+
+  <span class="hljs-comment">// 서버 렌더링 시 스타일 태그를 먼저 삽입</span>
+  <span class="hljs-title function_">useServerInsertedHTML</span>(<span class="hljs-function">() =></span> {
+    <span class="hljs-keyword">const</span> styles = jsxStyleRegistry.<span class="hljs-title function_">styles</span>()
+    jsxStyleRegistry.<span class="hljs-title function_">flush</span>()
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&#x3C;></span>{styles}<span class="hljs-tag">&#x3C;/></span></span>
+  })
+
+  <span class="hljs-comment">// 스타일 등록기를 통해 자식 요소들 감싸기</span>
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">StyleRegistry</span> <span class="hljs-attr">registry</span>=<span class="hljs-string">{jsxStyleRegistry}</span>></span>{children}<span class="hljs-tag">&#x3C;/<span class="hljs-name">StyleRegistry</span>></span></span>
+}
+</code></pre>
+<hr>
+<h3>부가 팁!</h3>
+<ul>
+<li><code>StyleRegistry</code>는 스타일을 수집하고 렌더링하는 역할을 해주기 때문에, 이 컴포넌트로 앱 전체를 감싼다면 스타일 충돌도 관리할 수 있어요.</li>
+<li><code>flush()</code> 메서드는 수집한 스타일을 비워서 중복 삽입을 막아줍니다.</li>
+<li>만약 styled-jsx 외에 Emotion, Styled-components 등 다른 CSS-in-JS 라이브러리를 쓴다면 각각의 서버 스타일 주입 방법이 있으니 참고하세요.</li>
+</ul>
+<p>이렇게 하면 서버에서 스타일이 빠르게 적용되어 사용자 경험이 훨씬 좋아집니다! 한 번 적용해 보시면 렌더링 과정에서 스타일이 정확하고 깔끔하게 적용되는 걸 눈으로 확인하실 수 있을 거예요.</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>자, 이제 root layout을 registry로 감싸는 방법을 알려드릴게요.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> <span class="hljs-title class_">StyledJsxRegistry</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./registry'</span>
+ 
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">RootLayout</span>(<span class="hljs-params">{
+  children,
+}: {
+  children: React.ReactNode
+}</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">html</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">body</span>></span>
+        <span class="hljs-tag">&#x3C;<span class="hljs-name">StyledJsxRegistry</span>></span>{children}<span class="hljs-tag">&#x3C;/<span class="hljs-name">StyledJsxRegistry</span>></span>
+      <span class="hljs-tag">&#x3C;/<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">html</span>></span></span>
+  )
+}
+</code></pre>
+<p>이렇게 하면 스타일 관련 문제를 좀 더 깔끔하게 관리할 수 있어요. 특히 여러 컴포넌트에서 스타일이 꼬일 때 유용하죠.</p>
+<hr>
+<h3>styled-components 사용법</h3>
+<p>만약 Next.js 프로젝트에서 <strong>styled-components</strong>를 사용하려면, <code>next.config.js</code> 파일에서 별도로 활성화해야 해요. 다음과 같이 설정해 주세요:</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">/** <span class="hljs-doctag">@type</span> {<span class="hljs-type">import('next').NextConfig</span>} */</span>
+<span class="hljs-keyword">const</span> nextConfig = {
+  <span class="hljs-comment">// 기타 설정들...</span>
+
+  <span class="hljs-attr">compiler</span>: {
+    <span class="hljs-attr">styledComponents</span>: <span class="hljs-literal">true</span>,
+  },
+}
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = nextConfig
+</code></pre>
+<p>이 설정을 하면 styled-components가 Next.js 컴파일러와 잘 연동되어 SSR (서버사이드 렌더링) 시 스타일이 깨지지 않도록 도와줘요.</p>
+<hr>
+<h4>참고 팁!</h4>
+<ul>
+<li><code>styled-components</code> 쓸 때는 Babel 설정도 필요할 수 있는데, Next.js 12 이상이면 위 <code>compiler</code> 옵션만으로 대부분 해결돼요.</li>
+<li><code>StyledJsxRegistry</code> 같은 커스텀 레지스트리를 사용하는 이유는 스타일 충돌을 방지하고, 렌더링 최적화를 위해서입니다.</li>
+<li>스타일 관리는 React+Next.js에서 꽤 복잡할 수 있지만, 이런 설정들을 적용하면 훨씬 안정적인 UI를 만들 수 있으니 꼭 적용해 보세요!</li>
+</ul>
+<p>궁금한 점 있으면 언제든 물어보세요~</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Next.js에서 <code>styled-components</code>를 잘 사용하려면, 기본 설정과 함께 서버 사이드에서 스타일을 제대로 수집하고 HTML <code>&#x3C;head></code>에 주입하는 작업이 필요해요. 간단히 말해서, SSR 환경에서 스타일이 누락되지 않도록 조치를 취하는 거죠.</p>
+<h3>1. <code>next.config.js</code> 설정</h3>
+<p>일단 Next.js 설정 파일에서 <code>styledComponents</code> 플래그를 <code>true</code>로 켜줘야 해요. 그렇지 않으면 컴파일러가 스타일드 컴포넌트 문법을 제대로 처리하지 못해요.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> type { <span class="hljs-title class_">NextConfig</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'next'</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-attr">nextConfig</span>: <span class="hljs-title class_">NextConfig</span> = {
+  <span class="hljs-attr">compiler</span>: {
+    <span class="hljs-attr">styledComponents</span>: <span class="hljs-literal">true</span>,
+  },
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> nextConfig;
+</code></pre>
+<p>이 작업은 CSS 클래스 이름 충돌을 방지하고, 개발 편의성을 높여줘요!</p>
+<hr>
+<h3>2. 서버에서 스타일 수집하기: <code>StyledComponentsRegistry</code> 컴포넌트</h3>
+<p>서버 측 렌더링(SSR) 시 모든 스타일 규칙을 모아서 나중에 <code>&#x3C;head></code> 태그에 삽입해야 해요. 이걸 위해 <code>ServerStyleSheet</code>를 사용해서 스타일을 수집하고, <code>useServerInsertedHTML</code> 훅으로 클라이언트에 주입합니다.</p>
+<pre><code class="hljs language-js"><span class="hljs-string">'use client'</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { useServerInsertedHTML } <span class="hljs-keyword">from</span> <span class="hljs-string">'next/navigation'</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ServerStyleSheet</span>, <span class="hljs-title class_">StyleSheetManager</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'styled-components'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">StyledComponentsRegistry</span>(<span class="hljs-params">{
+  children,
+}: {
+  children: React.ReactNode;
+}</span>) {
+  <span class="hljs-comment">// 스타일시트는 한 번만 생성하도록 lazy 초기화 사용</span>
+  <span class="hljs-keyword">const</span> [styledComponentsStyleSheet] = <span class="hljs-title function_">useState</span>(<span class="hljs-function">() =></span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServerStyleSheet</span>());
+
+  <span class="hljs-title function_">useServerInsertedHTML</span>(<span class="hljs-function">() =></span> {
+    <span class="hljs-keyword">const</span> styles = styledComponentsStyleSheet.<span class="hljs-title function_">getStyleElement</span>();
+    styledComponentsStyleSheet.<span class="hljs-property">instance</span>.<span class="hljs-title function_">clearTag</span>(); <span class="hljs-comment">// 기존 태그 초기화</span>
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&#x3C;></span>{styles}<span class="hljs-tag">&#x3C;/></span></span>;
+  });
+
+  <span class="hljs-comment">// 클라이언트에서는 그냥 children만 리턴</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">window</span> !== <span class="hljs-string">'undefined'</span>) <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&#x3C;></span>{children}<span class="hljs-tag">&#x3C;/></span></span>;
+
+  <span class="hljs-comment">// 서버에서는 StyleSheetManager로 감싸서 스타일 수집</span>
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">StyleSheetManager</span> <span class="hljs-attr">sheet</span>=<span class="hljs-string">{styledComponentsStyleSheet.instance}</span>></span>
+      {children}
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">StyleSheetManager</span>></span></span>
+  );
+}
+</code></pre>
+<h4>핵심 포인트</h4>
+<ul>
+<li><code>ServerStyleSheet</code>로 렌더링된 스타일을 묶어서 관리해요.</li>
+<li><code>useServerInsertedHTML</code> 훅은 서버 호출 시 스타일 태그를 <code>&#x3C;head></code> 안에 넣어 줍니다.</li>
+<li>클라이언트에서는 스타일 수집할 필요가 없으니 그냥 children을 렌더링하죠.</li>
+<li>서버에서는 <code>StyleSheetManager</code>로 감싸서 스타일링을 추적합니다.</li>
+</ul>
+<p>이 구조 덕분에 FOUC(Flash of Unstyled Content, 스타일링 없는 깜빡임)를 없앨 수 있고, SEO와 UX 품질도 깔끔해져요!</p>
+<hr>
+<h3>3. 루트 레이아웃에 적용하기</h3>
+<p>마지막으로 <code>app/layout.tsx</code> 같은 루트 레이아웃 파일에서, 기존 children을 <code>StyledComponentsRegistry</code>로 감싸주세요.</p>
+<pre><code class="hljs language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">StyledComponentsRegistry</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./StyledComponentsRegistry'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">RootLayout</span>(<span class="hljs-params">{
+  children,
+}: {
+  children: React.ReactNode;
+}</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"ko"</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">head</span>></span>{/* 여기에 다른 head 요소들 */}<span class="hljs-tag">&#x3C;/<span class="hljs-name">head</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">body</span>></span>
+        <span class="hljs-tag">&#x3C;<span class="hljs-name">StyledComponentsRegistry</span>></span>
+          {children}
+        <span class="hljs-tag">&#x3C;/<span class="hljs-name">StyledComponentsRegistry</span>></span>
+      <span class="hljs-tag">&#x3C;/<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">html</span>></span></span>
+  );
+}
+</code></pre>
+<hr>
+<h2>정리</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>단계</th><th>설명</th></tr></thead><tbody><tr><td>1. next.config.js 설정</td><td><code>compiler.styledComponents: true</code>를 켜서 styled-components 컴파일러를 활성화</td></tr><tr><td>2. StyledComponentsRegistry 작성</td><td>서버 스타일 수집용 컴포넌트 작성. <code>ServerStyleSheet</code>, <code>useServerInsertedHTML</code> 활용</td></tr><tr><td>3. 루트 레이아웃 감싸기</td><td>레이아웃에서 모든 children을 위 컴포넌트로 감싸서 SSR 시 스타일 누락 방지</td></tr></tbody></table>
+<hr>
+<h3>참고 팁</h3>
+<ul>
+<li><code>styled-components</code> 이전 버전에서는 <code>_document.js</code>에서 SSR 설정을 하곤 했는데, Next.js 13의 App Router에서는 <code>useServerInsertedHTML</code> 훅으로 훨씬 더 간편하게 적용할 수 있어요.</li>
+<li><code>ServerStyleSheet</code> 인스턴스는 꼭 한 번만 생성하고 재사용해야 렌더링 시 메모리 누수를 방지합니다.</li>
+<li>개발 중에 styles가 이상하게 보이면 캐시를 삭제하고 다시 빌드해 보는 것도 좋아요.</li>
+</ul>
+<hr>
+<p>이 방법으로 프로젝트에서 <code>styled-components</code>를 깔끔하게 SSR 환경에 맞게 쓸 수 있답니다! 혹시 더 궁금한 점 있으면 언제든 물어봐 주세요~ 🚀</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>이번 글에서는 React 컴포넌트에서 외부 스타일시트를 다루는 방법과 styled-components를 사용하는 루트 레이아웃 구성을 소개할게요.</p>
+<p>먼저, styled-components를 활용한 RootLayout 컴포넌트 모습부터 살펴봅시다.</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">StyledComponentsRegistry</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib/registry'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">RootLayout</span>(<span class="hljs-params">{
+  children,
+}: {
+  children: React.ReactNode
+}</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">html</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">body</span>></span>
+        <span class="hljs-tag">&#x3C;<span class="hljs-name">StyledComponentsRegistry</span>></span>{children}<span class="hljs-tag">&#x3C;/<span class="hljs-name">StyledComponentsRegistry</span>></span>
+      <span class="hljs-tag">&#x3C;/<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">html</span>></span></span>
+  )
+}
+</code></pre>
+<p>여기서 StyledComponentsRegistry는 styled-components를 SSR(서버 사이드 렌더링)에서 제대로 작동하게 하도록 도와주는 역할을 해요. 만약 여러분이 Next.js 같은 프레임워크를 사용한다면, SSR 시 스타일 섞임 현상이나 스타일 누락 문제를 줄이는데 아주 유용하죠.</p>
+<p>그 다음, 외부 패키지에서 제공하는 CSS 파일을 불러오는 방법입니다. 예시로 Bootstrap CSS를 활용해 볼게요.</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">import</span> <span class="hljs-string">'bootstrap/dist/css/bootstrap.css'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">RootLayout</span>(<span class="hljs-params">{
+  children,
+}: {
+  children: React.ReactNode
+}</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">body</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span>></span>{children}<span class="hljs-tag">&#x3C;/<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">html</span>></span></span>
+  )
+}
+</code></pre>
+<p>이렇게 레이아웃 최상위 루트에 Bootstrap을 임포트해서 전체 앱에 적용할 수 있어요. 이렇게 하면 별도로 각 컴포넌트마다 스타일을 임포트하지 않아도 되니 편리합니다.</p>
+<p>추가 팁을 드리자면:</p>
+<ul>
+<li>외부 CSS는 글로벌하게 적용되기 때문에 기본값 덮어쓰기나 클래스 충돌을 염두에 두고 사용하세요.</li>
+<li>styled-components 같이 CSS-in-JS 방식을 쓰면서 외부 스타일시트를 혼합하는 경우, 스타일 우선순위나 특정성 specificity를 고려해야 합니다.</li>
+<li>종종 styled-components로 스타일을 작성하면서 Bootstrap처럼 미리 만들어진 UI 라이브러리 CSS를 함께 쓰면, 코드 재사용성과 개발 생산성을 높일 수 있으니 두 방식을 적절히 섞는 걸 추천합니다!</li>
+</ul>
+<p>요약하자면, styled-components SSR 설정을 통해 안정적인 스타일 렌더링을 확보하고, 외부 CSS는 전역에 한번만 불러오는 방식을 취하면 여러분 프로젝트의 스타일 관리가 훨씬 깔끔해질 거예요. 필요한 부분에서는 컴포넌트 단위로 스타일을 나누고, 글로벌 스타일이나 라이브러리는 루트 레이아웃에서 한꺼번에 관리하는 게 좋아요.</p>
+<p>이제 여러분도 Next.js 프로젝트나 React 앱에서 스타일시트 관리가 좀 더 수월해지길 바랍니다! 궁금한 점 있으면 언제든 댓글로 알려주세요. :)</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>외부 스타일시트는 꼭 npm 패키지에서 직접 가져오거나, 파일을 다운받아서 내 프로젝트 코드와 함께 두어야 해요. 그러니까 <code>&#x3C;link rel="stylesheet" /></code> 태그처럼 외부 URL을 그냥 연결해서 쓰는 방식은 사용할 수 없다는 뜻이죠.</p>
+<p>왜 그런 규칙이 있냐면, 보통 이렇게 하면 스타일이 내 프로젝트 안에 완전히 포함되기 때문에 빌드하거나 배포할 때 의존성이 깔끔해지고, 네트워크 지연 없이 더 빠르게 스타일을 적용할 수 있으니까요.</p>
+<p>실제로 CSS 가져오는 방법은 크게 두 가지예요:</p>
+<ol>
+<li>
+<p><strong>npm 패키지에서 직접 import</strong><br>
+예를 들어, <code>import 'package-name/dist/style.css';</code> 이렇게 사용하면 스타일시트가 내 프로젝트 안에서 관리되니까 편리해요.</p>
+</li>
+<li>
+<p><strong>파일 다운로드 후 프로젝트에 포함</strong><br>
+필요한 CSS 파일을 직접 다운받아서 <code>/styles</code> 같은 디렉터리에 넣고,<br>
+<code>import './styles/custom.css';</code> 이런식으로 불러옵니다.</p>
+</li>
+</ol>
+<p>이때 주의할 점은, 외부에서 그냥 <code>&#x3C;link></code> 태그로 불러오면 리액트 같은 프레임워크 환경에서 스타일 관리가 까다로워지고, 로드 타이밍 문제도 생길 수 있으니 가급적 권장하지 않는다는 거예요.</p>
+<p>개발할 때 이런 점 참고해서, 스타일 관리도 깔끔하게 하는 습관 들이면 좋아요! 필요하면 이후에 CSS-in-JS 같은 방법도 한번 알아보시는 걸 추천드립니다. 스타일시트와 자바스크립트를 한 곳에서 관리하니까 훨씬 효율적이거든요.</p>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"2025년 ReactJS와 Next.js에서 CSS를 가장 쉽게 사용하는 방법","description":"","date":"2025-04-22 01:08","slug":"2025-04-22-HowtouseCSSinyourapplication","content":"\n\n# 애플리케이션에서 CSS 사용법 알아보기\n\nNext.js에서는 CSS를 사용하는 여러 가지 방법을 제공하는데요, 대표적으로 다음과 같은 방식들이 있어요:\n\n- CSS 모듈(CSS Modules)\n- 글로벌 CSS(Global CSS)\n- Tailwind CSS\n- Sass\n- CSS-in-JS\n- 외부 스타일시트(External Stylesheets)\n\n이 글에서는 각각의 방법을 어떻게 사용하는지 차근차근 알려드릴게요. 앞으로 여러분 프로젝트에 어떤 방식이 가장 잘 맞을지 선택하는 데 도움이 되길 바랍니다!  \n\n다양한 스타일링 옵션을 활용하면 코드 관리도 쉽고, 유지보수도 편해지니까 꼭 익혀두세요.\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n## CSS Modules\n\nCSS Modules는 CSS 클래스 이름을 고유하게 만들어서, 같은 이름의 클래스를 여러 파일에서 마음껏 사용할 수 있게 도와주는 방법이에요. 덕분에 클래스 이름 충돌 걱정 없이 스타일을 관리할 수 있죠.\n\n사용 방법도 간단해요! 스타일 파일을 `.module.css` 확장자로 만들고, 이걸 필요한 컴포넌트에서 import하기만 하면 돼요. 예를 들어:\n\n```css\n/* blog.module.css */\n.blog {\n  padding: 24px;\n}\n```\n\n그리고 컴포넌트에서는 이렇게 불러와서 사용하면 돼요:\n\n```jsx\nimport styles from './blog.module.css';\n\nfunction Blog() {\n  return \u003cdiv className={styles.blog}\u003e안녕하세요, 블로그입니다!\u003c/div\u003e;\n}\n```\n\n여기서 중요한 점! 일반 CSS 파일과는 달리, CSS Modules에서는 클래스를 사용할 때 항상 import한 `styles` 객체를 통해 접근해 주어야 해요. 이렇게 하면 자동으로 클래스 이름이 고유한 문자열로 변환돼서, 다른 컴포넌트의 같은 클래스 이름과 충돌하지 않도록 막아줍니다.\n\n그리고 혹시 CSS Modules가 조금 낯설게 느껴질 수도 있지만, 최근에는 React를 비롯한 여러 프론트엔드 프레임워크에서 기본 지원하거나 쉽게 설정할 수 있어서 많이 쓰이는 추세에요. 특히 프로젝트가 커질수록 스타일 관리가 훨씬 편해지니, 개인 프로젝트나 회사 프로젝트 모두에서 강력 추천합니다!\n\n덧붙여서, CSS Modules는 전역 네임스페이스 오염 없이 컴포넌트 단위 스타일링이 가능해서, 스타일을 쓰면서 발생하는 버그도 줄여준답니다. 다른 방법으로는 styled-components 같은 CSS-in-JS도 있으니, 용도와 선호도에 따라 선택하면 좋아요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n```js\nimport styles from './styles.module.css'\n\nexport default function Page({ children }: { children: React.ReactNode }) {\n  return \u003cmain className={styles.blog}\u003e{children}\u003c/main\u003e\n}\n```\n\n## 글로벌 CSS(Global CSS)\n\n애플리케이션 전체에 스타일을 적용하고 싶을 때는 글로벌 CSS를 사용하면 편리해요.\n\n예를 들어, `app/global.css` 파일을 만들어서 스타일을 작성하고, 이 파일을 루트 레이아웃(root layout) 파일에 import 하면 애플리케이션의 모든 경로(route)에 글로벌 스타일이 적용돼요.\n\n```css\n/* app/global.css 예시 */\nbody {\n  margin: 0;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  background-color: #f9f9f9;\n  color: #333;\n}\n```\n\n그리고 루트 레이아웃 파일에서는 이렇게 import 해주세요.\n\n```js\nimport './global.css';\n\nexport default function RootLayout({ children }) {\n  return (\n    \u003chtml\u003e\n      \u003cbody\u003e{children}\u003c/body\u003e\n    \u003c/html\u003e\n  );\n}\n```\n\n\u003e 참고로, 글로벌 CSS는 보통 전체적인 기본 스타일(Reset, 폰트, 배경 등)을 적용할 때 사용하고, 각 컴포넌트별 스타일은 CSS 모듈이나 styled-components 같은 방식을 병행해 쓰는 게 유지보수에 좋아요.\n\n추가로 Next.js에서는 글로벌 CSS가 한 번만 import 되어야 하니, 루트 레이아웃이나 앱 컴포넌트에 넣는 걸 추천합니다!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n이번에는 Next.js에서 글로벌 스타일과 Tailwind CSS에 대해 간단히 살펴볼게요.\n\n우선, CSS에서 `body` 태그에 아래와 같은 스타일을 적용한 예시가 있어요:\n\n```css\nbody {\n  padding: 20px 20px 60px;\n  max-width: 680px;\n  margin: 0 auto;\n}\n```\n\n이 스타일은 `body`에 패딩을 줘서 콘텐츠 주변에 공간을 만들고, 최대 너비를 680px로 제한해주고, 좌우 여백은 자동으로 가운데 정렬하는 역할을 하죠.\n\n그리고 Next.js 앱에서는 이렇게 글로벌 CSS를 가져와서 모든 페이지에 적용할 수 있어요:\n\n```tsx\n// 이 파일은 루트 레이아웃 컴포넌트입니다.\n// 전체 앱에 글로벌 스타일이 적용되도록 설정해요.\nimport './global.css'\n \nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  return (\n    \u003chtml lang=\"en\"\u003e\n      \u003cbody\u003e{children}\u003c/body\u003e\n    \u003c/html\u003e\n  )\n}\n```\n\n여기서 `import './global.css'` 부분이 바로 앱 전체에 영향을 주는 글로벌 스타일을 불러오는 부분입니다.\n\n### 알아두면 좋은 점\nNext.js는 React의 스타일 시트 지원 기능과 Suspense를 활용해서 스타일 관리를 하는데요, 문제가 되는 부분은 \"라우트 간 이동 시 스타일 시트가 자동으로 제거되지 않아 충돌(conflicts)이 날 수 있다\"는 거예요.\n\n그래서 권장하는 방법은,\n\n- 정말 앱 전체에 적용되어야 하는 스타일만 글로벌 CSS로 작성하세요.\n- 페이지별, 컴포넌트별로 독립된 스타일이 필요하다면 CSS 모듈(CSS Modules)을 사용하세요.\n\n이렇게 하면 스타일 충돌을 막을 수 있고 관리도 더 쉬워집니다.\n\n---\n\n## Tailwind CSS 이야기\n\n그럼 Tailwind CSS는 어떻게 Next.js와 쓰일까요? Tailwind CSS는 유틸리티 클래스 기반 CSS 프레임워크로, 복잡한 CSS를 손쉽게 작성할 수 있게 도와줘요.\n\n예를 들어, 위에서 했던 `body` 스타일을 Tailwind로 표현하고 싶다면, 다음과 같이 할 수 있죠:\n\n```tsx\n\u003cbody className=\"p-5 pb-15 max-w-xl mx-auto\"\u003e\n  {children}\n\u003c/body\u003e\n```\n\n- `p-5`는 padding 20px (Tailwind 기본 spacing scale에서 대략 1.25rem) 정도를 줍니다.\n- `pb-15`은 padding-bottom 60px 정도를 줘요.\n- `max-w-xl` 은 최대 너비 약 680px에 해당합니다.\n- `mx-auto`는 좌우 마진 자동으로 가운데 정렬을 의미합니다.\n\nTailwind를 활용하면 CSS 파일을 따로 관리하지 않아도 되고, 클래스만 잘 조합해서 손쉽게 반응형 및 스타일 변화를 줄 수 있죠.\n\n---\n\n### 참고\nTailwind CSS도 Next.js에서 쉽게 통합할 수 있으니 관심 있으면 더 자세히 알려드릴게요!  \n그리고 CSS Modules와 같이 쓰면 좀 더 컴포넌트 단위로 깔끔한 스타일링도 가능합니다.\n\n---\n\n요약하자면,\n\n| 내용                      | 설명                                        |\n|-------------------------|-------------------------------------------|\n| 글로벌 CSS              | 앱 전체에 적용되는 기본 스타일, 충돌 주의 필요          |\n| CSS Modules             | 컴포넌트별 국소 스타일링, 충돌 적음                   |\n| Tailwind CSS            | 유틸리티 클래스 기반, 빠른 스타일링 가능               |\n\n필요에 따라 적절한 방법을 골라서 쓰면 되겠습니다!\n\n다음에는 Tailwind CSS 설정법과 활용 팁을 공유할게요. 질문 있으면 부담 없이 알려주세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nTailwind CSS는 Next.js와 찰떡같이 잘 어울리는 유틸리티 퍼스트(Utility-First) CSS 프레임워크에요. 쉽게 말해, 미리 만들어진 클래스를 조합해서 빠르고 효율적으로 스타일을 입힐 수 있죠.\n\n### Tailwind 설치하기\n\nTailwind를 바로 써보고 싶다면, 아래 명령어로 필요한 패키지들을 설치하세요:\n\n```bash\nnpm install tailwindcss @tailwindcss/postcss postcss\n```\n\n여기서 `tailwindcss`는 본체이고, `@tailwindcss/postcss`랑 `postcss`는 Tailwind 스타일을 빌드할 때 필요한 도구들이에요. Next.js 프로젝트에서 스타일링할 때 필수라고 생각하면 됩니다.\n\n참고로, 요즘 Next.js 최신 버전에서는 위 패키지 설치 후에 `npx tailwindcss init`으로 설정 파일을 생성해서 Tailwind 설정을 좀 더 커스터마이징할 수 있어요. 스타일을 내가 원하는 대로 바꾸고 싶다면 꼭 해보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### Tailwind 설정하기\n\n프로젝트 루트에 `postcss.config.mjs` 파일을 만들어서 PostCSS 설정에 `@tailwindcss/postcss` 플러그인을 추가해보세요! 간단한 설정 하나로 Tailwind CSS의 모든 유틸리티 클래스를 마음껏 사용할 수 있게 됩니다.\n\n예를 들면, `postcss.config.mjs` 파일에 아래처럼 설정을 추가할 수 있어요:\n\n```js\n/** @type {import('tailwindcss').Config} */\nexport default {\n  plugins: {\n    '@tailwindcss/postcss': {},\n  },\n}\n```\n\n\u003e 참고로 Tailwind 설정 파일은 `tailwind.config.js` 혹은 `tailwind.config.mjs`로 따로 만들어져 있어야 합니다. 만약 아직 없다면 기본 설정부터 만들어 놓는 걸 추천드려요. 잘 설정해두면 테마, 색상, 폰트 등 자유롭게 커스터마이징하기도 훨씬 수월합니다.\n\n### Tailwind 사용하기\n\nTailwind를 프로젝트에 제대로 설정했다면, HTML이나 JSX 파일에서 바로 클래스명을 쓰기만 하면 돼요!\n\n```html\n\u003cbutton class=\"bg-blue-500 text-white font-bold py-2 px-4 rounded\"\u003e\n  클릭해봐요!\n\u003c/button\u003e\n```\n\n이렇게 쓰면 버튼에 파란 배경, 하얀 글자, 굵은 글꼴, 약간의 패딩과 둥근 모서리가 한 번에 적용됩니다. 기존 CSS 작성하느라 헷갈릴 필요 없이, 클래스 이름으로 직관적인 스타일링 가능!\n\n\u003e 팁 하나 더! 개발 중에 변경사항이 잘 반영되지 않으면, PostCSS 빌드 프로세스를 재시작하거나 캐시를 지우는 것도 한번 시도해보세요. Tailwind는 JIT(Just-In-Time) 컴파일 기능 덕분에 빠르게 스타일을 적용할 수 있지만 간혹 환경마다 캐시 문제로 반영이 늦을 수 있거든요.\n\n필요한 만큼 쉽고 빠르게 스타일을 적용할 수 있으니 꼭 한번 써보세요! Tailwind는 커뮤니티도 활발해서 다양한 플러그인과 자료들이 많답니다. 앞으로도 더 재미있는 Tailwind 팁들 공유할게요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nTailwind CSS를 Next.js 프로젝트에 적용하려면, 먼저 글로벌 스타일시트에 Tailwind 지시어를 추가해야 해요. 이렇게 하면 Tailwind의 기본 스타일과 유틸리티 클래스들이 전역에서 적용됩니다.\n\n```css\n@import 'tailwindcss';\n```\n\n위 코드를 `globals.css` 같은 전역 스타일 파일에 넣어주세요.\n\n그리고 Next.js 프로젝트의 최상위 레이아웃 파일에서 이 스타일시트를 불러와야 해요. 보통 `app/layout.tsx`나 `app/layout.js`에 아래처럼 `globals.css`를 임포트합니다:\n\n```tsx\nimport type { Metadata } from 'next';\n// 이 스타일들은 애플리케이션의 모든 라우트에 적용됩니다.\nimport './globals.css';\n\nexport const metadata: Metadata = {\n  title: 'Create Next App',\n  description: 'Generated by create next app',\n};\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    \u003chtml lang=\"en\"\u003e\n      \u003cbody\u003e{children}\u003c/body\u003e\n    \u003c/html\u003e\n  );\n}\n```\n\n---\n\n### 조금 더 알아보기\n- 이 `@import 'tailwindcss';`는 Tailwind가 필요한 기본 스타일과 유틸리티 클래스를 불러오는 역할을 해요.\n- 만약 더 세부적으로 `@tailwind base;`, `@tailwind components;`, `@tailwind utilities;` 같은 지시어를 커스텀 스타일시트에 넣는 경우도 있는데, 기본적으로 `@import 'tailwindcss';` 하나로 필요한 부분을 다 가져와요.\n- 그리고 글로벌 스타일을 한 번 적용하면, 각 페이지 컴포넌트에서는 따로 스타일을 임포트할 필요가 없어서 편리하답니다.\n- Tailwind를 제대로 적용했는지 확인하려면, 애플리케이션을 실행 후 개발자 도구에서 클래스들이 잘 붙는지 보고, Tailwind 유틸리티 클래스를 적용해 스타일이 변하는지 테스트해보세요!\n\n이제 Tailwind 스타일이 Next.js 프로젝트 전체에 적용됐으니, 마음껏 유틸리티 클래스를 활용해서 빠르게 스타일링해 보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n그럼 이제부터 여러분이 개발하는 애플리케이션에 Tailwind의 유틸리티 클래스를 본격적으로 적용할 수 있어요.\n\n```js\nexport default function Page() {\n  return \u003ch1 className=\"text-3xl font-bold underline\"\u003eHello, Next.js!\u003c/h1\u003e\n}\n```\n\n위 예제처럼 클래스 이름만 쭉 써주면 스타일이 깔끔하게 적용되니 정말 편리하답니다.\n\n---\n\n## Sass 사용하기\n\nNext.js는 Sass와 아주 잘 통합돼 있어서 `.scss`, `.sass` 확장자 둘 다 자유롭게 사용할 수 있어요. \n\nSass는 CSS를 더 효율적이고 구조적으로 관리할 수 있게 해주는 CSS 전처리기인데요, 변수, 중첩, 믹스인 같은 강력한 기능 덕분에 코드 작성이 훨씬 편해진답니다.\n\nNext.js 프로젝트에서 Sass를 사용하려면 일단 `sass` 패키지를 설치해주고 (`npm install sass`), 그다음에 `.scss`나 `.sass` 파일을 임포트해서 바로 스타일을 적용할 수 있어요.\n\n예를 들어,\n\n```scss\n// styles.module.scss\n$primary-color: #4f46e5;\n\n.title {\n  color: $primary-color;\n  font-weight: bold;\n}\n```\n\n```js\nimport styles from './styles.module.scss';\n\nexport default function Page() {\n  return \u003ch1 className={styles.title}\u003eHello, Next.js with Sass!\u003c/h1\u003e;\n}\n```\n\n이렇게 작성하면 Sass가 제공하는 변수 기능도 자연스럽게 쓸 수 있답니다.\n\n---\n\n\u003e 참고로, Sass를 사용하면 CSS 유지보수가 더 쉬워지고, 규모가 큰 프로젝트에서는 특히 효과적이에요. 만약 Tailwind와 Sass 둘 다 같이 쓴다면, Tailwind로 기본 스타일을 빠르게 구성하고, Sass로 좀 더 복잡한 커스텀 스타일을 관리하는 식으로 활용할 수도 있겠죠!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nSass를 컴포넌트 단위로도 사용할 수 있어요. CSS Modules와 함께 `.module.scss`나 `.module.sass` 확장자를 사용하면 되죠. 덕분에 스타일의 범위를 컴포넌트 내부로 한정할 수 있어서, 다른 부분에 영향 주지 않고 스타일을 관리하기 정말 편해집니다.\n\n### Sass 설치 방법\n\nSass를 프로젝트에서 바로 사용하려면 `sass` 패키지를 설치해줘야 해요. 터미널에 아래 명령어만 입력하면 끝!\n\n```bash\nnpm install --save-dev sass\n```\n\n이렇게 하면 `node-sass` 대신 더 빠르고 최신 버전인 `sass`가 설치됩니다. 요즘은 대부분 이 패키지를 추천하고 있으니 꼭 참고하세요!\n\n그리고 Sass를 쓰다 보면 `.scss`와 `.sass` 확장자의 차이가 궁금할 수도 있는데, 간단히 말하면 `.scss`는 CSS 문법과 거의 비슷해서 배우기 쉽고, `.sass`는 들여쓰기를 기반으로 한 문법이에요. 보통 `.scss`를 더 많이 사용한답니다.\n\n만약 Create React App 같은 환경에선 위 설치만 해도 바로 Sass를 쓸 준비가 된 거예요! 컴포넌트별 Sass를 적용하려면 스타일 파일 이름을 `ComponentName.module.scss`처럼 지으면 되고, 이렇게 하면 CSS가 자동으로 모듈화돼서 충돌 없이 안정적입니다.\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### Sass 옵션 커스터마이징하기\n\nNext.js에서 Sass 옵션을 설정하고 싶을 때는 `next.config.js` 파일 내에 `sassOptions`를 사용하면 돼요. 예를 들어, 모든 Sass 파일에 공통으로 사용할 변수를 선언하고 싶다면 `additionalData` 옵션을 활용할 수 있어요.\n\n```js\nimport type { NextConfig } from 'next'\n\nconst nextConfig: NextConfig = {\n  sassOptions: {\n    additionalData: `$var: red;`,\n  },\n}\n\nexport default nextConfig\n```\n\n위 예제에서는 Sass 변수 `$var`에 빨간색(`red`) 값을 기본으로 넣어두었어요. 이렇게 설정하면 모든 Sass 파일에서 별도의 선언 없이 `$var` 변수를 바로 사용할 수 있답니다. 덕분에 공통 변수나 믹스인 등을 간편하게 적용할 수 있어요.\n\n\u003e 팁!  \n\u003e `additionalData`는 파일마다 자동으로 추가되는 코드라서, 여러 변수나 스타일 믹스인들을 등록하면 훨씬 효율적으로 Sass를 관리할 수 있어요.  \n\u003e 예를 들어, 공통 색상 팔레트나 폰트 스타일을 미리 정의해두는 식이죠.\n\n---\n\n## CSS-in-JS\n\n(여기서부터 CSS-in-JS에 대해 다룰 예정인데, 추가로 궁금한 부분이 있으면 말씀해 주세요!)\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nReact Server Components(RSC)를 사용하다 보면 한 가지 주의할 점이 있어요. 바로 **런타임 시 자바스크립트가 필요한 CSS-in-JS 라이브러리들은 현재 React Server Components에서 지원되지 않는다**는 거죠.\n\n### 왜 이런 제한이 생길까?\nReact Server Components는 서버에서 미리 렌더링하고 클라이언트에서는 최소한의 자바스크립트만 실행하는 방식을 취하기 때문에,\n런타임에 자바스크립트가 꼭 필요한 스타일링 라이브러리들은 당장 호환되기 힘든 상황이에요.\n\n### 그렇다면 어떤 CSS-in-JS 라이브러리는 지금 앱 디렉토리의 Client Components에서 쓸 수 있을까?\n아래는 현재 지원되는 라이브러리 목록입니다. (알파벳순)\n\n| 지원 라이브러리              |\n|-----------------------|\n| ant-design            |\n| chakra-ui             |\n| @fluentui/react-components |\n| kuma-ui               |\n| @mui/material         |\n| @mui/joy              |\n| pandacss              |\n| styled-jsx            |\n| styled-components     |\n| stylex                |\n| tamagui               |\n| tss-react             |\n| vanilla-extract       |\n\n### 지원 관련 고민 중인 라이브러리도 있다!\n현재 React 최신 버전에 맞춰 Server Components와 Streaming 지원을 준비 중인 라이브러리들도 있으니, 앞으로 더 확대될 가능성이 높습니다.\n\n### 추가 팁\n- 만약 CSS-in-JS를 꼭 써야 한다면, Server Component가 아닌 Client Component에서만 해당 라이브러리를 사용하도록 분리하는 방법을 추천해요.\n- 스타일링을 아예 CSS 모듈 또는 vanilla CSS로 관리하거나, `styled-jsx`같이 별도 런타임이 필요 없는 라이트한 스타일러를 고려하는 것도 좋아요.\n\n---\n\nReact 개발하면서 최신 기능들을 써보고 싶은데 스타일링 라이브러리 때문에 고민이라면,\n이 리스트와 팁을 참고해서 내 프로젝트에 맞게 잘 조합해보시길 바라요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n- emotion\n\n서버 컴포넌트(Server Components)에 스타일을 입히고 싶다면, CSS 파일을 생성하는 CSS Modules나 Tailwind CSS 같은 솔루션을 사용하는 것을 추천해요. 이 방법들이 서버 컴포넌트와 잘 맞고, 성능 측면에서도 유리하답니다.\n\n### CSS-in-JS 설정하기\n\n만약 CSS-in-JS를 사용하고 싶다면, 다음과 같은 설정이 필요해요: \n\n(여기서는 emotion 같은 CSS-in-JS 라이브러리를 예로 들 수 있겠죠.)\n\n추가로, CSS-in-JS를 사용할 때는 클라이언트 컴포넌트 내에서 스타일 적용이 이뤄지는 경우가 많아서, 서버 컴포넌트에서는 권장되지 않는다는 점을 기억하세요. 상황에 따라 적절한 방식을 선택하는 게 중요해요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nstyle-jsx를 Next.js 같은 React 환경에서 사용할 때 스타일을 깔끔하게 적용하고 수집하는 방법에 대해 알려드릴게요. 보통 SSR(서버 사이드 렌더링)을 하게 되면 스타일이 제대로 적용되는 시점이 중요하거든요. 그래서 스타일을 한 군데 모아 관리하고, 렌더 전에 HTML에 스타일을 주입하는 코드를 작성합니다.\n\n아래는 주요 포인트와 예시 코드입니다.\n\n---\n\n### 스타일 레지스트리 만들기\n\n- `createStyleRegistry()`를 이용해 스타일을 모으는 레지스트리를 만듭니다.\n- 컴포넌트가 처음 렌더될 때 한 번만 생성되도록 `useState`의 lazy initializer 패턴을 씁니다.\n\n### 스타일을 HTML에 주입하기\n\n- `useServerInsertedHTML` 훅을 사용해서 서버에서 렌더링 직전에 스타일 태그를 HTML에 넣어줍니다.\n- 이러면 나중에 페이지가 로드될 때 스타일이 깜빡이거나 지연 없이 바로 적용돼요.\n\n### 클라이언트 컴포넌트에서 래핑하기\n\n- 앱의 최상위 컴포넌트를 스타일 레지스트리로 감싸서 SSR 초기 렌더링할 때 스타일 관리를 집중시킵니다.\n\n---\n\n### Styled-jsx 적용 예시\n\n```jsx\n'use client'\n\nimport React, { useState } from 'react'\nimport { useServerInsertedHTML } from 'next/navigation'\nimport { StyleRegistry, createStyleRegistry } from 'styled-jsx'\n\nexport default function StyledJsxRegistry({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  // 스타일시트를 한 번만 생성 (lazy init)\n  const [jsxStyleRegistry] = useState(() =\u003e createStyleRegistry())\n\n  // 서버 렌더링 시 스타일 태그를 먼저 삽입\n  useServerInsertedHTML(() =\u003e {\n    const styles = jsxStyleRegistry.styles()\n    jsxStyleRegistry.flush()\n    return \u003c\u003e{styles}\u003c/\u003e\n  })\n\n  // 스타일 등록기를 통해 자식 요소들 감싸기\n  return \u003cStyleRegistry registry={jsxStyleRegistry}\u003e{children}\u003c/StyleRegistry\u003e\n}\n```\n\n---\n\n### 부가 팁!\n\n- `StyleRegistry`는 스타일을 수집하고 렌더링하는 역할을 해주기 때문에, 이 컴포넌트로 앱 전체를 감싼다면 스타일 충돌도 관리할 수 있어요.\n- `flush()` 메서드는 수집한 스타일을 비워서 중복 삽입을 막아줍니다.\n- 만약 styled-jsx 외에 Emotion, Styled-components 등 다른 CSS-in-JS 라이브러리를 쓴다면 각각의 서버 스타일 주입 방법이 있으니 참고하세요.\n\n이렇게 하면 서버에서 스타일이 빠르게 적용되어 사용자 경험이 훨씬 좋아집니다! 한 번 적용해 보시면 렌더링 과정에서 스타일이 정확하고 깔끔하게 적용되는 걸 눈으로 확인하실 수 있을 거예요.\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n자, 이제 root layout을 registry로 감싸는 방법을 알려드릴게요.\n\n```js\nimport StyledJsxRegistry from './registry'\n \nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  return (\n    \u003chtml\u003e\n      \u003cbody\u003e\n        \u003cStyledJsxRegistry\u003e{children}\u003c/StyledJsxRegistry\u003e\n      \u003c/body\u003e\n    \u003c/html\u003e\n  )\n}\n```\n\n이렇게 하면 스타일 관련 문제를 좀 더 깔끔하게 관리할 수 있어요. 특히 여러 컴포넌트에서 스타일이 꼬일 때 유용하죠.\n\n---\n\n### styled-components 사용법\n\n만약 Next.js 프로젝트에서 **styled-components**를 사용하려면, `next.config.js` 파일에서 별도로 활성화해야 해요. 다음과 같이 설정해 주세요:\n\n```js\n/** @type {import('next').NextConfig} */\nconst nextConfig = {\n  // 기타 설정들...\n\n  compiler: {\n    styledComponents: true,\n  },\n}\n\nmodule.exports = nextConfig\n```\n\n이 설정을 하면 styled-components가 Next.js 컴파일러와 잘 연동되어 SSR (서버사이드 렌더링) 시 스타일이 깨지지 않도록 도와줘요.\n\n---\n\n#### 참고 팁!\n\n- `styled-components` 쓸 때는 Babel 설정도 필요할 수 있는데, Next.js 12 이상이면 위 `compiler` 옵션만으로 대부분 해결돼요.\n- `StyledJsxRegistry` 같은 커스텀 레지스트리를 사용하는 이유는 스타일 충돌을 방지하고, 렌더링 최적화를 위해서입니다.\n- 스타일 관리는 React+Next.js에서 꽤 복잡할 수 있지만, 이런 설정들을 적용하면 훨씬 안정적인 UI를 만들 수 있으니 꼭 적용해 보세요!\n\n궁금한 점 있으면 언제든 물어보세요~\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nNext.js에서 `styled-components`를 잘 사용하려면, 기본 설정과 함께 서버 사이드에서 스타일을 제대로 수집하고 HTML `\u003chead\u003e`에 주입하는 작업이 필요해요. 간단히 말해서, SSR 환경에서 스타일이 누락되지 않도록 조치를 취하는 거죠.\n\n### 1. `next.config.js` 설정\n\n일단 Next.js 설정 파일에서 `styledComponents` 플래그를 `true`로 켜줘야 해요. 그렇지 않으면 컴파일러가 스타일드 컴포넌트 문법을 제대로 처리하지 못해요.\n\n```js\nimport type { NextConfig } from 'next';\n\nconst nextConfig: NextConfig = {\n  compiler: {\n    styledComponents: true,\n  },\n};\n\nexport default nextConfig;\n```\n\n이 작업은 CSS 클래스 이름 충돌을 방지하고, 개발 편의성을 높여줘요!\n\n---\n\n### 2. 서버에서 스타일 수집하기: `StyledComponentsRegistry` 컴포넌트\n\n서버 측 렌더링(SSR) 시 모든 스타일 규칙을 모아서 나중에 `\u003chead\u003e` 태그에 삽입해야 해요. 이걸 위해 `ServerStyleSheet`를 사용해서 스타일을 수집하고, `useServerInsertedHTML` 훅으로 클라이언트에 주입합니다.\n\n```js\n'use client';\n\nimport React, { useState } from 'react';\nimport { useServerInsertedHTML } from 'next/navigation';\nimport { ServerStyleSheet, StyleSheetManager } from 'styled-components';\n\nexport default function StyledComponentsRegistry({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  // 스타일시트는 한 번만 생성하도록 lazy 초기화 사용\n  const [styledComponentsStyleSheet] = useState(() =\u003e new ServerStyleSheet());\n\n  useServerInsertedHTML(() =\u003e {\n    const styles = styledComponentsStyleSheet.getStyleElement();\n    styledComponentsStyleSheet.instance.clearTag(); // 기존 태그 초기화\n    return \u003c\u003e{styles}\u003c/\u003e;\n  });\n\n  // 클라이언트에서는 그냥 children만 리턴\n  if (typeof window !== 'undefined') return \u003c\u003e{children}\u003c/\u003e;\n\n  // 서버에서는 StyleSheetManager로 감싸서 스타일 수집\n  return (\n    \u003cStyleSheetManager sheet={styledComponentsStyleSheet.instance}\u003e\n      {children}\n    \u003c/StyleSheetManager\u003e\n  );\n}\n```\n\n#### 핵심 포인트\n\n- `ServerStyleSheet`로 렌더링된 스타일을 묶어서 관리해요.\n- `useServerInsertedHTML` 훅은 서버 호출 시 스타일 태그를 `\u003chead\u003e` 안에 넣어 줍니다.\n- 클라이언트에서는 스타일 수집할 필요가 없으니 그냥 children을 렌더링하죠.\n- 서버에서는 `StyleSheetManager`로 감싸서 스타일링을 추적합니다.\n\n이 구조 덕분에 FOUC(Flash of Unstyled Content, 스타일링 없는 깜빡임)를 없앨 수 있고, SEO와 UX 품질도 깔끔해져요!\n\n---\n\n### 3. 루트 레이아웃에 적용하기\n\n마지막으로 `app/layout.tsx` 같은 루트 레이아웃 파일에서, 기존 children을 `StyledComponentsRegistry`로 감싸주세요.\n\n```tsx\nimport StyledComponentsRegistry from './StyledComponentsRegistry';\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    \u003chtml lang=\"ko\"\u003e\n      \u003chead\u003e{/* 여기에 다른 head 요소들 */}\u003c/head\u003e\n      \u003cbody\u003e\n        \u003cStyledComponentsRegistry\u003e\n          {children}\n        \u003c/StyledComponentsRegistry\u003e\n      \u003c/body\u003e\n    \u003c/html\u003e\n  );\n}\n```\n\n---\n\n## 정리\n\n| 단계                   | 설명                                                                                |\n|------------------------|-----------------------------------------------------------------------------------|\n| 1. next.config.js 설정  | `compiler.styledComponents: true`를 켜서 styled-components 컴파일러를 활성화            |\n| 2. StyledComponentsRegistry 작성 | 서버 스타일 수집용 컴포넌트 작성. `ServerStyleSheet`, `useServerInsertedHTML` 활용  |\n| 3. 루트 레이아웃 감싸기  | 레이아웃에서 모든 children을 위 컴포넌트로 감싸서 SSR 시 스타일 누락 방지                |\n\n---\n\n### 참고 팁\n\n- `styled-components` 이전 버전에서는 `_document.js`에서 SSR 설정을 하곤 했는데, Next.js 13의 App Router에서는 `useServerInsertedHTML` 훅으로 훨씬 더 간편하게 적용할 수 있어요.\n- `ServerStyleSheet` 인스턴스는 꼭 한 번만 생성하고 재사용해야 렌더링 시 메모리 누수를 방지합니다.\n- 개발 중에 styles가 이상하게 보이면 캐시를 삭제하고 다시 빌드해 보는 것도 좋아요.\n\n---\n\n이 방법으로 프로젝트에서 `styled-components`를 깔끔하게 SSR 환경에 맞게 쓸 수 있답니다! 혹시 더 궁금한 점 있으면 언제든 물어봐 주세요~ 🚀\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n이번 글에서는 React 컴포넌트에서 외부 스타일시트를 다루는 방법과 styled-components를 사용하는 루트 레이아웃 구성을 소개할게요.\n\n먼저, styled-components를 활용한 RootLayout 컴포넌트 모습부터 살펴봅시다.\n\n```jsx\nimport StyledComponentsRegistry from './lib/registry'\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  return (\n    \u003chtml\u003e\n      \u003cbody\u003e\n        \u003cStyledComponentsRegistry\u003e{children}\u003c/StyledComponentsRegistry\u003e\n      \u003c/body\u003e\n    \u003c/html\u003e\n  )\n}\n```\n\n여기서 StyledComponentsRegistry는 styled-components를 SSR(서버 사이드 렌더링)에서 제대로 작동하게 하도록 도와주는 역할을 해요. 만약 여러분이 Next.js 같은 프레임워크를 사용한다면, SSR 시 스타일 섞임 현상이나 스타일 누락 문제를 줄이는데 아주 유용하죠.\n\n그 다음, 외부 패키지에서 제공하는 CSS 파일을 불러오는 방법입니다. 예시로 Bootstrap CSS를 활용해 볼게요.\n\n```jsx\nimport 'bootstrap/dist/css/bootstrap.css'\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  return (\n    \u003chtml lang=\"en\"\u003e\n      \u003cbody className=\"container\"\u003e{children}\u003c/body\u003e\n    \u003c/html\u003e\n  )\n}\n```\n\n이렇게 레이아웃 최상위 루트에 Bootstrap을 임포트해서 전체 앱에 적용할 수 있어요. 이렇게 하면 별도로 각 컴포넌트마다 스타일을 임포트하지 않아도 되니 편리합니다.\n\n추가 팁을 드리자면:\n\n- 외부 CSS는 글로벌하게 적용되기 때문에 기본값 덮어쓰기나 클래스 충돌을 염두에 두고 사용하세요.\n- styled-components 같이 CSS-in-JS 방식을 쓰면서 외부 스타일시트를 혼합하는 경우, 스타일 우선순위나 특정성 specificity를 고려해야 합니다.\n- 종종 styled-components로 스타일을 작성하면서 Bootstrap처럼 미리 만들어진 UI 라이브러리 CSS를 함께 쓰면, 코드 재사용성과 개발 생산성을 높일 수 있으니 두 방식을 적절히 섞는 걸 추천합니다!\n\n요약하자면, styled-components SSR 설정을 통해 안정적인 스타일 렌더링을 확보하고, 외부 CSS는 전역에 한번만 불러오는 방식을 취하면 여러분 프로젝트의 스타일 관리가 훨씬 깔끔해질 거예요. 필요한 부분에서는 컴포넌트 단위로 스타일을 나누고, 글로벌 스타일이나 라이브러리는 루트 레이아웃에서 한꺼번에 관리하는 게 좋아요.\n\n이제 여러분도 Next.js 프로젝트나 React 앱에서 스타일시트 관리가 좀 더 수월해지길 바랍니다! 궁금한 점 있으면 언제든 댓글로 알려주세요. :)\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n외부 스타일시트는 꼭 npm 패키지에서 직접 가져오거나, 파일을 다운받아서 내 프로젝트 코드와 함께 두어야 해요. 그러니까 `\u003clink rel=\"stylesheet\" /\u003e` 태그처럼 외부 URL을 그냥 연결해서 쓰는 방식은 사용할 수 없다는 뜻이죠.\n\n왜 그런 규칙이 있냐면, 보통 이렇게 하면 스타일이 내 프로젝트 안에 완전히 포함되기 때문에 빌드하거나 배포할 때 의존성이 깔끔해지고, 네트워크 지연 없이 더 빠르게 스타일을 적용할 수 있으니까요.\n\n실제로 CSS 가져오는 방법은 크게 두 가지예요:\n\n1. **npm 패키지에서 직접 import**  \n   예를 들어, `import 'package-name/dist/style.css';` 이렇게 사용하면 스타일시트가 내 프로젝트 안에서 관리되니까 편리해요.\n\n2. **파일 다운로드 후 프로젝트에 포함**  \n   필요한 CSS 파일을 직접 다운받아서 `/styles` 같은 디렉터리에 넣고,  \n   `import './styles/custom.css';` 이런식으로 불러옵니다.\n\n이때 주의할 점은, 외부에서 그냥 `\u003clink\u003e` 태그로 불러오면 리액트 같은 프레임워크 환경에서 스타일 관리가 까다로워지고, 로드 타이밍 문제도 생길 수 있으니 가급적 권장하지 않는다는 거예요.\n\n개발할 때 이런 점 참고해서, 스타일 관리도 깔끔하게 하는 습관 들이면 좋아요! 필요하면 이후에 CSS-in-JS 같은 방법도 한번 알아보시는 걸 추천드립니다. 스타일시트와 자바스크립트를 한 곳에서 관리하니까 훨씬 효율적이거든요.","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":25},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003e애플리케이션에서 CSS 사용법 알아보기\u003c/h1\u003e\n\u003cp\u003eNext.js에서는 CSS를 사용하는 여러 가지 방법을 제공하는데요, 대표적으로 다음과 같은 방식들이 있어요:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCSS 모듈(CSS Modules)\u003c/li\u003e\n\u003cli\u003e글로벌 CSS(Global CSS)\u003c/li\u003e\n\u003cli\u003eTailwind CSS\u003c/li\u003e\n\u003cli\u003eSass\u003c/li\u003e\n\u003cli\u003eCSS-in-JS\u003c/li\u003e\n\u003cli\u003e외부 스타일시트(External Stylesheets)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이 글에서는 각각의 방법을 어떻게 사용하는지 차근차근 알려드릴게요. 앞으로 여러분 프로젝트에 어떤 방식이 가장 잘 맞을지 선택하는 데 도움이 되길 바랍니다!\u003c/p\u003e\n\u003cp\u003e다양한 스타일링 옵션을 활용하면 코드 관리도 쉽고, 유지보수도 편해지니까 꼭 익혀두세요.\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch2\u003eCSS Modules\u003c/h2\u003e\n\u003cp\u003eCSS Modules는 CSS 클래스 이름을 고유하게 만들어서, 같은 이름의 클래스를 여러 파일에서 마음껏 사용할 수 있게 도와주는 방법이에요. 덕분에 클래스 이름 충돌 걱정 없이 스타일을 관리할 수 있죠.\u003c/p\u003e\n\u003cp\u003e사용 방법도 간단해요! 스타일 파일을 \u003ccode\u003e.module.css\u003c/code\u003e 확장자로 만들고, 이걸 필요한 컴포넌트에서 import하기만 하면 돼요. 예를 들어:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-css\"\u003e\u003cspan class=\"hljs-comment\"\u003e/* blog.module.css */\u003c/span\u003e\n\u003cspan class=\"hljs-selector-class\"\u003e.blog\u003c/span\u003e {\n  \u003cspan class=\"hljs-attribute\"\u003epadding\u003c/span\u003e: \u003cspan class=\"hljs-number\"\u003e24px\u003c/span\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e그리고 컴포넌트에서는 이렇게 불러와서 사용하면 돼요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-jsx\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e styles \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./blog.module.css'\u003c/span\u003e;\n\n\u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eBlog\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ediv\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eclassName\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e{styles.blog}\u003c/span\u003e\u003e\u003c/span\u003e안녕하세요, 블로그입니다!\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ediv\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 중요한 점! 일반 CSS 파일과는 달리, CSS Modules에서는 클래스를 사용할 때 항상 import한 \u003ccode\u003estyles\u003c/code\u003e 객체를 통해 접근해 주어야 해요. 이렇게 하면 자동으로 클래스 이름이 고유한 문자열로 변환돼서, 다른 컴포넌트의 같은 클래스 이름과 충돌하지 않도록 막아줍니다.\u003c/p\u003e\n\u003cp\u003e그리고 혹시 CSS Modules가 조금 낯설게 느껴질 수도 있지만, 최근에는 React를 비롯한 여러 프론트엔드 프레임워크에서 기본 지원하거나 쉽게 설정할 수 있어서 많이 쓰이는 추세에요. 특히 프로젝트가 커질수록 스타일 관리가 훨씬 편해지니, 개인 프로젝트나 회사 프로젝트 모두에서 강력 추천합니다!\u003c/p\u003e\n\u003cp\u003e덧붙여서, CSS Modules는 전역 네임스페이스 오염 없이 컴포넌트 단위 스타일링이 가능해서, 스타일을 쓰면서 발생하는 버그도 줄여준답니다. 다른 방법으로는 styled-components 같은 CSS-in-JS도 있으니, 용도와 선호도에 따라 선택하면 좋아요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e styles \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./styles.module.css'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003ePage\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{ children }: { children: React.ReactNode }\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003emain\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eclassName\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e{styles.blog}\u003c/span\u003e\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003emain\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e글로벌 CSS(Global CSS)\u003c/h2\u003e\n\u003cp\u003e애플리케이션 전체에 스타일을 적용하고 싶을 때는 글로벌 CSS를 사용하면 편리해요.\u003c/p\u003e\n\u003cp\u003e예를 들어, \u003ccode\u003eapp/global.css\u003c/code\u003e 파일을 만들어서 스타일을 작성하고, 이 파일을 루트 레이아웃(root layout) 파일에 import 하면 애플리케이션의 모든 경로(route)에 글로벌 스타일이 적용돼요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-css\"\u003e\u003cspan class=\"hljs-comment\"\u003e/* app/global.css 예시 */\u003c/span\u003e\n\u003cspan class=\"hljs-selector-tag\"\u003ebody\u003c/span\u003e {\n  \u003cspan class=\"hljs-attribute\"\u003emargin\u003c/span\u003e: \u003cspan class=\"hljs-number\"\u003e0\u003c/span\u003e;\n  \u003cspan class=\"hljs-attribute\"\u003efont-family\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'Segoe UI'\u003c/span\u003e, Tahoma, Geneva, Verdana, sans-serif;\n  \u003cspan class=\"hljs-attribute\"\u003ebackground-color\u003c/span\u003e: \u003cspan class=\"hljs-number\"\u003e#f9f9f9\u003c/span\u003e;\n  \u003cspan class=\"hljs-attribute\"\u003ecolor\u003c/span\u003e: \u003cspan class=\"hljs-number\"\u003e#333\u003c/span\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e그리고 루트 레이아웃 파일에서는 이렇게 import 해주세요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./global.css'\u003c/span\u003e;\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eRootLayout\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{ children }\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고로, 글로벌 CSS는 보통 전체적인 기본 스타일(Reset, 폰트, 배경 등)을 적용할 때 사용하고, 각 컴포넌트별 스타일은 CSS 모듈이나 styled-components 같은 방식을 병행해 쓰는 게 유지보수에 좋아요.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e추가로 Next.js에서는 글로벌 CSS가 한 번만 import 되어야 하니, 루트 레이아웃이나 앱 컴포넌트에 넣는 걸 추천합니다!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e이번에는 Next.js에서 글로벌 스타일과 Tailwind CSS에 대해 간단히 살펴볼게요.\u003c/p\u003e\n\u003cp\u003e우선, CSS에서 \u003ccode\u003ebody\u003c/code\u003e 태그에 아래와 같은 스타일을 적용한 예시가 있어요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-css\"\u003e\u003cspan class=\"hljs-selector-tag\"\u003ebody\u003c/span\u003e {\n  \u003cspan class=\"hljs-attribute\"\u003epadding\u003c/span\u003e: \u003cspan class=\"hljs-number\"\u003e20px\u003c/span\u003e \u003cspan class=\"hljs-number\"\u003e20px\u003c/span\u003e \u003cspan class=\"hljs-number\"\u003e60px\u003c/span\u003e;\n  \u003cspan class=\"hljs-attribute\"\u003emax-width\u003c/span\u003e: \u003cspan class=\"hljs-number\"\u003e680px\u003c/span\u003e;\n  \u003cspan class=\"hljs-attribute\"\u003emargin\u003c/span\u003e: \u003cspan class=\"hljs-number\"\u003e0\u003c/span\u003e auto;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이 스타일은 \u003ccode\u003ebody\u003c/code\u003e에 패딩을 줘서 콘텐츠 주변에 공간을 만들고, 최대 너비를 680px로 제한해주고, 좌우 여백은 자동으로 가운데 정렬하는 역할을 하죠.\u003c/p\u003e\n\u003cp\u003e그리고 Next.js 앱에서는 이렇게 글로벌 CSS를 가져와서 모든 페이지에 적용할 수 있어요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-tsx\"\u003e\u003cspan class=\"hljs-comment\"\u003e// 이 파일은 루트 레이아웃 컴포넌트입니다.\u003c/span\u003e\n\u003cspan class=\"hljs-comment\"\u003e// 전체 앱에 글로벌 스타일이 적용되도록 설정해요.\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./global.css'\u003c/span\u003e\n \n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eRootLayout\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  children,\n}: {\n  children: React.ReactNode\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003elang\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"en\"\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  )\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 \u003ccode\u003eimport './global.css'\u003c/code\u003e 부분이 바로 앱 전체에 영향을 주는 글로벌 스타일을 불러오는 부분입니다.\u003c/p\u003e\n\u003ch3\u003e알아두면 좋은 점\u003c/h3\u003e\n\u003cp\u003eNext.js는 React의 스타일 시트 지원 기능과 Suspense를 활용해서 스타일 관리를 하는데요, 문제가 되는 부분은 \"라우트 간 이동 시 스타일 시트가 자동으로 제거되지 않아 충돌(conflicts)이 날 수 있다\"는 거예요.\u003c/p\u003e\n\u003cp\u003e그래서 권장하는 방법은,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e정말 앱 전체에 적용되어야 하는 스타일만 글로벌 CSS로 작성하세요.\u003c/li\u003e\n\u003cli\u003e페이지별, 컴포넌트별로 독립된 스타일이 필요하다면 CSS 모듈(CSS Modules)을 사용하세요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이렇게 하면 스타일 충돌을 막을 수 있고 관리도 더 쉬워집니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eTailwind CSS 이야기\u003c/h2\u003e\n\u003cp\u003e그럼 Tailwind CSS는 어떻게 Next.js와 쓰일까요? Tailwind CSS는 유틸리티 클래스 기반 CSS 프레임워크로, 복잡한 CSS를 손쉽게 작성할 수 있게 도와줘요.\u003c/p\u003e\n\u003cp\u003e예를 들어, 위에서 했던 \u003ccode\u003ebody\u003c/code\u003e 스타일을 Tailwind로 표현하고 싶다면, 다음과 같이 할 수 있죠:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-tsx\"\u003e\u0026#x3C;body className=\u003cspan class=\"hljs-string\"\u003e\"p-5 pb-15 max-w-xl mx-auto\"\u003c/span\u003e\u003e\n  {children}\n\u0026#x3C;/body\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ep-5\u003c/code\u003e는 padding 20px (Tailwind 기본 spacing scale에서 대략 1.25rem) 정도를 줍니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003epb-15\u003c/code\u003e은 padding-bottom 60px 정도를 줘요.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003emax-w-xl\u003c/code\u003e 은 최대 너비 약 680px에 해당합니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003emx-auto\u003c/code\u003e는 좌우 마진 자동으로 가운데 정렬을 의미합니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTailwind를 활용하면 CSS 파일을 따로 관리하지 않아도 되고, 클래스만 잘 조합해서 손쉽게 반응형 및 스타일 변화를 줄 수 있죠.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e참고\u003c/h3\u003e\n\u003cp\u003eTailwind CSS도 Next.js에서 쉽게 통합할 수 있으니 관심 있으면 더 자세히 알려드릴게요!\u003cbr\u003e\n그리고 CSS Modules와 같이 쓰면 좀 더 컴포넌트 단위로 깔끔한 스타일링도 가능합니다.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e요약하자면,\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e내용\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e글로벌 CSS\u003c/td\u003e\u003ctd\u003e앱 전체에 적용되는 기본 스타일, 충돌 주의 필요\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eCSS Modules\u003c/td\u003e\u003ctd\u003e컴포넌트별 국소 스타일링, 충돌 적음\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eTailwind CSS\u003c/td\u003e\u003ctd\u003e유틸리티 클래스 기반, 빠른 스타일링 가능\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003e필요에 따라 적절한 방법을 골라서 쓰면 되겠습니다!\u003c/p\u003e\n\u003cp\u003e다음에는 Tailwind CSS 설정법과 활용 팁을 공유할게요. 질문 있으면 부담 없이 알려주세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eTailwind CSS는 Next.js와 찰떡같이 잘 어울리는 유틸리티 퍼스트(Utility-First) CSS 프레임워크에요. 쉽게 말해, 미리 만들어진 클래스를 조합해서 빠르고 효율적으로 스타일을 입힐 수 있죠.\u003c/p\u003e\n\u003ch3\u003eTailwind 설치하기\u003c/h3\u003e\n\u003cp\u003eTailwind를 바로 써보고 싶다면, 아래 명령어로 필요한 패키지들을 설치하세요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003enpm install tailwindcss @tailwindcss/postcss postcss\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 \u003ccode\u003etailwindcss\u003c/code\u003e는 본체이고, \u003ccode\u003e@tailwindcss/postcss\u003c/code\u003e랑 \u003ccode\u003epostcss\u003c/code\u003e는 Tailwind 스타일을 빌드할 때 필요한 도구들이에요. Next.js 프로젝트에서 스타일링할 때 필수라고 생각하면 됩니다.\u003c/p\u003e\n\u003cp\u003e참고로, 요즘 Next.js 최신 버전에서는 위 패키지 설치 후에 \u003ccode\u003enpx tailwindcss init\u003c/code\u003e으로 설정 파일을 생성해서 Tailwind 설정을 좀 더 커스터마이징할 수 있어요. 스타일을 내가 원하는 대로 바꾸고 싶다면 꼭 해보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003eTailwind 설정하기\u003c/h3\u003e\n\u003cp\u003e프로젝트 루트에 \u003ccode\u003epostcss.config.mjs\u003c/code\u003e 파일을 만들어서 PostCSS 설정에 \u003ccode\u003e@tailwindcss/postcss\u003c/code\u003e 플러그인을 추가해보세요! 간단한 설정 하나로 Tailwind CSS의 모든 유틸리티 클래스를 마음껏 사용할 수 있게 됩니다.\u003c/p\u003e\n\u003cp\u003e예를 들면, \u003ccode\u003epostcss.config.mjs\u003c/code\u003e 파일에 아래처럼 설정을 추가할 수 있어요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e/** \u003cspan class=\"hljs-doctag\"\u003e@type\u003c/span\u003e {\u003cspan class=\"hljs-type\"\u003eimport('tailwindcss').Config\u003c/span\u003e} */\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e {\n  \u003cspan class=\"hljs-attr\"\u003eplugins\u003c/span\u003e: {\n    \u003cspan class=\"hljs-string\"\u003e'@tailwindcss/postcss'\u003c/span\u003e: {},\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고로 Tailwind 설정 파일은 \u003ccode\u003etailwind.config.js\u003c/code\u003e 혹은 \u003ccode\u003etailwind.config.mjs\u003c/code\u003e로 따로 만들어져 있어야 합니다. 만약 아직 없다면 기본 설정부터 만들어 놓는 걸 추천드려요. 잘 설정해두면 테마, 색상, 폰트 등 자유롭게 커스터마이징하기도 훨씬 수월합니다.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch3\u003eTailwind 사용하기\u003c/h3\u003e\n\u003cp\u003eTailwind를 프로젝트에 제대로 설정했다면, HTML이나 JSX 파일에서 바로 클래스명을 쓰기만 하면 돼요!\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-html\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebutton\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eclass\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"bg-blue-500 text-white font-bold py-2 px-4 rounded\"\u003c/span\u003e\u003e\u003c/span\u003e\n  클릭해봐요!\n\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebutton\u003c/span\u003e\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 쓰면 버튼에 파란 배경, 하얀 글자, 굵은 글꼴, 약간의 패딩과 둥근 모서리가 한 번에 적용됩니다. 기존 CSS 작성하느라 헷갈릴 필요 없이, 클래스 이름으로 직관적인 스타일링 가능!\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e팁 하나 더! 개발 중에 변경사항이 잘 반영되지 않으면, PostCSS 빌드 프로세스를 재시작하거나 캐시를 지우는 것도 한번 시도해보세요. Tailwind는 JIT(Just-In-Time) 컴파일 기능 덕분에 빠르게 스타일을 적용할 수 있지만 간혹 환경마다 캐시 문제로 반영이 늦을 수 있거든요.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e필요한 만큼 쉽고 빠르게 스타일을 적용할 수 있으니 꼭 한번 써보세요! Tailwind는 커뮤니티도 활발해서 다양한 플러그인과 자료들이 많답니다. 앞으로도 더 재미있는 Tailwind 팁들 공유할게요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eTailwind CSS를 Next.js 프로젝트에 적용하려면, 먼저 글로벌 스타일시트에 Tailwind 지시어를 추가해야 해요. 이렇게 하면 Tailwind의 기본 스타일과 유틸리티 클래스들이 전역에서 적용됩니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-css\"\u003e\u003cspan class=\"hljs-keyword\"\u003e@import\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'tailwindcss'\u003c/span\u003e;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e위 코드를 \u003ccode\u003eglobals.css\u003c/code\u003e 같은 전역 스타일 파일에 넣어주세요.\u003c/p\u003e\n\u003cp\u003e그리고 Next.js 프로젝트의 최상위 레이아웃 파일에서 이 스타일시트를 불러와야 해요. 보통 \u003ccode\u003eapp/layout.tsx\u003c/code\u003e나 \u003ccode\u003eapp/layout.js\u003c/code\u003e에 아래처럼 \u003ccode\u003eglobals.css\u003c/code\u003e를 임포트합니다:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-tsx\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003etype\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eMetadata\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'next'\u003c/span\u003e;\n\u003cspan class=\"hljs-comment\"\u003e// 이 스타일들은 애플리케이션의 모든 라우트에 적용됩니다.\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./globals.css'\u003c/span\u003e;\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003emetadata\u003c/span\u003e: \u003cspan class=\"hljs-title class_\"\u003eMetadata\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003etitle\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'Create Next App'\u003c/span\u003e,\n  \u003cspan class=\"hljs-attr\"\u003edescription\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e'Generated by create next app'\u003c/span\u003e,\n};\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eRootLayout\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  children,\n}: {\n  children: React.ReactNode;\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003elang\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"en\"\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e조금 더 알아보기\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e이 \u003ccode\u003e@import 'tailwindcss';\u003c/code\u003e는 Tailwind가 필요한 기본 스타일과 유틸리티 클래스를 불러오는 역할을 해요.\u003c/li\u003e\n\u003cli\u003e만약 더 세부적으로 \u003ccode\u003e@tailwind base;\u003c/code\u003e, \u003ccode\u003e@tailwind components;\u003c/code\u003e, \u003ccode\u003e@tailwind utilities;\u003c/code\u003e 같은 지시어를 커스텀 스타일시트에 넣는 경우도 있는데, 기본적으로 \u003ccode\u003e@import 'tailwindcss';\u003c/code\u003e 하나로 필요한 부분을 다 가져와요.\u003c/li\u003e\n\u003cli\u003e그리고 글로벌 스타일을 한 번 적용하면, 각 페이지 컴포넌트에서는 따로 스타일을 임포트할 필요가 없어서 편리하답니다.\u003c/li\u003e\n\u003cli\u003eTailwind를 제대로 적용했는지 확인하려면, 애플리케이션을 실행 후 개발자 도구에서 클래스들이 잘 붙는지 보고, Tailwind 유틸리티 클래스를 적용해 스타일이 변하는지 테스트해보세요!\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이제 Tailwind 스타일이 Next.js 프로젝트 전체에 적용됐으니, 마음껏 유틸리티 클래스를 활용해서 빠르게 스타일링해 보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e그럼 이제부터 여러분이 개발하는 애플리케이션에 Tailwind의 유틸리티 클래스를 본격적으로 적용할 수 있어요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003ePage\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eh1\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eclassName\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"text-3xl font-bold underline\"\u003c/span\u003e\u003e\u003c/span\u003eHello, Next.js!\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eh1\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e위 예제처럼 클래스 이름만 쭉 써주면 스타일이 깔끔하게 적용되니 정말 편리하답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSass 사용하기\u003c/h2\u003e\n\u003cp\u003eNext.js는 Sass와 아주 잘 통합돼 있어서 \u003ccode\u003e.scss\u003c/code\u003e, \u003ccode\u003e.sass\u003c/code\u003e 확장자 둘 다 자유롭게 사용할 수 있어요.\u003c/p\u003e\n\u003cp\u003eSass는 CSS를 더 효율적이고 구조적으로 관리할 수 있게 해주는 CSS 전처리기인데요, 변수, 중첩, 믹스인 같은 강력한 기능 덕분에 코드 작성이 훨씬 편해진답니다.\u003c/p\u003e\n\u003cp\u003eNext.js 프로젝트에서 Sass를 사용하려면 일단 \u003ccode\u003esass\u003c/code\u003e 패키지를 설치해주고 (\u003ccode\u003enpm install sass\u003c/code\u003e), 그다음에 \u003ccode\u003e.scss\u003c/code\u003e나 \u003ccode\u003e.sass\u003c/code\u003e 파일을 임포트해서 바로 스타일을 적용할 수 있어요.\u003c/p\u003e\n\u003cp\u003e예를 들어,\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-scss\"\u003e\u003cspan class=\"hljs-comment\"\u003e// styles.module.scss\u003c/span\u003e\n\u003cspan class=\"hljs-variable\"\u003e$primary-color\u003c/span\u003e: \u003cspan class=\"hljs-number\"\u003e#4f46e5\u003c/span\u003e;\n\n\u003cspan class=\"hljs-selector-class\"\u003e.title\u003c/span\u003e {\n  \u003cspan class=\"hljs-attribute\"\u003ecolor\u003c/span\u003e: \u003cspan class=\"hljs-variable\"\u003e$primary-color\u003c/span\u003e;\n  \u003cspan class=\"hljs-attribute\"\u003efont-weight\u003c/span\u003e: bold;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e styles \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./styles.module.scss'\u003c/span\u003e;\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003ePage\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eh1\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eclassName\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e{styles.title}\u003c/span\u003e\u003e\u003c/span\u003eHello, Next.js with Sass!\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eh1\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 작성하면 Sass가 제공하는 변수 기능도 자연스럽게 쓸 수 있답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고로, Sass를 사용하면 CSS 유지보수가 더 쉬워지고, 규모가 큰 프로젝트에서는 특히 효과적이에요. 만약 Tailwind와 Sass 둘 다 같이 쓴다면, Tailwind로 기본 스타일을 빠르게 구성하고, Sass로 좀 더 복잡한 커스텀 스타일을 관리하는 식으로 활용할 수도 있겠죠!\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eSass를 컴포넌트 단위로도 사용할 수 있어요. CSS Modules와 함께 \u003ccode\u003e.module.scss\u003c/code\u003e나 \u003ccode\u003e.module.sass\u003c/code\u003e 확장자를 사용하면 되죠. 덕분에 스타일의 범위를 컴포넌트 내부로 한정할 수 있어서, 다른 부분에 영향 주지 않고 스타일을 관리하기 정말 편해집니다.\u003c/p\u003e\n\u003ch3\u003eSass 설치 방법\u003c/h3\u003e\n\u003cp\u003eSass를 프로젝트에서 바로 사용하려면 \u003ccode\u003esass\u003c/code\u003e 패키지를 설치해줘야 해요. 터미널에 아래 명령어만 입력하면 끝!\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003enpm install --save-dev sass\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 \u003ccode\u003enode-sass\u003c/code\u003e 대신 더 빠르고 최신 버전인 \u003ccode\u003esass\u003c/code\u003e가 설치됩니다. 요즘은 대부분 이 패키지를 추천하고 있으니 꼭 참고하세요!\u003c/p\u003e\n\u003cp\u003e그리고 Sass를 쓰다 보면 \u003ccode\u003e.scss\u003c/code\u003e와 \u003ccode\u003e.sass\u003c/code\u003e 확장자의 차이가 궁금할 수도 있는데, 간단히 말하면 \u003ccode\u003e.scss\u003c/code\u003e는 CSS 문법과 거의 비슷해서 배우기 쉽고, \u003ccode\u003e.sass\u003c/code\u003e는 들여쓰기를 기반으로 한 문법이에요. 보통 \u003ccode\u003e.scss\u003c/code\u003e를 더 많이 사용한답니다.\u003c/p\u003e\n\u003cp\u003e만약 Create React App 같은 환경에선 위 설치만 해도 바로 Sass를 쓸 준비가 된 거예요! 컴포넌트별 Sass를 적용하려면 스타일 파일 이름을 \u003ccode\u003eComponentName.module.scss\u003c/code\u003e처럼 지으면 되고, 이렇게 하면 CSS가 자동으로 모듈화돼서 충돌 없이 안정적입니다.\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003eSass 옵션 커스터마이징하기\u003c/h3\u003e\n\u003cp\u003eNext.js에서 Sass 옵션을 설정하고 싶을 때는 \u003ccode\u003enext.config.js\u003c/code\u003e 파일 내에 \u003ccode\u003esassOptions\u003c/code\u003e를 사용하면 돼요. 예를 들어, 모든 Sass 파일에 공통으로 사용할 변수를 선언하고 싶다면 \u003ccode\u003eadditionalData\u003c/code\u003e 옵션을 활용할 수 있어요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e type { \u003cspan class=\"hljs-title class_\"\u003eNextConfig\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'next'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003enextConfig\u003c/span\u003e: \u003cspan class=\"hljs-title class_\"\u003eNextConfig\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003esassOptions\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003eadditionalData\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e`$var: red;`\u003c/span\u003e,\n  },\n}\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e nextConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e위 예제에서는 Sass 변수 \u003ccode\u003e$var\u003c/code\u003e에 빨간색(\u003ccode\u003ered\u003c/code\u003e) 값을 기본으로 넣어두었어요. 이렇게 설정하면 모든 Sass 파일에서 별도의 선언 없이 \u003ccode\u003e$var\u003c/code\u003e 변수를 바로 사용할 수 있답니다. 덕분에 공통 변수나 믹스인 등을 간편하게 적용할 수 있어요.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e팁!\u003cbr\u003e\n\u003ccode\u003eadditionalData\u003c/code\u003e는 파일마다 자동으로 추가되는 코드라서, 여러 변수나 스타일 믹스인들을 등록하면 훨씬 효율적으로 Sass를 관리할 수 있어요.\u003cbr\u003e\n예를 들어, 공통 색상 팔레트나 폰트 스타일을 미리 정의해두는 식이죠.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003chr\u003e\n\u003ch2\u003eCSS-in-JS\u003c/h2\u003e\n\u003cp\u003e(여기서부터 CSS-in-JS에 대해 다룰 예정인데, 추가로 궁금한 부분이 있으면 말씀해 주세요!)\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eReact Server Components(RSC)를 사용하다 보면 한 가지 주의할 점이 있어요. 바로 \u003cstrong\u003e런타임 시 자바스크립트가 필요한 CSS-in-JS 라이브러리들은 현재 React Server Components에서 지원되지 않는다\u003c/strong\u003e는 거죠.\u003c/p\u003e\n\u003ch3\u003e왜 이런 제한이 생길까?\u003c/h3\u003e\n\u003cp\u003eReact Server Components는 서버에서 미리 렌더링하고 클라이언트에서는 최소한의 자바스크립트만 실행하는 방식을 취하기 때문에,\n런타임에 자바스크립트가 꼭 필요한 스타일링 라이브러리들은 당장 호환되기 힘든 상황이에요.\u003c/p\u003e\n\u003ch3\u003e그렇다면 어떤 CSS-in-JS 라이브러리는 지금 앱 디렉토리의 Client Components에서 쓸 수 있을까?\u003c/h3\u003e\n\u003cp\u003e아래는 현재 지원되는 라이브러리 목록입니다. (알파벳순)\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e지원 라이브러리\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eant-design\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003echakra-ui\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e@fluentui/react-components\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ekuma-ui\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e@mui/material\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e@mui/joy\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003epandacss\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003estyled-jsx\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003estyled-components\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003estylex\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003etamagui\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003etss-react\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003evanilla-extract\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch3\u003e지원 관련 고민 중인 라이브러리도 있다!\u003c/h3\u003e\n\u003cp\u003e현재 React 최신 버전에 맞춰 Server Components와 Streaming 지원을 준비 중인 라이브러리들도 있으니, 앞으로 더 확대될 가능성이 높습니다.\u003c/p\u003e\n\u003ch3\u003e추가 팁\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e만약 CSS-in-JS를 꼭 써야 한다면, Server Component가 아닌 Client Component에서만 해당 라이브러리를 사용하도록 분리하는 방법을 추천해요.\u003c/li\u003e\n\u003cli\u003e스타일링을 아예 CSS 모듈 또는 vanilla CSS로 관리하거나, \u003ccode\u003estyled-jsx\u003c/code\u003e같이 별도 런타임이 필요 없는 라이트한 스타일러를 고려하는 것도 좋아요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003eReact 개발하면서 최신 기능들을 써보고 싶은데 스타일링 라이브러리 때문에 고민이라면,\n이 리스트와 팁을 참고해서 내 프로젝트에 맞게 잘 조합해보시길 바라요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cul\u003e\n\u003cli\u003eemotion\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e서버 컴포넌트(Server Components)에 스타일을 입히고 싶다면, CSS 파일을 생성하는 CSS Modules나 Tailwind CSS 같은 솔루션을 사용하는 것을 추천해요. 이 방법들이 서버 컴포넌트와 잘 맞고, 성능 측면에서도 유리하답니다.\u003c/p\u003e\n\u003ch3\u003eCSS-in-JS 설정하기\u003c/h3\u003e\n\u003cp\u003e만약 CSS-in-JS를 사용하고 싶다면, 다음과 같은 설정이 필요해요:\u003c/p\u003e\n\u003cp\u003e(여기서는 emotion 같은 CSS-in-JS 라이브러리를 예로 들 수 있겠죠.)\u003c/p\u003e\n\u003cp\u003e추가로, CSS-in-JS를 사용할 때는 클라이언트 컴포넌트 내에서 스타일 적용이 이뤄지는 경우가 많아서, 서버 컴포넌트에서는 권장되지 않는다는 점을 기억하세요. 상황에 따라 적절한 방식을 선택하는 게 중요해요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003estyle-jsx를 Next.js 같은 React 환경에서 사용할 때 스타일을 깔끔하게 적용하고 수집하는 방법에 대해 알려드릴게요. 보통 SSR(서버 사이드 렌더링)을 하게 되면 스타일이 제대로 적용되는 시점이 중요하거든요. 그래서 스타일을 한 군데 모아 관리하고, 렌더 전에 HTML에 스타일을 주입하는 코드를 작성합니다.\u003c/p\u003e\n\u003cp\u003e아래는 주요 포인트와 예시 코드입니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e스타일 레지스트리 만들기\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ecreateStyleRegistry()\u003c/code\u003e를 이용해 스타일을 모으는 레지스트리를 만듭니다.\u003c/li\u003e\n\u003cli\u003e컴포넌트가 처음 렌더될 때 한 번만 생성되도록 \u003ccode\u003euseState\u003c/code\u003e의 lazy initializer 패턴을 씁니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e스타일을 HTML에 주입하기\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003euseServerInsertedHTML\u003c/code\u003e 훅을 사용해서 서버에서 렌더링 직전에 스타일 태그를 HTML에 넣어줍니다.\u003c/li\u003e\n\u003cli\u003e이러면 나중에 페이지가 로드될 때 스타일이 깜빡이거나 지연 없이 바로 적용돼요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e클라이언트 컴포넌트에서 래핑하기\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e앱의 최상위 컴포넌트를 스타일 레지스트리로 감싸서 SSR 초기 렌더링할 때 스타일 관리를 집중시킵니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003eStyled-jsx 적용 예시\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-jsx\"\u003e\u003cspan class=\"hljs-string\"\u003e'use client'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eReact\u003c/span\u003e, { useState } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'react'\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { useServerInsertedHTML } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'next/navigation'\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eStyleRegistry\u003c/span\u003e, createStyleRegistry } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'styled-jsx'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eStyledJsxRegistry\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  children,\n}: {\n  children: React.ReactNode\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-comment\"\u003e// 스타일시트를 한 번만 생성 (lazy init)\u003c/span\u003e\n  \u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e [jsxStyleRegistry] = \u003cspan class=\"hljs-title function_\"\u003euseState\u003c/span\u003e(\u003cspan class=\"hljs-function\"\u003e() =\u003e\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003ecreateStyleRegistry\u003c/span\u003e())\n\n  \u003cspan class=\"hljs-comment\"\u003e// 서버 렌더링 시 스타일 태그를 먼저 삽입\u003c/span\u003e\n  \u003cspan class=\"hljs-title function_\"\u003euseServerInsertedHTML\u003c/span\u003e(\u003cspan class=\"hljs-function\"\u003e() =\u003e\u003c/span\u003e {\n    \u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e styles = jsxStyleRegistry.\u003cspan class=\"hljs-title function_\"\u003estyles\u003c/span\u003e()\n    jsxStyleRegistry.\u003cspan class=\"hljs-title function_\"\u003eflush\u003c/span\u003e()\n    \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003e\u003c/span\u003e{styles}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003e\u003c/span\u003e\u003c/span\u003e\n  })\n\n  \u003cspan class=\"hljs-comment\"\u003e// 스타일 등록기를 통해 자식 요소들 감싸기\u003c/span\u003e\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eStyleRegistry\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eregistry\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e{jsxStyleRegistry}\u003c/span\u003e\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eStyleRegistry\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e부가 팁!\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eStyleRegistry\u003c/code\u003e는 스타일을 수집하고 렌더링하는 역할을 해주기 때문에, 이 컴포넌트로 앱 전체를 감싼다면 스타일 충돌도 관리할 수 있어요.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eflush()\u003c/code\u003e 메서드는 수집한 스타일을 비워서 중복 삽입을 막아줍니다.\u003c/li\u003e\n\u003cli\u003e만약 styled-jsx 외에 Emotion, Styled-components 등 다른 CSS-in-JS 라이브러리를 쓴다면 각각의 서버 스타일 주입 방법이 있으니 참고하세요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이렇게 하면 서버에서 스타일이 빠르게 적용되어 사용자 경험이 훨씬 좋아집니다! 한 번 적용해 보시면 렌더링 과정에서 스타일이 정확하고 깔끔하게 적용되는 걸 눈으로 확인하실 수 있을 거예요.\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e자, 이제 root layout을 registry로 감싸는 방법을 알려드릴게요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eStyledJsxRegistry\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./registry'\u003c/span\u003e\n \n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eRootLayout\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  children,\n}: {\n  children: React.ReactNode\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eStyledJsxRegistry\u003c/span\u003e\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eStyledJsxRegistry\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  )\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 스타일 관련 문제를 좀 더 깔끔하게 관리할 수 있어요. 특히 여러 컴포넌트에서 스타일이 꼬일 때 유용하죠.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003estyled-components 사용법\u003c/h3\u003e\n\u003cp\u003e만약 Next.js 프로젝트에서 \u003cstrong\u003estyled-components\u003c/strong\u003e를 사용하려면, \u003ccode\u003enext.config.js\u003c/code\u003e 파일에서 별도로 활성화해야 해요. 다음과 같이 설정해 주세요:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-comment\"\u003e/** \u003cspan class=\"hljs-doctag\"\u003e@type\u003c/span\u003e {\u003cspan class=\"hljs-type\"\u003eimport('next').NextConfig\u003c/span\u003e} */\u003c/span\u003e\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e nextConfig = {\n  \u003cspan class=\"hljs-comment\"\u003e// 기타 설정들...\u003c/span\u003e\n\n  \u003cspan class=\"hljs-attr\"\u003ecompiler\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003estyledComponents\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003etrue\u003c/span\u003e,\n  },\n}\n\n\u003cspan class=\"hljs-variable language_\"\u003emodule\u003c/span\u003e.\u003cspan class=\"hljs-property\"\u003eexports\u003c/span\u003e = nextConfig\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이 설정을 하면 styled-components가 Next.js 컴파일러와 잘 연동되어 SSR (서버사이드 렌더링) 시 스타일이 깨지지 않도록 도와줘요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch4\u003e참고 팁!\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003estyled-components\u003c/code\u003e 쓸 때는 Babel 설정도 필요할 수 있는데, Next.js 12 이상이면 위 \u003ccode\u003ecompiler\u003c/code\u003e 옵션만으로 대부분 해결돼요.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eStyledJsxRegistry\u003c/code\u003e 같은 커스텀 레지스트리를 사용하는 이유는 스타일 충돌을 방지하고, 렌더링 최적화를 위해서입니다.\u003c/li\u003e\n\u003cli\u003e스타일 관리는 React+Next.js에서 꽤 복잡할 수 있지만, 이런 설정들을 적용하면 훨씬 안정적인 UI를 만들 수 있으니 꼭 적용해 보세요!\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e궁금한 점 있으면 언제든 물어보세요~\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eNext.js에서 \u003ccode\u003estyled-components\u003c/code\u003e를 잘 사용하려면, 기본 설정과 함께 서버 사이드에서 스타일을 제대로 수집하고 HTML \u003ccode\u003e\u0026#x3C;head\u003e\u003c/code\u003e에 주입하는 작업이 필요해요. 간단히 말해서, SSR 환경에서 스타일이 누락되지 않도록 조치를 취하는 거죠.\u003c/p\u003e\n\u003ch3\u003e1. \u003ccode\u003enext.config.js\u003c/code\u003e 설정\u003c/h3\u003e\n\u003cp\u003e일단 Next.js 설정 파일에서 \u003ccode\u003estyledComponents\u003c/code\u003e 플래그를 \u003ccode\u003etrue\u003c/code\u003e로 켜줘야 해요. 그렇지 않으면 컴파일러가 스타일드 컴포넌트 문법을 제대로 처리하지 못해요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e type { \u003cspan class=\"hljs-title class_\"\u003eNextConfig\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'next'\u003c/span\u003e;\n\n\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003enextConfig\u003c/span\u003e: \u003cspan class=\"hljs-title class_\"\u003eNextConfig\u003c/span\u003e = {\n  \u003cspan class=\"hljs-attr\"\u003ecompiler\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003estyledComponents\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003etrue\u003c/span\u003e,\n  },\n};\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e nextConfig;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이 작업은 CSS 클래스 이름 충돌을 방지하고, 개발 편의성을 높여줘요!\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e2. 서버에서 스타일 수집하기: \u003ccode\u003eStyledComponentsRegistry\u003c/code\u003e 컴포넌트\u003c/h3\u003e\n\u003cp\u003e서버 측 렌더링(SSR) 시 모든 스타일 규칙을 모아서 나중에 \u003ccode\u003e\u0026#x3C;head\u003e\u003c/code\u003e 태그에 삽입해야 해요. 이걸 위해 \u003ccode\u003eServerStyleSheet\u003c/code\u003e를 사용해서 스타일을 수집하고, \u003ccode\u003euseServerInsertedHTML\u003c/code\u003e 훅으로 클라이언트에 주입합니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-string\"\u003e'use client'\u003c/span\u003e;\n\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eReact\u003c/span\u003e, { useState } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'react'\u003c/span\u003e;\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { useServerInsertedHTML } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'next/navigation'\u003c/span\u003e;\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { \u003cspan class=\"hljs-title class_\"\u003eServerStyleSheet\u003c/span\u003e, \u003cspan class=\"hljs-title class_\"\u003eStyleSheetManager\u003c/span\u003e } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'styled-components'\u003c/span\u003e;\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eStyledComponentsRegistry\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  children,\n}: {\n  children: React.ReactNode;\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-comment\"\u003e// 스타일시트는 한 번만 생성하도록 lazy 초기화 사용\u003c/span\u003e\n  \u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e [styledComponentsStyleSheet] = \u003cspan class=\"hljs-title function_\"\u003euseState\u003c/span\u003e(\u003cspan class=\"hljs-function\"\u003e() =\u003e\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eServerStyleSheet\u003c/span\u003e());\n\n  \u003cspan class=\"hljs-title function_\"\u003euseServerInsertedHTML\u003c/span\u003e(\u003cspan class=\"hljs-function\"\u003e() =\u003e\u003c/span\u003e {\n    \u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e styles = styledComponentsStyleSheet.\u003cspan class=\"hljs-title function_\"\u003egetStyleElement\u003c/span\u003e();\n    styledComponentsStyleSheet.\u003cspan class=\"hljs-property\"\u003einstance\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003eclearTag\u003c/span\u003e(); \u003cspan class=\"hljs-comment\"\u003e// 기존 태그 초기화\u003c/span\u003e\n    \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003e\u003c/span\u003e{styles}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003e\u003c/span\u003e\u003c/span\u003e;\n  });\n\n  \u003cspan class=\"hljs-comment\"\u003e// 클라이언트에서는 그냥 children만 리턴\u003c/span\u003e\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (\u003cspan class=\"hljs-keyword\"\u003etypeof\u003c/span\u003e \u003cspan class=\"hljs-variable language_\"\u003ewindow\u003c/span\u003e !== \u003cspan class=\"hljs-string\"\u003e'undefined'\u003c/span\u003e) \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003e\u003c/span\u003e\u003c/span\u003e;\n\n  \u003cspan class=\"hljs-comment\"\u003e// 서버에서는 StyleSheetManager로 감싸서 스타일 수집\u003c/span\u003e\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eStyleSheetManager\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003esheet\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e{styledComponentsStyleSheet.instance}\u003c/span\u003e\u003e\u003c/span\u003e\n      {children}\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eStyleSheetManager\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e핵심 포인트\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eServerStyleSheet\u003c/code\u003e로 렌더링된 스타일을 묶어서 관리해요.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003euseServerInsertedHTML\u003c/code\u003e 훅은 서버 호출 시 스타일 태그를 \u003ccode\u003e\u0026#x3C;head\u003e\u003c/code\u003e 안에 넣어 줍니다.\u003c/li\u003e\n\u003cli\u003e클라이언트에서는 스타일 수집할 필요가 없으니 그냥 children을 렌더링하죠.\u003c/li\u003e\n\u003cli\u003e서버에서는 \u003ccode\u003eStyleSheetManager\u003c/code\u003e로 감싸서 스타일링을 추적합니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이 구조 덕분에 FOUC(Flash of Unstyled Content, 스타일링 없는 깜빡임)를 없앨 수 있고, SEO와 UX 품질도 깔끔해져요!\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e3. 루트 레이아웃에 적용하기\u003c/h3\u003e\n\u003cp\u003e마지막으로 \u003ccode\u003eapp/layout.tsx\u003c/code\u003e 같은 루트 레이아웃 파일에서, 기존 children을 \u003ccode\u003eStyledComponentsRegistry\u003c/code\u003e로 감싸주세요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-tsx\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eStyledComponentsRegistry\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./StyledComponentsRegistry'\u003c/span\u003e;\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eRootLayout\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  children,\n}: {\n  children: React.ReactNode;\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003elang\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"ko\"\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehead\u003c/span\u003e\u003e\u003c/span\u003e{/* 여기에 다른 head 요소들 */}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehead\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eStyledComponentsRegistry\u003c/span\u003e\u003e\u003c/span\u003e\n          {children}\n        \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eStyledComponentsRegistry\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e정리\u003c/h2\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e단계\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e1. next.config.js 설정\u003c/td\u003e\u003ctd\u003e\u003ccode\u003ecompiler.styledComponents: true\u003c/code\u003e를 켜서 styled-components 컴파일러를 활성화\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2. StyledComponentsRegistry 작성\u003c/td\u003e\u003ctd\u003e서버 스타일 수집용 컴포넌트 작성. \u003ccode\u003eServerStyleSheet\u003c/code\u003e, \u003ccode\u003euseServerInsertedHTML\u003c/code\u003e 활용\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e3. 루트 레이아웃 감싸기\u003c/td\u003e\u003ctd\u003e레이아웃에서 모든 children을 위 컴포넌트로 감싸서 SSR 시 스타일 누락 방지\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch3\u003e참고 팁\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003estyled-components\u003c/code\u003e 이전 버전에서는 \u003ccode\u003e_document.js\u003c/code\u003e에서 SSR 설정을 하곤 했는데, Next.js 13의 App Router에서는 \u003ccode\u003euseServerInsertedHTML\u003c/code\u003e 훅으로 훨씬 더 간편하게 적용할 수 있어요.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eServerStyleSheet\u003c/code\u003e 인스턴스는 꼭 한 번만 생성하고 재사용해야 렌더링 시 메모리 누수를 방지합니다.\u003c/li\u003e\n\u003cli\u003e개발 중에 styles가 이상하게 보이면 캐시를 삭제하고 다시 빌드해 보는 것도 좋아요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e이 방법으로 프로젝트에서 \u003ccode\u003estyled-components\u003c/code\u003e를 깔끔하게 SSR 환경에 맞게 쓸 수 있답니다! 혹시 더 궁금한 점 있으면 언제든 물어봐 주세요~ 🚀\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e이번 글에서는 React 컴포넌트에서 외부 스타일시트를 다루는 방법과 styled-components를 사용하는 루트 레이아웃 구성을 소개할게요.\u003c/p\u003e\n\u003cp\u003e먼저, styled-components를 활용한 RootLayout 컴포넌트 모습부터 살펴봅시다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-jsx\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-title class_\"\u003eStyledComponentsRegistry\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'./lib/registry'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eRootLayout\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  children,\n}: {\n  children: React.ReactNode\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eStyledComponentsRegistry\u003c/span\u003e\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eStyledComponentsRegistry\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  )\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e여기서 StyledComponentsRegistry는 styled-components를 SSR(서버 사이드 렌더링)에서 제대로 작동하게 하도록 도와주는 역할을 해요. 만약 여러분이 Next.js 같은 프레임워크를 사용한다면, SSR 시 스타일 섞임 현상이나 스타일 누락 문제를 줄이는데 아주 유용하죠.\u003c/p\u003e\n\u003cp\u003e그 다음, 외부 패키지에서 제공하는 CSS 파일을 불러오는 방법입니다. 예시로 Bootstrap CSS를 활용해 볼게요.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-jsx\"\u003e\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'bootstrap/dist/css/bootstrap.css'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eRootLayout\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  children,\n}: {\n  children: React.ReactNode\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003elang\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"en\"\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eclassName\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"container\"\u003c/span\u003e\u003e\u003c/span\u003e{children}\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  )\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 레이아웃 최상위 루트에 Bootstrap을 임포트해서 전체 앱에 적용할 수 있어요. 이렇게 하면 별도로 각 컴포넌트마다 스타일을 임포트하지 않아도 되니 편리합니다.\u003c/p\u003e\n\u003cp\u003e추가 팁을 드리자면:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e외부 CSS는 글로벌하게 적용되기 때문에 기본값 덮어쓰기나 클래스 충돌을 염두에 두고 사용하세요.\u003c/li\u003e\n\u003cli\u003estyled-components 같이 CSS-in-JS 방식을 쓰면서 외부 스타일시트를 혼합하는 경우, 스타일 우선순위나 특정성 specificity를 고려해야 합니다.\u003c/li\u003e\n\u003cli\u003e종종 styled-components로 스타일을 작성하면서 Bootstrap처럼 미리 만들어진 UI 라이브러리 CSS를 함께 쓰면, 코드 재사용성과 개발 생산성을 높일 수 있으니 두 방식을 적절히 섞는 걸 추천합니다!\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e요약하자면, styled-components SSR 설정을 통해 안정적인 스타일 렌더링을 확보하고, 외부 CSS는 전역에 한번만 불러오는 방식을 취하면 여러분 프로젝트의 스타일 관리가 훨씬 깔끔해질 거예요. 필요한 부분에서는 컴포넌트 단위로 스타일을 나누고, 글로벌 스타일이나 라이브러리는 루트 레이아웃에서 한꺼번에 관리하는 게 좋아요.\u003c/p\u003e\n\u003cp\u003e이제 여러분도 Next.js 프로젝트나 React 앱에서 스타일시트 관리가 좀 더 수월해지길 바랍니다! 궁금한 점 있으면 언제든 댓글로 알려주세요. :)\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e외부 스타일시트는 꼭 npm 패키지에서 직접 가져오거나, 파일을 다운받아서 내 프로젝트 코드와 함께 두어야 해요. 그러니까 \u003ccode\u003e\u0026#x3C;link rel=\"stylesheet\" /\u003e\u003c/code\u003e 태그처럼 외부 URL을 그냥 연결해서 쓰는 방식은 사용할 수 없다는 뜻이죠.\u003c/p\u003e\n\u003cp\u003e왜 그런 규칙이 있냐면, 보통 이렇게 하면 스타일이 내 프로젝트 안에 완전히 포함되기 때문에 빌드하거나 배포할 때 의존성이 깔끔해지고, 네트워크 지연 없이 더 빠르게 스타일을 적용할 수 있으니까요.\u003c/p\u003e\n\u003cp\u003e실제로 CSS 가져오는 방법은 크게 두 가지예요:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003enpm 패키지에서 직접 import\u003c/strong\u003e\u003cbr\u003e\n예를 들어, \u003ccode\u003eimport 'package-name/dist/style.css';\u003c/code\u003e 이렇게 사용하면 스타일시트가 내 프로젝트 안에서 관리되니까 편리해요.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e파일 다운로드 후 프로젝트에 포함\u003c/strong\u003e\u003cbr\u003e\n필요한 CSS 파일을 직접 다운받아서 \u003ccode\u003e/styles\u003c/code\u003e 같은 디렉터리에 넣고,\u003cbr\u003e\n\u003ccode\u003eimport './styles/custom.css';\u003c/code\u003e 이런식으로 불러옵니다.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e이때 주의할 점은, 외부에서 그냥 \u003ccode\u003e\u0026#x3C;link\u003e\u003c/code\u003e 태그로 불러오면 리액트 같은 프레임워크 환경에서 스타일 관리가 까다로워지고, 로드 타이밍 문제도 생길 수 있으니 가급적 권장하지 않는다는 거예요.\u003c/p\u003e\n\u003cp\u003e개발할 때 이런 점 참고해서, 스타일 관리도 깔끔하게 하는 습관 들이면 좋아요! 필요하면 이후에 CSS-in-JS 같은 방법도 한번 알아보시는 걸 추천드립니다. 스타일시트와 자바스크립트를 한 곳에서 관리하니까 훨씬 효율적이거든요.\u003c/p\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-HowtouseCSSinyourapplication"},"buildId":"o6AmBAY_j9v9JmbaRA39X","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>

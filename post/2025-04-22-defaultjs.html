@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title>Next.js 15 Parallel Routes default.js 활용법 정리 | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-defaultjs" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content="Next.js 15 Parallel Routes default.js 활용법 정리 | TIL" data-gatsby-head="true"/><meta property="og:title" content="Next.js 15 Parallel Routes default.js 활용법 정리 | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-defaultjs" data-gatsby-head="true"/><meta name="twitter:title" content="Next.js 15 Parallel Routes default.js 활용법 정리 | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 02:35" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx">Next.js 15 Parallel Routes default.js 활용법 정리</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt="Next.js 15 Parallel Routes default.js 활용법 정리" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">6<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>default.js 파일에 대해 알아보자</h1>
+<p>안녕하세요! 오늘은 Next.js에서 Parallel Routes를 사용할 때 나오는 <code>default.js</code> 파일에 대해 이야기해볼게요. Next.js를 쓰다 보면 우리가 원하는 화면(서브페이지)을 보여주다가도, 가끔 새로고침(하드 네비게이션)을 하면 그 상태를 잃어버리고 다시 렌더링해야 할 때가 있잖아요? 이 문제를 해결해주는 게 바로 <code>default.js</code> 파일이에요.</p>
+<hr>
+<h2>default.js 파일, 왜 필요할까?</h2>
+<p>Next.js는 <strong>소프트 네비게이션</strong>(페이지를 새로고침하지 않고 이동할 때)에서는 각 슬롯(slot)의 액티브 상태를 잘 기억하고 있답니다. 그래서 사용자가 어디에 있었는지 그대로 보여줄 수 있죠.</p>
+<p>그런데, 만약 <strong>하드 네비게이션</strong>(진짜 페이지를 새로 고침하거나 처음 방문하는 경우)이 발생하면 액티브 상태를 기억하지 못해요. 그래서 이때, 현재 URL과 맞지 않는 서브페이지가 있을 때 렌더링할 기본 화면을 제공해주기 위해 <code>default.js</code>가 필요하답니다.</p>
+<hr>
+<h2>예시 폴더 구조 살펴보기</h2>
+<p>아래처럼 폴더 구조를 보면, <code>@team</code> 슬롯에는 <code>settings</code> 페이지가 있는 반면, <code>@analytics</code>는 없어요.</p>
+<p>app
+├── layout.js
+├── page.js
+├── @team
+│ ├── page.js
+│ └── settings
+│ └── page.js
+└── @analytics
+└── page.js</p>
+<p>위처럼 되어있다면, <code>@analytics</code> 슬롯에 <code>settings</code> 페이지 같은 게 없어 하드 네비게이션 시 상태 복구가 힘들기 때문에, 이때 <code>default.js</code>가 빈 슬롯 내용이나 기본 안내 메시지를 보여주는 역할을 하게 되는 거죠.</p>
+<hr>
+<h2>조금 더 알아두면 좋은 점!</h2>
+<ul>
+<li><code>default.js</code>는 슬롯 내부의 서브페이지가 현재 URL과 맞지 않을 때 보여주는 <strong>fallback UI</strong>입니다.</li>
+<li>이를 활용하면 페이지가 완전히 새로고침되어도, 깨지지 않고 친절한 기본 메시지를 띄울 수 있죠.</li>
+<li>이 기능을 통해 탭이나 메뉴처럼 여러 슬롯을 가진 복잡한 UI를 만들 때 유저 경험이 훨씬 좋아져요.</li>
+</ul>
+<hr>
+<p>궁금한 점 있으면 댓글로 남겨주세요! 다음에도 재미있고 유용한 Next.js 팁 가지고 올게요~ :)</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>위 내용을 쉽게 풀어서 설명해드릴게요.</p>
+<hr>
+<p>Next.js에서 /settings 경로로 이동하면, <code>@team</code> 슬롯에는 설정 페이지가 보여지고, <code>@analytics</code> 슬롯은 현재 활성화된 페이지를 계속 유지해요.</p>
+<p><strong>여기서 슬롯(@team, @analytics)이란?</strong><br>
+페이지를 여러 영역으로 나누고, 각 영역에 다른 컴포넌트를 꽂아 넣을 수 있는 공간 같은 개념이에요. 그래서 한 페이지 안에서도 독립적으로 여러 컴포넌트가 관리됩니다.</p>
+<hr>
+<p>그런데, 새로고침을 하게 되면 Next.js는 <code>@analytics</code> 슬롯에 대해 <code>default.js</code> 파일을 찾으려고 해요. 만약 <code>default.js</code>가 없다면 404 (페이지 없음) 오류를 띄웁니다.</p>
+<p>또 하나 중요한 점!<br>
+<code>children</code> 슬롯은 암묵적으로 존재하는 기본 슬롯인데요, 이 <code>children</code> 슬롯도 <code>default.js</code> 파일을 만들어 줘야 해요. 그래야 Next.js가 부모 페이지의 활성 상태를 복구하지 못할 때 대체할 컴포넌트를 보여줄 수 있어요.</p>
+<hr>
+<h3>요약하자면</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>상황</th><th>해야할 일</th><th>이유</th></tr></thead><tbody><tr><td>/settings 접근 시</td><td>@team 슬롯에 설정 페이지 렌더링</td><td>해당 슬롯에 지정한 컴포넌트만 바꾸고 다른 슬롯은 유지하기 위해</td></tr><tr><td>새로고침할 때</td><td><code>@analytics/default.js</code> 만들어 두기</td><td>새로고침 시 기본으로 보여줄 컴포넌트가 필요, 없으면 404 오류 발생</td></tr><tr><td>암묵적 기본 슬롯 <code>children</code></td><td><code>children/default.js</code>도 만들어 주기</td><td>부모 페이지 상태 복구 실패 시 대체 컴포넌트를 보여주기 위해</td></tr></tbody></table>
+<hr>
+<h3>추가 팁!</h3>
+<ul>
+<li>이렇게 슬롯별로 <code>default.js</code>를 준비해두면 사용자 경험이 한층 좋아져요. 새로고침 후에도 오류 대신 기본 페이지가 적절히 렌더링 되거든요.</li>
+<li>만약 <code>default.js</code>가 없으면, 사용자가 새로고침할 때 꽤 당황스러운 404를 보게 되니 꼭 챙겨주세요!</li>
+</ul>
+<hr>
+<p>이 정도만 알고 있어도 Next.js의 복잡한 경로 관리와 슬롯 구조를 조금 더 편하게 다룰 수 있을 거예요. 다음에도 이런 실용적인 Next.js 팁 있으면 공유해 드릴게요! :)</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h2>참고 자료</h2>
+<h3>params (선택 사항)</h3>
+<p><code>params</code>는 루트 경로부터 슬롯 내부의 하위 페이지까지의 동적 라우트 매개변수를 담고 있는 객체를 반환하는 <strong>Promise</strong>입니다. 쉽게 말해, 서버나 페이지가 렌더링될 때 URL 경로에서 변하는 부분들을 비동기적으로 받아오는데 사용돼요.</p>
+<p>예를 들어 아래 코드를 보면:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Default</span>(<span class="hljs-params">{ params }: { params: <span class="hljs-built_in">Promise</span>&#x3C;{ artist: string }> }</span>) {
+  <span class="hljs-keyword">const</span> { artist } = <span class="hljs-keyword">await</span> params;
+}
+</code></pre>
+<p><code>params</code>는 <code>{ artist: string }</code> 타입을 가진 Promise를 받는데, 여기서 <code>artist</code>는 URL 경로의 동적 부분입니다 (<code>/artist/:artist</code> 같은 라우트).</p>
+<hr>
+<h3>좀 더 쉽게 풀어볼까요?</h3>
+<ul>
+<li>동적 라우팅(dynamic routing)은 URL 경로가 고정된 게 아니라, 변수처럼 변하는 부분을 말해요. 예를 들면, 프로필 페이지 URL이 <code>/profile/john</code>과 <code>/profile/jane</code>처럼 각각 다를 때, <code>john</code>이나 <code>jane</code>이 동적 매개변수가 되는 거죠.</li>
+<li>Next.js 13의 App 디렉토리에서는 이런 동적 매개변수를 <code>params</code> Promise로 받아 사용할 수 있게 해줍니다.</li>
+<li>그리고 <code>params</code>는 Promise 타입이기 때문에, async/await을 써서 값을 받아와야 하는 점 꼭 기억하세요!</li>
+</ul>
+<hr>
+<h3>팁</h3>
+<ul>
+<li>서버 컴포넌트는 기본적으로 async 함수로 만들 수 있으니, 동적으로 데이터를 불러와야 할 때는 이 <code>params</code>를 활용하면 아주 편리해요.</li>
+<li>만약 여러 개의 동적 파라미터가 있다면, <code>params</code> 객체에 여러 키가 포함돼서 옵니다. 예를 들어, <code>/artist/:artist/album/:albumId</code> 라우트의 경우 <code>{ artist: string; albumId: string }</code> 형태로 받겠죠.</li>
+<li>이 <code>params</code>를 잘 활용하면 클라이언트에서 URL을 참고해 요청을 전달하거나 데이터를 동적으로 렌더링하기 훨씬 수월해집니다.</li>
+</ul>
+<p>이렇게 <code>params</code> Promise를 통해 쉽고 똑똑하게 동적 라우팅 데이터를 다룰 수 있다는 점 기억해두세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>다음은 Next.js에서 동적 라우팅 시 <code>params</code>가 어떻게 전달되는지 예제를 통해 정리한 내용이에요.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Example</th><th>URL</th><th><code>params</code></th></tr></thead><tbody><tr><td><code>app/[artist]/@sidebar/default.js</code></td><td><code>/zack</code></td><td><code>Promise&#x3C;{ artist: 'zack' }></code></td></tr><tr><td><code>app/[artist]/[album]/@sidebar/default.js</code></td><td><code>/zack/next</code></td><td><code>Promise&#x3C;{ artist: 'zack', album: 'next' }></code></td></tr></tbody></table>
+<p>여기서 중요한 점은, <code>params</code>가 Promise 형태라는 거죠. 그래서 <code>params</code> 값을 실제로 사용하기 위해서는 <code>async/await</code> 또는 React의 <code>use</code> 함수를 써야 해요. 예를 들어, 이렇게 쓸 수 있죠:</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> params = <span class="hljs-keyword">await</span> props.<span class="hljs-property">params</span>; <span class="hljs-comment">// 또는 React 18의 use 함수 사용</span>
+</code></pre>
+<p>버전 14 이하에서는 <code>params</code>가 동기적으로 바로 사용 가능했는데, Next.js 15부터는 비동기로 변경되면서 사용법도 달라졌답니다. 다만, 지금 당장은 이전 방식도 호환을 위해 지원하긴 하지만 곧 deprecated될 예정이에요. 그러니까 코드를 새로 쓸 때는 이 부분 꼭 염두에 두는 게 좋아요.</p>
+<p>추가로, <code>params</code>가 Promise라는 점은 뭔가 데이터가 비동기적으로 준비된다는 걸 의미하기도 해요. 따라서 페이지의 서버사이드 렌더링이나 데이터 페칭 로직과 잘 맞물려서 설계해야 부드러운 UX를 만들 수 있습니다.</p>
+<p>이 부분 혼동되기 쉬운데, 꼼꼼히 체크해서 다음 프로젝트에 제대로 적용해보세요!</p>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"Next.js 15 Parallel Routes default.js 활용법 정리","description":"","date":"2025-04-22 02:35","slug":"2025-04-22-defaultjs","content":"\n# default.js 파일에 대해 알아보자\n\n안녕하세요! 오늘은 Next.js에서 Parallel Routes를 사용할 때 나오는 `default.js` 파일에 대해 이야기해볼게요. Next.js를 쓰다 보면 우리가 원하는 화면(서브페이지)을 보여주다가도, 가끔 새로고침(하드 네비게이션)을 하면 그 상태를 잃어버리고 다시 렌더링해야 할 때가 있잖아요? 이 문제를 해결해주는 게 바로 `default.js` 파일이에요.\n\n---\n\n## default.js 파일, 왜 필요할까?\n\nNext.js는 **소프트 네비게이션**(페이지를 새로고침하지 않고 이동할 때)에서는 각 슬롯(slot)의 액티브 상태를 잘 기억하고 있답니다. 그래서 사용자가 어디에 있었는지 그대로 보여줄 수 있죠.\n\n그런데, 만약 **하드 네비게이션**(진짜 페이지를 새로 고침하거나 처음 방문하는 경우)이 발생하면 액티브 상태를 기억하지 못해요. 그래서 이때, 현재 URL과 맞지 않는 서브페이지가 있을 때 렌더링할 기본 화면을 제공해주기 위해 `default.js`가 필요하답니다.\n\n---\n\n## 예시 폴더 구조 살펴보기\n\n아래처럼 폴더 구조를 보면, `@team` 슬롯에는 `settings` 페이지가 있는 반면, `@analytics`는 없어요.\n\napp\n├── layout.js\n├── page.js\n├── @team\n│ ├── page.js\n│ └── settings\n│ └── page.js\n└── @analytics\n└── page.js\n\n위처럼 되어있다면, `@analytics` 슬롯에 `settings` 페이지 같은 게 없어 하드 네비게이션 시 상태 복구가 힘들기 때문에, 이때 `default.js`가 빈 슬롯 내용이나 기본 안내 메시지를 보여주는 역할을 하게 되는 거죠.\n\n---\n\n## 조금 더 알아두면 좋은 점!\n\n- `default.js`는 슬롯 내부의 서브페이지가 현재 URL과 맞지 않을 때 보여주는 **fallback UI**입니다.\n- 이를 활용하면 페이지가 완전히 새로고침되어도, 깨지지 않고 친절한 기본 메시지를 띄울 수 있죠.\n- 이 기능을 통해 탭이나 메뉴처럼 여러 슬롯을 가진 복잡한 UI를 만들 때 유저 경험이 훨씬 좋아져요.\n\n---\n\n궁금한 점 있으면 댓글로 남겨주세요! 다음에도 재미있고 유용한 Next.js 팁 가지고 올게요~ :)\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n위 내용을 쉽게 풀어서 설명해드릴게요.\n\n---\n\nNext.js에서 /settings 경로로 이동하면, `@team` 슬롯에는 설정 페이지가 보여지고, `@analytics` 슬롯은 현재 활성화된 페이지를 계속 유지해요.\n\n**여기서 슬롯(@team, @analytics)이란?**  \n페이지를 여러 영역으로 나누고, 각 영역에 다른 컴포넌트를 꽂아 넣을 수 있는 공간 같은 개념이에요. 그래서 한 페이지 안에서도 독립적으로 여러 컴포넌트가 관리됩니다.\n\n---\n\n그런데, 새로고침을 하게 되면 Next.js는 `@analytics` 슬롯에 대해 `default.js` 파일을 찾으려고 해요. 만약 `default.js`가 없다면 404 (페이지 없음) 오류를 띄웁니다.\n\n또 하나 중요한 점!  \n`children` 슬롯은 암묵적으로 존재하는 기본 슬롯인데요, 이 `children` 슬롯도 `default.js` 파일을 만들어 줘야 해요. 그래야 Next.js가 부모 페이지의 활성 상태를 복구하지 못할 때 대체할 컴포넌트를 보여줄 수 있어요.\n\n---\n\n### 요약하자면\n\n| 상황                        | 해야할 일                           | 이유                                                              |\n| --------------------------- | ----------------------------------- | ----------------------------------------------------------------- |\n| /settings 접근 시           | @team 슬롯에 설정 페이지 렌더링     | 해당 슬롯에 지정한 컴포넌트만 바꾸고 다른 슬롯은 유지하기 위해    |\n| 새로고침할 때               | `@analytics/default.js` 만들어 두기 | 새로고침 시 기본으로 보여줄 컴포넌트가 필요, 없으면 404 오류 발생 |\n| 암묵적 기본 슬롯 `children` | `children/default.js`도 만들어 주기 | 부모 페이지 상태 복구 실패 시 대체 컴포넌트를 보여주기 위해       |\n\n---\n\n### 추가 팁!\n\n- 이렇게 슬롯별로 `default.js`를 준비해두면 사용자 경험이 한층 좋아져요. 새로고침 후에도 오류 대신 기본 페이지가 적절히 렌더링 되거든요.\n- 만약 `default.js`가 없으면, 사용자가 새로고침할 때 꽤 당황스러운 404를 보게 되니 꼭 챙겨주세요!\n\n---\n\n이 정도만 알고 있어도 Next.js의 복잡한 경로 관리와 슬롯 구조를 조금 더 편하게 다룰 수 있을 거예요. 다음에도 이런 실용적인 Next.js 팁 있으면 공유해 드릴게요! :)\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n## 참고 자료\n\n### params (선택 사항)\n\n`params`는 루트 경로부터 슬롯 내부의 하위 페이지까지의 동적 라우트 매개변수를 담고 있는 객체를 반환하는 **Promise**입니다. 쉽게 말해, 서버나 페이지가 렌더링될 때 URL 경로에서 변하는 부분들을 비동기적으로 받아오는데 사용돼요.\n\n예를 들어 아래 코드를 보면:\n\n```js\nexport default async function Default({ params }: { params: Promise\u003c{ artist: string }\u003e }) {\n  const { artist } = await params;\n}\n```\n\n`params`는 `{ artist: string }` 타입을 가진 Promise를 받는데, 여기서 `artist`는 URL 경로의 동적 부분입니다 (`/artist/:artist` 같은 라우트).\n\n---\n\n### 좀 더 쉽게 풀어볼까요?\n\n- 동적 라우팅(dynamic routing)은 URL 경로가 고정된 게 아니라, 변수처럼 변하는 부분을 말해요. 예를 들면, 프로필 페이지 URL이 `/profile/john`과 `/profile/jane`처럼 각각 다를 때, `john`이나 `jane`이 동적 매개변수가 되는 거죠.\n- Next.js 13의 App 디렉토리에서는 이런 동적 매개변수를 `params` Promise로 받아 사용할 수 있게 해줍니다.\n- 그리고 `params`는 Promise 타입이기 때문에, async/await을 써서 값을 받아와야 하는 점 꼭 기억하세요!\n\n---\n\n### 팁\n\n- 서버 컴포넌트는 기본적으로 async 함수로 만들 수 있으니, 동적으로 데이터를 불러와야 할 때는 이 `params`를 활용하면 아주 편리해요.\n- 만약 여러 개의 동적 파라미터가 있다면, `params` 객체에 여러 키가 포함돼서 옵니다. 예를 들어, `/artist/:artist/album/:albumId` 라우트의 경우 `{ artist: string; albumId: string }` 형태로 받겠죠.\n- 이 `params`를 잘 활용하면 클라이언트에서 URL을 참고해 요청을 전달하거나 데이터를 동적으로 렌더링하기 훨씬 수월해집니다.\n\n이렇게 `params` Promise를 통해 쉽고 똑똑하게 동적 라우팅 데이터를 다룰 수 있다는 점 기억해두세요!\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n다음은 Next.js에서 동적 라우팅 시 `params`가 어떻게 전달되는지 예제를 통해 정리한 내용이에요.\n\n| Example                                    | URL          | `params`                                     |\n| ------------------------------------------ | ------------ | -------------------------------------------- |\n| `app/[artist]/@sidebar/default.js`         | `/zack`      | `Promise\u003c{ artist: 'zack' }\u003e`                |\n| `app/[artist]/[album]/@sidebar/default.js` | `/zack/next` | `Promise\u003c{ artist: 'zack', album: 'next' }\u003e` |\n\n여기서 중요한 점은, `params`가 Promise 형태라는 거죠. 그래서 `params` 값을 실제로 사용하기 위해서는 `async/await` 또는 React의 `use` 함수를 써야 해요. 예를 들어, 이렇게 쓸 수 있죠:\n\n```jsx\nconst params = await props.params; // 또는 React 18의 use 함수 사용\n```\n\n버전 14 이하에서는 `params`가 동기적으로 바로 사용 가능했는데, Next.js 15부터는 비동기로 변경되면서 사용법도 달라졌답니다. 다만, 지금 당장은 이전 방식도 호환을 위해 지원하긴 하지만 곧 deprecated될 예정이에요. 그러니까 코드를 새로 쓸 때는 이 부분 꼭 염두에 두는 게 좋아요.\n\n추가로, `params`가 Promise라는 점은 뭔가 데이터가 비동기적으로 준비된다는 걸 의미하기도 해요. 따라서 페이지의 서버사이드 렌더링이나 데이터 페칭 로직과 잘 맞물려서 설계해야 부드러운 UX를 만들 수 있습니다.\n\n이 부분 혼동되기 쉬운데, 꼼꼼히 체크해서 다음 프로젝트에 제대로 적용해보세요!\n","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":6},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003edefault.js 파일에 대해 알아보자\u003c/h1\u003e\n\u003cp\u003e안녕하세요! 오늘은 Next.js에서 Parallel Routes를 사용할 때 나오는 \u003ccode\u003edefault.js\u003c/code\u003e 파일에 대해 이야기해볼게요. Next.js를 쓰다 보면 우리가 원하는 화면(서브페이지)을 보여주다가도, 가끔 새로고침(하드 네비게이션)을 하면 그 상태를 잃어버리고 다시 렌더링해야 할 때가 있잖아요? 이 문제를 해결해주는 게 바로 \u003ccode\u003edefault.js\u003c/code\u003e 파일이에요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003edefault.js 파일, 왜 필요할까?\u003c/h2\u003e\n\u003cp\u003eNext.js는 \u003cstrong\u003e소프트 네비게이션\u003c/strong\u003e(페이지를 새로고침하지 않고 이동할 때)에서는 각 슬롯(slot)의 액티브 상태를 잘 기억하고 있답니다. 그래서 사용자가 어디에 있었는지 그대로 보여줄 수 있죠.\u003c/p\u003e\n\u003cp\u003e그런데, 만약 \u003cstrong\u003e하드 네비게이션\u003c/strong\u003e(진짜 페이지를 새로 고침하거나 처음 방문하는 경우)이 발생하면 액티브 상태를 기억하지 못해요. 그래서 이때, 현재 URL과 맞지 않는 서브페이지가 있을 때 렌더링할 기본 화면을 제공해주기 위해 \u003ccode\u003edefault.js\u003c/code\u003e가 필요하답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e예시 폴더 구조 살펴보기\u003c/h2\u003e\n\u003cp\u003e아래처럼 폴더 구조를 보면, \u003ccode\u003e@team\u003c/code\u003e 슬롯에는 \u003ccode\u003esettings\u003c/code\u003e 페이지가 있는 반면, \u003ccode\u003e@analytics\u003c/code\u003e는 없어요.\u003c/p\u003e\n\u003cp\u003eapp\n├── layout.js\n├── page.js\n├── @team\n│ ├── page.js\n│ └── settings\n│ └── page.js\n└── @analytics\n└── page.js\u003c/p\u003e\n\u003cp\u003e위처럼 되어있다면, \u003ccode\u003e@analytics\u003c/code\u003e 슬롯에 \u003ccode\u003esettings\u003c/code\u003e 페이지 같은 게 없어 하드 네비게이션 시 상태 복구가 힘들기 때문에, 이때 \u003ccode\u003edefault.js\u003c/code\u003e가 빈 슬롯 내용이나 기본 안내 메시지를 보여주는 역할을 하게 되는 거죠.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e조금 더 알아두면 좋은 점!\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003edefault.js\u003c/code\u003e는 슬롯 내부의 서브페이지가 현재 URL과 맞지 않을 때 보여주는 \u003cstrong\u003efallback UI\u003c/strong\u003e입니다.\u003c/li\u003e\n\u003cli\u003e이를 활용하면 페이지가 완전히 새로고침되어도, 깨지지 않고 친절한 기본 메시지를 띄울 수 있죠.\u003c/li\u003e\n\u003cli\u003e이 기능을 통해 탭이나 메뉴처럼 여러 슬롯을 가진 복잡한 UI를 만들 때 유저 경험이 훨씬 좋아져요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e궁금한 점 있으면 댓글로 남겨주세요! 다음에도 재미있고 유용한 Next.js 팁 가지고 올게요~ :)\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e위 내용을 쉽게 풀어서 설명해드릴게요.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003eNext.js에서 /settings 경로로 이동하면, \u003ccode\u003e@team\u003c/code\u003e 슬롯에는 설정 페이지가 보여지고, \u003ccode\u003e@analytics\u003c/code\u003e 슬롯은 현재 활성화된 페이지를 계속 유지해요.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e여기서 슬롯(@team, @analytics)이란?\u003c/strong\u003e\u003cbr\u003e\n페이지를 여러 영역으로 나누고, 각 영역에 다른 컴포넌트를 꽂아 넣을 수 있는 공간 같은 개념이에요. 그래서 한 페이지 안에서도 독립적으로 여러 컴포넌트가 관리됩니다.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e그런데, 새로고침을 하게 되면 Next.js는 \u003ccode\u003e@analytics\u003c/code\u003e 슬롯에 대해 \u003ccode\u003edefault.js\u003c/code\u003e 파일을 찾으려고 해요. 만약 \u003ccode\u003edefault.js\u003c/code\u003e가 없다면 404 (페이지 없음) 오류를 띄웁니다.\u003c/p\u003e\n\u003cp\u003e또 하나 중요한 점!\u003cbr\u003e\n\u003ccode\u003echildren\u003c/code\u003e 슬롯은 암묵적으로 존재하는 기본 슬롯인데요, 이 \u003ccode\u003echildren\u003c/code\u003e 슬롯도 \u003ccode\u003edefault.js\u003c/code\u003e 파일을 만들어 줘야 해요. 그래야 Next.js가 부모 페이지의 활성 상태를 복구하지 못할 때 대체할 컴포넌트를 보여줄 수 있어요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e요약하자면\u003c/h3\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e상황\u003c/th\u003e\u003cth\u003e해야할 일\u003c/th\u003e\u003cth\u003e이유\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e/settings 접근 시\u003c/td\u003e\u003ctd\u003e@team 슬롯에 설정 페이지 렌더링\u003c/td\u003e\u003ctd\u003e해당 슬롯에 지정한 컴포넌트만 바꾸고 다른 슬롯은 유지하기 위해\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e새로고침할 때\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e@analytics/default.js\u003c/code\u003e 만들어 두기\u003c/td\u003e\u003ctd\u003e새로고침 시 기본으로 보여줄 컴포넌트가 필요, 없으면 404 오류 발생\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e암묵적 기본 슬롯 \u003ccode\u003echildren\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003echildren/default.js\u003c/code\u003e도 만들어 주기\u003c/td\u003e\u003ctd\u003e부모 페이지 상태 복구 실패 시 대체 컴포넌트를 보여주기 위해\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch3\u003e추가 팁!\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e이렇게 슬롯별로 \u003ccode\u003edefault.js\u003c/code\u003e를 준비해두면 사용자 경험이 한층 좋아져요. 새로고침 후에도 오류 대신 기본 페이지가 적절히 렌더링 되거든요.\u003c/li\u003e\n\u003cli\u003e만약 \u003ccode\u003edefault.js\u003c/code\u003e가 없으면, 사용자가 새로고침할 때 꽤 당황스러운 404를 보게 되니 꼭 챙겨주세요!\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e이 정도만 알고 있어도 Next.js의 복잡한 경로 관리와 슬롯 구조를 조금 더 편하게 다룰 수 있을 거예요. 다음에도 이런 실용적인 Next.js 팁 있으면 공유해 드릴게요! :)\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch2\u003e참고 자료\u003c/h2\u003e\n\u003ch3\u003eparams (선택 사항)\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eparams\u003c/code\u003e는 루트 경로부터 슬롯 내부의 하위 페이지까지의 동적 라우트 매개변수를 담고 있는 객체를 반환하는 \u003cstrong\u003ePromise\u003c/strong\u003e입니다. 쉽게 말해, 서버나 페이지가 렌더링될 때 URL 경로에서 변하는 부분들을 비동기적으로 받아오는데 사용돼요.\u003c/p\u003e\n\u003cp\u003e예를 들어 아래 코드를 보면:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eDefault\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{ params }: { params: \u003cspan class=\"hljs-built_in\"\u003ePromise\u003c/span\u003e\u0026#x3C;{ artist: string }\u003e }\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e { artist } = \u003cspan class=\"hljs-keyword\"\u003eawait\u003c/span\u003e params;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eparams\u003c/code\u003e는 \u003ccode\u003e{ artist: string }\u003c/code\u003e 타입을 가진 Promise를 받는데, 여기서 \u003ccode\u003eartist\u003c/code\u003e는 URL 경로의 동적 부분입니다 (\u003ccode\u003e/artist/:artist\u003c/code\u003e 같은 라우트).\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e좀 더 쉽게 풀어볼까요?\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e동적 라우팅(dynamic routing)은 URL 경로가 고정된 게 아니라, 변수처럼 변하는 부분을 말해요. 예를 들면, 프로필 페이지 URL이 \u003ccode\u003e/profile/john\u003c/code\u003e과 \u003ccode\u003e/profile/jane\u003c/code\u003e처럼 각각 다를 때, \u003ccode\u003ejohn\u003c/code\u003e이나 \u003ccode\u003ejane\u003c/code\u003e이 동적 매개변수가 되는 거죠.\u003c/li\u003e\n\u003cli\u003eNext.js 13의 App 디렉토리에서는 이런 동적 매개변수를 \u003ccode\u003eparams\u003c/code\u003e Promise로 받아 사용할 수 있게 해줍니다.\u003c/li\u003e\n\u003cli\u003e그리고 \u003ccode\u003eparams\u003c/code\u003e는 Promise 타입이기 때문에, async/await을 써서 값을 받아와야 하는 점 꼭 기억하세요!\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e팁\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e서버 컴포넌트는 기본적으로 async 함수로 만들 수 있으니, 동적으로 데이터를 불러와야 할 때는 이 \u003ccode\u003eparams\u003c/code\u003e를 활용하면 아주 편리해요.\u003c/li\u003e\n\u003cli\u003e만약 여러 개의 동적 파라미터가 있다면, \u003ccode\u003eparams\u003c/code\u003e 객체에 여러 키가 포함돼서 옵니다. 예를 들어, \u003ccode\u003e/artist/:artist/album/:albumId\u003c/code\u003e 라우트의 경우 \u003ccode\u003e{ artist: string; albumId: string }\u003c/code\u003e 형태로 받겠죠.\u003c/li\u003e\n\u003cli\u003e이 \u003ccode\u003eparams\u003c/code\u003e를 잘 활용하면 클라이언트에서 URL을 참고해 요청을 전달하거나 데이터를 동적으로 렌더링하기 훨씬 수월해집니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이렇게 \u003ccode\u003eparams\u003c/code\u003e Promise를 통해 쉽고 똑똑하게 동적 라우팅 데이터를 다룰 수 있다는 점 기억해두세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e다음은 Next.js에서 동적 라우팅 시 \u003ccode\u003eparams\u003c/code\u003e가 어떻게 전달되는지 예제를 통해 정리한 내용이에요.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003eExample\u003c/th\u003e\u003cth\u003eURL\u003c/th\u003e\u003cth\u003e\u003ccode\u003eparams\u003c/code\u003e\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003eapp/[artist]/@sidebar/default.js\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e/zack\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003ePromise\u0026#x3C;{ artist: 'zack' }\u003e\u003c/code\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003eapp/[artist]/[album]/@sidebar/default.js\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e/zack/next\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003ePromise\u0026#x3C;{ artist: 'zack', album: 'next' }\u003e\u003c/code\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003e여기서 중요한 점은, \u003ccode\u003eparams\u003c/code\u003e가 Promise 형태라는 거죠. 그래서 \u003ccode\u003eparams\u003c/code\u003e 값을 실제로 사용하기 위해서는 \u003ccode\u003easync/await\u003c/code\u003e 또는 React의 \u003ccode\u003euse\u003c/code\u003e 함수를 써야 해요. 예를 들어, 이렇게 쓸 수 있죠:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-jsx\"\u003e\u003cspan class=\"hljs-keyword\"\u003econst\u003c/span\u003e params = \u003cspan class=\"hljs-keyword\"\u003eawait\u003c/span\u003e props.\u003cspan class=\"hljs-property\"\u003eparams\u003c/span\u003e; \u003cspan class=\"hljs-comment\"\u003e// 또는 React 18의 use 함수 사용\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e버전 14 이하에서는 \u003ccode\u003eparams\u003c/code\u003e가 동기적으로 바로 사용 가능했는데, Next.js 15부터는 비동기로 변경되면서 사용법도 달라졌답니다. 다만, 지금 당장은 이전 방식도 호환을 위해 지원하긴 하지만 곧 deprecated될 예정이에요. 그러니까 코드를 새로 쓸 때는 이 부분 꼭 염두에 두는 게 좋아요.\u003c/p\u003e\n\u003cp\u003e추가로, \u003ccode\u003eparams\u003c/code\u003e가 Promise라는 점은 뭔가 데이터가 비동기적으로 준비된다는 걸 의미하기도 해요. 따라서 페이지의 서버사이드 렌더링이나 데이터 페칭 로직과 잘 맞물려서 설계해야 부드러운 UX를 만들 수 있습니다.\u003c/p\u003e\n\u003cp\u003e이 부분 혼동되기 쉬운데, 꼼꼼히 체크해서 다음 프로젝트에 제대로 적용해보세요!\u003c/p\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-defaultjs"},"buildId":"o6AmBAY_j9v9JmbaRA39X","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>

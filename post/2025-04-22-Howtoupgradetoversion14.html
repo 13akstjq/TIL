@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title>Next.js 14 버전으로 업그레이드하는 방법 | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-Howtoupgradetoversion14" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content="Next.js 14 버전으로 업그레이드하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:title" content="Next.js 14 버전으로 업그레이드하는 방법 | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-Howtoupgradetoversion14" data-gatsby-head="true"/><meta name="twitter:title" content="Next.js 14 버전으로 업그레이드하는 방법 | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 01:44" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx">Next.js 14 버전으로 업그레이드하는 방법</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt="Next.js 14 버전으로 업그레이드하는 방법" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">4<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>Next.js 14 버전으로 업그레이드하는 방법</h1>
+<h2>13버전에서 14버전으로 업그레이드하기</h2>
+<p>Next.js 14 버전으로 업데이트하려면 아래 명령어를 사용하면 돼요. 자신이 주로 사용하는 패키지 매니저에 맞춰 실행해 주세요!</p>
+<pre><code class="hljs language-bash">npm i next@next-14 react@18 react-dom@18 &#x26;&#x26; npm i eslint-config-next@next-14 -D
+</code></pre>
+<p>이 명령어는 Next.js, React, React DOM을 각각 최신 버전(14 버전과 React 18)으로 업데이트해주고, 개발 환경에서 ESLint 설정도 맞게 업그레이드해 줍니다.</p>
+<blockquote>
+<p>참고로, Next.js는 React 최신 버전과 호환되도록 설계돼 있어서 React도 같이 업데이트해야 원활한 개발 가능해요.</p>
+</blockquote>
+<p>npm 대신 yarn을 쓰는 분들은,</p>
+<pre><code class="hljs language-bash">yarn add next@next-14 react@18 react-dom@18 &#x26;&#x26; yarn add -D eslint-config-next@next-14
+</code></pre>
+<p>이렇게 하면 됩니다.</p>
+<hr>
+<h3>추가 팁</h3>
+<ul>
+<li>버전 업그레이드 후에는 의존성 충돌이 없는지, 개발 서버가 정상 실행되는지 꼭 확인하세요.</li>
+<li>Next.js 14 버전에서는 여러 가지 새로운 기능과 최적화가 들어갔는데, 공식 릴리즈 노트를 한 번 쭉 읽어보는 것도 좋아요.</li>
+<li>아무래도 메이저 버전 업그레이드이다 보니 기존 코드 일부는 수정이 필요할 수 있으니, 마이그레이션 문서나 changelog도 참고해 주세요.</li>
+</ul>
+<p>저도 최근에 Next.js 13에서 14로 넘어가면서 성능이 좀 더 좋아진 것 같고 깔끔한 API들도 마음에 들었어요. 한번 도전해 보시길 추천드릴게요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>안녕하세요, 여러분! 오늘은 Next.js 14 버전과 React 18을 설치하는 방법을 소개해 드릴게요. 그리고 ESLint 설정도 최신 버전으로 맞추는 팁도 함께 알려드리겠습니다.</p>
+<p>사실 요즘에는 패키지 매니저가 여러 개 있어서 npm, yarn부터 pnpm, 심지어 bun까지 다양한 선택지가 있죠. 그래서 각 패키지 매니저별로 설치 명령어를 깔끔하게 정리해봤어요.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>패키지 매니저</th><th>설치 명령어</th></tr></thead><tbody><tr><td>yarn</td><td><code>yarn add next@next-14 react@18 react-dom@18 &#x26;&#x26; yarn add eslint-config-next@next-14 -D</code></td></tr><tr><td>pnpm</td><td><code>pnpm i next@next-14 react@18 react-dom@18 &#x26;&#x26; pnpm i eslint-config-next@next-14 -D</code></td></tr><tr><td>bun</td><td><code>bun add next@next-14 react@18 react-dom@18 &#x26;&#x26; bun add eslint-config-next@next-14 -D</code></td></tr></tbody></table>
+<p>여기서 <code>-D</code> 옵션은 ESLint 설정을 개발환경용 의존성(devDependencies)으로 설치하겠다는 의미입니다. ESLint는 코드 품질 유지에 필수적인 도구니까 꼭 함께 설치해 주세요!</p>
+<blockquote>
+<p><strong>참고!</strong> 만약 TypeScript를 사용 중이라면 <code>@types/react</code>와 <code>@types/react-dom</code> 타입 선언 패키지도 꼭 최신 버전으로 업그레이드 해주세요. 그래야 타입 오류 없이 쾌적하게 개발할 수 있답니다.</p>
+</blockquote>
+<pre><code class="hljs language-bash">yarn add @types/react@latest @types/react-dom@latest -D
+<span class="hljs-comment"># 또는</span>
+pnpm i @types/react@latest @types/react-dom@latest -D
+<span class="hljs-comment"># bun은 현재 타입 선언 패키지 직접 설치가 조금 다를 수 있으니 공식 문서 참고하세요.</span>
+</code></pre>
+<p>끝으로, Next.js 14 버전은 많은 성능 개선과 새로운 기능을 담고 있어서 이번 기회에 업그레이드 해보시면 정말 좋을 거예요! 혹시 설치 중 문제가 발생하거나, 관련해서 더 궁금한 점 있으면 언제든지 댓글로 질문 주세요. 즐거운 개발 되세요~ 🚀</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>Next.js v14 요약</h3>
+<p>안녕하세요! 오늘은 Next.js 최신 버전인 v14의 주요 업데이트 내용을 쉽게 정리해볼게요. 버전 업 할 때 꼭 체크해야 할 부분들이니 한 번 살펴보시길 추천해요.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>주요 변경 사항</th><th>설명</th></tr></thead><tbody><tr><td>Node.js 최소 버전 상향</td><td>기존 16.14에서 18.17로 최소 버전이 올라갔어요. 16.x는 공식적으로 지원이 종료됐기 때문에 최신 환경에서 개발하려면 Node 버전을 꼭 업그레이드하세요.</td></tr><tr><td>next export 명령어 삭제</td><td>기존에 사용하던 <code>next export</code> 커맨드가 없어지고, 대신 <code>output: 'export'</code> 설정으로 변경됐어요. 정적 사이트 생성 시 설정 방식이 조금 바뀌었으니 공식 문서를 참고해 주세요.</td></tr><tr><td>ImageResponse import 경로 변경</td><td>이미지 생성용 <code>ImageResponse</code> 컴포넌트의 import 경로가 <code>next/server</code> 대신 <code>next/og</code>로 바뀌었습니다. 자동 변환 도구(codemod)가 제공되니 쉽게 적용 가능해요.</td></tr><tr><td>@next/font 패키지 제거</td><td>커스텀 폰트 관련 패키지였던 <code>@next/font</code>가 완전히 사라지고, Next.js 내장 <code>next/font</code>로 통합됐습니다. 이 부분도 자동 변환 스크립트를 활용해보세요.</td></tr><tr><td>next-swc WASM 타겟 제거</td><td>성능 향상에 사용되던 WebAssembly(WASM) 타겟이 제거됐습니다. 앞으로는 다른 방식으로 최적화가 이뤄질 예정이에요.</td></tr></tbody></table>
+<hr>
+<h4>추가 팁!</h4>
+<ul>
+<li>Node.js 버전 업그레이드는 Next.js뿐 아니라 다른 최신 라이브러리들도 잘 지원하니, 개발 환경 개선을 위한 좋은 기회예요.</li>
+<li>codemod라는 도구가 자동으로 코드 전반에 걸쳐 변경점을 적용해주니, 수동 작업에 따른 실수를 줄일 수 있어요. 명령어 몇 줄로 업데이트가 가능해서 큰 도움이 됩니다!</li>
+<li><code>next export</code> 설정 변경은 정적 사이트 생성(SSG) 프로젝트라면 꼭 확인해야 할 부분입니다. 기존 방식과 조금 달라서 배포 플로우에 영향이 있을 수 있으니 사전에 테스트해보세요.</li>
+</ul>
+<hr>
+<p>Next.js가 계속 발전하면서 새로운 개발 패턴과 최적화가 도입되고 있어요. 빠르게 변경 사항을 따라가면 더 편리하고 안정적인 웹 앱 개발이 가능하니 꾸준히 최신 문서도 살펴보시길 권해드립니다! 도움이 되셨다면 좋아요와 구독도 잊지 마세요 😊</p>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"Next.js 14 버전으로 업그레이드하는 방법","description":"","date":"2025-04-22 01:44","slug":"2025-04-22-Howtoupgradetoversion14","content":"\n\n# Next.js 14 버전으로 업그레이드하는 방법\n\n## 13버전에서 14버전으로 업그레이드하기\n\nNext.js 14 버전으로 업데이트하려면 아래 명령어를 사용하면 돼요. 자신이 주로 사용하는 패키지 매니저에 맞춰 실행해 주세요!\n\n```bash\nnpm i next@next-14 react@18 react-dom@18 \u0026\u0026 npm i eslint-config-next@next-14 -D\n```\n\n이 명령어는 Next.js, React, React DOM을 각각 최신 버전(14 버전과 React 18)으로 업데이트해주고, 개발 환경에서 ESLint 설정도 맞게 업그레이드해 줍니다.\n\n\u003e 참고로, Next.js는 React 최신 버전과 호환되도록 설계돼 있어서 React도 같이 업데이트해야 원활한 개발 가능해요.\n\nnpm 대신 yarn을 쓰는 분들은,\n\n```bash\nyarn add next@next-14 react@18 react-dom@18 \u0026\u0026 yarn add -D eslint-config-next@next-14\n```\n\n이렇게 하면 됩니다.\n\n---\n\n### 추가 팁\n\n- 버전 업그레이드 후에는 의존성 충돌이 없는지, 개발 서버가 정상 실행되는지 꼭 확인하세요.\n- Next.js 14 버전에서는 여러 가지 새로운 기능과 최적화가 들어갔는데, 공식 릴리즈 노트를 한 번 쭉 읽어보는 것도 좋아요.\n- 아무래도 메이저 버전 업그레이드이다 보니 기존 코드 일부는 수정이 필요할 수 있으니, 마이그레이션 문서나 changelog도 참고해 주세요.\n\n저도 최근에 Next.js 13에서 14로 넘어가면서 성능이 좀 더 좋아진 것 같고 깔끔한 API들도 마음에 들었어요. 한번 도전해 보시길 추천드릴게요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n안녕하세요, 여러분! 오늘은 Next.js 14 버전과 React 18을 설치하는 방법을 소개해 드릴게요. 그리고 ESLint 설정도 최신 버전으로 맞추는 팁도 함께 알려드리겠습니다.\n\n사실 요즘에는 패키지 매니저가 여러 개 있어서 npm, yarn부터 pnpm, 심지어 bun까지 다양한 선택지가 있죠. 그래서 각 패키지 매니저별로 설치 명령어를 깔끔하게 정리해봤어요.\n\n| 패키지 매니저 | 설치 명령어 |\n|---------------|-------------|\n| yarn          | `yarn add next@next-14 react@18 react-dom@18 \u0026\u0026 yarn add eslint-config-next@next-14 -D` |\n| pnpm          | `pnpm i next@next-14 react@18 react-dom@18 \u0026\u0026 pnpm i eslint-config-next@next-14 -D` |\n| bun           | `bun add next@next-14 react@18 react-dom@18 \u0026\u0026 bun add eslint-config-next@next-14 -D` |\n\n여기서 `-D` 옵션은 ESLint 설정을 개발환경용 의존성(devDependencies)으로 설치하겠다는 의미입니다. ESLint는 코드 품질 유지에 필수적인 도구니까 꼭 함께 설치해 주세요!\n\n\u003e **참고!** 만약 TypeScript를 사용 중이라면 `@types/react`와 `@types/react-dom` 타입 선언 패키지도 꼭 최신 버전으로 업그레이드 해주세요. 그래야 타입 오류 없이 쾌적하게 개발할 수 있답니다.\n\n```bash\nyarn add @types/react@latest @types/react-dom@latest -D\n# 또는\npnpm i @types/react@latest @types/react-dom@latest -D\n# bun은 현재 타입 선언 패키지 직접 설치가 조금 다를 수 있으니 공식 문서 참고하세요.\n```\n\n끝으로, Next.js 14 버전은 많은 성능 개선과 새로운 기능을 담고 있어서 이번 기회에 업그레이드 해보시면 정말 좋을 거예요! 혹시 설치 중 문제가 발생하거나, 관련해서 더 궁금한 점 있으면 언제든지 댓글로 질문 주세요. 즐거운 개발 되세요~ 🚀\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### Next.js v14 요약\n\n안녕하세요! 오늘은 Next.js 최신 버전인 v14의 주요 업데이트 내용을 쉽게 정리해볼게요. 버전 업 할 때 꼭 체크해야 할 부분들이니 한 번 살펴보시길 추천해요.\n\n| 주요 변경 사항 | 설명 |\n|---|---|\n| Node.js 최소 버전 상향 | 기존 16.14에서 18.17로 최소 버전이 올라갔어요. 16.x는 공식적으로 지원이 종료됐기 때문에 최신 환경에서 개발하려면 Node 버전을 꼭 업그레이드하세요. |\n| next export 명령어 삭제 | 기존에 사용하던 `next export` 커맨드가 없어지고, 대신 `output: 'export'` 설정으로 변경됐어요. 정적 사이트 생성 시 설정 방식이 조금 바뀌었으니 공식 문서를 참고해 주세요. |\n| ImageResponse import 경로 변경 | 이미지 생성용 `ImageResponse` 컴포넌트의 import 경로가 `next/server` 대신 `next/og`로 바뀌었습니다. 자동 변환 도구(codemod)가 제공되니 쉽게 적용 가능해요. |\n| @next/font 패키지 제거 | 커스텀 폰트 관련 패키지였던 `@next/font`가 완전히 사라지고, Next.js 내장 `next/font`로 통합됐습니다. 이 부분도 자동 변환 스크립트를 활용해보세요. |\n| next-swc WASM 타겟 제거 | 성능 향상에 사용되던 WebAssembly(WASM) 타겟이 제거됐습니다. 앞으로는 다른 방식으로 최적화가 이뤄질 예정이에요. |\n\n---\n\n#### 추가 팁!\n\n- Node.js 버전 업그레이드는 Next.js뿐 아니라 다른 최신 라이브러리들도 잘 지원하니, 개발 환경 개선을 위한 좋은 기회예요.\n- codemod라는 도구가 자동으로 코드 전반에 걸쳐 변경점을 적용해주니, 수동 작업에 따른 실수를 줄일 수 있어요. 명령어 몇 줄로 업데이트가 가능해서 큰 도움이 됩니다!\n- `next export` 설정 변경은 정적 사이트 생성(SSG) 프로젝트라면 꼭 확인해야 할 부분입니다. 기존 방식과 조금 달라서 배포 플로우에 영향이 있을 수 있으니 사전에 테스트해보세요.\n\n---\n\nNext.js가 계속 발전하면서 새로운 개발 패턴과 최적화가 도입되고 있어요. 빠르게 변경 사항을 따라가면 더 편리하고 안정적인 웹 앱 개발이 가능하니 꾸준히 최신 문서도 살펴보시길 권해드립니다! 도움이 되셨다면 좋아요와 구독도 잊지 마세요 😊","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":4},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003eNext.js 14 버전으로 업그레이드하는 방법\u003c/h1\u003e\n\u003ch2\u003e13버전에서 14버전으로 업그레이드하기\u003c/h2\u003e\n\u003cp\u003eNext.js 14 버전으로 업데이트하려면 아래 명령어를 사용하면 돼요. 자신이 주로 사용하는 패키지 매니저에 맞춰 실행해 주세요!\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003enpm i next@next-14 react@18 react-dom@18 \u0026#x26;\u0026#x26; npm i eslint-config-next@next-14 -D\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이 명령어는 Next.js, React, React DOM을 각각 최신 버전(14 버전과 React 18)으로 업데이트해주고, 개발 환경에서 ESLint 설정도 맞게 업그레이드해 줍니다.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고로, Next.js는 React 최신 버전과 호환되도록 설계돼 있어서 React도 같이 업데이트해야 원활한 개발 가능해요.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003enpm 대신 yarn을 쓰는 분들은,\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003eyarn add next@next-14 react@18 react-dom@18 \u0026#x26;\u0026#x26; yarn add -D eslint-config-next@next-14\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e이렇게 하면 됩니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e추가 팁\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e버전 업그레이드 후에는 의존성 충돌이 없는지, 개발 서버가 정상 실행되는지 꼭 확인하세요.\u003c/li\u003e\n\u003cli\u003eNext.js 14 버전에서는 여러 가지 새로운 기능과 최적화가 들어갔는데, 공식 릴리즈 노트를 한 번 쭉 읽어보는 것도 좋아요.\u003c/li\u003e\n\u003cli\u003e아무래도 메이저 버전 업그레이드이다 보니 기존 코드 일부는 수정이 필요할 수 있으니, 마이그레이션 문서나 changelog도 참고해 주세요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e저도 최근에 Next.js 13에서 14로 넘어가면서 성능이 좀 더 좋아진 것 같고 깔끔한 API들도 마음에 들었어요. 한번 도전해 보시길 추천드릴게요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e안녕하세요, 여러분! 오늘은 Next.js 14 버전과 React 18을 설치하는 방법을 소개해 드릴게요. 그리고 ESLint 설정도 최신 버전으로 맞추는 팁도 함께 알려드리겠습니다.\u003c/p\u003e\n\u003cp\u003e사실 요즘에는 패키지 매니저가 여러 개 있어서 npm, yarn부터 pnpm, 심지어 bun까지 다양한 선택지가 있죠. 그래서 각 패키지 매니저별로 설치 명령어를 깔끔하게 정리해봤어요.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e패키지 매니저\u003c/th\u003e\u003cth\u003e설치 명령어\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eyarn\u003c/td\u003e\u003ctd\u003e\u003ccode\u003eyarn add next@next-14 react@18 react-dom@18 \u0026#x26;\u0026#x26; yarn add eslint-config-next@next-14 -D\u003c/code\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003epnpm\u003c/td\u003e\u003ctd\u003e\u003ccode\u003epnpm i next@next-14 react@18 react-dom@18 \u0026#x26;\u0026#x26; pnpm i eslint-config-next@next-14 -D\u003c/code\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ebun\u003c/td\u003e\u003ctd\u003e\u003ccode\u003ebun add next@next-14 react@18 react-dom@18 \u0026#x26;\u0026#x26; bun add eslint-config-next@next-14 -D\u003c/code\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003cp\u003e여기서 \u003ccode\u003e-D\u003c/code\u003e 옵션은 ESLint 설정을 개발환경용 의존성(devDependencies)으로 설치하겠다는 의미입니다. ESLint는 코드 품질 유지에 필수적인 도구니까 꼭 함께 설치해 주세요!\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003e참고!\u003c/strong\u003e 만약 TypeScript를 사용 중이라면 \u003ccode\u003e@types/react\u003c/code\u003e와 \u003ccode\u003e@types/react-dom\u003c/code\u003e 타입 선언 패키지도 꼭 최신 버전으로 업그레이드 해주세요. 그래야 타입 오류 없이 쾌적하게 개발할 수 있답니다.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003eyarn add @types/react@latest @types/react-dom@latest -D\n\u003cspan class=\"hljs-comment\"\u003e# 또는\u003c/span\u003e\npnpm i @types/react@latest @types/react-dom@latest -D\n\u003cspan class=\"hljs-comment\"\u003e# bun은 현재 타입 선언 패키지 직접 설치가 조금 다를 수 있으니 공식 문서 참고하세요.\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e끝으로, Next.js 14 버전은 많은 성능 개선과 새로운 기능을 담고 있어서 이번 기회에 업그레이드 해보시면 정말 좋을 거예요! 혹시 설치 중 문제가 발생하거나, 관련해서 더 궁금한 점 있으면 언제든지 댓글로 질문 주세요. 즐거운 개발 되세요~ 🚀\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003eNext.js v14 요약\u003c/h3\u003e\n\u003cp\u003e안녕하세요! 오늘은 Next.js 최신 버전인 v14의 주요 업데이트 내용을 쉽게 정리해볼게요. 버전 업 할 때 꼭 체크해야 할 부분들이니 한 번 살펴보시길 추천해요.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e주요 변경 사항\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eNode.js 최소 버전 상향\u003c/td\u003e\u003ctd\u003e기존 16.14에서 18.17로 최소 버전이 올라갔어요. 16.x는 공식적으로 지원이 종료됐기 때문에 최신 환경에서 개발하려면 Node 버전을 꼭 업그레이드하세요.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003enext export 명령어 삭제\u003c/td\u003e\u003ctd\u003e기존에 사용하던 \u003ccode\u003enext export\u003c/code\u003e 커맨드가 없어지고, 대신 \u003ccode\u003eoutput: 'export'\u003c/code\u003e 설정으로 변경됐어요. 정적 사이트 생성 시 설정 방식이 조금 바뀌었으니 공식 문서를 참고해 주세요.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eImageResponse import 경로 변경\u003c/td\u003e\u003ctd\u003e이미지 생성용 \u003ccode\u003eImageResponse\u003c/code\u003e 컴포넌트의 import 경로가 \u003ccode\u003enext/server\u003c/code\u003e 대신 \u003ccode\u003enext/og\u003c/code\u003e로 바뀌었습니다. 자동 변환 도구(codemod)가 제공되니 쉽게 적용 가능해요.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e@next/font 패키지 제거\u003c/td\u003e\u003ctd\u003e커스텀 폰트 관련 패키지였던 \u003ccode\u003e@next/font\u003c/code\u003e가 완전히 사라지고, Next.js 내장 \u003ccode\u003enext/font\u003c/code\u003e로 통합됐습니다. 이 부분도 자동 변환 스크립트를 활용해보세요.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003enext-swc WASM 타겟 제거\u003c/td\u003e\u003ctd\u003e성능 향상에 사용되던 WebAssembly(WASM) 타겟이 제거됐습니다. 앞으로는 다른 방식으로 최적화가 이뤄질 예정이에요.\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch4\u003e추가 팁!\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eNode.js 버전 업그레이드는 Next.js뿐 아니라 다른 최신 라이브러리들도 잘 지원하니, 개발 환경 개선을 위한 좋은 기회예요.\u003c/li\u003e\n\u003cli\u003ecodemod라는 도구가 자동으로 코드 전반에 걸쳐 변경점을 적용해주니, 수동 작업에 따른 실수를 줄일 수 있어요. 명령어 몇 줄로 업데이트가 가능해서 큰 도움이 됩니다!\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003enext export\u003c/code\u003e 설정 변경은 정적 사이트 생성(SSG) 프로젝트라면 꼭 확인해야 할 부분입니다. 기존 방식과 조금 달라서 배포 플로우에 영향이 있을 수 있으니 사전에 테스트해보세요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003eNext.js가 계속 발전하면서 새로운 개발 패턴과 최적화가 도입되고 있어요. 빠르게 변경 사항을 따라가면 더 편리하고 안정적인 웹 앱 개발이 가능하니 꾸준히 최신 문서도 살펴보시길 권해드립니다! 도움이 되셨다면 좋아요와 구독도 잊지 마세요 😊\u003c/p\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-Howtoupgradetoversion14"},"buildId":"o6AmBAY_j9v9JmbaRA39X","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>

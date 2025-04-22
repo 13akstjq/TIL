@@ -1,0 +1,572 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title>Next.js 15 프로젝트 폴더 설계 방법 | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-Projectstructureandorganization" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content="Next.js 15 프로젝트 폴더 설계 방법 | TIL" data-gatsby-head="true"/><meta property="og:title" content="Next.js 15 프로젝트 폴더 설계 방법 | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-Projectstructureandorganization" data-gatsby-head="true"/><meta name="twitter:title" content="Next.js 15 프로젝트 폴더 설계 방법 | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 00:55" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx">Next.js 15 프로젝트 폴더 설계 방법</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt="Next.js 15 프로젝트 폴더 설계 방법" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">20<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>프로젝트 구조와 조직 방법</h1>
+<p>이번 글에서는 Next.js에서 사용하는 폴더와 파일 규칙에 대해 한눈에 정리해 드리고, 프로젝트를 어떻게 잘 구성할지에 대한 팁도 함께 알려드릴게요.</p>
+<h2>폴더와 파일 규칙</h2>
+<h3>최상위 폴더</h3>
+<p>최상위 폴더는 애플리케이션 코드와 정적 자산(이미지, 폰트 등)을 구분해서 관리할 때 사용해요.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_0.png" alt="프로젝트 구조 이미지"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>폴더 이름</th><th>설명</th></tr></thead><tbody><tr><td><a href="https://nextjs.org/docs/app/building-your-application/routing" rel="nofollow" target="_blank"><code>app</code></a></td><td>App Router (Next.js의 새로운 라우팅 방식)</td></tr><tr><td><a href="https://nextjs.org/docs/pages/building-your-application/routing" rel="nofollow" target="_blank"><code>pages</code></a></td><td>Pages Router (기존 라우팅 방식)</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/optimizing/static-assets" rel="nofollow" target="_blank"><code>public</code></a></td><td>외부에 서비스할 정적 자산 모음</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/configuring/src-directory" rel="nofollow" target="_blank"><code>src</code></a></td><td>옵션! 소스코드를 별도 관리하고 싶을 때 사용하는 폴더</td></tr></tbody></table>
+<h3>최상위 파일</h3>
+<p>(여기서부터 다음 내용이 이어집니다.)</p>
+<hr>
+<p>폴더 구조를 깔끔하게 정리하면 프로젝트 유지보수가 훨씬 수월해져요. 너무 복잡하게 만들지 말고, 자신의 프로젝트에 맞게 심플하게 가져가는 게 가장 좋아요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Next.js에서 최상위(Top-level) 파일들은 여러분의 애플리케이션을 설정하고, 의존성을 관리하며, 미들웨어를 실행하고, 모니터링 도구를 통합하고, 환경 변수를 정의하는 데 사용돼요. 그러니까 프로젝트의 중요한 설정들이 여기서 모여있다고 보면 됩니다.</p>
+<p>다음은 각 파일들이 어떤 역할을 하는지 간단히 정리한 표에요:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>파일명</th><th>설명</th></tr></thead><tbody><tr><td><a href="https://nextjs.org/docs/app/api-reference/config/next-config-js" rel="nofollow" target="_blank"><code>next.config.js</code></a></td><td>Next.js 설정 파일</td></tr><tr><td><a href="https://nextjs.org/docs/app/getting-started/installation#manual-installation" rel="nofollow" target="_blank"><code>package.json</code></a></td><td>프로젝트 의존성과 스크립트 관리</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation" rel="nofollow" target="_blank"><code>instrumentation.ts</code></a></td><td>OpenTelemetry 및 계측 관련 파일</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/routing/middleware" rel="nofollow" target="_blank"><code>middleware.ts</code></a></td><td>Next.js 요청 미들웨어 파일</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/configuring/environment-variables" rel="nofollow" target="_blank"><code>.env</code></a></td><td>환경 변수 설정 파일</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/configuring/environment-variables" rel="nofollow" target="_blank"><code>.env.local</code></a></td><td>로컬 환경 변수 설정</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/configuring/environment-variables" rel="nofollow" target="_blank"><code>.env.production</code></a></td><td>프로덕션 환경 변수 설정</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/configuring/environment-variables" rel="nofollow" target="_blank"><code>.env.development</code></a></td><td>개발 환경 변수 설정</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/config/eslint" rel="nofollow" target="_blank"><code>.eslintrc.json</code></a></td><td>ESLint 설정 파일</td></tr><tr><td><code>.gitignore</code></td><td>Git에서 무시할 파일/폴더 목록</td></tr><tr><td><code>next-env.d.ts</code></td><td>Next.js용 TypeScript 선언 파일</td></tr><tr><td><code>tsconfig.json</code></td><td>TypeScript 설정 파일</td></tr><tr><td><code>jsconfig.json</code></td><td>JavaScript 설정 파일</td></tr></tbody></table>
+<hr>
+<h3>라우팅 관련 파일</h3>
+<p>Next.js에서 앱 라우팅을 구성하는 데 사용되는 파일들을 모아봤어요:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>파일명</th><th>확장자</th><th>설명</th></tr></thead><tbody><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/layout" rel="nofollow" target="_blank"><code>layout</code></a></td><td>.js / .jsx / .tsx</td><td>레이아웃 컴포넌트</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/page" rel="nofollow" target="_blank"><code>page</code></a></td><td>.js / .jsx / .tsx</td><td>페이지 컴포넌트</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/loading" rel="nofollow" target="_blank"><code>loading</code></a></td><td>.js / .jsx / .tsx</td><td>로딩중 UI 컴포넌트</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/not-found" rel="nofollow" target="_blank"><code>not-found</code></a></td><td>.js / .jsx / .tsx</td><td>404 페이지 UI</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/error" rel="nofollow" target="_blank"><code>error</code></a></td><td>.js / .jsx / .tsx</td><td>에러 UI</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/error#global-error" rel="nofollow" target="_blank"><code>global-error</code></a></td><td>.js / .jsx / .tsx</td><td>글로벌 에러 UI</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/route" rel="nofollow" target="_blank"><code>route</code></a></td><td>.js / .ts</td><td>API 엔드포인트</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/template" rel="nofollow" target="_blank"><code>template</code></a></td><td>.js / .jsx / .tsx</td><td>다시 렌더링되는 레이아웃</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/default" rel="nofollow" target="_blank"><code>default</code></a></td><td>.js / .jsx / .tsx</td><td>병렬 라우트용 fallback 페이지</td></tr></tbody></table>
+<hr>
+<h3>중첩 라우트 (Nested routes)</h3>
+<p>Next.js에서는 폴더 구조를 통해 중첩된 라우트를 쉽게 표현할 수 있어요.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>폴더 구조</th><th>설명</th></tr></thead><tbody><tr><td><code>folder</code></td><td>하나의 라우트 세그먼트</td></tr><tr><td><code>folder/folder</code></td><td>중첩된 라우트 세그먼트</td></tr></tbody></table>
+<hr>
+<h3>동적 라우트 (Dynamic routes)</h3>
+<p>동적 라우팅은 경로에 가변 요소가 포함될 때 사용돼요.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>경로 표현법</th><th>설명</th></tr></thead><tbody><tr><td><a href="https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#convention" rel="nofollow" target="_blank"><code>[folder]</code></a></td><td>동적 라우트 세그먼트</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#catch-all-segments" rel="nofollow" target="_blank"><code>[...folder]</code></a></td><td>모든 하위 경로를 잡아내는 catch-all 세그먼트</td></tr><tr><td><a href="https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#optional-catch-all-segments" rel="nofollow" target="_blank"><code>[[...folder]]</code></a></td><td>선택적인 catch-all 세그먼트</td></tr></tbody></table>
+<hr>
+<p>블로그를 보시는 여러분도 Next.js를 쓸 때 이 파일들과 폴더 구조들을 잘 알고 나면, 프로젝트를 더 효율적이고 이해하기 쉽게 관리할 수 있습니다! 필요할 때마다 이 표를 참고하세요~</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>Route Groups와 private 폴더</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>설명</th></tr></thead><tbody><tr><td><code>(folder)</code></td><td>라우팅에 영향을 주지 않고 라우트를 그룹화</td></tr><tr><td><code>_folder</code></td><td>해당 폴더와 모든 하위 세그먼트를 라우팅에서 제외</td></tr></tbody></table>
+<h3>병렬(Parallel) 및 인터셉트(Intercepted) 라우트</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>설명</th></tr></thead><tbody><tr><td><code>@folder</code></td><td>네임드 슬롯(named slot)</td></tr><tr><td><code>(.)folder</code></td><td>같은 레벨을 인터셉트(intercept)</td></tr><tr><td><code>(..)folder</code></td><td>한 단계 위 레벨을 인터셉트</td></tr><tr><td><code>(..)(..)folder</code></td><td>두 단계 위 레벨을 인터셉트</td></tr><tr><td><code>(...)folder</code></td><td>루트에서부터 인터셉트</td></tr></tbody></table>
+<h3>메타데이터 파일 규칙</h3>
+<h4>앱 아이콘(App icons)</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>이름</th><th>확장자</th><th>설명</th></tr></thead><tbody><tr><td><code>favicon</code></td><td><code>.ico</code></td><td>파비콘(favicon) 파일</td></tr><tr><td><code>icon</code></td><td><code>.ico</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.svg</code></td><td>앱 아이콘 파일</td></tr><tr><td><code>icon</code></td><td><code>.js</code>, <code>.ts</code>, <code>.tsx</code></td><td>코드로 생성된 앱 아이콘</td></tr><tr><td><code>apple-icon</code></td><td><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code></td><td>애플 앱 아이콘 파일</td></tr><tr><td><code>apple-icon</code></td><td><code>.js</code>, <code>.ts</code>, <code>.tsx</code></td><td>코드로 생성된 애플 앱 아이콘</td></tr></tbody></table>
+<hr>
+<p>조금 어렵게 느껴질 수 있는 routing 영역에서 폴더명을 활용하는 여러 가지 문법과 파일명 규칙을 정리해봤어요.<br>
+특히 (folder) 같이 라우팅에는 영향을 주지 않으면서 내부 조직화용으로 많이 쓰이고요, <code>_folder</code>는 아예 routing 대상에서 제외하는 용도로 쓴답니다.<br>
+Parallel과 Intercept 라우트는 고급 기능인데, 슬래시 하나, 두 개 등에 따라 라우팅 경로를 제어할 수 있어서 원하는 맞춤 페이지 구성에 도움을 줘요.<br>
+마지막으로 메타데이터 쪽은 favicon이나 app icon 관련 파일명과 확장자를 정해놓은 내용이니 프로젝트 셋업할 때 참고하면 좋습니다!</p>
+<p>필요하시면 더 자세한 설명도 알려드릴게요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>아래는 Open Graph 이미지, Twitter 이미지, 그리고 SEO 관련 파일 종류와 확장자, 그리고 용도에 대한 표입니다. Markdown 형식으로 정리해 봤어요!</p>
+<h3>Open Graph &#x26; Twitter 이미지 파일</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>이름</th><th>확장자</th><th>설명</th></tr></thead><tbody><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#opengraph-image" rel="nofollow" target="_blank">opengraph-image</a></td><td><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.gif</code></td><td>Open Graph 이미지 파일</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx" rel="nofollow" target="_blank">opengraph-image</a></td><td><code>.js</code>, <code>.ts</code>, <code>.tsx</code></td><td>코드로 생성하는 Open Graph 이미지</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#twitter-image" rel="nofollow" target="_blank">twitter-image</a></td><td><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.gif</code></td><td>Twitter에 보여줄 이미지 파일</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx" rel="nofollow" target="_blank">twitter-image</a></td><td><code>.js</code>, <code>.ts</code>, <code>.tsx</code></td><td>코드로 생성하는 Twitter 이미지</td></tr></tbody></table>
+<h3>SEO 관련 파일</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>이름</th><th>확장자</th><th>설명</th></tr></thead><tbody><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap#sitemap-files-xml" rel="nofollow" target="_blank">sitemap</a></td><td><code>.xml</code></td><td>사이트맵 파일</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap#generating-a-sitemap-using-code-js-ts" rel="nofollow" target="_blank">sitemap</a></td><td><code>.js</code>, <code>.ts</code></td><td>코드로 생성하는 사이트맵</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots#static-robotstxt" rel="nofollow" target="_blank">robots</a></td><td><code>.txt</code></td><td>robots.txt 파일</td></tr><tr><td><a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots#generate-a-robots-file" rel="nofollow" target="_blank">robots</a></td><td><code>.js</code>, <code>.ts</code></td><td>코드로 생성하는 robots 파일</td></tr></tbody></table>
+<hr>
+<h2>프로젝트 구성하기</h2>
+<p>Next.js에서는 프로젝트 파일을 어떻게 배치할지는 자유롭게 선택할 수 있어요. 딱 정해진 규칙이 있는 건 아니지만, 다음과 같은 기능들이 있어서 편리하게 구성할 수 있답니다.</p>
+<h3>컴포넌트 계층 구조</h3>
+<p>Next.js 내에서 특별한 이름의 파일들은 아래와 같은 계층 구조를 따라 렌더링됩니다:</p>
+<ul>
+<li><code>layout.js</code> — 페이지 레이아웃 정의</li>
+<li><code>template.js</code> — 페이지 템플릿</li>
+<li><code>error.js</code> — React 오류 경계(Error Boundary) 처리</li>
+<li><code>loading.js</code> — React Suspense 경계로 로딩 UI</li>
+<li><code>not-found.js</code> — 404 페이지용 에러 경계</li>
+<li><code>page.js</code> 혹은 nested <code>layout.js</code> — 실제 페이지 컴포넌트</li>
+</ul>
+<p>이 계층 덕분에 페이지 단위 컴포넌트가 어떻게 조합되고 재사용되는지 명확하게 구조화할 수 있어요. 이를 활용해서 여러분만의 깔끔한 프로젝트 구조를 만들어 보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>여러분, 오늘은 Next.js 앱 디렉토리 구조와 라우트 구성에 대해 알아볼게요. 복잡해 보일 수 있지만, 하나씩 차근차근 이해하면 실제로 프로젝트를 더 효율적으로 관리할 수 있답니다.</p>
+<hr>
+<h3>라우트 컴포넌트는 계층적으로 렌더링된다</h3>
+<p>우리가 만든 컴포넌트들은 중첩된 라우트(nested routes)에서 재귀적으로 렌더링돼요. 쉽게 말해, 특정 라우트의 컴포넌트는 그 부모 라우트 컴포넌트 안에 중첩되는 구조입니다.</p>
+<p>예를 들어, <code>/dashboard/settings</code> 같은 경로가 있다면 <code>dashboard</code> 컴포넌트가 먼저 렌더링되고, 그 안에 <code>settings</code> 컴포넌트가 들어가는 식이에요.</p>
+<hr>
+<h3>라우트는 폴더 구조로 정의한다 — 콜로케이션(colocation)</h3>
+<p>Next.js 앱 디렉토리 안에서, <strong>중첩된 폴더가 라우트 구조를 뜻해요</strong>. 폴더 하나가 하나의 라우트 세그먼트(route segment)를 나타내고, 이 세그먼트가 URL 경로의 일부로 매핑됩니다.</p>
+<p>하지만 중요한 점! 폴더만 있다고 해서 그 경로가 바로 “공개적으로” 접근 가능한 페이지가 되진 않아요. 그 폴더 안에 <code>page.js</code> 혹은 <code>route.js</code> 파일이 있어야 비로소 해당 라우트가 활성화되고, 방문할 수 있답니다.</p>
+<hr>
+<h3>실제 클라이언트에 전송되는 것은?</h3>
+<p>라우트가 공개되어 있어도, 클라이언트에 보내지는 건 그 라우트의 <code>page.js</code>나 <code>route.js</code>에서 반환하는 콘텐츠뿐이에요. 부모 라우트 컴포넌트가 중첩되어 렌더링되더라도, 클라이언트에게는 각 세그먼트의 <code>page.js</code> 결과물만 전달되니까 참고하세요!</p>
+<hr>
+<p>정리하면,</p>
+<ul>
+<li>라우트 구조는 폴더 중첩으로 표현한다.</li>
+<li>해당 폴더에 <code>page.js</code>나 <code>route.js</code> 파일이 있어야 라우트가 활성화된다.</li>
+<li>중첩된 라우트는 부모-자식 구조로 렌더링된다.</li>
+<li>클라이언트에는 각 세그먼트 라우트 파일에서 반환한 콘텐츠만 전달된다.</li>
+</ul>
+<p>이런 구조 덕분에 프로젝트 내 파일과 라우트가 자연스럽게 연관되니, 관리도 쉽고 개발 속도도 빨라진답니다. 여러분도 프로젝트에 적용해 보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>앱 디렉터리 내에서 라우트 구간(route segments) 안에 프로젝트 파일들을 안전하게 함께 둘 수 있다는 뜻이에요. 이렇게 하면 파일들이 실수로 라우트로 잡히는 일을 방지할 수 있답니다.</p>
+<hr>
+<blockquote>
+<p>참고할 점: 프로젝트 파일들을 꼭 app 폴더 안에 넣어야 하는 건 아니에요. 원한다면 app 디렉터리 밖에 보관해도 무방합니다.</p>
+</blockquote>
+<hr>
+<h3>Private 폴더 만들기</h3>
+<p>폴더 이름 앞에 언더스코어(_)를 붙여서 private 폴더를 만들 수 있어요. 예를 들면 <code>_folderName</code> 같은 식이죠.</p>
+<p>이렇게 하면 라우팅시스템이 이 폴더와 그 하위 폴더들을 무시하니까, 라우트로 작동하지 않는 구현 세부 사항용 폴더로 쓸 수 있어요.</p>
+<hr>
+<p>관련 그림 첨부해 뒀으니 한 번 참고해 보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>앱 디렉터리 내 파일은 기본적으로 안전하게 한 곳에 모아둘 수 있어서 private 폴더가 꼭 필요한 건 아니에요. 하지만 private 폴더가 있으면 다음과 같은 점에서 도움이 됩니다:</p>
+<ul>
+<li>UI 로직과 라우팅 로직을 분리할 수 있어요.</li>
+<li>프로젝트 내 파일 구성과 Next.js 생태계 전반에서 내부 파일을 일관성 있게 정리할 수 있죠.</li>
+<li>코드 에디터에서 파일을 분류하고 그룹화하기 쉬워요.</li>
+<li>앞으로 나올 Next.js 파일 네이밍 규칙과 겹칠 수 있는 이름 충돌을 방지할 수 있습니다.</li>
+</ul>
+<blockquote>
+<p>참고!
+비록 Next.js 공식 프레임워크 규칙은 아니지만, private 폴더 외부에 있는 파일들도 언더스코어(_) 패턴을 사용해서 "private" 임을 표시하는 방식을 고민해볼 수 있어요.<br>
+URL 세그먼트가 언더스코어로 시작해야 한다면 URL 인코딩된 형태인 <code>%5F</code>를 앞에 붙이면 됩니다. 예를 들어 <code>%5FfolderName</code>처럼요.<br>
+만약 private 폴더를 사용하지 않는다면, 예상치 못한 이름 충돌을 막기 위해 Next.js의 특별한 파일 네이밍 규칙을 잘 숙지하는 게 좋겠죠.</p>
+</blockquote>
+<h3>라우트 그룹(Route groups)</h3>
+<p>라우트 그룹은 폴더 이름을 괄호로 감싸서 만듭니다: <code>(folderName)</code></p>
+<p>이렇게 하면 이 폴더는 단순히 파일 정리를 위한 용도이고, 실제 라우트 URL 경로에는 포함되지 않아요.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_7.png" alt="라우트 그룹 예시 이미지"></p>
+<p>라우트 그룹이 유용한 점은 다음과 같습니다:</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<ul>
+<li>
+<p>사이트 섹션, 의도, 혹은 팀 단위로 라우트를 정리하기 (예: 마케팅 페이지, 관리자 페이지 등)</p>
+</li>
+<li>
+<p>같은 라우트 세그먼트 레벨에서 중첩 레이아웃 활성화하기:</p>
+<ul>
+<li>같은 세그먼트 내에 여러 개의 중첩 레이아웃 만들기 (여러 개의 루트 레이아웃 포함)</li>
+<li>공통 세그먼트 내 일부 라우트에만 레이아웃 추가하기</li>
+</ul>
+</li>
+<li>
+<p>같은 세그먼트 내에 여러 개의 중첩 레이아웃 만들기 (여러 개의 루트 레이아웃 포함)</p>
+</li>
+<li>
+<p>공통 세그먼트 내 일부 라우트에만 레이아웃 추가하기</p>
+</li>
+</ul>
+<hr>
+<h3>src 디렉토리</h3>
+<p>Next.js는 app을 포함한 애플리케이션 코드를 선택적으로 <code>src</code> 디렉토리 안에 저장하는 것을 지원합니다. 이렇게 하면 프로젝트 루트에 주로 위치하는 설정 파일과 애플리케이션 코드를 깔끔하게 분리할 수 있습니다.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_8.png" alt="Project Structure"></p>
+<hr>
+<h3>예제</h3>
+<p>아래 섹션은 흔히 사용하는 전략들을 아주 간략히 정리한 내용입니다. 가장 중요한 점은 여러분과 팀에게 맞는 방식을 선택하고, 프로젝트 전반에 걸쳐 일관성 있게 유지하는 것입니다.</p>
+<blockquote>
+<p>참고: 아래 예시에서는 <code>components</code>와 <code>lib</code> 폴더를 일반적인 예시 폴더명으로 사용했으며, 이들의 이름은 프레임워크에서 특별한 의미를 가진 것은 아닙니다. 프로젝트에 따라 <code>ui</code>, <code>utils</code>, <code>hooks</code>, <code>styles</code> 등 다양한 이름을 사용해도 무방합니다.</p>
+</blockquote>
+<hr>
+<h4>app 폴더 밖에 프로젝트 파일 저장하기</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>전략 구분</th><th>설명</th></tr></thead><tbody><tr><td>app 폴더 분리</td><td>app 폴더와는 별개로 components, lib 같은 폴더를 루트 혹은 src에 둠</td></tr><tr><td>역할별 폴더 구성</td><td>컴포넌트, 유틸리티, 훅 등을 역할에 맞춰 분리함</td></tr><tr><td>팀/기능별으로 폴더 분리</td><td>팀 혹은 기능 단위로 폴더를 나눠 관리함</td></tr></tbody></table>
+<hr>
+<p>위와 같은 방법으로 프로젝트를 체계적으로 구성하면 협업 효율이 올라가고 유지보수가 쉬워집니다. 꼭 정답은 없으니 팀 상황에 맞게 유연하게 적용해보세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>이 전략은 애플리케이션 코드를 프로젝트 루트의 공유 폴더에 모두 저장하고, app 디렉터리는 오로지 라우팅 용도로만 사용하는 방식이에요.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_9.png" alt="프로젝트 구조 1"></p>
+<h4>app 내부의 최상위 폴더에 프로젝트 파일 저장하기</h4>
+<p>이 전략은 애플리케이션 코드를 app 디렉터리 루트에 공유 폴더 형태로 모두 저장하는 방식이에요.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_10.png" alt="프로젝트 구조 2"></p>
+<h4>기능이나 라우트별로 프로젝트 파일 분리하기</h4>
+<p>이 전략은 전역에서 공유되는 애플리케이션 코드는 app 디렉터리 루트에 두고, 좀 더 특정한 애플리케이션 코드는 해당 라우트 세그먼트(경로 단위) 안에 나눠서 저장하는 방식이에요.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_11.png" alt="프로젝트 구조 3"></p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>URL 경로에 영향 없이 라우트 정리하기</h3>
+<p>URL 경로를 변경하지 않고 라우트를 깔끔하게 정리하고 싶다면, 관련된 라우트들을 그룹으로 묶으면 좋아요. 이때, 괄호로 묶은 폴더 이름(예: <code>(marketing)</code>, <code>(shop)</code>)은 URL에서 제외됩니다.</p>
+<p>예를 들어, 아래 구조에서 <code>(marketing)</code>과 <code>(shop)</code>은 URL에 나타나지 않고, 폴더 내의 라우트들이 그대로 URL에 반영돼요.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_12.png" alt="route 그룹 예시"></p>
+<p>또한 <code>(marketing)</code>과 <code>(shop)</code> 폴더 안에 <code>layout.js</code> 파일을 추가하면, 각각의 그룹마다 개별 레이아웃을 적용할 수 있습니다. 즉, URL 경로는 같아도 레이아웃은 다르게 설정 가능하다는 거죠.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_13.png" alt="개별 레이아웃 적용 예시"></p>
+<h3>특정 세그먼트만 레이아웃에 포함시키기</h3>
+<p>특정 라우트만 하나의 레이아웃으로 묶고 싶다면, 해당 라우트들만 새로운 그룹(예: <code>(shop)</code>)으로 묶으면 됩니다. 그룹에 포함된 라우트들은 그룹 레이아웃을 공유하고, 밖에 있는 라우트는 영향을 받지 않아요.</p>
+<p>예를 들어, <code>account</code>와 <code>cart</code>는 <code>(shop)</code> 그룹에 넣어 레이아웃을 공유하고, <code>checkout</code>은 그룹 밖에 둬서 별도의 레이아웃을 유지할 수 있습니다.</p>
+<p><img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_14.png" alt="특정 그룹에만 레이아웃 적용 예시"></p>
+<p>이런 방법을 사용하면 프로젝트 구조를 깔끔하게 유지하면서도 URL 디자인에는 전혀 영향 주지 않을 수 있어서 정말 유용합니다!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>특정 경로에 로딩 스켈레톤 적용하기</h3>
+<p>특정 라우트에만 로딩 스켈레톤을 적용하고 싶다면, 새로운 라우트 그룹 (예: /(overview))을 만들고 그 안에 loading.tsx 파일을 넣으면 됩니다.</p>
+<img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_15.png">
+<p>이렇게 하면 loading.tsx 파일은 대시보드 내의 overview 페이지에만 적용되고, 다른 대시보드 페이지에는 영향을 주지 않으면서 URL 경로 구조도 유지할 수 있어요.</p>
+<hr>
+<h3>여러 개의 루트 레이아웃 만들기</h3>
+<p>여러 루트 레이아웃을 만들고 싶으면 최상위에 있던 layout.js 파일을 제거한 다음, 각 라우트 그룹 내부에 layout.js 파일을 각각 만들어 주면 됩니다. 이렇게 하면 완전히 다른 UI나 경험이 필요한 섹션을 애플리케이션 내에 구분하기 매우 편리해요. 이때 각 루트 레이아웃에는 <code>html</code>과 <code>body</code> 태그가 반드시 포함되어야 합니다.</p>
+<img src="/TIL/assets/img/2025-04-22-Projectstructureandorganization_16.png">
+<p>위 예시처럼, (marketing)과 (shop)은 각각 자신만의 루트 레이아웃을 가지고 있게 됩니다.</p>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"Next.js 15 프로젝트 폴더 설계 방법","description":"","date":"2025-04-22 00:55","slug":"2025-04-22-Projectstructureandorganization","content":"\n# 프로젝트 구조와 조직 방법\n\n이번 글에서는 Next.js에서 사용하는 폴더와 파일 규칙에 대해 한눈에 정리해 드리고, 프로젝트를 어떻게 잘 구성할지에 대한 팁도 함께 알려드릴게요.\n\n## 폴더와 파일 규칙\n\n### 최상위 폴더\n\n최상위 폴더는 애플리케이션 코드와 정적 자산(이미지, 폰트 등)을 구분해서 관리할 때 사용해요.\n\n![프로젝트 구조 이미지](/TIL/assets/img/2025-04-22-Projectstructureandorganization_0.png)\n\n| 폴더 이름                                                                                  | 설명                                                 |\n| ------------------------------------------------------------------------------------------ | ---------------------------------------------------- |\n| [`app`](https://nextjs.org/docs/app/building-your-application/routing)                     | App Router (Next.js의 새로운 라우팅 방식)            |\n| [`pages`](https://nextjs.org/docs/pages/building-your-application/routing)                 | Pages Router (기존 라우팅 방식)                      |\n| [`public`](https://nextjs.org/docs/app/building-your-application/optimizing/static-assets) | 외부에 서비스할 정적 자산 모음                       |\n| [`src`](https://nextjs.org/docs/app/building-your-application/configuring/src-directory)   | 옵션! 소스코드를 별도 관리하고 싶을 때 사용하는 폴더 |\n\n### 최상위 파일\n\n(여기서부터 다음 내용이 이어집니다.)\n\n---\n\n폴더 구조를 깔끔하게 정리하면 프로젝트 유지보수가 훨씬 수월해져요. 너무 복잡하게 만들지 말고, 자신의 프로젝트에 맞게 심플하게 가져가는 게 가장 좋아요!\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nNext.js에서 최상위(Top-level) 파일들은 여러분의 애플리케이션을 설정하고, 의존성을 관리하며, 미들웨어를 실행하고, 모니터링 도구를 통합하고, 환경 변수를 정의하는 데 사용돼요. 그러니까 프로젝트의 중요한 설정들이 여기서 모여있다고 보면 됩니다.\n\n다음은 각 파일들이 어떤 역할을 하는지 간단히 정리한 표에요:\n\n| 파일명                                                                                                        | 설명                            |\n| ------------------------------------------------------------------------------------------------------------- | ------------------------------- |\n| [`next.config.js`](https://nextjs.org/docs/app/api-reference/config/next-config-js)                           | Next.js 설정 파일               |\n| [`package.json`](https://nextjs.org/docs/app/getting-started/installation#manual-installation)                | 프로젝트 의존성과 스크립트 관리 |\n| [`instrumentation.ts`](https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation)      | OpenTelemetry 및 계측 관련 파일 |\n| [`middleware.ts`](https://nextjs.org/docs/app/building-your-application/routing/middleware)                   | Next.js 요청 미들웨어 파일      |\n| [`.env`](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables)             | 환경 변수 설정 파일             |\n| [`.env.local`](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables)       | 로컬 환경 변수 설정             |\n| [`.env.production`](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables)  | 프로덕션 환경 변수 설정         |\n| [`.env.development`](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables) | 개발 환경 변수 설정             |\n| [`.eslintrc.json`](https://nextjs.org/docs/app/api-reference/config/eslint)                                   | ESLint 설정 파일                |\n| `.gitignore`                                                                                                  | Git에서 무시할 파일/폴더 목록   |\n| `next-env.d.ts`                                                                                               | Next.js용 TypeScript 선언 파일  |\n| `tsconfig.json`                                                                                               | TypeScript 설정 파일            |\n| `jsconfig.json`                                                                                               | JavaScript 설정 파일            |\n\n---\n\n### 라우팅 관련 파일\n\nNext.js에서 앱 라우팅을 구성하는 데 사용되는 파일들을 모아봤어요:\n\n| 파일명                                                                                          | 확장자            | 설명                          |\n| ----------------------------------------------------------------------------------------------- | ----------------- | ----------------------------- |\n| [`layout`](https://nextjs.org/docs/app/api-reference/file-conventions/layout)                   | .js / .jsx / .tsx | 레이아웃 컴포넌트             |\n| [`page`](https://nextjs.org/docs/app/api-reference/file-conventions/page)                       | .js / .jsx / .tsx | 페이지 컴포넌트               |\n| [`loading`](https://nextjs.org/docs/app/api-reference/file-conventions/loading)                 | .js / .jsx / .tsx | 로딩중 UI 컴포넌트            |\n| [`not-found`](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)             | .js / .jsx / .tsx | 404 페이지 UI                 |\n| [`error`](https://nextjs.org/docs/app/api-reference/file-conventions/error)                     | .js / .jsx / .tsx | 에러 UI                       |\n| [`global-error`](https://nextjs.org/docs/app/api-reference/file-conventions/error#global-error) | .js / .jsx / .tsx | 글로벌 에러 UI                |\n| [`route`](https://nextjs.org/docs/app/api-reference/file-conventions/route)                     | .js / .ts         | API 엔드포인트                |\n| [`template`](https://nextjs.org/docs/app/api-reference/file-conventions/template)               | .js / .jsx / .tsx | 다시 렌더링되는 레이아웃      |\n| [`default`](https://nextjs.org/docs/app/api-reference/file-conventions/default)                 | .js / .jsx / .tsx | 병렬 라우트용 fallback 페이지 |\n\n---\n\n### 중첩 라우트 (Nested routes)\n\nNext.js에서는 폴더 구조를 통해 중첩된 라우트를 쉽게 표현할 수 있어요.\n\n| 폴더 구조       | 설명                   |\n| --------------- | ---------------------- |\n| `folder`        | 하나의 라우트 세그먼트 |\n| `folder/folder` | 중첩된 라우트 세그먼트 |\n\n---\n\n### 동적 라우트 (Dynamic routes)\n\n동적 라우팅은 경로에 가변 요소가 포함될 때 사용돼요.\n\n| 경로 표현법                                                                                                                 | 설명                                         |\n| --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |\n| [`[folder]`](https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#convention)                       | 동적 라우트 세그먼트                         |\n| [`[...folder]`](https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#catch-all-segments)            | 모든 하위 경로를 잡아내는 catch-all 세그먼트 |\n| [`[[...folder]]`](https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#optional-catch-all-segments) | 선택적인 catch-all 세그먼트                  |\n\n---\n\n블로그를 보시는 여러분도 Next.js를 쓸 때 이 파일들과 폴더 구조들을 잘 알고 나면, 프로젝트를 더 효율적이고 이해하기 쉽게 관리할 수 있습니다! 필요할 때마다 이 표를 참고하세요~\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### Route Groups와 private 폴더\n\n| 구분       | 설명                                             |\n| ---------- | ------------------------------------------------ |\n| `(folder)` | 라우팅에 영향을 주지 않고 라우트를 그룹화        |\n| `_folder`  | 해당 폴더와 모든 하위 세그먼트를 라우팅에서 제외 |\n\n### 병렬(Parallel) 및 인터셉트(Intercepted) 라우트\n\n| 구분             | 설명                            |\n| ---------------- | ------------------------------- |\n| `@folder`        | 네임드 슬롯(named slot)         |\n| `(.)folder`      | 같은 레벨을 인터셉트(intercept) |\n| `(..)folder`     | 한 단계 위 레벨을 인터셉트      |\n| `(..)(..)folder` | 두 단계 위 레벨을 인터셉트      |\n| `(...)folder`    | 루트에서부터 인터셉트           |\n\n### 메타데이터 파일 규칙\n\n#### 앱 아이콘(App icons)\n\n| 이름         | 확장자                                  | 설명                         |\n| ------------ | --------------------------------------- | ---------------------------- |\n| `favicon`    | `.ico`                                  | 파비콘(favicon) 파일         |\n| `icon`       | `.ico`, `.jpg`, `.jpeg`, `.png`, `.svg` | 앱 아이콘 파일               |\n| `icon`       | `.js`, `.ts`, `.tsx`                    | 코드로 생성된 앱 아이콘      |\n| `apple-icon` | `.jpg`, `.jpeg`, `.png`                 | 애플 앱 아이콘 파일          |\n| `apple-icon` | `.js`, `.ts`, `.tsx`                    | 코드로 생성된 애플 앱 아이콘 |\n\n---\n\n조금 어렵게 느껴질 수 있는 routing 영역에서 폴더명을 활용하는 여러 가지 문법과 파일명 규칙을 정리해봤어요.  \n특히 (folder) 같이 라우팅에는 영향을 주지 않으면서 내부 조직화용으로 많이 쓰이고요, `_folder`는 아예 routing 대상에서 제외하는 용도로 쓴답니다.  \nParallel과 Intercept 라우트는 고급 기능인데, 슬래시 하나, 두 개 등에 따라 라우팅 경로를 제어할 수 있어서 원하는 맞춤 페이지 구성에 도움을 줘요.  \n마지막으로 메타데이터 쪽은 favicon이나 app icon 관련 파일명과 확장자를 정해놓은 내용이니 프로젝트 셋업할 때 참고하면 좋습니다!\n\n필요하시면 더 자세한 설명도 알려드릴게요!\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n아래는 Open Graph 이미지, Twitter 이미지, 그리고 SEO 관련 파일 종류와 확장자, 그리고 용도에 대한 표입니다. Markdown 형식으로 정리해 봤어요!\n\n### Open Graph \u0026 Twitter 이미지 파일\n\n| 이름                                                                                                                                        | 확장자                          | 설명                              |\n| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | --------------------------------- |\n| [opengraph-image](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#opengraph-image)                      | `.jpg`, `.jpeg`, `.png`, `.gif` | Open Graph 이미지 파일            |\n| [opengraph-image](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx) | `.js`, `.ts`, `.tsx`            | 코드로 생성하는 Open Graph 이미지 |\n| [twitter-image](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#twitter-image)                          | `.jpg`, `.jpeg`, `.png`, `.gif` | Twitter에 보여줄 이미지 파일      |\n| [twitter-image](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx)   | `.js`, `.ts`, `.tsx`            | 코드로 생성하는 Twitter 이미지    |\n\n### SEO 관련 파일\n\n| 이름                                                                                                                         | 확장자       | 설명                        |\n| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------------------- |\n| [sitemap](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap#sitemap-files-xml)                     | `.xml`       | 사이트맵 파일               |\n| [sitemap](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap#generating-a-sitemap-using-code-js-ts) | `.js`, `.ts` | 코드로 생성하는 사이트맵    |\n| [robots](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots#static-robotstxt)                        | `.txt`       | robots.txt 파일             |\n| [robots](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots#generate-a-robots-file)                  | `.js`, `.ts` | 코드로 생성하는 robots 파일 |\n\n---\n\n## 프로젝트 구성하기\n\nNext.js에서는 프로젝트 파일을 어떻게 배치할지는 자유롭게 선택할 수 있어요. 딱 정해진 규칙이 있는 건 아니지만, 다음과 같은 기능들이 있어서 편리하게 구성할 수 있답니다.\n\n### 컴포넌트 계층 구조\n\nNext.js 내에서 특별한 이름의 파일들은 아래와 같은 계층 구조를 따라 렌더링됩니다:\n\n- `layout.js` — 페이지 레이아웃 정의\n- `template.js` — 페이지 템플릿\n- `error.js` — React 오류 경계(Error Boundary) 처리\n- `loading.js` — React Suspense 경계로 로딩 UI\n- `not-found.js` — 404 페이지용 에러 경계\n- `page.js` 혹은 nested `layout.js` — 실제 페이지 컴포넌트\n\n이 계층 덕분에 페이지 단위 컴포넌트가 어떻게 조합되고 재사용되는지 명확하게 구조화할 수 있어요. 이를 활용해서 여러분만의 깔끔한 프로젝트 구조를 만들어 보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n여러분, 오늘은 Next.js 앱 디렉토리 구조와 라우트 구성에 대해 알아볼게요. 복잡해 보일 수 있지만, 하나씩 차근차근 이해하면 실제로 프로젝트를 더 효율적으로 관리할 수 있답니다.\n\n---\n\n### 라우트 컴포넌트는 계층적으로 렌더링된다\n\n우리가 만든 컴포넌트들은 중첩된 라우트(nested routes)에서 재귀적으로 렌더링돼요. 쉽게 말해, 특정 라우트의 컴포넌트는 그 부모 라우트 컴포넌트 안에 중첩되는 구조입니다.\n\n예를 들어, `/dashboard/settings` 같은 경로가 있다면 `dashboard` 컴포넌트가 먼저 렌더링되고, 그 안에 `settings` 컴포넌트가 들어가는 식이에요.\n\n---\n\n### 라우트는 폴더 구조로 정의한다 — 콜로케이션(colocation)\n\nNext.js 앱 디렉토리 안에서, **중첩된 폴더가 라우트 구조를 뜻해요**. 폴더 하나가 하나의 라우트 세그먼트(route segment)를 나타내고, 이 세그먼트가 URL 경로의 일부로 매핑됩니다.\n\n하지만 중요한 점! 폴더만 있다고 해서 그 경로가 바로 “공개적으로” 접근 가능한 페이지가 되진 않아요. 그 폴더 안에 `page.js` 혹은 `route.js` 파일이 있어야 비로소 해당 라우트가 활성화되고, 방문할 수 있답니다.\n\n---\n\n### 실제 클라이언트에 전송되는 것은?\n\n라우트가 공개되어 있어도, 클라이언트에 보내지는 건 그 라우트의 `page.js`나 `route.js`에서 반환하는 콘텐츠뿐이에요. 부모 라우트 컴포넌트가 중첩되어 렌더링되더라도, 클라이언트에게는 각 세그먼트의 `page.js` 결과물만 전달되니까 참고하세요!\n\n---\n\n정리하면,\n\n- 라우트 구조는 폴더 중첩으로 표현한다.\n- 해당 폴더에 `page.js`나 `route.js` 파일이 있어야 라우트가 활성화된다.\n- 중첩된 라우트는 부모-자식 구조로 렌더링된다.\n- 클라이언트에는 각 세그먼트 라우트 파일에서 반환한 콘텐츠만 전달된다.\n\n이런 구조 덕분에 프로젝트 내 파일과 라우트가 자연스럽게 연관되니, 관리도 쉽고 개발 속도도 빨라진답니다. 여러분도 프로젝트에 적용해 보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n앱 디렉터리 내에서 라우트 구간(route segments) 안에 프로젝트 파일들을 안전하게 함께 둘 수 있다는 뜻이에요. 이렇게 하면 파일들이 실수로 라우트로 잡히는 일을 방지할 수 있답니다.\n\n---\n\n\u003e 참고할 점: 프로젝트 파일들을 꼭 app 폴더 안에 넣어야 하는 건 아니에요. 원한다면 app 디렉터리 밖에 보관해도 무방합니다.\n\n---\n\n### Private 폴더 만들기\n\n폴더 이름 앞에 언더스코어(\\_)를 붙여서 private 폴더를 만들 수 있어요. 예를 들면 `_folderName` 같은 식이죠.\n\n이렇게 하면 라우팅시스템이 이 폴더와 그 하위 폴더들을 무시하니까, 라우트로 작동하지 않는 구현 세부 사항용 폴더로 쓸 수 있어요.\n\n---\n\n관련 그림 첨부해 뒀으니 한 번 참고해 보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n앱 디렉터리 내 파일은 기본적으로 안전하게 한 곳에 모아둘 수 있어서 private 폴더가 꼭 필요한 건 아니에요. 하지만 private 폴더가 있으면 다음과 같은 점에서 도움이 됩니다:\n\n- UI 로직과 라우팅 로직을 분리할 수 있어요.\n- 프로젝트 내 파일 구성과 Next.js 생태계 전반에서 내부 파일을 일관성 있게 정리할 수 있죠.\n- 코드 에디터에서 파일을 분류하고 그룹화하기 쉬워요.\n- 앞으로 나올 Next.js 파일 네이밍 규칙과 겹칠 수 있는 이름 충돌을 방지할 수 있습니다.\n\n\u003e 참고!\n\u003e 비록 Next.js 공식 프레임워크 규칙은 아니지만, private 폴더 외부에 있는 파일들도 언더스코어(\\_) 패턴을 사용해서 \"private\" 임을 표시하는 방식을 고민해볼 수 있어요.  \n\u003e URL 세그먼트가 언더스코어로 시작해야 한다면 URL 인코딩된 형태인 `%5F`를 앞에 붙이면 됩니다. 예를 들어 `%5FfolderName`처럼요.  \n\u003e 만약 private 폴더를 사용하지 않는다면, 예상치 못한 이름 충돌을 막기 위해 Next.js의 특별한 파일 네이밍 규칙을 잘 숙지하는 게 좋겠죠.\n\n### 라우트 그룹(Route groups)\n\n라우트 그룹은 폴더 이름을 괄호로 감싸서 만듭니다: `(folderName)`\n\n이렇게 하면 이 폴더는 단순히 파일 정리를 위한 용도이고, 실제 라우트 URL 경로에는 포함되지 않아요.\n\n![라우트 그룹 예시 이미지](/TIL/assets/img/2025-04-22-Projectstructureandorganization_7.png)\n\n라우트 그룹이 유용한 점은 다음과 같습니다:\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n- 사이트 섹션, 의도, 혹은 팀 단위로 라우트를 정리하기 (예: 마케팅 페이지, 관리자 페이지 등)\n- 같은 라우트 세그먼트 레벨에서 중첩 레이아웃 활성화하기:\n\n  - 같은 세그먼트 내에 여러 개의 중첩 레이아웃 만들기 (여러 개의 루트 레이아웃 포함)\n  - 공통 세그먼트 내 일부 라우트에만 레이아웃 추가하기\n\n- 같은 세그먼트 내에 여러 개의 중첩 레이아웃 만들기 (여러 개의 루트 레이아웃 포함)\n- 공통 세그먼트 내 일부 라우트에만 레이아웃 추가하기\n\n---\n\n### src 디렉토리\n\nNext.js는 app을 포함한 애플리케이션 코드를 선택적으로 `src` 디렉토리 안에 저장하는 것을 지원합니다. 이렇게 하면 프로젝트 루트에 주로 위치하는 설정 파일과 애플리케이션 코드를 깔끔하게 분리할 수 있습니다.\n\n![Project Structure](/TIL/assets/img/2025-04-22-Projectstructureandorganization_8.png)\n\n---\n\n### 예제\n\n아래 섹션은 흔히 사용하는 전략들을 아주 간략히 정리한 내용입니다. 가장 중요한 점은 여러분과 팀에게 맞는 방식을 선택하고, 프로젝트 전반에 걸쳐 일관성 있게 유지하는 것입니다.\n\n\u003e 참고: 아래 예시에서는 `components`와 `lib` 폴더를 일반적인 예시 폴더명으로 사용했으며, 이들의 이름은 프레임워크에서 특별한 의미를 가진 것은 아닙니다. 프로젝트에 따라 `ui`, `utils`, `hooks`, `styles` 등 다양한 이름을 사용해도 무방합니다.\n\n---\n\n#### app 폴더 밖에 프로젝트 파일 저장하기\n\n| 전략 구분               | 설명                                                               |\n| ----------------------- | ------------------------------------------------------------------ |\n| app 폴더 분리           | app 폴더와는 별개로 components, lib 같은 폴더를 루트 혹은 src에 둠 |\n| 역할별 폴더 구성        | 컴포넌트, 유틸리티, 훅 등을 역할에 맞춰 분리함                     |\n| 팀/기능별으로 폴더 분리 | 팀 혹은 기능 단위로 폴더를 나눠 관리함                             |\n\n---\n\n위와 같은 방법으로 프로젝트를 체계적으로 구성하면 협업 효율이 올라가고 유지보수가 쉬워집니다. 꼭 정답은 없으니 팀 상황에 맞게 유연하게 적용해보세요!\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n이 전략은 애플리케이션 코드를 프로젝트 루트의 공유 폴더에 모두 저장하고, app 디렉터리는 오로지 라우팅 용도로만 사용하는 방식이에요.\n\n![프로젝트 구조 1](/TIL/assets/img/2025-04-22-Projectstructureandorganization_9.png)\n\n#### app 내부의 최상위 폴더에 프로젝트 파일 저장하기\n\n이 전략은 애플리케이션 코드를 app 디렉터리 루트에 공유 폴더 형태로 모두 저장하는 방식이에요.\n\n![프로젝트 구조 2](/TIL/assets/img/2025-04-22-Projectstructureandorganization_10.png)\n\n#### 기능이나 라우트별로 프로젝트 파일 분리하기\n\n이 전략은 전역에서 공유되는 애플리케이션 코드는 app 디렉터리 루트에 두고, 좀 더 특정한 애플리케이션 코드는 해당 라우트 세그먼트(경로 단위) 안에 나눠서 저장하는 방식이에요.\n\n![프로젝트 구조 3](/TIL/assets/img/2025-04-22-Projectstructureandorganization_11.png)\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### URL 경로에 영향 없이 라우트 정리하기\n\nURL 경로를 변경하지 않고 라우트를 깔끔하게 정리하고 싶다면, 관련된 라우트들을 그룹으로 묶으면 좋아요. 이때, 괄호로 묶은 폴더 이름(예: `(marketing)`, `(shop)`)은 URL에서 제외됩니다.\n\n예를 들어, 아래 구조에서 `(marketing)`과 `(shop)`은 URL에 나타나지 않고, 폴더 내의 라우트들이 그대로 URL에 반영돼요.\n\n![route 그룹 예시](/TIL/assets/img/2025-04-22-Projectstructureandorganization_12.png)\n\n또한 `(marketing)`과 `(shop)` 폴더 안에 `layout.js` 파일을 추가하면, 각각의 그룹마다 개별 레이아웃을 적용할 수 있습니다. 즉, URL 경로는 같아도 레이아웃은 다르게 설정 가능하다는 거죠.\n\n![개별 레이아웃 적용 예시](/TIL/assets/img/2025-04-22-Projectstructureandorganization_13.png)\n\n### 특정 세그먼트만 레이아웃에 포함시키기\n\n특정 라우트만 하나의 레이아웃으로 묶고 싶다면, 해당 라우트들만 새로운 그룹(예: `(shop)`)으로 묶으면 됩니다. 그룹에 포함된 라우트들은 그룹 레이아웃을 공유하고, 밖에 있는 라우트는 영향을 받지 않아요.\n\n예를 들어, `account`와 `cart`는 `(shop)` 그룹에 넣어 레이아웃을 공유하고, `checkout`은 그룹 밖에 둬서 별도의 레이아웃을 유지할 수 있습니다.\n\n![특정 그룹에만 레이아웃 적용 예시](/TIL/assets/img/2025-04-22-Projectstructureandorganization_14.png)\n\n이런 방법을 사용하면 프로젝트 구조를 깔끔하게 유지하면서도 URL 디자인에는 전혀 영향 주지 않을 수 있어서 정말 유용합니다!\n\n\u003c!-- TIL 수평 --\u003e\n\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### 특정 경로에 로딩 스켈레톤 적용하기\n\n특정 라우트에만 로딩 스켈레톤을 적용하고 싶다면, 새로운 라우트 그룹 (예: /(overview))을 만들고 그 안에 loading.tsx 파일을 넣으면 됩니다.\n\n\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_15.png\" /\u003e\n\n이렇게 하면 loading.tsx 파일은 대시보드 내의 overview 페이지에만 적용되고, 다른 대시보드 페이지에는 영향을 주지 않으면서 URL 경로 구조도 유지할 수 있어요.\n\n---\n\n### 여러 개의 루트 레이아웃 만들기\n\n여러 루트 레이아웃을 만들고 싶으면 최상위에 있던 layout.js 파일을 제거한 다음, 각 라우트 그룹 내부에 layout.js 파일을 각각 만들어 주면 됩니다. 이렇게 하면 완전히 다른 UI나 경험이 필요한 섹션을 애플리케이션 내에 구분하기 매우 편리해요. 이때 각 루트 레이아웃에는 `html`과 `body` 태그가 반드시 포함되어야 합니다.\n\n\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_16.png\" /\u003e\n\n위 예시처럼, (marketing)과 (shop)은 각각 자신만의 루트 레이아웃을 가지고 있게 됩니다.\n","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":20},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003e프로젝트 구조와 조직 방법\u003c/h1\u003e\n\u003cp\u003e이번 글에서는 Next.js에서 사용하는 폴더와 파일 규칙에 대해 한눈에 정리해 드리고, 프로젝트를 어떻게 잘 구성할지에 대한 팁도 함께 알려드릴게요.\u003c/p\u003e\n\u003ch2\u003e폴더와 파일 규칙\u003c/h2\u003e\n\u003ch3\u003e최상위 폴더\u003c/h3\u003e\n\u003cp\u003e최상위 폴더는 애플리케이션 코드와 정적 자산(이미지, 폰트 등)을 구분해서 관리할 때 사용해요.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_0.png\" alt=\"프로젝트 구조 이미지\"\u003e\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e폴더 이름\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/routing\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003eapp\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eApp Router (Next.js의 새로운 라우팅 방식)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/pages/building-your-application/routing\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003epages\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePages Router (기존 라우팅 방식)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/optimizing/static-assets\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003epublic\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e외부에 서비스할 정적 자산 모음\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/configuring/src-directory\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003esrc\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e옵션! 소스코드를 별도 관리하고 싶을 때 사용하는 폴더\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch3\u003e최상위 파일\u003c/h3\u003e\n\u003cp\u003e(여기서부터 다음 내용이 이어집니다.)\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e폴더 구조를 깔끔하게 정리하면 프로젝트 유지보수가 훨씬 수월해져요. 너무 복잡하게 만들지 말고, 자신의 프로젝트에 맞게 심플하게 가져가는 게 가장 좋아요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eNext.js에서 최상위(Top-level) 파일들은 여러분의 애플리케이션을 설정하고, 의존성을 관리하며, 미들웨어를 실행하고, 모니터링 도구를 통합하고, 환경 변수를 정의하는 데 사용돼요. 그러니까 프로젝트의 중요한 설정들이 여기서 모여있다고 보면 됩니다.\u003c/p\u003e\n\u003cp\u003e다음은 각 파일들이 어떤 역할을 하는지 간단히 정리한 표에요:\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e파일명\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/config/next-config-js\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003enext.config.js\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNext.js 설정 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/getting-started/installation#manual-installation\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003epackage.json\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e프로젝트 의존성과 스크립트 관리\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003einstrumentation.ts\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOpenTelemetry 및 계측 관련 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/routing/middleware\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003emiddleware.ts\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNext.js 요청 미들웨어 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/configuring/environment-variables\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003e.env\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e환경 변수 설정 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/configuring/environment-variables\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003e.env.local\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e로컬 환경 변수 설정\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/configuring/environment-variables\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003e.env.production\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e프로덕션 환경 변수 설정\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/configuring/environment-variables\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003e.env.development\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e개발 환경 변수 설정\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/config/eslint\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003e.eslintrc.json\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eESLint 설정 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e.gitignore\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eGit에서 무시할 파일/폴더 목록\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003enext-env.d.ts\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eNext.js용 TypeScript 선언 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003etsconfig.json\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eTypeScript 설정 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ejsconfig.json\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eJavaScript 설정 파일\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch3\u003e라우팅 관련 파일\u003c/h3\u003e\n\u003cp\u003eNext.js에서 앱 라우팅을 구성하는 데 사용되는 파일들을 모아봤어요:\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e파일명\u003c/th\u003e\u003cth\u003e확장자\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/layout\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003elayout\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .jsx / .tsx\u003c/td\u003e\u003ctd\u003e레이아웃 컴포넌트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/page\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003epage\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .jsx / .tsx\u003c/td\u003e\u003ctd\u003e페이지 컴포넌트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/loading\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003eloading\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .jsx / .tsx\u003c/td\u003e\u003ctd\u003e로딩중 UI 컴포넌트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/not-found\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003enot-found\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .jsx / .tsx\u003c/td\u003e\u003ctd\u003e404 페이지 UI\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/error\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003eerror\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .jsx / .tsx\u003c/td\u003e\u003ctd\u003e에러 UI\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/error#global-error\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003eglobal-error\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .jsx / .tsx\u003c/td\u003e\u003ctd\u003e글로벌 에러 UI\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/route\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003eroute\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .ts\u003c/td\u003e\u003ctd\u003eAPI 엔드포인트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/template\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003etemplate\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .jsx / .tsx\u003c/td\u003e\u003ctd\u003e다시 렌더링되는 레이아웃\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/default\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003edefault\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e.js / .jsx / .tsx\u003c/td\u003e\u003ctd\u003e병렬 라우트용 fallback 페이지\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch3\u003e중첩 라우트 (Nested routes)\u003c/h3\u003e\n\u003cp\u003eNext.js에서는 폴더 구조를 통해 중첩된 라우트를 쉽게 표현할 수 있어요.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e폴더 구조\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003efolder\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e하나의 라우트 세그먼트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003efolder/folder\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e중첩된 라우트 세그먼트\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch3\u003e동적 라우트 (Dynamic routes)\u003c/h3\u003e\n\u003cp\u003e동적 라우팅은 경로에 가변 요소가 포함될 때 사용돼요.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e경로 표현법\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#convention\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003e[folder]\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e동적 라우트 세그먼트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#catch-all-segments\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003e[...folder]\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e모든 하위 경로를 잡아내는 catch-all 세그먼트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes#optional-catch-all-segments\" rel=\"nofollow\" target=\"_blank\"\u003e\u003ccode\u003e[[...folder]]\u003c/code\u003e\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e선택적인 catch-all 세그먼트\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003cp\u003e블로그를 보시는 여러분도 Next.js를 쓸 때 이 파일들과 폴더 구조들을 잘 알고 나면, 프로젝트를 더 효율적이고 이해하기 쉽게 관리할 수 있습니다! 필요할 때마다 이 표를 참고하세요~\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003eRoute Groups와 private 폴더\u003c/h3\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e구분\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e(folder)\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e라우팅에 영향을 주지 않고 라우트를 그룹화\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e_folder\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e해당 폴더와 모든 하위 세그먼트를 라우팅에서 제외\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch3\u003e병렬(Parallel) 및 인터셉트(Intercepted) 라우트\u003c/h3\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e구분\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e@folder\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e네임드 슬롯(named slot)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e(.)folder\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e같은 레벨을 인터셉트(intercept)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e(..)folder\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e한 단계 위 레벨을 인터셉트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e(..)(..)folder\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e두 단계 위 레벨을 인터셉트\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e(...)folder\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e루트에서부터 인터셉트\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch3\u003e메타데이터 파일 규칙\u003c/h3\u003e\n\u003ch4\u003e앱 아이콘(App icons)\u003c/h4\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e이름\u003c/th\u003e\u003cth\u003e확장자\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003efavicon\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.ico\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e파비콘(favicon) 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003eicon\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.ico\u003c/code\u003e, \u003ccode\u003e.jpg\u003c/code\u003e, \u003ccode\u003e.jpeg\u003c/code\u003e, \u003ccode\u003e.png\u003c/code\u003e, \u003ccode\u003e.svg\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e앱 아이콘 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003eicon\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.js\u003c/code\u003e, \u003ccode\u003e.ts\u003c/code\u003e, \u003ccode\u003e.tsx\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e코드로 생성된 앱 아이콘\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003eapple-icon\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.jpg\u003c/code\u003e, \u003ccode\u003e.jpeg\u003c/code\u003e, \u003ccode\u003e.png\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e애플 앱 아이콘 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003eapple-icon\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.js\u003c/code\u003e, \u003ccode\u003e.ts\u003c/code\u003e, \u003ccode\u003e.tsx\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e코드로 생성된 애플 앱 아이콘\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003cp\u003e조금 어렵게 느껴질 수 있는 routing 영역에서 폴더명을 활용하는 여러 가지 문법과 파일명 규칙을 정리해봤어요.\u003cbr\u003e\n특히 (folder) 같이 라우팅에는 영향을 주지 않으면서 내부 조직화용으로 많이 쓰이고요, \u003ccode\u003e_folder\u003c/code\u003e는 아예 routing 대상에서 제외하는 용도로 쓴답니다.\u003cbr\u003e\nParallel과 Intercept 라우트는 고급 기능인데, 슬래시 하나, 두 개 등에 따라 라우팅 경로를 제어할 수 있어서 원하는 맞춤 페이지 구성에 도움을 줘요.\u003cbr\u003e\n마지막으로 메타데이터 쪽은 favicon이나 app icon 관련 파일명과 확장자를 정해놓은 내용이니 프로젝트 셋업할 때 참고하면 좋습니다!\u003c/p\u003e\n\u003cp\u003e필요하시면 더 자세한 설명도 알려드릴게요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e아래는 Open Graph 이미지, Twitter 이미지, 그리고 SEO 관련 파일 종류와 확장자, 그리고 용도에 대한 표입니다. Markdown 형식으로 정리해 봤어요!\u003c/p\u003e\n\u003ch3\u003eOpen Graph \u0026#x26; Twitter 이미지 파일\u003c/h3\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e이름\u003c/th\u003e\u003cth\u003e확장자\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#opengraph-image\" rel=\"nofollow\" target=\"_blank\"\u003eopengraph-image\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.jpg\u003c/code\u003e, \u003ccode\u003e.jpeg\u003c/code\u003e, \u003ccode\u003e.png\u003c/code\u003e, \u003ccode\u003e.gif\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eOpen Graph 이미지 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx\" rel=\"nofollow\" target=\"_blank\"\u003eopengraph-image\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.js\u003c/code\u003e, \u003ccode\u003e.ts\u003c/code\u003e, \u003ccode\u003e.tsx\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e코드로 생성하는 Open Graph 이미지\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#twitter-image\" rel=\"nofollow\" target=\"_blank\"\u003etwitter-image\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.jpg\u003c/code\u003e, \u003ccode\u003e.jpeg\u003c/code\u003e, \u003ccode\u003e.png\u003c/code\u003e, \u003ccode\u003e.gif\u003c/code\u003e\u003c/td\u003e\u003ctd\u003eTwitter에 보여줄 이미지 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx\" rel=\"nofollow\" target=\"_blank\"\u003etwitter-image\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.js\u003c/code\u003e, \u003ccode\u003e.ts\u003c/code\u003e, \u003ccode\u003e.tsx\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e코드로 생성하는 Twitter 이미지\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch3\u003eSEO 관련 파일\u003c/h3\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e이름\u003c/th\u003e\u003cth\u003e확장자\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap#sitemap-files-xml\" rel=\"nofollow\" target=\"_blank\"\u003esitemap\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.xml\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e사이트맵 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap#generating-a-sitemap-using-code-js-ts\" rel=\"nofollow\" target=\"_blank\"\u003esitemap\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.js\u003c/code\u003e, \u003ccode\u003e.ts\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e코드로 생성하는 사이트맵\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots#static-robotstxt\" rel=\"nofollow\" target=\"_blank\"\u003erobots\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.txt\u003c/code\u003e\u003c/td\u003e\u003ctd\u003erobots.txt 파일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href=\"https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots#generate-a-robots-file\" rel=\"nofollow\" target=\"_blank\"\u003erobots\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003e.js\u003c/code\u003e, \u003ccode\u003e.ts\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e코드로 생성하는 robots 파일\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch2\u003e프로젝트 구성하기\u003c/h2\u003e\n\u003cp\u003eNext.js에서는 프로젝트 파일을 어떻게 배치할지는 자유롭게 선택할 수 있어요. 딱 정해진 규칙이 있는 건 아니지만, 다음과 같은 기능들이 있어서 편리하게 구성할 수 있답니다.\u003c/p\u003e\n\u003ch3\u003e컴포넌트 계층 구조\u003c/h3\u003e\n\u003cp\u003eNext.js 내에서 특별한 이름의 파일들은 아래와 같은 계층 구조를 따라 렌더링됩니다:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003elayout.js\u003c/code\u003e — 페이지 레이아웃 정의\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003etemplate.js\u003c/code\u003e — 페이지 템플릿\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eerror.js\u003c/code\u003e — React 오류 경계(Error Boundary) 처리\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eloading.js\u003c/code\u003e — React Suspense 경계로 로딩 UI\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003enot-found.js\u003c/code\u003e — 404 페이지용 에러 경계\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003epage.js\u003c/code\u003e 혹은 nested \u003ccode\u003elayout.js\u003c/code\u003e — 실제 페이지 컴포넌트\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이 계층 덕분에 페이지 단위 컴포넌트가 어떻게 조합되고 재사용되는지 명확하게 구조화할 수 있어요. 이를 활용해서 여러분만의 깔끔한 프로젝트 구조를 만들어 보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e여러분, 오늘은 Next.js 앱 디렉토리 구조와 라우트 구성에 대해 알아볼게요. 복잡해 보일 수 있지만, 하나씩 차근차근 이해하면 실제로 프로젝트를 더 효율적으로 관리할 수 있답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e라우트 컴포넌트는 계층적으로 렌더링된다\u003c/h3\u003e\n\u003cp\u003e우리가 만든 컴포넌트들은 중첩된 라우트(nested routes)에서 재귀적으로 렌더링돼요. 쉽게 말해, 특정 라우트의 컴포넌트는 그 부모 라우트 컴포넌트 안에 중첩되는 구조입니다.\u003c/p\u003e\n\u003cp\u003e예를 들어, \u003ccode\u003e/dashboard/settings\u003c/code\u003e 같은 경로가 있다면 \u003ccode\u003edashboard\u003c/code\u003e 컴포넌트가 먼저 렌더링되고, 그 안에 \u003ccode\u003esettings\u003c/code\u003e 컴포넌트가 들어가는 식이에요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e라우트는 폴더 구조로 정의한다 — 콜로케이션(colocation)\u003c/h3\u003e\n\u003cp\u003eNext.js 앱 디렉토리 안에서, \u003cstrong\u003e중첩된 폴더가 라우트 구조를 뜻해요\u003c/strong\u003e. 폴더 하나가 하나의 라우트 세그먼트(route segment)를 나타내고, 이 세그먼트가 URL 경로의 일부로 매핑됩니다.\u003c/p\u003e\n\u003cp\u003e하지만 중요한 점! 폴더만 있다고 해서 그 경로가 바로 “공개적으로” 접근 가능한 페이지가 되진 않아요. 그 폴더 안에 \u003ccode\u003epage.js\u003c/code\u003e 혹은 \u003ccode\u003eroute.js\u003c/code\u003e 파일이 있어야 비로소 해당 라우트가 활성화되고, 방문할 수 있답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e실제 클라이언트에 전송되는 것은?\u003c/h3\u003e\n\u003cp\u003e라우트가 공개되어 있어도, 클라이언트에 보내지는 건 그 라우트의 \u003ccode\u003epage.js\u003c/code\u003e나 \u003ccode\u003eroute.js\u003c/code\u003e에서 반환하는 콘텐츠뿐이에요. 부모 라우트 컴포넌트가 중첩되어 렌더링되더라도, 클라이언트에게는 각 세그먼트의 \u003ccode\u003epage.js\u003c/code\u003e 결과물만 전달되니까 참고하세요!\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e정리하면,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e라우트 구조는 폴더 중첩으로 표현한다.\u003c/li\u003e\n\u003cli\u003e해당 폴더에 \u003ccode\u003epage.js\u003c/code\u003e나 \u003ccode\u003eroute.js\u003c/code\u003e 파일이 있어야 라우트가 활성화된다.\u003c/li\u003e\n\u003cli\u003e중첩된 라우트는 부모-자식 구조로 렌더링된다.\u003c/li\u003e\n\u003cli\u003e클라이언트에는 각 세그먼트 라우트 파일에서 반환한 콘텐츠만 전달된다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이런 구조 덕분에 프로젝트 내 파일과 라우트가 자연스럽게 연관되니, 관리도 쉽고 개발 속도도 빨라진답니다. 여러분도 프로젝트에 적용해 보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e앱 디렉터리 내에서 라우트 구간(route segments) 안에 프로젝트 파일들을 안전하게 함께 둘 수 있다는 뜻이에요. 이렇게 하면 파일들이 실수로 라우트로 잡히는 일을 방지할 수 있답니다.\u003c/p\u003e\n\u003chr\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고할 점: 프로젝트 파일들을 꼭 app 폴더 안에 넣어야 하는 건 아니에요. 원한다면 app 디렉터리 밖에 보관해도 무방합니다.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003chr\u003e\n\u003ch3\u003ePrivate 폴더 만들기\u003c/h3\u003e\n\u003cp\u003e폴더 이름 앞에 언더스코어(_)를 붙여서 private 폴더를 만들 수 있어요. 예를 들면 \u003ccode\u003e_folderName\u003c/code\u003e 같은 식이죠.\u003c/p\u003e\n\u003cp\u003e이렇게 하면 라우팅시스템이 이 폴더와 그 하위 폴더들을 무시하니까, 라우트로 작동하지 않는 구현 세부 사항용 폴더로 쓸 수 있어요.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e관련 그림 첨부해 뒀으니 한 번 참고해 보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e앱 디렉터리 내 파일은 기본적으로 안전하게 한 곳에 모아둘 수 있어서 private 폴더가 꼭 필요한 건 아니에요. 하지만 private 폴더가 있으면 다음과 같은 점에서 도움이 됩니다:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eUI 로직과 라우팅 로직을 분리할 수 있어요.\u003c/li\u003e\n\u003cli\u003e프로젝트 내 파일 구성과 Next.js 생태계 전반에서 내부 파일을 일관성 있게 정리할 수 있죠.\u003c/li\u003e\n\u003cli\u003e코드 에디터에서 파일을 분류하고 그룹화하기 쉬워요.\u003c/li\u003e\n\u003cli\u003e앞으로 나올 Next.js 파일 네이밍 규칙과 겹칠 수 있는 이름 충돌을 방지할 수 있습니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고!\n비록 Next.js 공식 프레임워크 규칙은 아니지만, private 폴더 외부에 있는 파일들도 언더스코어(_) 패턴을 사용해서 \"private\" 임을 표시하는 방식을 고민해볼 수 있어요.\u003cbr\u003e\nURL 세그먼트가 언더스코어로 시작해야 한다면 URL 인코딩된 형태인 \u003ccode\u003e%5F\u003c/code\u003e를 앞에 붙이면 됩니다. 예를 들어 \u003ccode\u003e%5FfolderName\u003c/code\u003e처럼요.\u003cbr\u003e\n만약 private 폴더를 사용하지 않는다면, 예상치 못한 이름 충돌을 막기 위해 Next.js의 특별한 파일 네이밍 규칙을 잘 숙지하는 게 좋겠죠.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch3\u003e라우트 그룹(Route groups)\u003c/h3\u003e\n\u003cp\u003e라우트 그룹은 폴더 이름을 괄호로 감싸서 만듭니다: \u003ccode\u003e(folderName)\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003e이렇게 하면 이 폴더는 단순히 파일 정리를 위한 용도이고, 실제 라우트 URL 경로에는 포함되지 않아요.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_7.png\" alt=\"라우트 그룹 예시 이미지\"\u003e\u003c/p\u003e\n\u003cp\u003e라우트 그룹이 유용한 점은 다음과 같습니다:\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e사이트 섹션, 의도, 혹은 팀 단위로 라우트를 정리하기 (예: 마케팅 페이지, 관리자 페이지 등)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e같은 라우트 세그먼트 레벨에서 중첩 레이아웃 활성화하기:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e같은 세그먼트 내에 여러 개의 중첩 레이아웃 만들기 (여러 개의 루트 레이아웃 포함)\u003c/li\u003e\n\u003cli\u003e공통 세그먼트 내 일부 라우트에만 레이아웃 추가하기\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e같은 세그먼트 내에 여러 개의 중첩 레이아웃 만들기 (여러 개의 루트 레이아웃 포함)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e공통 세그먼트 내 일부 라우트에만 레이아웃 추가하기\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003esrc 디렉토리\u003c/h3\u003e\n\u003cp\u003eNext.js는 app을 포함한 애플리케이션 코드를 선택적으로 \u003ccode\u003esrc\u003c/code\u003e 디렉토리 안에 저장하는 것을 지원합니다. 이렇게 하면 프로젝트 루트에 주로 위치하는 설정 파일과 애플리케이션 코드를 깔끔하게 분리할 수 있습니다.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_8.png\" alt=\"Project Structure\"\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e예제\u003c/h3\u003e\n\u003cp\u003e아래 섹션은 흔히 사용하는 전략들을 아주 간략히 정리한 내용입니다. 가장 중요한 점은 여러분과 팀에게 맞는 방식을 선택하고, 프로젝트 전반에 걸쳐 일관성 있게 유지하는 것입니다.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e참고: 아래 예시에서는 \u003ccode\u003ecomponents\u003c/code\u003e와 \u003ccode\u003elib\u003c/code\u003e 폴더를 일반적인 예시 폴더명으로 사용했으며, 이들의 이름은 프레임워크에서 특별한 의미를 가진 것은 아닙니다. 프로젝트에 따라 \u003ccode\u003eui\u003c/code\u003e, \u003ccode\u003eutils\u003c/code\u003e, \u003ccode\u003ehooks\u003c/code\u003e, \u003ccode\u003estyles\u003c/code\u003e 등 다양한 이름을 사용해도 무방합니다.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003chr\u003e\n\u003ch4\u003eapp 폴더 밖에 프로젝트 파일 저장하기\u003c/h4\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e전략 구분\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eapp 폴더 분리\u003c/td\u003e\u003ctd\u003eapp 폴더와는 별개로 components, lib 같은 폴더를 루트 혹은 src에 둠\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e역할별 폴더 구성\u003c/td\u003e\u003ctd\u003e컴포넌트, 유틸리티, 훅 등을 역할에 맞춰 분리함\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e팀/기능별으로 폴더 분리\u003c/td\u003e\u003ctd\u003e팀 혹은 기능 단위로 폴더를 나눠 관리함\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003cp\u003e위와 같은 방법으로 프로젝트를 체계적으로 구성하면 협업 효율이 올라가고 유지보수가 쉬워집니다. 꼭 정답은 없으니 팀 상황에 맞게 유연하게 적용해보세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003e이 전략은 애플리케이션 코드를 프로젝트 루트의 공유 폴더에 모두 저장하고, app 디렉터리는 오로지 라우팅 용도로만 사용하는 방식이에요.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_9.png\" alt=\"프로젝트 구조 1\"\u003e\u003c/p\u003e\n\u003ch4\u003eapp 내부의 최상위 폴더에 프로젝트 파일 저장하기\u003c/h4\u003e\n\u003cp\u003e이 전략은 애플리케이션 코드를 app 디렉터리 루트에 공유 폴더 형태로 모두 저장하는 방식이에요.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_10.png\" alt=\"프로젝트 구조 2\"\u003e\u003c/p\u003e\n\u003ch4\u003e기능이나 라우트별로 프로젝트 파일 분리하기\u003c/h4\u003e\n\u003cp\u003e이 전략은 전역에서 공유되는 애플리케이션 코드는 app 디렉터리 루트에 두고, 좀 더 특정한 애플리케이션 코드는 해당 라우트 세그먼트(경로 단위) 안에 나눠서 저장하는 방식이에요.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_11.png\" alt=\"프로젝트 구조 3\"\u003e\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003eURL 경로에 영향 없이 라우트 정리하기\u003c/h3\u003e\n\u003cp\u003eURL 경로를 변경하지 않고 라우트를 깔끔하게 정리하고 싶다면, 관련된 라우트들을 그룹으로 묶으면 좋아요. 이때, 괄호로 묶은 폴더 이름(예: \u003ccode\u003e(marketing)\u003c/code\u003e, \u003ccode\u003e(shop)\u003c/code\u003e)은 URL에서 제외됩니다.\u003c/p\u003e\n\u003cp\u003e예를 들어, 아래 구조에서 \u003ccode\u003e(marketing)\u003c/code\u003e과 \u003ccode\u003e(shop)\u003c/code\u003e은 URL에 나타나지 않고, 폴더 내의 라우트들이 그대로 URL에 반영돼요.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_12.png\" alt=\"route 그룹 예시\"\u003e\u003c/p\u003e\n\u003cp\u003e또한 \u003ccode\u003e(marketing)\u003c/code\u003e과 \u003ccode\u003e(shop)\u003c/code\u003e 폴더 안에 \u003ccode\u003elayout.js\u003c/code\u003e 파일을 추가하면, 각각의 그룹마다 개별 레이아웃을 적용할 수 있습니다. 즉, URL 경로는 같아도 레이아웃은 다르게 설정 가능하다는 거죠.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_13.png\" alt=\"개별 레이아웃 적용 예시\"\u003e\u003c/p\u003e\n\u003ch3\u003e특정 세그먼트만 레이아웃에 포함시키기\u003c/h3\u003e\n\u003cp\u003e특정 라우트만 하나의 레이아웃으로 묶고 싶다면, 해당 라우트들만 새로운 그룹(예: \u003ccode\u003e(shop)\u003c/code\u003e)으로 묶으면 됩니다. 그룹에 포함된 라우트들은 그룹 레이아웃을 공유하고, 밖에 있는 라우트는 영향을 받지 않아요.\u003c/p\u003e\n\u003cp\u003e예를 들어, \u003ccode\u003eaccount\u003c/code\u003e와 \u003ccode\u003ecart\u003c/code\u003e는 \u003ccode\u003e(shop)\u003c/code\u003e 그룹에 넣어 레이아웃을 공유하고, \u003ccode\u003echeckout\u003c/code\u003e은 그룹 밖에 둬서 별도의 레이아웃을 유지할 수 있습니다.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_14.png\" alt=\"특정 그룹에만 레이아웃 적용 예시\"\u003e\u003c/p\u003e\n\u003cp\u003e이런 방법을 사용하면 프로젝트 구조를 깔끔하게 유지하면서도 URL 디자인에는 전혀 영향 주지 않을 수 있어서 정말 유용합니다!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003e특정 경로에 로딩 스켈레톤 적용하기\u003c/h3\u003e\n\u003cp\u003e특정 라우트에만 로딩 스켈레톤을 적용하고 싶다면, 새로운 라우트 그룹 (예: /(overview))을 만들고 그 안에 loading.tsx 파일을 넣으면 됩니다.\u003c/p\u003e\n\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_15.png\"\u003e\n\u003cp\u003e이렇게 하면 loading.tsx 파일은 대시보드 내의 overview 페이지에만 적용되고, 다른 대시보드 페이지에는 영향을 주지 않으면서 URL 경로 구조도 유지할 수 있어요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e여러 개의 루트 레이아웃 만들기\u003c/h3\u003e\n\u003cp\u003e여러 루트 레이아웃을 만들고 싶으면 최상위에 있던 layout.js 파일을 제거한 다음, 각 라우트 그룹 내부에 layout.js 파일을 각각 만들어 주면 됩니다. 이렇게 하면 완전히 다른 UI나 경험이 필요한 섹션을 애플리케이션 내에 구분하기 매우 편리해요. 이때 각 루트 레이아웃에는 \u003ccode\u003ehtml\u003c/code\u003e과 \u003ccode\u003ebody\u003c/code\u003e 태그가 반드시 포함되어야 합니다.\u003c/p\u003e\n\u003cimg src=\"/TIL/assets/img/2025-04-22-Projectstructureandorganization_16.png\"\u003e\n\u003cp\u003e위 예시처럼, (marketing)과 (shop)은 각각 자신만의 루트 레이아웃을 가지고 있게 됩니다.\u003c/p\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-Projectstructureandorganization"},"buildId":"o6AmBAY_j9v9JmbaRA39X","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><title>Next.js 15에서 error.js 파일로 에러 처리하는 방법 정리 | TIL</title><meta name="description" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-errorjs" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:site_name" content="Next.js 15에서 error.js 파일로 에러 처리하는 방법 정리 | TIL" data-gatsby-head="true"/><meta property="og:title" content="Next.js 15에서 error.js 파일로 에러 처리하는 방법 정리 | TIL" data-gatsby-head="true"/><meta property="og:description" content="" data-gatsby-head="true"/><meta property="og:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta property="og:locale" content="en_US" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:domain" content="https://TIL.github.io/" data-gatsby-head="true"/><meta property="twitter:url" content="https://13akstjq.github.io/TIL//post/2025-04-22-errorjs" data-gatsby-head="true"/><meta name="twitter:title" content="Next.js 15에서 error.js 파일로 에러 처리하는 방법 정리 | TIL" data-gatsby-head="true"/><meta name="twitter:description" content="" data-gatsby-head="true"/><meta name="twitter:image" content="/TIL/assets/img/nextjs.png" data-gatsby-head="true"/><meta name="twitter:data1" content="Dev | TIL" data-gatsby-head="true"/><meta name="article:published_time" content="2025-04-22 02:36" data-gatsby-head="true"/><meta name="next-head-count" content="19"/><meta name="google-site-verification" content="a-yehRo3k3xv7fg6LqRaE8jlE42e5wP2bDE_2F849O4"/><link rel="stylesheet" href="/TIL/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/TIL/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/TIL/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/TIL/favicons/favicon-96x96.png"/><link rel="icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-icon" href="/TIL/favicons/apple-icon-180x180.png"/><link rel="apple-touch-startup-image" href="/startup.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="msapplication-config" content="/TIL/favicons/browserconfig.xml"/><link rel="preload" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/6e57edcf9f2ce551.css" data-n-g=""/><link rel="preload" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" as="style"/><link rel="stylesheet" href="/TIL/_next/static/css/b8ef307c9aee1e34.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/TIL/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/TIL/_next/static/chunks/webpack-21ffe88bdca56cba.js" defer=""></script><script src="/TIL/_next/static/chunks/framework-46611630e39cfdeb.js" defer=""></script><script src="/TIL/_next/static/chunks/main-a5eeabb286676ce6.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/_app-6fae11262ee5c69b.js" defer=""></script><script src="/TIL/_next/static/chunks/75fc9c18-4a646156c659a948.js" defer=""></script><script src="/TIL/_next/static/chunks/348-02483b66b493dd81.js" defer=""></script><script src="/TIL/_next/static/chunks/pages/post/%5Bslug%5D-8ded8b979ba73586.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_buildManifest.js" defer=""></script><script src="/TIL/_next/static/o6AmBAY_j9v9JmbaRA39X/_ssgManifest.js" defer=""></script></head><body><div id="__next"><header class="Header_header__Z8PUO"><div class="Header_inner__tfr0u"><strong class="Header_title__Otn70"><a href="/TIL">TIL</a></strong><nav class="Header_nav_area__6KVpk"><a class="nav_item" href="/TIL/posts/1">Posts</a></nav></div></header><main class="posts_container__NyRU3"><div class="posts_inner__i3n_i"><h1 class="posts_post_title__EbxNx">Next.js 15에서 error.js 파일로 에러 처리하는 방법 정리</h1><div class="posts_meta__cR7lu"><div class="posts_profile_wrap__mslMl"><div class="posts_profile_image_wrap__kPikV"><img alt="Next.js 15에서 error.js 파일로 에러 처리하는 방법 정리" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="profile" style="color:transparent" src="/TIL/favicons/apple-icon-114x114.png"/></div><div class="posts_textarea__w_iKT"><span class="writer">TIL</span><span class="posts_info__5KJdN"><span class="posts_date__ctqHI">Posted On Apr 22, 2025</span><span class="posts_reading_time__f7YPP">8<!-- --> min read</span></span></div></div></div><article class="posts_post_content__n_L6j"><div><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<h1>error.js 파일 이해하기: 예기치 않은 에러 처리하기</h1>
+<p>프로그래밍 하다 보면 갑자기 예상하지 못한 에러가 발생할 때가 있어요. 이럴 때 사용자에게 깔끔한 ‘에러 메시지’를 보여주고, 앱이 갑자기 죽지 않도록 안전하게 처리하는 게 중요하죠. 이번에 소개할 <code>error.js</code> 파일은 그런 에러를 잡아내고 사용자에게 알림 UI(화면)를 보여주는 역할을 해요.</p>
+<hr>
+<h2>핵심 코드 정리</h2>
+<pre><code class="hljs language-js"><span class="hljs-string">'use client'</span> <span class="hljs-comment">// Error boundaries는 Client 측 컴포넌트여야 해요</span>
+
+<span class="hljs-keyword">import</span> { useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Error</span>(<span class="hljs-params">{
+  error,
+  reset,
+}: {
+  error: <span class="hljs-built_in">Error</span> &#x26; { digest?: string }
+  reset: () => <span class="hljs-keyword">void</span>
+}</span>) {
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =></span> {
+    <span class="hljs-comment">// 에러가 발생하면 콘솔과 같은 에러 리포팅 서비스에 기록하세요</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error)
+  }, [error])
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">div</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">h2</span>></span>Something went wrong!<span class="hljs-tag">&#x3C;/<span class="hljs-name">h2</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =></span> reset()}>
+        Try again
+      <span class="hljs-tag">&#x3C;/<span class="hljs-name">button</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">div</span>></span></span>
+  )
+}
+</code></pre>
+<hr>
+<h2>주요 포인트</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>설명</th></tr></thead><tbody><tr><td><code>'use client'</code></td><td>에러 경계(Error Boundary)는 <strong>클라이언트 컴포넌트</strong>여야 한다는 점! 서버 컴포넌트에서는 에러 경계를 사용할 수 없어요.</td></tr><tr><td><code>useEffect</code></td><td>에러가 발생하면 로깅(log)하는 부분이에요. 보통 여기에 Sentry, LogRocket 같은 에러 수집 서비스 코드를 넣기도 하죠.</td></tr><tr><td><code>reset</code> 함수</td><td>사용자가 “Try again” 버튼을 누르면 이 <code>reset</code> 함수가 실행되면서, 문제가 발생한 부분을 다시 렌더링하는 시도를 합니다.</td></tr></tbody></table>
+<hr>
+<h2>제가 더 알려드리고 싶은 점!</h2>
+<ul>
+<li>
+<p><strong>에러 경계란?</strong><br>
+리액트에서는 ‘에러 경계’라는 개념이 있는데, 컴포넌트 트리 어느 한 부분에서 에러가 나더라도, 해당 부분만 격리해서 에러 UI를 보여주고 전체 앱이 멈추지 않도록 도와줍니다.</p>
+</li>
+<li>
+<p><strong>에러 처리할 때 어디에 쓰면 좋을까?</strong><br>
+보통 사용자가 조작하는 주요 화면 컴포넌트 주변에 적용하면 좋아요. 예를 들어, 특정 API 호출이 실패하거나, 컴포넌트 내부 상태가 꼬였을 때 앱이 멈추는 걸 방지하죠.</p>
+</li>
+<li>
+<p><strong>추가 아이디어</strong><br>
+에러 메시지를 조금 더 사용자 친화적으로 바꾸거나, 에러 상세 내용을 개발자용 로그에만 남기고 사용자는 간단하게 안내하는 것도 좋은 UX 방식입니다.</p>
+</li>
+<li>
+<p><strong>실무 꿀팁!</strong><br>
+에러 발생 시 단순히 console.error만 하기보단, 별도의 에러 모니터링 툴(Sentry, Bugsnag 등)과 연동해두면 실시간으로 문제를 감지하고 빠르게 대응할 수 있어서 정말 좋아요.</p>
+</li>
+</ul>
+<hr>
+<p>요약하면, <code>error.js</code> 파일은 “앱이 갑자기 멈추지 않고 사용자에게 안내 메시지를 띄우면서, 다시 시도할 수 있도록 도와주는 작은 안전망” 같은 역할을 하는 컴포넌트입니다. 다음 프로젝트에 적용해보면 에러 대응이 한결 수월해질 거예요! 😊</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>error.js는 라우트 세그먼트와 그 안에 중첩된 자식들을 React의 에러 경계(Error Boundary)로 감싸주는 역할을 해요. 만약 이 경계 내에서 에러가 발생하면, 에러 컴포넌트가 대체 UI(fallback UI)로 보여지게 되죠.</p>
+<p><img src="/assets/img/2025-04-22-errorjs_1.png" alt="Error Boundary 예시"></p>
+<blockquote>
+<p>알아두면 좋은 팁!
+React DevTools에서는 에러 경계를 토글해가며 실제 에러 상태를 테스트할 수 있어요.
+만약 하위 에러 경계에서 발생한 에러가 부모 에러 경계까지 전달되길 원한다면, 에러 컴포넌트 렌더링 시점에 에러를 다시 던지(throw)면 됩니다.</p>
+</blockquote>
+<p>에러 경계(Error Boundary)는 React에서 UI가 예기치 않게 깨지는 상황을 방지하고 사용자에게도 친절한 메시지를 보여줄 수 있는 좋은 방법인데요, React 16 버전부터 도입된 기능이랍니다. 에러 경계 안에서만 렌더링되는 컴포넌트가 문제가 생기면 그 부분만 대체 UI로 교체되고, 전체 앱이 다운되는 걸 막아줘요.</p>
+<p>만약 이 기능을 제대로 활용하고싶다면, 한번 직접 React DevTools에서 에러 경계 토글 기능을 사용해 보면서 에러 상태 테스트를 해보는 걸 추천드려요. 실제 서비스에서 에러 상황을 어떻게 커버할지 고민할 때 큰 도움이 될 거예요!</p>
+<p>필요하면 이걸로 사용자에게 에러 메시지를 커스텀하거나, 에러 로그를 서버로 보내는 등의 작업도 할 수 있으니 참고하시고요.</p>
+<h2>참고 자료</h2>
+<ul>
+<li><a href="https://reactjs.org/docs/error-boundaries.html" rel="nofollow" target="_blank">React 공식 문서 - Error Boundaries</a></li>
+<li><a href="https://reactjs.org/blog/2019/08/15/new-react-devtools.html" rel="nofollow" target="_blank">React DevTools</a></li>
+</ul>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3>Props</h3>
+<h4>error</h4>
+<p><code>error</code>는 <code>error.js</code> 클라이언트 컴포넌트로 전달되는 Error 객체의 인스턴스입니다.</p>
+<blockquote>
+<p>알아두면 좋은 점: 개발 환경에서는 클라이언트로 전달되는 Error 객체가 직렬화되어 원래 에러 메시지를 포함해 디버깅이 더 쉽도록 도와줍니다. 하지만 프로덕션 환경에서는 잠재적으로 민감한 정보가 클라이언트로 유출되는 것을 막기 위해 이 동작이 달라진다는 점 참고하세요.</p>
+</blockquote>
+<p>추가로, 이런 에러 핸들링 방식을 통해 개발할 때에는 에러 메시지를 좀 더 자유롭게 확인할 수 있지만, 실제 운영 환경에서는 안전을 최우선으로 생각하기 때문에 에러 내용이 제한적으로 전달된다는 점 기억해두시면 좋아요. 에러 관련 코드를 작성할 때는 이 점을 고려해 로깅이나 모니터링도 함께 신경 써주세요!</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h4>error.message</h4>
+<ul>
+<li>클라이언트 컴포넌트에서 전달된 에러는 원래의 에러 메시지를 그대로 보여줘요.</li>
+<li>반면, 서버 컴포넌트에서 온 에러는 예민한 정보를 노출하지 않기 위해 일반적인 메시지와 식별자(identifier)를 보여준답니다.<br>
+이 식별자, 즉 <code>errors.digest</code> 값을 사용하면 서버 로그에서 해당 에러를 쉽게 찾아낼 수 있어요.</li>
+</ul>
+<h4>error.digest</h4>
+<p>이건 자동으로 생성된 에러 해시 값이에요.<br>
+서버 쪽 로그와 에러를 매칭할 때 아주 유용하죠.<br>
+즉, 사용자에게는 세세한 정보 대신 이 해시값만 보여주고, 개발자는 이 해시값을 통해 문제를 추적할 수 있는 거예요.</p>
+<hr>
+<h3>조금 더 알아볼까요?</h3>
+<p>서버 컴포넌트에서 에러 메시지에 상세한 내용을 숨기는 이유는 보안 때문이에요.<br>
+만약 민감한 코드 구조나 데이터가 클라이언트에 노출되면 해커들이 공격에 악용할 수 있거든요.<br>
+그래서 '어떤 문제가 발생했는지'는 알려주되, '어떤 코드에서, 왜'에 관한 자세한 건 서버 쪽에만 기록해서 관리하는 거죠.</p>
+<p>이런 구조 덕분에 사용자 경험은 방해받지 않으면서, 개발자는 충분한 디버깅 정보를 확보할 수 있답니다.</p>
+<p>혹시 서버 로그에서 에러를 찾으려면 <code>error.digest</code> 값을 복사해서 검색해보세요!<br>
+이게 생각보다 꽤 쏙쏙 잘 맞아 떨어진답니다. 🙂</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h4>리셋 (reset)</h4>
+<p>가끔 에러가 일시적인 경우가 있어요. 이런 경우에는 다시 시도하면 문제를 해결할 수 있죠.</p>
+<p>에러 컴포넌트에서는 <code>reset()</code> 함수를 사용해서 사용자에게 에러에서 복구할 기회를 줄 수 있어요. 이 함수가 호출되면, 에러 경계(error boundary)에 감싸져 있는 컴포넌트를 다시 렌더링하려고 시도합니다. 만약 다시 렌더링에 성공하면 기존의 에러 화면(fallback)이 정상 화면으로 바뀌게 되죠.</p>
+<p>사용법은 아주 간단해요. 예를 들어:</p>
+<pre><code class="hljs language-js"><span class="hljs-string">'use client'</span> <span class="hljs-comment">// 에러 경계는 반드시 클라이언트 컴포넌트여야 합니다</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Error</span>(<span class="hljs-params">{
+  error,
+  reset,
+}: {
+  error: <span class="hljs-built_in">Error</span> &#x26; { digest?: string }
+  reset: () => <span class="hljs-keyword">void</span>
+}</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">div</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">h2</span>></span>문제가 발생했습니다!<span class="hljs-tag">&#x3C;/<span class="hljs-name">h2</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =></span> reset()}>다시 시도하기<span class="hljs-tag">&#x3C;/<span class="hljs-name">button</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">div</span>></span></span>
+  )
+}
+</code></pre>
+<p>위 예제에서 <code>reset()</code> 함수가 버튼 클릭 시 호출되고, 이로 인해 오류 상태가 초기화되어 정상 화면을 다시 시도하게 되는 거죠.</p>
+<hr>
+<p><strong>추가 팁!</strong></p>
+<ul>
+<li><code>reset()</code>은 React의 에러 경계 기능과 연동되어 동작하기 때문에, Next.js 13의 <code>app</code> 디렉토리 기반에서 클라이언트 컴포넌트로 작성해야 합니다.</li>
+<li><code>reset()</code>을 사용할 땐 오류 발생 시 사용자에게 친절하게 안내하는 UI를 보여주는 게 좋아요. 예를 들어, 에러 내용과 함께 재시도 버튼을 제공하면 사용자 경험이 훨씬 좋아집니다.</li>
+<li>일시적인 네트워크 문제나 API 호출 실패 같은 상황에서 특히 유용하니, 네트워크 상태 변화 이벤트와도 같이 활용하면 효과적이에요.</li>
+</ul>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h2>예시</h2>
+<h3>전역 에러 처리(Global Error)</h3>
+<p>전역 에러 처리는 조금 덜 흔하지만, 루트 앱 디렉토리에 <code>global-error.js</code> 파일을 만들어서 루트 레이아웃(root layout)이나 템플릿(root template)에서 발생하는 에러를 잡을 수 있어요. 특히 다국어 지원(i18n)을 사용할 때도 문제없이 동작합니다. 여기서 중요한 점! 전역 에러 UI는 반드시 <code>html</code>과 <code>body</code> 태그를 직접 정의해야 해요. 이 파일이 활성화되면 해당 루트 레이아웃이나 템플릿을 대체하게 된답니다.</p>
+<pre><code class="hljs language-jsx"><span class="hljs-string">'use client'</span> <span class="hljs-comment">// 에러 바운더리는 클라이언트 컴포넌트여야 해요</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">GlobalError</span>(<span class="hljs-params">{
+  error,
+  reset,
+}: {
+  error: <span class="hljs-built_in">Error</span> &#x26; { digest?: string }
+  reset: () => <span class="hljs-keyword">void</span>
+}</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">html</span>></span>
+      <span class="hljs-tag">&#x3C;<span class="hljs-name">body</span>></span>
+        <span class="hljs-tag">&#x3C;<span class="hljs-name">h2</span>></span>문제가 발생했어요!<span class="hljs-tag">&#x3C;/<span class="hljs-name">h2</span>></span>
+        <span class="hljs-tag">&#x3C;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =></span> reset()}>다시 시도하기<span class="hljs-tag">&#x3C;/<span class="hljs-name">button</span>></span>
+      <span class="hljs-tag">&#x3C;/<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag">&#x3C;/<span class="hljs-name">html</span>></span></span>
+  )
+}
+</code></pre>
+<h3>추가 팁!</h3>
+<ul>
+<li><code>reset</code> 함수는 에러 상태를 초기화해서 컴포넌트를 리프레시하는 역할을 해요. 사용자 경험을 위해 꼭 넣어주세요.</li>
+<li>전역 에러 컴포넌트가 활성화되면 기존의 레이아웃이나 템플릿이 완전히 대체되니, 디자인 요소나 공통 레이아웃을 포함시키고 싶으면 직접 만들어야 한다는 점 기억하세요.</li>
+<li>**에러 경계(Error Boundaries)**는 클라이언트에서만 동작하기 때문에 꼭 <code>'use client'</code>를 선언해야 하는 점도 꼭 체크!</li>
+</ul>
+<p>이렇게 전역에서 에러를 처리하면 예상치 못한 문제가 발생해도 깔끔하게 사용자에게 안내할 수 있어서 앱 안정성에 큰 도움이 됩니다.</p>
+<!-- TIL 수평 -->
+<p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877378276818686" data-ad-slot="1549334788" data-ad-format="auto" data-full-width-responsive="true"></ins></p>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h2>버전 히스토리</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>버전</th><th>변경 사항</th></tr></thead><tbody><tr><td><code>v15.2.0</code></td><td>개발 환경에서 <code>global-error</code>도 표시되도록 변경됨.</td></tr><tr><td><code>v13.1.0</code></td><td><code>global-error</code> 기능 추가됨.</td></tr><tr><td><code>v13.0.0</code></td><td><code>error</code> 기능 추가됨.</td></tr></tbody></table>
+<hr>
+<p>여기서 잠깐!</p>
+<ul>
+<li><code>global-error</code>는 전역적으로 발생하는 에러를 한눈에 확인할 수 있게 해주는 기능이에요. 특히 개발할 때 어디서 문제가 생겼는지 빠르게 파악할 수 있어서 무척 유용하죠.</li>
+<li>버전 히스토리를 잘 확인해두면 새로 추가된 기능이나 변경된 점을 놓치지 않을 수 있으니 개발하면서 꼭 참고하시길 추천해요!</li>
+</ul>
+</body>
+</html>
+</div></article></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"Next.js 15에서 error.js 파일로 에러 처리하는 방법 정리","description":"","date":"2025-04-22 02:36","slug":"2025-04-22-errorjs","content":"\n\n# error.js 파일 이해하기: 예기치 않은 에러 처리하기\n\n프로그래밍 하다 보면 갑자기 예상하지 못한 에러가 발생할 때가 있어요. 이럴 때 사용자에게 깔끔한 ‘에러 메시지’를 보여주고, 앱이 갑자기 죽지 않도록 안전하게 처리하는 게 중요하죠. 이번에 소개할 `error.js` 파일은 그런 에러를 잡아내고 사용자에게 알림 UI(화면)를 보여주는 역할을 해요.\n\n---\n\n## 핵심 코드 정리\n\n```js\n'use client' // Error boundaries는 Client 측 컴포넌트여야 해요\n\nimport { useEffect } from 'react'\n\nexport default function Error({\n  error,\n  reset,\n}: {\n  error: Error \u0026 { digest?: string }\n  reset: () =\u003e void\n}) {\n  useEffect(() =\u003e {\n    // 에러가 발생하면 콘솔과 같은 에러 리포팅 서비스에 기록하세요\n    console.error(error)\n  }, [error])\n\n  return (\n    \u003cdiv\u003e\n      \u003ch2\u003eSomething went wrong!\u003c/h2\u003e\n      \u003cbutton onClick={() =\u003e reset()}\u003e\n        Try again\n      \u003c/button\u003e\n    \u003c/div\u003e\n  )\n}\n```\n\n---\n\n## 주요 포인트\n\n| 항목 | 설명 |\n|---|---|\n| `'use client'` | 에러 경계(Error Boundary)는 **클라이언트 컴포넌트**여야 한다는 점! 서버 컴포넌트에서는 에러 경계를 사용할 수 없어요. |\n| `useEffect` | 에러가 발생하면 로깅(log)하는 부분이에요. 보통 여기에 Sentry, LogRocket 같은 에러 수집 서비스 코드를 넣기도 하죠. |\n| `reset` 함수 | 사용자가 “Try again” 버튼을 누르면 이 `reset` 함수가 실행되면서, 문제가 발생한 부분을 다시 렌더링하는 시도를 합니다. |\n\n---\n\n## 제가 더 알려드리고 싶은 점!\n\n- **에러 경계란?**  \n  리액트에서는 ‘에러 경계’라는 개념이 있는데, 컴포넌트 트리 어느 한 부분에서 에러가 나더라도, 해당 부분만 격리해서 에러 UI를 보여주고 전체 앱이 멈추지 않도록 도와줍니다.\n\n- **에러 처리할 때 어디에 쓰면 좋을까?**  \n  보통 사용자가 조작하는 주요 화면 컴포넌트 주변에 적용하면 좋아요. 예를 들어, 특정 API 호출이 실패하거나, 컴포넌트 내부 상태가 꼬였을 때 앱이 멈추는 걸 방지하죠.\n\n- **추가 아이디어**  \n  에러 메시지를 조금 더 사용자 친화적으로 바꾸거나, 에러 상세 내용을 개발자용 로그에만 남기고 사용자는 간단하게 안내하는 것도 좋은 UX 방식입니다.\n\n- **실무 꿀팁!**  \n  에러 발생 시 단순히 console.error만 하기보단, 별도의 에러 모니터링 툴(Sentry, Bugsnag 등)과 연동해두면 실시간으로 문제를 감지하고 빠르게 대응할 수 있어서 정말 좋아요.\n\n---\n\n요약하면, `error.js` 파일은 “앱이 갑자기 멈추지 않고 사용자에게 안내 메시지를 띄우면서, 다시 시도할 수 있도록 도와주는 작은 안전망” 같은 역할을 하는 컴포넌트입니다. 다음 프로젝트에 적용해보면 에러 대응이 한결 수월해질 거예요! 😊\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\nerror.js는 라우트 세그먼트와 그 안에 중첩된 자식들을 React의 에러 경계(Error Boundary)로 감싸주는 역할을 해요. 만약 이 경계 내에서 에러가 발생하면, 에러 컴포넌트가 대체 UI(fallback UI)로 보여지게 되죠.\n\n![Error Boundary 예시]( /assets/img/2025-04-22-errorjs_1.png )\n\n\u003e 알아두면 좋은 팁!\n\u003e React DevTools에서는 에러 경계를 토글해가며 실제 에러 상태를 테스트할 수 있어요.\n\u003e 만약 하위 에러 경계에서 발생한 에러가 부모 에러 경계까지 전달되길 원한다면, 에러 컴포넌트 렌더링 시점에 에러를 다시 던지(throw)면 됩니다.\n\n에러 경계(Error Boundary)는 React에서 UI가 예기치 않게 깨지는 상황을 방지하고 사용자에게도 친절한 메시지를 보여줄 수 있는 좋은 방법인데요, React 16 버전부터 도입된 기능이랍니다. 에러 경계 안에서만 렌더링되는 컴포넌트가 문제가 생기면 그 부분만 대체 UI로 교체되고, 전체 앱이 다운되는 걸 막아줘요.\n\n만약 이 기능을 제대로 활용하고싶다면, 한번 직접 React DevTools에서 에러 경계 토글 기능을 사용해 보면서 에러 상태 테스트를 해보는 걸 추천드려요. 실제 서비스에서 에러 상황을 어떻게 커버할지 고민할 때 큰 도움이 될 거예요!\n\n필요하면 이걸로 사용자에게 에러 메시지를 커스텀하거나, 에러 로그를 서버로 보내는 등의 작업도 할 수 있으니 참고하시고요.\n\n## 참고 자료  \n- [React 공식 문서 - Error Boundaries](https://reactjs.org/docs/error-boundaries.html)  \n- [React DevTools](https://reactjs.org/blog/2019/08/15/new-react-devtools.html)\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n### Props\n\n#### error\n\n`error`는 `error.js` 클라이언트 컴포넌트로 전달되는 Error 객체의 인스턴스입니다.\n\n\u003e 알아두면 좋은 점: 개발 환경에서는 클라이언트로 전달되는 Error 객체가 직렬화되어 원래 에러 메시지를 포함해 디버깅이 더 쉽도록 도와줍니다. 하지만 프로덕션 환경에서는 잠재적으로 민감한 정보가 클라이언트로 유출되는 것을 막기 위해 이 동작이 달라진다는 점 참고하세요.\n\n추가로, 이런 에러 핸들링 방식을 통해 개발할 때에는 에러 메시지를 좀 더 자유롭게 확인할 수 있지만, 실제 운영 환경에서는 안전을 최우선으로 생각하기 때문에 에러 내용이 제한적으로 전달된다는 점 기억해두시면 좋아요. 에러 관련 코드를 작성할 때는 이 점을 고려해 로깅이나 모니터링도 함께 신경 써주세요!\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n#### error.message\n\n- 클라이언트 컴포넌트에서 전달된 에러는 원래의 에러 메시지를 그대로 보여줘요.\n- 반면, 서버 컴포넌트에서 온 에러는 예민한 정보를 노출하지 않기 위해 일반적인 메시지와 식별자(identifier)를 보여준답니다.  \n  이 식별자, 즉 `errors.digest` 값을 사용하면 서버 로그에서 해당 에러를 쉽게 찾아낼 수 있어요.\n\n#### error.digest\n\n이건 자동으로 생성된 에러 해시 값이에요.  \n서버 쪽 로그와 에러를 매칭할 때 아주 유용하죠.  \n즉, 사용자에게는 세세한 정보 대신 이 해시값만 보여주고, 개발자는 이 해시값을 통해 문제를 추적할 수 있는 거예요.\n\n---\n\n### 조금 더 알아볼까요?\n\n서버 컴포넌트에서 에러 메시지에 상세한 내용을 숨기는 이유는 보안 때문이에요.  \n만약 민감한 코드 구조나 데이터가 클라이언트에 노출되면 해커들이 공격에 악용할 수 있거든요.  \n그래서 '어떤 문제가 발생했는지'는 알려주되, '어떤 코드에서, 왜'에 관한 자세한 건 서버 쪽에만 기록해서 관리하는 거죠.\n\n이런 구조 덕분에 사용자 경험은 방해받지 않으면서, 개발자는 충분한 디버깅 정보를 확보할 수 있답니다.  \n\n혹시 서버 로그에서 에러를 찾으려면 `error.digest` 값을 복사해서 검색해보세요!  \n이게 생각보다 꽤 쏙쏙 잘 맞아 떨어진답니다. 🙂\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n#### 리셋 (reset)\n\n가끔 에러가 일시적인 경우가 있어요. 이런 경우에는 다시 시도하면 문제를 해결할 수 있죠.\n\n에러 컴포넌트에서는 `reset()` 함수를 사용해서 사용자에게 에러에서 복구할 기회를 줄 수 있어요. 이 함수가 호출되면, 에러 경계(error boundary)에 감싸져 있는 컴포넌트를 다시 렌더링하려고 시도합니다. 만약 다시 렌더링에 성공하면 기존의 에러 화면(fallback)이 정상 화면으로 바뀌게 되죠.\n\n사용법은 아주 간단해요. 예를 들어:\n\n```js\n'use client' // 에러 경계는 반드시 클라이언트 컴포넌트여야 합니다\n\nexport default function Error({\n  error,\n  reset,\n}: {\n  error: Error \u0026 { digest?: string }\n  reset: () =\u003e void\n}) {\n  return (\n    \u003cdiv\u003e\n      \u003ch2\u003e문제가 발생했습니다!\u003c/h2\u003e\n      \u003cbutton onClick={() =\u003e reset()}\u003e다시 시도하기\u003c/button\u003e\n    \u003c/div\u003e\n  )\n}\n```\n\n위 예제에서 `reset()` 함수가 버튼 클릭 시 호출되고, 이로 인해 오류 상태가 초기화되어 정상 화면을 다시 시도하게 되는 거죠.\n\n---\n\n**추가 팁!**\n\n- `reset()`은 React의 에러 경계 기능과 연동되어 동작하기 때문에, Next.js 13의 `app` 디렉토리 기반에서 클라이언트 컴포넌트로 작성해야 합니다.\n- `reset()`을 사용할 땐 오류 발생 시 사용자에게 친절하게 안내하는 UI를 보여주는 게 좋아요. 예를 들어, 에러 내용과 함께 재시도 버튼을 제공하면 사용자 경험이 훨씬 좋아집니다.\n- 일시적인 네트워크 문제나 API 호출 실패 같은 상황에서 특히 유용하니, 네트워크 상태 변화 이벤트와도 같이 활용하면 효과적이에요.\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n## 예시\n\n### 전역 에러 처리(Global Error)\n\n전역 에러 처리는 조금 덜 흔하지만, 루트 앱 디렉토리에 `global-error.js` 파일을 만들어서 루트 레이아웃(root layout)이나 템플릿(root template)에서 발생하는 에러를 잡을 수 있어요. 특히 다국어 지원(i18n)을 사용할 때도 문제없이 동작합니다. 여기서 중요한 점! 전역 에러 UI는 반드시 `html`과 `body` 태그를 직접 정의해야 해요. 이 파일이 활성화되면 해당 루트 레이아웃이나 템플릿을 대체하게 된답니다.\n\n```jsx\n'use client' // 에러 바운더리는 클라이언트 컴포넌트여야 해요\n\nexport default function GlobalError({\n  error,\n  reset,\n}: {\n  error: Error \u0026 { digest?: string }\n  reset: () =\u003e void\n}) {\n  return (\n    \u003chtml\u003e\n      \u003cbody\u003e\n        \u003ch2\u003e문제가 발생했어요!\u003c/h2\u003e\n        \u003cbutton onClick={() =\u003e reset()}\u003e다시 시도하기\u003c/button\u003e\n      \u003c/body\u003e\n    \u003c/html\u003e\n  )\n}\n```\n\n### 추가 팁!\n\n- `reset` 함수는 에러 상태를 초기화해서 컴포넌트를 리프레시하는 역할을 해요. 사용자 경험을 위해 꼭 넣어주세요.\n- 전역 에러 컴포넌트가 활성화되면 기존의 레이아웃이나 템플릿이 완전히 대체되니, 디자인 요소나 공통 레이아웃을 포함시키고 싶으면 직접 만들어야 한다는 점 기억하세요.\n- **에러 경계(Error Boundaries)**는 클라이언트에서만 동작하기 때문에 꼭 `'use client'`를 선언해야 하는 점도 꼭 체크!  \n\n이렇게 전역에서 에러를 처리하면 예상치 못한 문제가 발생해도 깔끔하게 사용자에게 안내할 수 있어서 앱 안정성에 큰 도움이 됩니다.\n\n\u003c!-- TIL 수평 --\u003e\n\u003cins class=\"adsbygoogle\"\n     style=\"display:block\"\n     data-ad-client=\"ca-pub-4877378276818686\"\n     data-ad-slot=\"1549334788\"\n     data-ad-format=\"auto\"\n     data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\n## 버전 히스토리\n\n| 버전         | 변경 사항                         |\n|--------------|----------------------------------|\n| `v15.2.0`    | 개발 환경에서 `global-error`도 표시되도록 변경됨. |\n| `v13.1.0`    | `global-error` 기능 추가됨.             |\n| `v13.0.0`    | `error` 기능 추가됨.                    |\n\n---\n\n여기서 잠깐!  \n\n- `global-error`는 전역적으로 발생하는 에러를 한눈에 확인할 수 있게 해주는 기능이에요. 특히 개발할 때 어디서 문제가 생겼는지 빠르게 파악할 수 있어서 무척 유용하죠.\n- 버전 히스토리를 잘 확인해두면 새로 추가된 기능이나 변경된 점을 놓치지 않을 수 있으니 개발하면서 꼭 참고하시길 추천해요!","ogImage":{"url":"/TIL/assets/img/nextjs.png"},"coverImage":"/TIL/assets/img/nextjs.png","tag":["Tech"],"readingTime":8},"content":"\u003c!doctype html\u003e\n\u003chtml lang=\"en\"\u003e\n\u003chead\u003e\n\u003cmeta charset=\"utf-8\"\u003e\n\u003cmeta content=\"width=device-width, initial-scale=1\" name=\"viewport\"\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\u003ch1\u003eerror.js 파일 이해하기: 예기치 않은 에러 처리하기\u003c/h1\u003e\n\u003cp\u003e프로그래밍 하다 보면 갑자기 예상하지 못한 에러가 발생할 때가 있어요. 이럴 때 사용자에게 깔끔한 ‘에러 메시지’를 보여주고, 앱이 갑자기 죽지 않도록 안전하게 처리하는 게 중요하죠. 이번에 소개할 \u003ccode\u003eerror.js\u003c/code\u003e 파일은 그런 에러를 잡아내고 사용자에게 알림 UI(화면)를 보여주는 역할을 해요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e핵심 코드 정리\u003c/h2\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-string\"\u003e'use client'\u003c/span\u003e \u003cspan class=\"hljs-comment\"\u003e// Error boundaries는 Client 측 컴포넌트여야 해요\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e { useEffect } \u003cspan class=\"hljs-keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e'react'\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eError\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  error,\n  reset,\n}: {\n  error: \u003cspan class=\"hljs-built_in\"\u003eError\u003c/span\u003e \u0026#x26; { digest?: string }\n  reset: () =\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-title function_\"\u003euseEffect\u003c/span\u003e(\u003cspan class=\"hljs-function\"\u003e() =\u003e\u003c/span\u003e {\n    \u003cspan class=\"hljs-comment\"\u003e// 에러가 발생하면 콘솔과 같은 에러 리포팅 서비스에 기록하세요\u003c/span\u003e\n    \u003cspan class=\"hljs-variable language_\"\u003econsole\u003c/span\u003e.\u003cspan class=\"hljs-title function_\"\u003eerror\u003c/span\u003e(error)\n  }, [error])\n\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ediv\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eh2\u003c/span\u003e\u003e\u003c/span\u003eSomething went wrong!\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eh2\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebutton\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eonClick\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e{()\u003c/span\u003e =\u003e\u003c/span\u003e reset()}\u003e\n        Try again\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebutton\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ediv\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  )\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e주요 포인트\u003c/h2\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e항목\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003e'use client'\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e에러 경계(Error Boundary)는 \u003cstrong\u003e클라이언트 컴포넌트\u003c/strong\u003e여야 한다는 점! 서버 컴포넌트에서는 에러 경계를 사용할 수 없어요.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003euseEffect\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e에러가 발생하면 로깅(log)하는 부분이에요. 보통 여기에 Sentry, LogRocket 같은 에러 수집 서비스 코드를 넣기도 하죠.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ereset\u003c/code\u003e 함수\u003c/td\u003e\u003ctd\u003e사용자가 “Try again” 버튼을 누르면 이 \u003ccode\u003ereset\u003c/code\u003e 함수가 실행되면서, 문제가 발생한 부분을 다시 렌더링하는 시도를 합니다.\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003ch2\u003e제가 더 알려드리고 싶은 점!\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e에러 경계란?\u003c/strong\u003e\u003cbr\u003e\n리액트에서는 ‘에러 경계’라는 개념이 있는데, 컴포넌트 트리 어느 한 부분에서 에러가 나더라도, 해당 부분만 격리해서 에러 UI를 보여주고 전체 앱이 멈추지 않도록 도와줍니다.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e에러 처리할 때 어디에 쓰면 좋을까?\u003c/strong\u003e\u003cbr\u003e\n보통 사용자가 조작하는 주요 화면 컴포넌트 주변에 적용하면 좋아요. 예를 들어, 특정 API 호출이 실패하거나, 컴포넌트 내부 상태가 꼬였을 때 앱이 멈추는 걸 방지하죠.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e추가 아이디어\u003c/strong\u003e\u003cbr\u003e\n에러 메시지를 조금 더 사용자 친화적으로 바꾸거나, 에러 상세 내용을 개발자용 로그에만 남기고 사용자는 간단하게 안내하는 것도 좋은 UX 방식입니다.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e실무 꿀팁!\u003c/strong\u003e\u003cbr\u003e\n에러 발생 시 단순히 console.error만 하기보단, 별도의 에러 모니터링 툴(Sentry, Bugsnag 등)과 연동해두면 실시간으로 문제를 감지하고 빠르게 대응할 수 있어서 정말 좋아요.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003e요약하면, \u003ccode\u003eerror.js\u003c/code\u003e 파일은 “앱이 갑자기 멈추지 않고 사용자에게 안내 메시지를 띄우면서, 다시 시도할 수 있도록 도와주는 작은 안전망” 같은 역할을 하는 컴포넌트입니다. 다음 프로젝트에 적용해보면 에러 대응이 한결 수월해질 거예요! 😊\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003cp\u003eerror.js는 라우트 세그먼트와 그 안에 중첩된 자식들을 React의 에러 경계(Error Boundary)로 감싸주는 역할을 해요. 만약 이 경계 내에서 에러가 발생하면, 에러 컴포넌트가 대체 UI(fallback UI)로 보여지게 되죠.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/assets/img/2025-04-22-errorjs_1.png\" alt=\"Error Boundary 예시\"\u003e\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e알아두면 좋은 팁!\nReact DevTools에서는 에러 경계를 토글해가며 실제 에러 상태를 테스트할 수 있어요.\n만약 하위 에러 경계에서 발생한 에러가 부모 에러 경계까지 전달되길 원한다면, 에러 컴포넌트 렌더링 시점에 에러를 다시 던지(throw)면 됩니다.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e에러 경계(Error Boundary)는 React에서 UI가 예기치 않게 깨지는 상황을 방지하고 사용자에게도 친절한 메시지를 보여줄 수 있는 좋은 방법인데요, React 16 버전부터 도입된 기능이랍니다. 에러 경계 안에서만 렌더링되는 컴포넌트가 문제가 생기면 그 부분만 대체 UI로 교체되고, 전체 앱이 다운되는 걸 막아줘요.\u003c/p\u003e\n\u003cp\u003e만약 이 기능을 제대로 활용하고싶다면, 한번 직접 React DevTools에서 에러 경계 토글 기능을 사용해 보면서 에러 상태 테스트를 해보는 걸 추천드려요. 실제 서비스에서 에러 상황을 어떻게 커버할지 고민할 때 큰 도움이 될 거예요!\u003c/p\u003e\n\u003cp\u003e필요하면 이걸로 사용자에게 에러 메시지를 커스텀하거나, 에러 로그를 서버로 보내는 등의 작업도 할 수 있으니 참고하시고요.\u003c/p\u003e\n\u003ch2\u003e참고 자료\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://reactjs.org/docs/error-boundaries.html\" rel=\"nofollow\" target=\"_blank\"\u003eReact 공식 문서 - Error Boundaries\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://reactjs.org/blog/2019/08/15/new-react-devtools.html\" rel=\"nofollow\" target=\"_blank\"\u003eReact DevTools\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch3\u003eProps\u003c/h3\u003e\n\u003ch4\u003eerror\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eerror\u003c/code\u003e는 \u003ccode\u003eerror.js\u003c/code\u003e 클라이언트 컴포넌트로 전달되는 Error 객체의 인스턴스입니다.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e알아두면 좋은 점: 개발 환경에서는 클라이언트로 전달되는 Error 객체가 직렬화되어 원래 에러 메시지를 포함해 디버깅이 더 쉽도록 도와줍니다. 하지만 프로덕션 환경에서는 잠재적으로 민감한 정보가 클라이언트로 유출되는 것을 막기 위해 이 동작이 달라진다는 점 참고하세요.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e추가로, 이런 에러 핸들링 방식을 통해 개발할 때에는 에러 메시지를 좀 더 자유롭게 확인할 수 있지만, 실제 운영 환경에서는 안전을 최우선으로 생각하기 때문에 에러 내용이 제한적으로 전달된다는 점 기억해두시면 좋아요. 에러 관련 코드를 작성할 때는 이 점을 고려해 로깅이나 모니터링도 함께 신경 써주세요!\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch4\u003eerror.message\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e클라이언트 컴포넌트에서 전달된 에러는 원래의 에러 메시지를 그대로 보여줘요.\u003c/li\u003e\n\u003cli\u003e반면, 서버 컴포넌트에서 온 에러는 예민한 정보를 노출하지 않기 위해 일반적인 메시지와 식별자(identifier)를 보여준답니다.\u003cbr\u003e\n이 식별자, 즉 \u003ccode\u003eerrors.digest\u003c/code\u003e 값을 사용하면 서버 로그에서 해당 에러를 쉽게 찾아낼 수 있어요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eerror.digest\u003c/h4\u003e\n\u003cp\u003e이건 자동으로 생성된 에러 해시 값이에요.\u003cbr\u003e\n서버 쪽 로그와 에러를 매칭할 때 아주 유용하죠.\u003cbr\u003e\n즉, 사용자에게는 세세한 정보 대신 이 해시값만 보여주고, 개발자는 이 해시값을 통해 문제를 추적할 수 있는 거예요.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e조금 더 알아볼까요?\u003c/h3\u003e\n\u003cp\u003e서버 컴포넌트에서 에러 메시지에 상세한 내용을 숨기는 이유는 보안 때문이에요.\u003cbr\u003e\n만약 민감한 코드 구조나 데이터가 클라이언트에 노출되면 해커들이 공격에 악용할 수 있거든요.\u003cbr\u003e\n그래서 '어떤 문제가 발생했는지'는 알려주되, '어떤 코드에서, 왜'에 관한 자세한 건 서버 쪽에만 기록해서 관리하는 거죠.\u003c/p\u003e\n\u003cp\u003e이런 구조 덕분에 사용자 경험은 방해받지 않으면서, 개발자는 충분한 디버깅 정보를 확보할 수 있답니다.\u003c/p\u003e\n\u003cp\u003e혹시 서버 로그에서 에러를 찾으려면 \u003ccode\u003eerror.digest\u003c/code\u003e 값을 복사해서 검색해보세요!\u003cbr\u003e\n이게 생각보다 꽤 쏙쏙 잘 맞아 떨어진답니다. 🙂\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch4\u003e리셋 (reset)\u003c/h4\u003e\n\u003cp\u003e가끔 에러가 일시적인 경우가 있어요. 이런 경우에는 다시 시도하면 문제를 해결할 수 있죠.\u003c/p\u003e\n\u003cp\u003e에러 컴포넌트에서는 \u003ccode\u003ereset()\u003c/code\u003e 함수를 사용해서 사용자에게 에러에서 복구할 기회를 줄 수 있어요. 이 함수가 호출되면, 에러 경계(error boundary)에 감싸져 있는 컴포넌트를 다시 렌더링하려고 시도합니다. 만약 다시 렌더링에 성공하면 기존의 에러 화면(fallback)이 정상 화면으로 바뀌게 되죠.\u003c/p\u003e\n\u003cp\u003e사용법은 아주 간단해요. 예를 들어:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-js\"\u003e\u003cspan class=\"hljs-string\"\u003e'use client'\u003c/span\u003e \u003cspan class=\"hljs-comment\"\u003e// 에러 경계는 반드시 클라이언트 컴포넌트여야 합니다\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eError\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  error,\n  reset,\n}: {\n  error: \u003cspan class=\"hljs-built_in\"\u003eError\u003c/span\u003e \u0026#x26; { digest?: string }\n  reset: () =\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ediv\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eh2\u003c/span\u003e\u003e\u003c/span\u003e문제가 발생했습니다!\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eh2\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebutton\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eonClick\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e{()\u003c/span\u003e =\u003e\u003c/span\u003e reset()}\u003e다시 시도하기\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebutton\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ediv\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  )\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e위 예제에서 \u003ccode\u003ereset()\u003c/code\u003e 함수가 버튼 클릭 시 호출되고, 이로 인해 오류 상태가 초기화되어 정상 화면을 다시 시도하게 되는 거죠.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003e추가 팁!\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ereset()\u003c/code\u003e은 React의 에러 경계 기능과 연동되어 동작하기 때문에, Next.js 13의 \u003ccode\u003eapp\u003c/code\u003e 디렉토리 기반에서 클라이언트 컴포넌트로 작성해야 합니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ereset()\u003c/code\u003e을 사용할 땐 오류 발생 시 사용자에게 친절하게 안내하는 UI를 보여주는 게 좋아요. 예를 들어, 에러 내용과 함께 재시도 버튼을 제공하면 사용자 경험이 훨씬 좋아집니다.\u003c/li\u003e\n\u003cli\u003e일시적인 네트워크 문제나 API 호출 실패 같은 상황에서 특히 유용하니, 네트워크 상태 변화 이벤트와도 같이 활용하면 효과적이에요.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch2\u003e예시\u003c/h2\u003e\n\u003ch3\u003e전역 에러 처리(Global Error)\u003c/h3\u003e\n\u003cp\u003e전역 에러 처리는 조금 덜 흔하지만, 루트 앱 디렉토리에 \u003ccode\u003eglobal-error.js\u003c/code\u003e 파일을 만들어서 루트 레이아웃(root layout)이나 템플릿(root template)에서 발생하는 에러를 잡을 수 있어요. 특히 다국어 지원(i18n)을 사용할 때도 문제없이 동작합니다. 여기서 중요한 점! 전역 에러 UI는 반드시 \u003ccode\u003ehtml\u003c/code\u003e과 \u003ccode\u003ebody\u003c/code\u003e 태그를 직접 정의해야 해요. 이 파일이 활성화되면 해당 루트 레이아웃이나 템플릿을 대체하게 된답니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-jsx\"\u003e\u003cspan class=\"hljs-string\"\u003e'use client'\u003c/span\u003e \u003cspan class=\"hljs-comment\"\u003e// 에러 바운더리는 클라이언트 컴포넌트여야 해요\u003c/span\u003e\n\n\u003cspan class=\"hljs-keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"hljs-title function_\"\u003eGlobalError\u003c/span\u003e(\u003cspan class=\"hljs-params\"\u003e{\n  error,\n  reset,\n}: {\n  error: \u003cspan class=\"hljs-built_in\"\u003eError\u003c/span\u003e \u0026#x26; { digest?: string }\n  reset: () =\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e\n}\u003c/span\u003e) {\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e (\n    \u003cspan class=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003eh2\u003c/span\u003e\u003e\u003c/span\u003e문제가 발생했어요!\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003eh2\u003c/span\u003e\u003e\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;\u003cspan class=\"hljs-name\"\u003ebutton\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eonClick\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e{()\u003c/span\u003e =\u003e\u003c/span\u003e reset()}\u003e다시 시도하기\u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebutton\u003c/span\u003e\u003e\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ebody\u003c/span\u003e\u003e\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026#x3C;/\u003cspan class=\"hljs-name\"\u003ehtml\u003c/span\u003e\u003e\u003c/span\u003e\u003c/span\u003e\n  )\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e추가 팁!\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ereset\u003c/code\u003e 함수는 에러 상태를 초기화해서 컴포넌트를 리프레시하는 역할을 해요. 사용자 경험을 위해 꼭 넣어주세요.\u003c/li\u003e\n\u003cli\u003e전역 에러 컴포넌트가 활성화되면 기존의 레이아웃이나 템플릿이 완전히 대체되니, 디자인 요소나 공통 레이아웃을 포함시키고 싶으면 직접 만들어야 한다는 점 기억하세요.\u003c/li\u003e\n\u003cli\u003e**에러 경계(Error Boundaries)**는 클라이언트에서만 동작하기 때문에 꼭 \u003ccode\u003e'use client'\u003c/code\u003e를 선언해야 하는 점도 꼭 체크!\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이렇게 전역에서 에러를 처리하면 예상치 못한 문제가 발생해도 깔끔하게 사용자에게 안내할 수 있어서 앱 안정성에 큰 도움이 됩니다.\u003c/p\u003e\n\u003c!-- TIL 수평 --\u003e\n\u003cp\u003e\u003cins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-4877378276818686\" data-ad-slot=\"1549334788\" data-ad-format=\"auto\" data-full-width-responsive=\"true\"\u003e\u003c/ins\u003e\u003c/p\u003e\n\u003cscript\u003e\n(adsbygoogle = window.adsbygoogle || []).push({});\n\u003c/script\u003e\n\u003ch2\u003e버전 히스토리\u003c/h2\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e버전\u003c/th\u003e\u003cth\u003e변경 사항\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ev15.2.0\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e개발 환경에서 \u003ccode\u003eglobal-error\u003c/code\u003e도 표시되도록 변경됨.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ev13.1.0\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003eglobal-error\u003c/code\u003e 기능 추가됨.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ev13.0.0\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e\u003ccode\u003eerror\u003c/code\u003e 기능 추가됨.\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\n\u003cp\u003e여기서 잠깐!\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eglobal-error\u003c/code\u003e는 전역적으로 발생하는 에러를 한눈에 확인할 수 있게 해주는 기능이에요. 특히 개발할 때 어디서 문제가 생겼는지 빠르게 파악할 수 있어서 무척 유용하죠.\u003c/li\u003e\n\u003cli\u003e버전 히스토리를 잘 확인해두면 새로 추가된 기능이나 변경된 점을 놓치지 않을 수 있으니 개발하면서 꼭 참고하시길 추천해요!\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n"},"__N_SSG":true},"page":"/post/[slug]","query":{"slug":"2025-04-22-errorjs"},"buildId":"o6AmBAY_j9v9JmbaRA39X","assetPrefix":"/TIL","isFallback":false,"gsp":true,"scriptLoader":[{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4877378276818686","strategy":"lazyOnload","crossOrigin":"anonymous"}]}</script></body></html>
